@@ -30,13 +30,18 @@ struct OnboardingView3: View {
                     .multilineTextAlignment(.leading)
                     .padding(20)
                 
-                SelectionSecurityButton(title: Strings.faceID, image: Strings.faceIDImage)
+                SelectionFaceIdAndFingerprintButton()
                 
-                SelectionSecurityButton(title: Strings.fingerprint, image: Strings.fingerprintImage)
-                
-                SelectionSecurityButton(title: Strings.enterWithCode, image: Strings.enterWithCodeImage)
+                SelectionEnterWithCodeButton()
                 
                 Spacer()
+                
+                NavigationLink {
+                    
+                } label: {
+                    PrimaryButtonView(title: Strings.goOn)
+                        .padding(.bottom, 40)
+                }
             }
         }
     }

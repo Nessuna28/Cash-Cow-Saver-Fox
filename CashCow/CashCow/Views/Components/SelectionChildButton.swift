@@ -45,7 +45,7 @@ struct SelectionChildButton: View {
         .padding(.horizontal, 10)
         .background(Colors.secondaryColor)
         .cornerRadius(10)
-        .padding(.horizontal, 40)
+        .padding(.horizontal, 30)
         }
     }
     

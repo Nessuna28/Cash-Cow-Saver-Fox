@@ -1,18 +1,20 @@
 //
-//  ChildAccount.swift
+//  FireChild.swift
 //  CashCow
 //
 //  Created by Angelique Freier on 16.11.23.
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct ChildAccount: Codable {
+struct FireChild: Codable, Identifiable {
+    @DocumentID var id: String?
     
     let childId: String
-    let lastName: String?
+    var lastName: String?
     let firstName: String
-    let birthday: Date?
+    var birthday: Date?
     
     let loginName: String
     let loginImage: String

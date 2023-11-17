@@ -7,14 +7,15 @@
 
 import Foundation
 
-struct FireUser: Codable {
+struct FireUser: Codable, Identifiable {
     
     let id: String
-    let lastName: String?
+    let email: String
+    var lastName: String?
     let firstName: String
-    let birthday: Date?
-    let domicile: String?
-    let children: Int?
-    let familyAccounts: [ChildAccount]?
-    let registeredAt: Date
+    var birthday: Date?
+    var domicile: String?
+    var children: Int?
+    var familyAccounts: [FireChild]?
+    var registeredAt: Date
 }

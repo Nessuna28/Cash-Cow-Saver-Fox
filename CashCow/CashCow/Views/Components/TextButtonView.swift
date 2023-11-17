@@ -1,5 +1,5 @@
 //
-//  TextButton.swift
+//  TextButtonView.swift
 //  CashCow
 //
 //  Created by Angelique Freier on 16.11.23.
@@ -7,22 +7,20 @@
 
 import SwiftUI
 
-struct TextButton: View {
+struct TextButtonView: View {
     
     // MARK: - Variables
     
     let title: String
-    let action: () -> Void
     
     
     var body: some View {
-        Button(action: action) {
-            Text(title)
-        }
+        Text(title)
+            .bold()
     }
     
 }
 
 #Preview {
-    TextButton(title: "Anmelden") { }
+    TextButtonView(title: "Anmelden")
 }

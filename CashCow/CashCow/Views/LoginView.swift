@@ -29,7 +29,7 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                LoginTextField()
+                LoginTextFields()
                    
                 Spacer()
                 

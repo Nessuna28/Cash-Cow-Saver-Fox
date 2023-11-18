@@ -11,7 +11,7 @@ struct Strings {
     
     static let appTitle = "Cash Cow"
     static let appIcon = "cashcow5"
-    static let register = "Anmelden"
+    static let login = "Anmelden"
     static let makeTheBest = "Mach das Beste mit deinem Geld"
     static let withUsBestOverview = "Mit uns hast du die beste Übersicht über deine Einnahmen und Ausgaben zum Erreichen deiner persönlichen Ziele."
     static let letsGo = "Los geht´s"

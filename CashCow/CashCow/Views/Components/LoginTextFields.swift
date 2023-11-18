@@ -1,5 +1,5 @@
 //
-//  LoginTextField.swift
+//  LoginTextFields.swift
 //  CashCow
 //
 //  Created by Angelique Freier on 18.11.23.
@@ -17,9 +17,11 @@ struct LoginTextFields: View {
         VStack {
             HStack{
                 TextField(Strings.email, text: $email)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
                     
                 Button {
-                    deleteTextFieldInput(textInput: $repeatedPassword)
+                    deleteTextFieldInput(textInput: $email)
                 } label: {
                     Image(systemName: Strings.deleteIcon)
                 }
@@ -30,10 +32,10 @@ struct LoginTextFields: View {
             .padding(.horizontal, 30)
             
             HStack{
-                TextField(Strings.password, text: $password)
+                SecureField(Strings.password, text: $password)
                     
                 Button {
-                    deleteTextFieldInput(textInput: $repeatedPassword)
+                    deleteTextFieldInput(textInput: $password)
                 } label: {
                     Image(systemName: Strings.deleteIcon)
                 }
@@ -44,7 +46,7 @@ struct LoginTextFields: View {
             .padding(.horizontal, 30)
             
             HStack{
-                TextField(Strings.repeatedPassword, text: $repeatedPassword)
+                SecureField(Strings.repeatedPassword, text: $repeatedPassword)
                 
                 Button {
                     deleteTextFieldInput(textInput: $repeatedPassword)

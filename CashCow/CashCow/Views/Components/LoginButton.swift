@@ -16,7 +16,7 @@ struct LoginButton: View {
             NavigationLink {
                 LoginView()
             } label: {
-                TextButtonView(title: Strings.register)
+                TextButtonView(title: Strings.login)
                     .padding(.bottom, 20)
                     .padding(.trailing, 20)
                     .foregroundColor(Colors.primaryColor)

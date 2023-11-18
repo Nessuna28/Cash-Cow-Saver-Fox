@@ -1,5 +1,5 @@
 //
-//  SelectionSecurityButton.swift
+//  SelectionEnterWithCodeButton.swift
 //  CashCow
 //
 //  Created by Angelique Freier on 17.11.23.
@@ -7,28 +7,23 @@
 
 import SwiftUI
 
-struct SelectionSecurityButton: View {
-    
-    // MARK: - Variables
-    
-    let title: String
-    let image: String
+struct SelectionEnterWithCodeButton: View {
     
     var body: some View {
         Button(action: saveSelection) {
             HStack {
-                Text(title)
+                Text(Strings.enterWithCode)
                 
                 Spacer()
                 
-                Image(systemName: image)
+                Image(systemName: Strings.enterWithCodeImage)
                     .font(.largeTitle)
             }
             .foregroundColor(Colors.primaryColor)
-            .frame(width: 250)
             .padding()
             .background(Colors.secondaryColor)
             .cornerRadius(10)
+            .padding(.horizontal, 30)
         }
     }
     
@@ -41,5 +36,5 @@ struct SelectionSecurityButton: View {
 }
 
 #Preview {
-    SelectionSecurityButton(title: "Face-ID", image: "faceid")
+    SelectionEnterWithCodeButton()
 }

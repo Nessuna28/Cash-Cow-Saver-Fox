@@ -14,7 +14,7 @@ struct LoginButton: View {
             Spacer()
             
             NavigationLink {
-                LoginView()
+                LoginView(mode: .login)
             } label: {
                 TextButtonView(title: Strings.login)
                     .padding(.bottom, 20)

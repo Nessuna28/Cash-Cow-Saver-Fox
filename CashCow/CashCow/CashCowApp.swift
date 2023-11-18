@@ -16,9 +16,19 @@ struct CashCowApp: App {
         FirebaseApp.configure()
     }
     
+    // MARK: - Variables
+    
+    @StateObject private var userViewModel = UserViewModel(repository: FirebaseRepository())
+    
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if userViewModel.userIsLoggedIn {
+                OverviewView()
+            } else {
+                OnboardingView1()
+                    .environmentObject(userViewModel)
+            }
         }
     }
 }

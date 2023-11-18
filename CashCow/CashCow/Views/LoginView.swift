@@ -9,9 +9,12 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State var email: String = ""
-    @State var password: String = ""
-    @State var repeatedPassword: String = ""
+    // MARK: - Variables
+    
+    @EnvironmentObject var userViewModel: UserViewModel
+    
+    @State var mode: AuthenticationMode
+    
     
     var body: some View {
         NavigationStack {
@@ -27,18 +30,8 @@ struct LoginView: View {
                     .font(.title)
                     .padding(.bottom, 50)
                 
-                Spacer()
-                
-                LoginTextFields()
-                   
-                Spacer()
-                
-                NavigationLink {
-                    
-                } label: {
-                    PrimaryButtonView(title: Strings.register)
-                        .padding(.bottom, 40)
-                }
+                AuthenticationView(mode: mode)
+                    .environmentObject(userViewModel)
             }
         }
     }
@@ -46,5 +39,6 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView(mode: .register)
+        .environmentObject(UserViewModel(repository: FirebaseRepository()))
 }

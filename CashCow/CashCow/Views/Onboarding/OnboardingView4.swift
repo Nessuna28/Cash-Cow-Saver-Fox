@@ -24,7 +24,7 @@ struct OnboardingView4: View {
             Spacer()
             
             NavigationLink {
-                LoginView()
+                LoginView(mode: .register)
             } label: {
                 PrimaryButtonView(title: Strings.goOn)
                     .padding(.bottom, 40)

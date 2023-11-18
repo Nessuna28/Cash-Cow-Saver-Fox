@@ -38,4 +38,11 @@ struct Strings {
     static let fingerprintImage = "touchid"
     static let enterWithCode = "Code eingeben"
     static let enterWithCodeImage = "lock.fill"
+    static let whichTabs = "Was ist dir alles wichtig? Such dir aus was du für deine Ziele benötigst."
+    static let goOn = "Weiter"
+    static let email = "Email"
+    static let password = "Passwort"
+    static let repeatedPassword = "Passwort wiederholen"
+    static let deleteIcon = "x.circle"
+    static let register = "Registrieren"
 }

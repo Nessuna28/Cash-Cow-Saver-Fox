@@ -21,7 +21,7 @@ struct PrimaryButtonView: View {
             .padding(.vertical, 10)
             .padding(.horizontal, 20)
             .background(Colors.primaryColor)
-            .cornerRadius(12)
+            .cornerRadius(20)
     }
     
 }

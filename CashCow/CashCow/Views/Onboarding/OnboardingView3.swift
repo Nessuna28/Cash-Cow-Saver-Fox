@@ -37,7 +37,7 @@ struct OnboardingView3: View {
                 Spacer()
                 
                 NavigationLink {
-                    
+                    OnboardingView4()
                 } label: {
                     PrimaryButtonView(title: Strings.goOn)
                         .padding(.bottom, 40)

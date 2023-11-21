@@ -13,6 +13,7 @@ struct FireUser: Codable, Identifiable {
     let email: String
     var lastName: String?
     let firstName: String
+    var image: String?
     var birthday: Date?
     var domicile: String?
     var children: Int?

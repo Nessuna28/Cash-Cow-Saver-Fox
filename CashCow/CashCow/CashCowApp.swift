@@ -16,9 +16,21 @@ struct CashCowApp: App {
         FirebaseApp.configure()
     }
     
+    // MARK: - Variables
+    
+    @StateObject private var authViewModel = AuthViewModel()
+    @StateObject private var selectedTab = TabViewModel()
+    
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if authViewModel.userIsLoggedIn {
+                OverviewView()
+                    .environmentObject(selectedTab)
+            } else {
+                OnboardingView1()
+                    .environmentObject(authViewModel)
+            }
         }
     }
 }

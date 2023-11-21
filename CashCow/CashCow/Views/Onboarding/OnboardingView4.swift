@@ -9,6 +9,11 @@ import SwiftUI
 
 struct OnboardingView4: View {
     
+    // MARK: - Variables
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
+    
     var body: some View {
         NavigationStack {
             LoginButton()
@@ -17,20 +22,29 @@ struct OnboardingView4: View {
                 .font(.title2)
                 .padding(30)
             
-            ForEach(Tab.allCases) { tab in
-                SelectionTab(image: tab.icon, title: tab.title)
+            ForEach(ChoiceOption.allCases) { tab in
+                SelectionChoiceOption(image: tab.icon, title: tab.title)
             }
             
             Spacer()
             
-            NavigationLink {
-                LoginView()
-            } label: {
-                PrimaryButtonView(title: Strings.goOn)
-                    .padding(.bottom, 40)
+            Button(action: setModeOnRegister) {
+                NavigationLink {
+                    LoginView()
+                } label: {
+                    PrimaryButtonView(title: Strings.goOn)
+                        .padding(.bottom, 40)
+                }
             }
-            
         }
+    }
+    
+    
+    // MARK: - Functions
+    
+    private func setModeOnRegister() {
+        
+        authViewModel.authenticationMode = .register
     }
     
 }

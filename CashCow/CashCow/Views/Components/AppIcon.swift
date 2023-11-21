@@ -13,7 +13,7 @@ struct AppIcon: View {
         Image(Strings.appIcon)
             .resizable()
             .scaledToFill()
-            .frame(width: 50, height: 50)
+            .frame(width: 30, height: 30)
     }
     
 }

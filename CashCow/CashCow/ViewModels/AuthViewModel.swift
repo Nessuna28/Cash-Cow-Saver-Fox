@@ -36,6 +36,12 @@ class AuthViewModel: ObservableObject {
             
             self.user = user
             self.userIsLoggedIn = true
+            
+            ProfileRepository.fetchUser(with: user.uid) { fireUser in
+                guard let fireUser else { return }
+                
+                self.fireUser = fireUser
+            }
         }
     }
     
@@ -45,11 +51,11 @@ class AuthViewModel: ObservableObject {
         authManager.registerUser(email: email, password: password, repeatedPassword: repeatedPassword) { user in
             guard let user else { return }
             
-            self.loginUser(email: email, password: password)
-            
             self.user = user
             
             ProfileRepository.createUser(with: user.uid, email: email, firstName: Strings.guest)
+            
+            self.loginUser(email: email, password: password)
         }
     }
     

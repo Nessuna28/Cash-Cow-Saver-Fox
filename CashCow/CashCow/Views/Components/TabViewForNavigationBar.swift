@@ -11,19 +11,30 @@ struct TabViewForNavigationBar: View {
     
     // MARK: - Variables
     
-    let selectedTab: Tab
+    @EnvironmentObject var tabViewModel: TabViewModel
+    
+    let tab: Tab
     
     
     var body: some View {
         VStack {
-            Image(systemName: selectedTab.icon)
+            Image(systemName: tab.icon)
+                .padding(.bottom, 2)
             
-            Text(selectedTab.title)
+            Text(tab.title)
+                .font(.callout)
+            
+            if tab.id == tabViewModel.selectedTab.id {
+                Rectangle()
+                    .frame(width: 70, height: 2)
+                                        .foregroundColor(Colors.primaryColor)
+            }
         }
     }
     
 }
 
 #Preview {
-    TabViewForNavigationBar(selectedTab: .home)
+    TabViewForNavigationBar(tab: .home)
+        .environmentObject(TabViewModel())
 }

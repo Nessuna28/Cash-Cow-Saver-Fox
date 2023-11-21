@@ -13,12 +13,17 @@ struct OverviewView: View {
     
     @StateObject var authViewModel = AuthViewModel()
     
+    @EnvironmentObject var selectedTab: TabViewModel
+    
     var body: some View {
         VStack {
             NavigationBar()
                 .environmentObject(authViewModel)
             
             NavigatorView()
+                .environmentObject(selectedTab)
+            
+            
         }
     }
     
@@ -27,4 +32,5 @@ struct OverviewView: View {
 #Preview {
     OverviewView()
         .environmentObject(AuthViewModel())
+        .environmentObject(TabViewModel())
 }

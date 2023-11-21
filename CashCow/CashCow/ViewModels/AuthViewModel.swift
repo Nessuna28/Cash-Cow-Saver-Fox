@@ -23,19 +23,24 @@ class AuthViewModel: ObservableObject {
     @Published var authenticationMode: AuthenticationMode = .register
     
     @Published var user: User?
-    @Published var userIsLoggedIn = false
     @Published var fireUser: FireUser?
+    
+    
+    // MARK: - Computed Property
+    
+    var userIsLoggedIn: Bool {
+        user != nil
+    }
     
     
     // MARK: - Functions
     
     func loginUser(email: String, password: String) {
-        print("hallo ich bin im Login")
+        
         authManager.loginUser(email: email, password: password) { user in
             guard let user else { return }
             
             self.user = user
-            self.userIsLoggedIn = true
             
             ProfileRepository.fetchUser(with: user.uid) { fireUser in
                 guard let fireUser else { return }
@@ -63,7 +68,6 @@ class AuthViewModel: ObservableObject {
     func logoutUser() {
         
         authManager.logoutUser()
-        self.userIsLoggedIn = false
     }
     
 }

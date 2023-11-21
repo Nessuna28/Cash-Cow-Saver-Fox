@@ -13,6 +13,8 @@ class ProfileViewModel: ObservableObject {
     
     @Published var fireUser: FireUser?
     
+    @Published var showProfileSheet = false
+    
     
     // MARK: - Functions
     

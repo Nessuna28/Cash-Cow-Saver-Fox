@@ -98,7 +98,7 @@ struct AuthenticationView: View {
     }
     
     private func authenticate() {
-        print("hallo hier bin ich")
+        
         switch authViewModel.authenticationMode {
         case .login:
             authViewModel.loginUser(email: email, password: password)

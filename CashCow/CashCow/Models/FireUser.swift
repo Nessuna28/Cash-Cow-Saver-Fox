@@ -12,11 +12,11 @@ struct FireUser: Codable, Identifiable {
     let id: String
     let email: String
     var lastName: String?
-    let firstName: String
+    var firstName: String
     var image: String?
     var birthday: Date?
     var domicile: String?
     var children: Int?
-    var familyAccounts: [FireChild]?
+    var childrenAccounts: [FireChild]?
     var registeredAt: Date
 }

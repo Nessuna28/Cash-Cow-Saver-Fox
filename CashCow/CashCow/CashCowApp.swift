@@ -27,6 +27,7 @@ struct CashCowApp: App {
             if authViewModel.userIsLoggedIn {
                 OverviewView()
                     .environmentObject(selectedTab)
+                    .environmentObject(authViewModel)
             } else {
                 OnboardingView1()
                     .environmentObject(authViewModel)

@@ -11,14 +11,12 @@ struct AuthenticationView: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var userViewModel: UserViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     @State private var name = ""
     @State private var email = ""
     @State private var password = ""
     @State private var repeatedPassword = ""
-    
-    @State var mode: AuthenticationMode
     
     
     var body: some View {
@@ -43,6 +41,8 @@ struct AuthenticationView: View {
             
             HStack{
                 SecureField(Strings.password, text: $password)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
                     
                 Button {
                     deleteTextFieldInput(textInput: $password)
@@ -55,16 +55,17 @@ struct AuthenticationView: View {
             .cornerRadius(3)
             .padding(.horizontal, 30)
             
-            if mode == .register {
+            if authViewModel.authenticationMode == .register {
                 HStack{
                     SecureField(Strings.repeatedPassword, text: $repeatedPassword)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
                     
                     Button {
                         deleteTextFieldInput(textInput: $repeatedPassword)
                     } label: {
                         Image(systemName: Strings.deleteIcon)
                     }
-                    .disabled(disableAuthentication)
                 }
                 .padding()
                 .border(Color.black, width: 1)
@@ -75,9 +76,10 @@ struct AuthenticationView: View {
             Spacer()
             
             Button(action: authenticate) {
-                PrimaryButtonView(title: mode.title)
+                PrimaryButtonView(title: authViewModel.authenticationMode.title)
                     .padding(.bottom, 40)
             }
+            .disabled(disableAuthentication)
         }
     }
     
@@ -96,18 +98,18 @@ struct AuthenticationView: View {
     }
     
     private func authenticate() {
-        
-        switch mode {
+        print("hallo hier bin ich")
+        switch authViewModel.authenticationMode {
         case .login:
-            userViewModel.loginUser(email: email, password: password)
+            authViewModel.loginUser(email: email, password: password)
         case .register:
-            userViewModel.registerUser(email: email, password: password, repeatedPassword: repeatedPassword, firstName: "")
+            authViewModel.registerUser(email: email, password: password, repeatedPassword: repeatedPassword)
         }
     }
     
 }
 
 #Preview {
-    AuthenticationView(mode: .register)
-        .environmentObject(UserViewModel(repository: FirebaseRepository()))
+    AuthenticationView()
+        .environmentObject(AuthViewModel())
 }

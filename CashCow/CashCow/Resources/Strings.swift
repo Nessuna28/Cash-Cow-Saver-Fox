@@ -11,6 +11,7 @@ struct Strings {
     
     static let appTitle = "Cash Cow"
     static let appIcon = "cashcow5"
+    static let guest = "Gast"
     static let login = "Anmelden"
     static let makeTheBest = "Mach das Beste mit deinem Geld"
     static let withUsBestOverview = "Mit uns hast du die beste Übersicht über deine Einnahmen und Ausgaben zum Erreichen deiner persönlichen Ziele."
@@ -45,4 +46,6 @@ struct Strings {
     static let repeatedPassword = "Passwort wiederholen"
     static let deleteIcon = "x.circle"
     static let register = "Registrieren"
+    static let profileImageSystem = "person.circle"
+    static let settingsImage = "gearshape.fill"
 }

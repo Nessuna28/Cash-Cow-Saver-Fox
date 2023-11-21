@@ -9,12 +9,22 @@ import SwiftUI
 
 struct OverviewView: View {
     
+    // MARK: - Variables
+    
+    @StateObject var authViewModel = AuthViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            NavigationBar()
+                .environmentObject(authViewModel)
+            
+            NavigatorView()
+        }
     }
     
 }
 
 #Preview {
     OverviewView()
+        .environmentObject(AuthViewModel())
 }

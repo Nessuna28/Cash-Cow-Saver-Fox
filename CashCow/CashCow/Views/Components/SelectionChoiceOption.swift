@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SelectionTab: View {
+struct SelectionChoiceOption: View {
     
     // MARK: - Variables
     
@@ -49,5 +49,5 @@ struct SelectionTab: View {
 }
 
 #Preview {
-    SelectionTab(image: "building.columns.fill", title: "Konten")
+    SelectionChoiceOption(image: "building.columns.fill", title: "Konten")
 }

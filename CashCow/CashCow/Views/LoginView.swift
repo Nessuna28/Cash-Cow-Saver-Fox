@@ -11,9 +11,7 @@ struct LoginView: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var userViewModel: UserViewModel
-    
-    @State var mode: AuthenticationMode
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     
     var body: some View {
@@ -30,8 +28,8 @@ struct LoginView: View {
                     .font(.title)
                     .padding(.bottom, 50)
                 
-                AuthenticationView(mode: mode)
-                    .environmentObject(userViewModel)
+                AuthenticationView()
+                    .environmentObject(authViewModel)
             }
         }
     }
@@ -39,6 +37,6 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(mode: .register)
-        .environmentObject(UserViewModel(repository: FirebaseRepository()))
+    LoginView()
+        .environmentObject(AuthViewModel())
 }

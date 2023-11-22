@@ -19,18 +19,6 @@ struct ProfileView: View {
         self._childrenAccounts = State(initialValue: fireUser.childrenAccounts ?? [])
     }
     
-    // MARK: - Variables
-    
-    @EnvironmentObject var profileViewModel: ProfileViewModel
-    
-    let id: String
-    @State private var lastName: String
-    @State private var firstName: String
-    @State private var birthday: Date
-    @State private var domicile: String
-    @State private var children: Int
-    @State private var childrenAccounts: [FireChild]
-    
     
     var body: some View {
         NavigationStack {
@@ -59,17 +47,22 @@ struct ProfileView: View {
                         
                         if profileViewModel.fireUser?.childrenAccounts?.isEmpty ?? true {
                             NavigationLink {
-                                ChildAccountView(childrenAccounts: $childrenAccounts)
+                                ChildAccountView(fireChild: checkChildrenAccounts())
+                                    .environmentObject(profileViewModel)
                             } label: {
                                 Image(systemName: Strings.plusIcon)
                                     .foregroundColor(.blue)
                             }
                         } else {
-                            NavigationLink(destination: ChildrenListView().environmentObject(profileViewModel)) {
-                                Image(systemName: Strings.arrowRight)
+                            Button {
+                                showChildrenList.toggle()
+                            } label: {
+                                Image(systemName: showChildrenList ? Strings.arrowDown : Strings.arrowRight)
                                     .foregroundColor(.blue)
                             }
                         }
+                        
+                        ChildrenListView()
                     }
                 }
                 .padding()
@@ -83,6 +76,22 @@ struct ProfileView: View {
         .padding(.horizontal)
     }
     
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    
+    let id: String
+    @State private var lastName: String
+    @State private var firstName: String
+    @State private var birthday: Date
+    @State private var domicile: String
+    @State private var children: Int
+    @State private var childrenAccounts: [FireChild]
+    
+    @State private var showChildrenList = false
+    
+    
     // MARK: - Functions
     
     private func formatDate(date: Date) -> String {
@@ -92,6 +101,14 @@ struct ProfileView: View {
         formatter.timeStyle = .none
         return formatter.string(from: date)
     }
+    
+    private func checkChildrenAccounts() -> FireChild {
+        
+        if let existingChild = childrenAccounts.first(where: { $0.firstName == firstName }) {
+            return existingChild
+        } else { return FireChild(parentsId: "", familyMember: "", firstName: "", loginName: "", loginImage: "", registeredAt: Date())}
+    }
+    
     
 }
 

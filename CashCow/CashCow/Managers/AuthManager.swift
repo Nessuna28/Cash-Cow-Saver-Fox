@@ -66,4 +66,16 @@ class AuthManager {
         }
     }
     
+    
+    
+    func registerChild(loginName: String, loginImage: String, completion: @escaping (User?) -> Void) {
+        
+        auth.createUser(withEmail: "\(loginName)@example.com", password: loginImage) { authResult, error in
+            if let error {
+                print("Registration failed:", error)
+                return
+            }
+        }
+    }
+    
 }

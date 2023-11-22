@@ -9,6 +9,16 @@ import SwiftUI
 
 struct ChildAccountView: View {
     
+    init(fireChild: FireChild) {
+        self._familiyMember = State(initialValue: fireChild.familyMember)
+        self._lastName = State(initialValue: fireChild.lastName ?? "")
+        self._firstName = State(initialValue: fireChild.firstName)
+        self._birthday = State(initialValue: fireChild.birthday ?? Date())
+        self._loginName = State(initialValue: fireChild.loginName)
+        self._loginImage = State(initialValue: fireChild.loginImage)
+    }
+    
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -40,7 +50,9 @@ struct ChildAccountView: View {
     
     // MARK: - Variables
     
-    @Binding var childrenAccounts: [FireChild]
+    @StateObject var childAuthViewModel = ChildAuthViewModel()
+    @StateObject var childProfileViewModel = ChildProfileViewModel()
+    @EnvironmentObject var profileViewModel: ProfileViewModel
         
     @State private var familiyMember = ""
     @State private var lastName = ""
@@ -55,11 +67,27 @@ struct ChildAccountView: View {
     
     private func createChild() {
         
-        childrenAccounts.append(FireChild(childId: AuthManager.shared.auth.currentUser?.uid ?? "", familyMember: familiyMember, lastName: lastName, firstName: firstName, birthday: birthday, loginName: loginName, loginImage: loginImage))
+        if let existingChild = profileViewModel.fireUser?.childrenAccounts?.first(where: { $0.firstName == firstName }) {
+            childProfileViewModel.updateChild(loginName: existingChild.loginName)
+            } else {
+                childAuthViewModel.registerChild(loginName: loginName, loginImage: loginImage)
+                if let child = childProfileViewModel.fireChild {
+                    profileViewModel.fireUser?.childrenAccounts?.append(child)
+                }
+            }
+    }
+    
+    private func formatDate(date: Date) -> String {
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
     }
     
 }
 
 #Preview {
-    ChildAccountView(childrenAccounts: .constant([]))
+    ChildAccountView(fireChild: FireChild(parentsId: "", familyMember: "", firstName: "", loginName: "", loginImage: "", registeredAt: Date()))
+        .environmentObject(ProfileViewModel())
 }

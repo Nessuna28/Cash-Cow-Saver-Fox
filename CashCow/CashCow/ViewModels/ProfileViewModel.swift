@@ -43,6 +43,8 @@ class ProfileViewModel: ObservableObject {
     
     func deleteUser() {
         
-        ProfileRepository.deleteUser(with: AuthManager.shared.auth.currentUser?.uid ?? "")
+        if let uid = AuthManager.shared.auth.currentUser?.uid {
+            ProfileRepository.deleteUser(with: uid)
+        }
     }
 }

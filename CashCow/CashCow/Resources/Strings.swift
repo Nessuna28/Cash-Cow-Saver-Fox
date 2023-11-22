@@ -29,6 +29,7 @@ struct Strings {
     static let childGirl = "childgirl"
     static let arrowRight = "chevron.right"
     static let arrowLeft = "chevron.left"
+    static let arrowDown = "chevron.down"
     static let saverFoxIcon = "saverfox"
     static let warningImage = "warning"
     static let yourSecurity = "Deine Sicherheit liegt uns am Herzen"
@@ -48,4 +49,7 @@ struct Strings {
     static let register = "Registrieren"
     static let profileImageSystem = "person.circle"
     static let settingsImage = "gearshape.fill"
+    static let cam = "camera.fill"
+    static let plusIcon = "plus"
+    static let trashIcon = "trash.fill"
 }

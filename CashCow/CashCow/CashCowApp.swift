@@ -18,7 +18,10 @@ struct CashCowApp: App {
     
     // MARK: - Variables
     
+    @AppStorage("onboarding") private var onboarding = false
+    
     @StateObject private var authViewModel = AuthViewModel()
+    @StateObject private var profileViewModel = ProfileViewModel()
     @StateObject private var selectedTab = TabViewModel()
     
     
@@ -27,6 +30,8 @@ struct CashCowApp: App {
             if authViewModel.userIsLoggedIn {
                 OverviewView()
                     .environmentObject(selectedTab)
+                    .environmentObject(authViewModel)
+                    .environmentObject(profileViewModel)
             } else {
                 OnboardingView1()
                     .environmentObject(authViewModel)
@@ -34,3 +39,4 @@ struct CashCowApp: App {
         }
     }
 }
+

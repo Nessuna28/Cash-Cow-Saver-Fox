@@ -18,7 +18,13 @@
 		91929AB12B0CD1F700C68AD2 /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AB02B0CD1F700C68AD2 /* NavigatorView.swift */; };
 		91929AB32B0CD6D000C68AD2 /* TabViewForNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AB22B0CD6D000C68AD2 /* TabViewForNavigationBar.swift */; };
 		91929AB52B0CE89D00C68AD2 /* TabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AB42B0CE89D00C68AD2 /* TabViewModel.swift */; };
-		91929AB72B0CF26D00C68AD2 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AB62B0CF26D00C68AD2 /* TabView.swift */; };
+		91929AB72B0CF26D00C68AD2 /* TabViewForTabList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AB62B0CF26D00C68AD2 /* TabViewForTabList.swift */; };
+		91929AB92B0CFB1600C68AD2 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AB82B0CFB1600C68AD2 /* ProfileView.swift */; };
+		91929ABB2B0CFFD700C68AD2 /* ProfileNameAndImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929ABA2B0CFFD700C68AD2 /* ProfileNameAndImage.swift */; };
+		91929ABD2B0D01B200C68AD2 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929ABC2B0D01B200C68AD2 /* SettingsButton.swift */; };
+		91929ABF2B0D0D3300C68AD2 /* DisplayForInputFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929ABE2B0D0D3300C68AD2 /* DisplayForInputFields.swift */; };
+		91929AC32B0D237C00C68AD2 /* SelectionChildAccountMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AC22B0D237C00C68AD2 /* SelectionChildAccountMode.swift */; };
+		91929AC52B0D246300C68AD2 /* ChildAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AC42B0D246300C68AD2 /* ChildAccountView.swift */; };
 		91D9DF662B0773D000514AF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91D9DF652B0773D000514AF8 /* GoogleService-Info.plist */; };
 		91D9DF6A2B07798B00514AF8 /* FireSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9DF692B07798B00514AF8 /* FireSettings.swift */; };
 		91D9DF6C2B07859D00514AF8 /* PrimaryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */; };
@@ -56,6 +62,10 @@
 		91F2B7112B065DBB00FA3AC3 /* FireChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2B7102B065DBB00FA3AC3 /* FireChild.swift */; };
 		91F2B7132B06613B00FA3AC3 /* OnboardingView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2B7122B06613B00FA3AC3 /* OnboardingView1.swift */; };
 		91F2B7162B0661C300FA3AC3 /* TextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2B7152B0661C300FA3AC3 /* TextButtonView.swift */; };
+		91FD321C2B0D28C500018074 /* ChildrenListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD321B2B0D28C500018074 /* ChildrenListView.swift */; };
+		91FD321E2B0D38A600018074 /* SecondaryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD321D2B0D38A600018074 /* SecondaryButtonView.swift */; };
+		91FD32202B0D428900018074 /* NumberPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD321F2B0D428900018074 /* NumberPickerView.swift */; };
+		91FD32222B0DEB1D00018074 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD32212B0DEB1D00018074 /* ProfileManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +80,13 @@
 		91929AB02B0CD1F700C68AD2 /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
 		91929AB22B0CD6D000C68AD2 /* TabViewForNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewForNavigationBar.swift; sourceTree = "<group>"; };
 		91929AB42B0CE89D00C68AD2 /* TabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewModel.swift; sourceTree = "<group>"; };
-		91929AB62B0CF26D00C68AD2 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		91929AB62B0CF26D00C68AD2 /* TabViewForTabList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewForTabList.swift; sourceTree = "<group>"; };
+		91929AB82B0CFB1600C68AD2 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		91929ABA2B0CFFD700C68AD2 /* ProfileNameAndImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameAndImage.swift; sourceTree = "<group>"; };
+		91929ABC2B0D01B200C68AD2 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		91929ABE2B0D0D3300C68AD2 /* DisplayForInputFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayForInputFields.swift; sourceTree = "<group>"; };
+		91929AC22B0D237C00C68AD2 /* SelectionChildAccountMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionChildAccountMode.swift; sourceTree = "<group>"; };
+		91929AC42B0D246300C68AD2 /* ChildAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildAccountView.swift; sourceTree = "<group>"; };
 		91D9DF652B0773D000514AF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91D9DF692B07798B00514AF8 /* FireSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireSettings.swift; sourceTree = "<group>"; };
 		91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonView.swift; sourceTree = "<group>"; };
@@ -100,6 +116,10 @@
 		91F2B7102B065DBB00FA3AC3 /* FireChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireChild.swift; sourceTree = "<group>"; };
 		91F2B7122B06613B00FA3AC3 /* OnboardingView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView1.swift; sourceTree = "<group>"; };
 		91F2B7152B0661C300FA3AC3 /* TextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonView.swift; sourceTree = "<group>"; };
+		91FD321B2B0D28C500018074 /* ChildrenListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenListView.swift; sourceTree = "<group>"; };
+		91FD321D2B0D38A600018074 /* SecondaryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonView.swift; sourceTree = "<group>"; };
+		91FD321F2B0D428900018074 /* NumberPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPickerView.swift; sourceTree = "<group>"; };
+		91FD32212B0DEB1D00018074 /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +169,7 @@
 				91929AA22B096DEA00C68AD2 /* HTTPError.swift */,
 				91929AA42B09754300C68AD2 /* AuthenticationMode.swift */,
 				91929AA82B0B5E9C00C68AD2 /* Tab.swift */,
+				91929AC22B0D237C00C68AD2 /* SelectionChildAccountMode.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -221,6 +242,8 @@
 				91D9DF922B094EEB00514AF8 /* AuthenticationView.swift */,
 				91D9DF7B2B07BAA000514AF8 /* LoginView.swift */,
 				91929AA62B097E3C00C68AD2 /* OverviewView.swift */,
+				91929AB82B0CFB1600C68AD2 /* ProfileView.swift */,
+				91929AC42B0D246300C68AD2 /* ChildAccountView.swift */,
 				91D9DF6D2B0788B600514AF8 /* Onboarding */,
 				91F2B7142B0661A900FA3AC3 /* Components */,
 			);
@@ -239,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				91F2B6DE2B0650D200FA3AC3 /* AuthManager.swift */,
+				91FD32212B0DEB1D00018074 /* ProfileManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -246,23 +270,61 @@
 		91F2B7142B0661A900FA3AC3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				91FD32252B0E208D00018074 /* Buttons */,
+				91FD32242B0E206400018074 /* Picker */,
+				91FD32232B0E201900018074 /* OnboardingComponents */,
 				91D9DF7F2B07C7A600514AF8 /* AppIcon.swift */,
-				91F2B7152B0661C300FA3AC3 /* TextButtonView.swift */,
-				91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */,
-				91D9DF702B07896800514AF8 /* LoginButton.swift */,
-				91D9DF792B07B39800514AF8 /* CashCowAnimation.swift */,
-				91D9DF722B078A0600514AF8 /* TitleWithAnimation.swift */,
-				91D9DF7D2B07C56400514AF8 /* SelectionAdultView.swift */,
-				91D9DF832B07D6B500514AF8 /* SelectionChildButton.swift */,
-				91D9DF852B07DE4F00514AF8 /* SelectionFaceIdAndFingerprintButton.swift */,
-				91D9DF872B0803A600514AF8 /* SelectionEnterWithCodeButton.swift */,
-				91D9DF892B08062B00514AF8 /* SelectionChoiceOption.swift */,
+				91929ABA2B0CFFD700C68AD2 /* ProfileNameAndImage.swift */,
 				91929AAE2B0CCB3A00C68AD2 /* NavigationBar.swift */,
 				91929AB22B0CD6D000C68AD2 /* TabViewForNavigationBar.swift */,
 				91929AB02B0CD1F700C68AD2 /* NavigatorView.swift */,
-				91929AB62B0CF26D00C68AD2 /* TabView.swift */,
+				91929AB62B0CF26D00C68AD2 /* TabViewForTabList.swift */,
+				91929ABE2B0D0D3300C68AD2 /* DisplayForInputFields.swift */,
+				91FD321B2B0D28C500018074 /* ChildrenListView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		91FD32232B0E201900018074 /* OnboardingComponents */ = {
+			isa = PBXGroup;
+			children = (
+				91FD32262B0E20CD00018074 /* Buttons */,
+				91D9DF792B07B39800514AF8 /* CashCowAnimation.swift */,
+				91D9DF722B078A0600514AF8 /* TitleWithAnimation.swift */,
+				91D9DF7D2B07C56400514AF8 /* SelectionAdultView.swift */,
+				91D9DF892B08062B00514AF8 /* SelectionChoiceOption.swift */,
+			);
+			path = OnboardingComponents;
+			sourceTree = "<group>";
+		};
+		91FD32242B0E206400018074 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				91FD321F2B0D428900018074 /* NumberPickerView.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		91FD32252B0E208D00018074 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				91D9DF702B07896800514AF8 /* LoginButton.swift */,
+				91F2B7152B0661C300FA3AC3 /* TextButtonView.swift */,
+				91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */,
+				91FD321D2B0D38A600018074 /* SecondaryButtonView.swift */,
+				91929ABC2B0D01B200C68AD2 /* SettingsButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		91FD32262B0E20CD00018074 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				91D9DF872B0803A600514AF8 /* SelectionEnterWithCodeButton.swift */,
+				91D9DF852B07DE4F00514AF8 /* SelectionFaceIdAndFingerprintButton.swift */,
+				91D9DF832B07D6B500514AF8 /* SelectionChildButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,17 +444,22 @@
 				91D9DF7E2B07C56400514AF8 /* SelectionAdultView.swift in Sources */,
 				91929AAB2B0B728600C68AD2 /* ProfileRepository.swift in Sources */,
 				91D9DF782B079AB600514AF8 /* Colors.swift in Sources */,
+				91929AC32B0D237C00C68AD2 /* SelectionChildAccountMode.swift in Sources */,
 				91929AAF2B0CCB3A00C68AD2 /* NavigationBar.swift in Sources */,
 				91D9DF712B07896800514AF8 /* LoginButton.swift in Sources */,
+				91929ABF2B0D0D3300C68AD2 /* DisplayForInputFields.swift in Sources */,
 				91929AA12B096CC700C68AD2 /* AuthViewModel.swift in Sources */,
 				91929AA32B096DEA00C68AD2 /* HTTPError.swift in Sources */,
 				91929AA92B0B5E9C00C68AD2 /* Tab.swift in Sources */,
 				91D9DF802B07C7A600514AF8 /* AppIcon.swift in Sources */,
+				91FD321C2B0D28C500018074 /* ChildrenListView.swift in Sources */,
+				91929ABD2B0D01B200C68AD2 /* SettingsButton.swift in Sources */,
 				91D9DF882B0803A600514AF8 /* SelectionEnterWithCodeButton.swift in Sources */,
 				91D9DF912B080CF100514AF8 /* ChoiceOption.swift in Sources */,
 				91D9DF6A2B07798B00514AF8 /* FireSettings.swift in Sources */,
 				91D9DF932B094EEB00514AF8 /* AuthenticationView.swift in Sources */,
-				91929AB72B0CF26D00C68AD2 /* TabView.swift in Sources */,
+				91929AB92B0CFB1600C68AD2 /* ProfileView.swift in Sources */,
+				91929AB72B0CF26D00C68AD2 /* TabViewForTabList.swift in Sources */,
 				91929AB52B0CE89D00C68AD2 /* TabViewModel.swift in Sources */,
 				91D9DF6C2B07859D00514AF8 /* PrimaryButtonView.swift in Sources */,
 				91929AA72B097E3C00C68AD2 /* OverviewView.swift in Sources */,
@@ -401,15 +468,20 @@
 				91D9DF762B0798F900514AF8 /* Strings.swift in Sources */,
 				91929AAD2B0B929E00C68AD2 /* ProfileViewModel.swift in Sources */,
 				91F2B70F2B065C2F00FA3AC3 /* FireUser.swift in Sources */,
+				91FD321E2B0D38A600018074 /* SecondaryButtonView.swift in Sources */,
 				91D9DF7A2B07B39800514AF8 /* CashCowAnimation.swift in Sources */,
 				91D9DF7C2B07BAA000514AF8 /* LoginView.swift in Sources */,
 				91D9DF822B07D38900514AF8 /* OnboardingView3.swift in Sources */,
+				91929AC52B0D246300C68AD2 /* ChildAccountView.swift in Sources */,
 				91F2B7132B06613B00FA3AC3 /* OnboardingView1.swift in Sources */,
 				91929AA52B09754300C68AD2 /* AuthenticationMode.swift in Sources */,
 				91D9DF8C2B080ABE00514AF8 /* OnboardingView4.swift in Sources */,
 				91D9DF8A2B08062B00514AF8 /* SelectionChoiceOption.swift in Sources */,
 				91D9DF842B07D6B500514AF8 /* SelectionChildButton.swift in Sources */,
+				91929ABB2B0CFFD700C68AD2 /* ProfileNameAndImage.swift in Sources */,
 				91D9DF732B078A0600514AF8 /* TitleWithAnimation.swift in Sources */,
+				91FD32222B0DEB1D00018074 /* ProfileManager.swift in Sources */,
+				91FD32202B0D428900018074 /* NumberPickerView.swift in Sources */,
 				91F2B7112B065DBB00FA3AC3 /* FireChild.swift in Sources */,
 				91F2B6CC2B064F3D00FA3AC3 /* CashCowApp.swift in Sources */,
 				91D9DF6F2B0788E600514AF8 /* OnboardingView2.swift in Sources */,

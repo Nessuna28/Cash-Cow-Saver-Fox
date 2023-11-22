@@ -17,6 +17,7 @@ struct OnboardingView4: View {
     var body: some View {
         NavigationStack {
             LoginButton()
+                .environmentObject(authViewModel)
             
             Text(Strings.whichTabs)
                 .font(.title2)
@@ -51,4 +52,5 @@ struct OnboardingView4: View {
 
 #Preview {
     OnboardingView4()
+        .environmentObject(AuthViewModel())
 }

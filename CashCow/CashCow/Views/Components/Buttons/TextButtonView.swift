@@ -16,6 +16,7 @@ struct TextButtonView: View {
     
     var body: some View {
         Text(title)
+            .font(.headline)
             .bold()
     }
     

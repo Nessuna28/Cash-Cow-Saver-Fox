@@ -11,40 +11,30 @@ struct NavigationBar: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var authViewModel: AuthViewModel
-    
-    @State var showSheet = false
+    @EnvironmentObject var profileViewModel: ProfileViewModel
     
     
     var body: some View {
-        HStack {
-            Spacer()
-            
-            Text(authViewModel.fireUser?.firstName ?? Strings.guest)
-                .foregroundColor(Colors.primaryColor)
-                .padding(.trailing, 5)
-            
-            Image(systemName: Strings.profileImageSystem)
-                .font(.title2)
-            
-            Spacer()
-            
-            AppIcon()
-            
-            Button(action: {
-                showSheet.toggle()
-            }, label: {
-                Image(systemName: Strings.settingsImage)
-                    .font(.title2)
-                    .padding(.leading)
-            })
+        NavigationStack {
+            HStack {
+                Spacer()
+                
+                ProfileNameAndImage()
+                    .environmentObject(profileViewModel)
+                
+                Spacer()
+                
+                AppIcon()
+                
+                SettingsButton()
+            }
+            .padding()
         }
-        .padding()
     }
     
 }
 
 #Preview {
     NavigationBar()
-        .environmentObject(AuthViewModel())
+        .environmentObject(ProfileViewModel())
 }

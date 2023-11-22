@@ -19,6 +19,7 @@ struct AuthenticationView: View {
     @State private var repeatedPassword = ""
     
     
+    
     var body: some View {
         VStack {
             Spacer()
@@ -98,7 +99,7 @@ struct AuthenticationView: View {
     }
     
     private func authenticate() {
-        print("hallo hier bin ich")
+        
         switch authViewModel.authenticationMode {
         case .login:
             authViewModel.loginUser(email: email, password: password)

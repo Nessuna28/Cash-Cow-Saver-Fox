@@ -9,6 +9,11 @@ import SwiftUI
 
 struct OnboardingView1: View {
     
+    // MARK: - Variables
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -18,6 +23,7 @@ struct OnboardingView1: View {
                 VStack {
                     
                     LoginButton()
+                        .environmentObject(authViewModel)
                     
                     TitleWithAnimation()
                     
@@ -61,4 +67,5 @@ struct OnboardingView1: View {
 
 #Preview {
     OnboardingView1()
+        .environmentObject(AuthViewModel())
 }

@@ -11,19 +11,18 @@ struct OverviewView: View {
     
     // MARK: - Variables
     
-    @StateObject var authViewModel = AuthViewModel()
-    
     @EnvironmentObject var selectedTab: TabViewModel
+    @EnvironmentObject var profileViewModel: ProfileViewModel
     
     var body: some View {
-        VStack {
-            NavigationBar()
-                .environmentObject(authViewModel)
-            
-            NavigatorView()
-                .environmentObject(selectedTab)
-            
-            
+        NavigationStack {
+            VStack {
+                NavigationBar()
+                    .environmentObject(profileViewModel)
+                
+                NavigatorView()
+                    .environmentObject(selectedTab)
+            }
         }
     }
     
@@ -31,6 +30,6 @@ struct OverviewView: View {
 
 #Preview {
     OverviewView()
-        .environmentObject(AuthViewModel())
+        .environmentObject(ProfileViewModel())
         .environmentObject(TabViewModel())
 }

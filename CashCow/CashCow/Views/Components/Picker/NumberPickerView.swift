@@ -9,32 +9,27 @@ import SwiftUI
 
 struct NumberPickerView: View {
     
+    var body: some View {
+        HStack {
+            Text("Kinder")
+            
+            Spacer()
+            
+            Picker("Kinder", selection: $children) {
+                ForEach(numbers, id: \.self) { number in
+                    Text("\(number)")
+                }
+            }
+            .pickerStyle(.automatic)
+            .foregroundStyle(Colors.primaryColor)
+        }
+    }
+    
     // MARK: - Variables
     
     @State private var numbers = Array(0...5)
     
     @Binding var children: Int
-    
-    
-    var body: some View {
-        Section {
-            HStack {
-                Text("Kinder")
-                
-                Spacer()
-                
-                Picker("Kinder", selection: $children) {
-                    ForEach(numbers, id: \.self) { number in
-                        Text("\(number)")
-                    }
-                }
-                .pickerStyle(.automatic)
-                .foregroundStyle(Colors.primaryColor)
-            }
-            
-            
-        }
-    }
     
 }
 

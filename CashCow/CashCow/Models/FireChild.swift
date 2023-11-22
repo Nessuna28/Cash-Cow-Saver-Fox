@@ -12,10 +12,11 @@ struct FireChild: Codable, Identifiable {
     @DocumentID var id: String?
     
     let childId: String
+    var familyMember: String?
     var lastName: String?
-    let firstName: String
+    var firstName: String
     var birthday: Date?
     
-    let loginName: String
-    let loginImage: String
+    var loginName: String
+    var loginImage: String
 }

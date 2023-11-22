@@ -22,7 +22,6 @@ struct ProfileView: View {
     // MARK: - Variables
     
     @EnvironmentObject var profileViewModel: ProfileViewModel
-    @Environment(\.dismiss) var dismiss
     
     let id: String
     @State private var lastName: String
@@ -32,23 +31,11 @@ struct ProfileView: View {
     @State private var children: Int
     @State private var childrenAccounts: [FireChild]
     
-    @State var showDatePickerSheet = false
-    
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                ZStack(alignment: .bottomTrailing) {
-                    Image(Strings.adultWoman)
-                        .resizable()
-                        .scaledToFill()
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                        .frame(width: 100, height: 100)
-                    
-                    Image(systemName: Strings.cam)
-                }
-                .frame(height: 100)
+                ProfileImage()
                 
                 VStack(spacing: 20) {
                     DisplayForInputFields(title: "Nachname", input: $lastName)
@@ -72,7 +59,7 @@ struct ProfileView: View {
                         
                         if profileViewModel.fireUser?.childrenAccounts?.isEmpty ?? true {
                             NavigationLink {
-                                ChildAccountView()
+                                ChildAccountView(childrenAccounts: $childrenAccounts)
                             } label: {
                                 Image(systemName: Strings.plusIcon)
                                     .foregroundColor(.blue)
@@ -90,28 +77,10 @@ struct ProfileView: View {
             
             Spacer()
             
-            HStack {
-                Button {
-                    dismiss()
-                } label: {
-                    PrimaryButtonView(title: "Abbrechen")
-                }
-                
-                Spacer()
-                
-                Button {
-                    profileViewModel.updateUser()
-                    dismiss()
-                } label: {
-                    PrimaryButtonView(title: "Speichern")
-                }
-            }
-            .navigationTitle("Profil")
-            .padding(.horizontal)
-            .padding(.vertical, 30)
-            
+            ButtonsForProfile(action: profileViewModel.updateUser)
         }
-        
+        .navigationTitle("Profil")
+        .padding(.horizontal)
     }
     
     // MARK: - Functions

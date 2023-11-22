@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9111F6AA2B0E4ABC00D66A55 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111F6A92B0E4ABC00D66A55 /* ProfileImage.swift */; };
+		9111F6AC2B0E544A00D66A55 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111F6AB2B0E544A00D66A55 /* ImagePicker.swift */; };
+		9111F6AE2B0E5AF800D66A55 /* ButtonsForProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111F6AD2B0E5AF800D66A55 /* ButtonsForProfile.swift */; };
 		91929AA12B096CC700C68AD2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AA02B096CC700C68AD2 /* AuthViewModel.swift */; };
 		91929AA32B096DEA00C68AD2 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AA22B096DEA00C68AD2 /* HTTPError.swift */; };
 		91929AA52B09754300C68AD2 /* AuthenticationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AA42B09754300C68AD2 /* AuthenticationMode.swift */; };
@@ -23,7 +26,6 @@
 		91929ABB2B0CFFD700C68AD2 /* ProfileNameAndImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929ABA2B0CFFD700C68AD2 /* ProfileNameAndImage.swift */; };
 		91929ABD2B0D01B200C68AD2 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929ABC2B0D01B200C68AD2 /* SettingsButton.swift */; };
 		91929ABF2B0D0D3300C68AD2 /* DisplayForInputFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929ABE2B0D0D3300C68AD2 /* DisplayForInputFields.swift */; };
-		91929AC32B0D237C00C68AD2 /* SelectionChildAccountMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AC22B0D237C00C68AD2 /* SelectionChildAccountMode.swift */; };
 		91929AC52B0D246300C68AD2 /* ChildAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AC42B0D246300C68AD2 /* ChildAccountView.swift */; };
 		91D9DF662B0773D000514AF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91D9DF652B0773D000514AF8 /* GoogleService-Info.plist */; };
 		91D9DF6A2B07798B00514AF8 /* FireSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9DF692B07798B00514AF8 /* FireSettings.swift */; };
@@ -69,6 +71,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9111F6A92B0E4ABC00D66A55 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		9111F6AB2B0E544A00D66A55 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		9111F6AD2B0E5AF800D66A55 /* ButtonsForProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsForProfile.swift; sourceTree = "<group>"; };
 		91929AA02B096CC700C68AD2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		91929AA22B096DEA00C68AD2 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		91929AA42B09754300C68AD2 /* AuthenticationMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMode.swift; sourceTree = "<group>"; };
@@ -85,7 +90,6 @@
 		91929ABA2B0CFFD700C68AD2 /* ProfileNameAndImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameAndImage.swift; sourceTree = "<group>"; };
 		91929ABC2B0D01B200C68AD2 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		91929ABE2B0D0D3300C68AD2 /* DisplayForInputFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayForInputFields.swift; sourceTree = "<group>"; };
-		91929AC22B0D237C00C68AD2 /* SelectionChildAccountMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionChildAccountMode.swift; sourceTree = "<group>"; };
 		91929AC42B0D246300C68AD2 /* ChildAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildAccountView.swift; sourceTree = "<group>"; };
 		91D9DF652B0773D000514AF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91D9DF692B07798B00514AF8 /* FireSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireSettings.swift; sourceTree = "<group>"; };
@@ -169,7 +173,6 @@
 				91929AA22B096DEA00C68AD2 /* HTTPError.swift */,
 				91929AA42B09754300C68AD2 /* AuthenticationMode.swift */,
 				91929AA82B0B5E9C00C68AD2 /* Tab.swift */,
-				91929AC22B0D237C00C68AD2 /* SelectionChildAccountMode.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				91929AB62B0CF26D00C68AD2 /* TabViewForTabList.swift */,
 				91929ABE2B0D0D3300C68AD2 /* DisplayForInputFields.swift */,
 				91FD321B2B0D28C500018074 /* ChildrenListView.swift */,
+				9111F6A92B0E4ABC00D66A55 /* ProfileImage.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -301,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				91FD321F2B0D428900018074 /* NumberPickerView.swift */,
+				9111F6AB2B0E544A00D66A55 /* ImagePicker.swift */,
 			);
 			path = Picker;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */,
 				91FD321D2B0D38A600018074 /* SecondaryButtonView.swift */,
 				91929ABC2B0D01B200C68AD2 /* SettingsButton.swift */,
+				9111F6AD2B0E5AF800D66A55 /* ButtonsForProfile.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -439,12 +445,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				91D9DF862B07DE4F00514AF8 /* SelectionFaceIdAndFingerprintButton.swift in Sources */,
+				9111F6AA2B0E4ABC00D66A55 /* ProfileImage.swift in Sources */,
 				91F2B6DF2B0650D200FA3AC3 /* AuthManager.swift in Sources */,
 				91929AB12B0CD1F700C68AD2 /* NavigatorView.swift in Sources */,
 				91D9DF7E2B07C56400514AF8 /* SelectionAdultView.swift in Sources */,
 				91929AAB2B0B728600C68AD2 /* ProfileRepository.swift in Sources */,
+				9111F6AE2B0E5AF800D66A55 /* ButtonsForProfile.swift in Sources */,
 				91D9DF782B079AB600514AF8 /* Colors.swift in Sources */,
-				91929AC32B0D237C00C68AD2 /* SelectionChildAccountMode.swift in Sources */,
 				91929AAF2B0CCB3A00C68AD2 /* NavigationBar.swift in Sources */,
 				91D9DF712B07896800514AF8 /* LoginButton.swift in Sources */,
 				91929ABF2B0D0D3300C68AD2 /* DisplayForInputFields.swift in Sources */,
@@ -483,6 +490,7 @@
 				91FD32222B0DEB1D00018074 /* ProfileManager.swift in Sources */,
 				91FD32202B0D428900018074 /* NumberPickerView.swift in Sources */,
 				91F2B7112B065DBB00FA3AC3 /* FireChild.swift in Sources */,
+				9111F6AC2B0E544A00D66A55 /* ImagePicker.swift in Sources */,
 				91F2B6CC2B064F3D00FA3AC3 /* CashCowApp.swift in Sources */,
 				91D9DF6F2B0788E600514AF8 /* OnboardingView2.swift in Sources */,
 			);

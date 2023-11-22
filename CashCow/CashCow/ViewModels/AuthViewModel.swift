@@ -10,6 +10,10 @@ import FirebaseAuth
 
 class AuthViewModel: ObservableObject {
     
+    init() {
+        checkAuth()
+    }
+    
     // MARK: - Variables
     
     private let authManager = AuthManager.shared
@@ -23,7 +27,6 @@ class AuthViewModel: ObservableObject {
     @Published var authenticationMode: AuthenticationMode = .register
     
     @Published var user: User?
-    @Published var fireUser: FireUser?
     
     
     // MARK: - Computed Property
@@ -33,7 +36,19 @@ class AuthViewModel: ObservableObject {
     }
     
     
+    
     // MARK: - Functions
+    
+    private func checkAuth() {
+        
+        guard let currentUser = authManager.auth.currentUser else {
+            print("Not logged in")
+            return
+        }
+        
+        self.user = currentUser
+    }
+    
     
     func loginUser(email: String, password: String) {
         
@@ -41,12 +56,6 @@ class AuthViewModel: ObservableObject {
             guard let user else { return }
             
             self.user = user
-            
-            ProfileRepository.fetchUser(with: user.uid) { fireUser in
-                guard let fireUser else { return }
-                
-                self.fireUser = fireUser
-            }
         }
     }
     

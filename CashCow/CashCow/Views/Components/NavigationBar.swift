@@ -15,19 +15,21 @@ struct NavigationBar: View {
     
     
     var body: some View {
-        HStack {
-            Spacer()
-            
-            ProfileNameAndImage()
-                .environmentObject(profileViewModel)
-            
-            Spacer()
-            
-            AppIcon()
-            
-            SettingsButton()
+        NavigationStack {
+            HStack {
+                Spacer()
+                
+                ProfileNameAndImage()
+                    .environmentObject(profileViewModel)
+                
+                Spacer()
+                
+                AppIcon()
+                
+                SettingsButton()
+            }
+            .padding()
         }
-        .padding()
     }
     
 }

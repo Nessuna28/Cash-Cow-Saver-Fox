@@ -11,15 +11,13 @@ struct OverviewView: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var selectedTab: TabViewModel
-    @StateObject var profileViewModel = ProfileViewModel()
+    @EnvironmentObject var profileViewModel: ProfileViewModel
     
     var body: some View {
         NavigationStack {
             VStack {
                 NavigationBar()
-                    .environmentObject(authViewModel)
                     .environmentObject(profileViewModel)
                 
                 NavigatorView()
@@ -32,6 +30,6 @@ struct OverviewView: View {
 
 #Preview {
     OverviewView()
-        .environmentObject(AuthViewModel())
+        .environmentObject(ProfileViewModel())
         .environmentObject(TabViewModel())
 }

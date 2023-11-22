@@ -17,7 +17,7 @@ struct PrimaryButtonView: View {
     var body: some View {
         Text(title)
             .foregroundStyle(Colors.textColorOnP)
-            .font(.title2)
+            .font(.headline)
             .padding(.vertical, 10)
             .padding(.horizontal, 20)
             .background(Colors.primaryColor)

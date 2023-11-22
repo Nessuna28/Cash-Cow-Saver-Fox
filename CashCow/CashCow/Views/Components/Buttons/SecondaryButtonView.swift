@@ -17,7 +17,7 @@ struct SecondaryButtonView: View {
     var body: some View {
         Text(title)
             .foregroundStyle(Colors.primaryColor)
-            .font(.title2)
+            .font(.headline)
             .padding(.vertical, 10)
             .padding(.horizontal, 20)
             .background(

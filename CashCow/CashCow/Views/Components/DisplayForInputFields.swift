@@ -17,30 +17,17 @@ struct DisplayForInputFields: View {
         VStack {
             HStack {
                 Text(title)
+                    .padding(.trailing, 50)
                 
                 Spacer()
                 
-                
-                TextField("", text: $input)
+                TextField(title, text: $input)
                     .foregroundColor(Colors.primaryColor)
-                
-                Button {
-                    deleteTextFieldInput(textInput: $input)
-                } label: {
-                    Image(systemName: Strings.deleteIcon)
-                }
-                
+                    .multilineTextAlignment(.trailing)
             }
             
             Divider()
         }
-    }
-    
-    // MARK: - Functions
-    
-    private func deleteTextFieldInput(textInput: Binding<String>) {
-        
-        textInput.wrappedValue = ""
     }
     
 }

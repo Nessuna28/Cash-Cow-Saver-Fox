@@ -18,12 +18,21 @@ struct NumberPickerView: View {
     
     var body: some View {
         Section {
-            Picker("Kinder", selection: $children) {
-                ForEach(numbers, id: \.self) { number in
-                    Text("\(number)")
+            HStack {
+                Text("Kinder")
+                
+                Spacer()
+                
+                Picker("Kinder", selection: $children) {
+                    ForEach(numbers, id: \.self) { number in
+                        Text("\(number)")
+                    }
                 }
+                .pickerStyle(.automatic)
+                .foregroundStyle(Colors.primaryColor)
             }
-            .pickerStyle(.segmented)
+            
+            
         }
     }
     

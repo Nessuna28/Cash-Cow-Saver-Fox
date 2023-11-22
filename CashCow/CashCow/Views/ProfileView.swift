@@ -22,6 +22,7 @@ struct ProfileView: View {
     // MARK: - Variables
     
     @EnvironmentObject var profileViewModel: ProfileViewModel
+    @Environment(\.dismiss) var dismiss
     
     let id: String
     @State private var lastName: String
@@ -35,16 +36,7 @@ struct ProfileView: View {
     
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                
-                AppIcon()
-                
-                SettingsButton()
-            }
-            .padding()
-            
+        NavigationStack {
             ScrollView {
                 ZStack(alignment: .bottomTrailing) {
                     Image(Strings.adultWoman)
@@ -58,38 +50,16 @@ struct ProfileView: View {
                 }
                 .frame(height: 100)
                 
-                Text("Profil")
-                    .font(.title)
-                    .padding(.top, 0)
-                    .padding(.bottom, 20)
-                
-                
                 VStack(spacing: 20) {
                     DisplayForInputFields(title: "Nachname", input: $lastName)
                     
                     DisplayForInputFields(title: "Vorname", input: $firstName)
                     
-                    HStack {
-                        Text("Geburtstag")
-                        
-                        Spacer()
-                        
-                        Button {
-                            showDatePickerSheet.toggle()
-                        } label: {
-                            Text(formatDate(date: birthday))
-                                .foregroundStyle(Colors.primaryColor)
-                        }
-                    }
-                    .sheet(isPresented: $showDatePickerSheet, content: {
-                        DatePickerView(birthday: $birthday, showDatePickerSheet: $showDatePickerSheet)
-                    })
+                    DatePicker("Geburtstag", selection: $birthday, displayedComponents: .date)
                     
                     Divider()
                     
                     DisplayForInputFields(title: "Wohnort", input: $domicile)
-                    
-                    Text("Kinder")
                     
                     NumberPickerView(children: $children)
                     
@@ -121,8 +91,8 @@ struct ProfileView: View {
             Spacer()
             
             HStack {
-                NavigationLink {
-                    
+                Button {
+                    dismiss()
                 } label: {
                     PrimaryButtonView(title: "Abbrechen")
                 }
@@ -131,24 +101,28 @@ struct ProfileView: View {
                 
                 Button {
                     profileViewModel.updateUser()
+                    dismiss()
                 } label: {
                     PrimaryButtonView(title: "Speichern")
                 }
             }
+            .navigationTitle("Profil")
             .padding(.horizontal)
             .padding(.vertical, 30)
+            
         }
+        
     }
     
     // MARK: - Functions
     
     private func formatDate(date: Date) -> String {
         
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .none
-            return formatter.string(from: date)
-        }
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
+    }
     
 }
 

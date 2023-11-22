@@ -9,11 +9,20 @@ import Foundation
 
 class ProfileViewModel: ObservableObject {
     
+    init() {
+        if let uid = AuthManager.shared.auth.currentUser?.uid {
+            
+            ProfileRepository.fetchUser(with: uid) { fireUser in
+                guard let fireUser else { return }
+                
+                self.fireUser = fireUser
+            }
+        }
+    }
+    
     // MARK: - Variables
     
     @Published var fireUser: FireUser?
-    
-    @Published var showProfileSheet = false
     
     
     // MARK: - Functions

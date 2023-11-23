@@ -22,9 +22,9 @@ class ProfileRepository {
     }
     
     
-    static func updateUser(with id: String) {
+    static func updateUser(with id: String, lastName: String, firstName: String, birthday: Date, domicile: String, children: Int) {
         
-        let data = ["id": id]
+        let data = ["lastName": lastName, "firstName": firstName, "birthday": birthday, "domicile": domicile, "children": children] as [String : Any]
         
         AuthManager.shared.database.collection("users").document(id).setData(data, merge: true) { error in
             if let error {

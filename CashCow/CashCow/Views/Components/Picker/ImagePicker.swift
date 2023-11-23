@@ -29,7 +29,7 @@ struct ImagePicker: View {
     
     // MARK: - Variables
     
-    @State private var images = ["affe", "dino", "elefant", "faultier", "giraffe"]
+    @State private var images = ["affe", "dino", "elefant", "faultier", "giraffe", "hase", "hund", "katze", "koala", "krokodil", "loewe", "maus", "panda", "papagei", "reh", "robbe", "schaf", "schlange", "schwein", "tiger", "zebra"]
     
     @Binding var loginImage: String
     

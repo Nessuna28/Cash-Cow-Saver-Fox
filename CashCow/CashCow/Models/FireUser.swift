@@ -17,7 +17,6 @@ struct FireUser: Codable, Identifiable {
     var birthday: Date?
     var domicile: String?
     var children: Int?
-    var childrenAccounts: [FireChild]?
     
     var registeredAt: Date
 }

@@ -11,21 +11,21 @@ class ChildProfileRepository {
     
     static func createChild(with id: String, familyMember: String, lastName: String, firstName: String, birthday: Date, loginName: String, loginImage: String) {
         
-        let child = FireChild(parentsId: id, familyMember: familyMember, lastName: lastName, firstName: firstName, birthday: birthday, loginName: loginName, loginImage: loginImage, registeredAt: Date())
+        let child = FireChild(parentId: AuthManager.shared.auth.currentUser?.uid ?? "", familyMember: familyMember, lastName: lastName, firstName: firstName, birthday: birthday, loginName: loginName, loginImage: loginImage, registeredAt: Date())
         
         do {
-            try AuthManager.shared.database.collection("children").document(loginName).setData(from: child)
+            try AuthManager.shared.database.collection("children").addDocument(from: child)
         } catch {
             print("Saving child failed:", error)
         }
     }
     
     
-    static func updateChild(with loginName: String) {
+    static func updateChild(with id: String, familyMember: String, lastName: String, firstName: String, birthday: Date, loginName: String, loginImage: String) {
         
-        let data = ["loginName": loginName]
+        let data = ["familyMember": familyMember, "lastName": lastName, "firstName": firstName, "birthday": birthday, "loginName": loginName, "loginImage": loginImage] as [String : Any]
         
-        AuthManager.shared.database.collection("children").document(loginName).setData(data, merge: true) { error in
+        AuthManager.shared.database.collection("children").document(id).setData(data, merge: true) { error in
             if let error {
                 print("Update child failed:", error)
                 return
@@ -34,34 +34,9 @@ class ChildProfileRepository {
     }
     
     
-    static func fetchChild(with loginName: String, completion: @escaping (FireChild?) -> Void) {
+    static func deleteChild(with id: String) {
         
-        AuthManager.shared.database.collection("children").document(loginName).getDocument { document, error in
-            if let error {
-                print("Fetching child failed:", error)
-                completion(nil)
-                return
-            }
-            
-            guard let document else {
-                print("No document!")
-                completion(nil)
-                return
-            }
-            
-            do {
-                let child = try document.data(as: FireChild.self)
-                completion(child)
-            } catch {
-                print("Document is not a child", error)
-            }
-        }
-    }
-    
-    
-    static func deleteChild(with loginName: String) {
-        
-        AuthManager.shared.database.collection("children").document(loginName).delete() { error in
+        AuthManager.shared.database.collection("children").document(id).delete() { error in
             if let error {
                 print("Delete child failed:", error)
                 return

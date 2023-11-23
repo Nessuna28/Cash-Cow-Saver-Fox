@@ -1,31 +1,25 @@
 //
-//  ChildAccountView.swift
+//  NewChildView.swift
 //  CashCow
 //
-//  Created by Angelique Freier on 21.11.23.
+//  Created by Angelique Freier on 23.11.23.
 //
 
 import SwiftUI
 
-struct ChildAccountView: View {
-    
-    init?(child: FireChild?) {
-        self.child = child
-
-        self._familiyMember = State(initialValue: child?.familyMember ?? "")
-        self._lastName = State(initialValue: child?.lastName ?? "")
-        self._firstName = State(initialValue: child?.firstName ?? "")
-        self._birthday = State(initialValue: child?.birthday ?? Date())
-    }
-    
+struct NewChildView: View {
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 ProfileImage()
-                    .padding(.bottom, 60)
+                
+                FamilyMemberPicker(familyMember: $familiyMember)
+                    .padding(.bottom, 30)
                 
                 VStack(spacing: 20) {
+                    
+                    
                     DisplayForInputFields(title: "Nachname", input: $lastName)
                     
                     DisplayForInputFields(title: "Vorname", input: $firstName)
@@ -34,12 +28,18 @@ struct ChildAccountView: View {
                     
                     Divider()
                         .padding(.bottom, 40)
+                    
+                    DisplayForInputFields(title: "Anmeldename", input: $loginName)
+                    
+                    ImagePicker(loginImage: $loginImage)
+                    
+                    Divider()
                 }
             }
             
             ButtonsForProfile(action: createChild)
         }
-        .navigationTitle("Kinderaccount")
+        .navigationTitle("neuer Kinderaccount")
         .padding(.horizontal)
     }
     
@@ -50,12 +50,13 @@ struct ChildAccountView: View {
     
     @State private var authManager = AuthManager.shared
     
-    @State private var child: FireChild?
-    
     @State private var familiyMember = ""
     @State private var lastName = ""
     @State private var firstName = ""
     @State private var birthday = Date()
+    
+    @State private var loginName = ""
+    @State private var loginImage = ""
     
     
     
@@ -67,6 +68,8 @@ struct ChildAccountView: View {
         childProfileViewModel.lastName = lastName
         childProfileViewModel.firstName = firstName
         childProfileViewModel.birthday = birthday
+        childProfileViewModel.loginName = loginName
+        childProfileViewModel.loginImage = loginImage
     }
     
     
@@ -74,8 +77,7 @@ struct ChildAccountView: View {
         
         setData()
         
-        guard let id = child?.id else { return }
-        childProfileViewModel.updateChild(id: id)
+        childProfileViewModel.createChild()
     }
     
     private func formatDate(date: Date) -> String {
@@ -88,8 +90,9 @@ struct ChildAccountView: View {
     
 }
 
+
 #Preview {
-    ChildAccountView(child: FireChild(parentId: "", familyMember: "", firstName: "", loginName: "", loginImage: "", registeredAt: Date()))
-        .environmentObject(ProfileViewModel())
+    NewChildView()
         .environmentObject(ChildProfileViewModel())
+        .environmentObject(ProfileViewModel())
 }

@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 struct FireChild: Codable, Identifiable {
     @DocumentID var id: String?
     
-    let parentsId: String
+    let parentId: String
     var familyMember: String
     var lastName: String?
     var firstName: String

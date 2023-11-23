@@ -16,7 +16,6 @@ struct ProfileView: View {
         self._birthday = State(initialValue: fireUser.birthday ?? Date())
         self._domicile = State(initialValue: fireUser.domicile ?? "")
         self._children = State(initialValue: fireUser.children ?? 0)
-        self._childrenAccounts = State(initialValue: fireUser.childrenAccounts ?? [])
     }
     
     
@@ -24,6 +23,7 @@ struct ProfileView: View {
         NavigationStack {
             ScrollView {
                 ProfileImage()
+                    .padding(.bottom, 60)
                 
                 VStack(spacing: 20) {
                     DisplayForInputFields(title: "Nachname", input: $lastName)
@@ -45,10 +45,11 @@ struct ProfileView: View {
                         
                         Spacer()
                         
-                        if profileViewModel.fireUser?.childrenAccounts?.isEmpty ?? true {
+                        if childrenListViewModel.children.isEmpty {
                             NavigationLink {
-                                ChildAccountView(fireChild: checkChildrenAccounts())
+                                NewChildView()
                                     .environmentObject(profileViewModel)
+                                    .environmentObject(childProfileViewModel)
                             } label: {
                                 Image(systemName: Strings.plusIcon)
                                     .foregroundColor(.blue)
@@ -60,9 +61,15 @@ struct ProfileView: View {
                                 Image(systemName: showChildrenList ? Strings.arrowDown : Strings.arrowRight)
                                     .foregroundColor(.blue)
                             }
+                            
+                            if showChildrenList {
+                                ChildrenListView()
+                                    .environmentObject(childrenListViewModel)
+                            }
                         }
-                        
-                        ChildrenListView()
+                    }
+                    .onAppear {
+                        childrenListViewModel.fetchChildren()
                     }
                 }
                 .padding()
@@ -70,7 +77,7 @@ struct ProfileView: View {
             
             Spacer()
             
-            ButtonsForProfile(action: profileViewModel.updateUser)
+            ButtonsForProfile(action: updateProfile)
         }
         .navigationTitle("Profil")
         .padding(.horizontal)
@@ -80,6 +87,10 @@ struct ProfileView: View {
     // MARK: - Variables
     
     @EnvironmentObject var profileViewModel: ProfileViewModel
+    @StateObject var childProfileViewModel = ChildProfileViewModel()
+    @StateObject var childrenListViewModel = ChildrenListViewModel()
+    
+    @State private var authManager = AuthManager.shared
     
     let id: String
     @State private var lastName: String
@@ -87,7 +98,8 @@ struct ProfileView: View {
     @State private var birthday: Date
     @State private var domicile: String
     @State private var children: Int
-    @State private var childrenAccounts: [FireChild]
+    
+    @State private var childLoginName = ""
     
     @State private var showChildrenList = false
     
@@ -102,11 +114,16 @@ struct ProfileView: View {
         return formatter.string(from: date)
     }
     
-    private func checkChildrenAccounts() -> FireChild {
+    
+    private func updateProfile() {
         
-        if let existingChild = childrenAccounts.first(where: { $0.firstName == firstName }) {
-            return existingChild
-        } else { return FireChild(parentsId: "", familyMember: "", firstName: "", loginName: "", loginImage: "", registeredAt: Date())}
+        profileViewModel.fireUser?.lastName = lastName
+        profileViewModel.fireUser?.firstName = firstName
+        profileViewModel.fireUser?.birthday = birthday
+        profileViewModel.fireUser?.domicile = domicile
+        profileViewModel.fireUser?.children = children
+        
+        profileViewModel.updateUser()
     }
     
     
@@ -115,4 +132,6 @@ struct ProfileView: View {
 #Preview {
     ProfileView(fireUser: ProfileViewModel().fireUser ?? FireUser(id: "", email: "", firstName: "", registeredAt: Date()))
         .environmentObject(ProfileViewModel())
+        .environmentObject(ChildProfileViewModel())
+        .environmentObject(ChildrenListViewModel())
 }

@@ -42,6 +42,7 @@ class AuthManager {
         auth.signIn(withEmail: email, password: password) { authResult, error in
             if let error {
                 print("Login failed:", error)
+                completion(nil)
                 return
             }
             
@@ -63,18 +64,6 @@ class AuthManager {
             try auth.signOut()
         } catch {
             print("Error signing out: ", error)
-        }
-    }
-    
-    
-    
-    func registerChild(loginName: String, loginImage: String, completion: @escaping (User?) -> Void) {
-        
-        auth.createUser(withEmail: "\(loginName)@example.com", password: loginImage) { authResult, error in
-            if let error {
-                print("Registration failed:", error)
-                return
-            }
         }
     }
     

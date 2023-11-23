@@ -21,7 +21,6 @@ struct ProfileImage: View {
             Image(systemName: Strings.cam)
         }
         .frame(height: 100)
-        .padding(.bottom, 30)
     }
     
 }

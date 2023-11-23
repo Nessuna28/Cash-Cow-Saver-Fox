@@ -9,34 +9,54 @@ import SwiftUI
 
 struct ChildrenListView: View {
     
-    // MARK: - Variables
-    
-    @EnvironmentObject var profileViewModel: ProfileViewModel
-    
-    
     var body: some View {
-        if let children = profileViewModel.fireUser?.childrenAccounts {
-            List(children) { child in
-                HStack {
-                    Image(systemName: Strings.profileImageSystem)
-                    
-                    Text(child.loginName)
-                    
-                    Image(child.loginImage)
-                    
-                    Button {
+        VStack {
+            List(childrenListViewModel.children) { child in
+                NavigationLink {
+                    ChildAccountView(child: child)
+                        .environmentObject(childrenListViewModel)
+                } label: {
+                    HStack {
+                        Image(systemName: Strings.profileImageSystem)
                         
-                    } label: {
-                        Image(systemName: Strings.trashIcon)
+                        Text(child.loginName)
+                        
+                        Image(child.loginImage)
+                        
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: Strings.trashIcon)
+                        }
                     }
                 }
             }
+            
+            NavigationLink {
+                NewChildView()
+            } label: {
+                TextButtonView(title: "+ Kind hinzufügen")
+            }
+        }
+        .onAppear {
+            childrenListViewModel.fetchChildren()
         }
     }
+    
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
+    
+    
+    
+    // MARK: - Functions
+    
+    
     
 }
 
 #Preview {
     ChildrenListView()
-        .environmentObject(ProfileViewModel())
+        .environmentObject(ChildrenListViewModel())
 }

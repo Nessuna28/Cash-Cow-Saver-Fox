@@ -31,9 +31,11 @@ class ProfileViewModel: ObservableObject {
         
         if let uid = AuthManager.shared.auth.currentUser?.uid {
             ProfileRepository.updateUser(with: uid)
+            print("update: \()")
             
             ProfileRepository.fetchUser(with: uid) { fireUser in
                 guard let fireUser else { return }
+                print("fetch: \(fireUser.id)")
                 
                 self.fireUser = fireUser
             }

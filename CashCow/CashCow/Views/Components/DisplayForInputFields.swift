@@ -24,6 +24,8 @@ struct DisplayForInputFields: View {
                 TextField(title, text: $input)
                     .foregroundColor(Colors.primaryColor)
                     .multilineTextAlignment(.trailing)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
             }
             
             Divider()

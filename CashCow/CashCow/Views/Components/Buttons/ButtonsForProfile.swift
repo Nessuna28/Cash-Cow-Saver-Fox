@@ -1,0 +1,42 @@
+//
+//  ButtonsForProfile.swift
+//  CashCow
+//
+//  Created by Angelique Freier on 22.11.23.
+//
+
+import SwiftUI
+
+struct ButtonsForProfile: View {
+    
+    var body: some View {
+        HStack {
+            Button {
+                dismiss()
+            } label: {
+                PrimaryButtonView(title: "Abbrechen")
+            }
+            
+            Spacer()
+            
+            Button {
+                action()
+                dismiss()
+            } label: {
+                PrimaryButtonView(title: "Speichern")
+            }
+        }
+        .padding(.vertical, 30)
+    }
+    
+    // MARK: - Variables
+    
+    @Environment(\.dismiss) var dismiss
+    
+    let action: () -> Void
+    
+}
+
+#Preview {
+    ButtonsForProfile() { }
+}

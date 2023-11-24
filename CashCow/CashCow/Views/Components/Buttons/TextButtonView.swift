@@ -18,6 +18,7 @@ struct TextButtonView: View {
         Text(title)
             .font(.headline)
             .bold()
+            .padding()
     }
     
 }

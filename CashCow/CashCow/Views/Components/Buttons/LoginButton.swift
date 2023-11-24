@@ -24,8 +24,8 @@ struct LoginButton: View {
                     label: {
                         Button(action: setModeOnLogin) {
                             TextButtonView(title: Strings.login)
-                                .padding(.bottom, 20)
-                                .padding(.trailing, 20)
+                                .padding(.bottom, 10)
+                                .padding(.trailing, 10)
                                 .foregroundColor(Colors.primaryColor)
                         }
                     }

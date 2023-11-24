@@ -16,39 +16,14 @@ struct ProfileView: View {
         self._birthday = State(initialValue: fireUser.birthday ?? Date())
         self._domicile = State(initialValue: fireUser.domicile ?? "")
         self._children = State(initialValue: fireUser.children ?? 0)
-        self._childrenAccounts = State(initialValue: fireUser.childrenAccounts ?? [])
     }
-    
-    // MARK: - Variables
-    
-    @EnvironmentObject var profileViewModel: ProfileViewModel
-    @Environment(\.dismiss) var dismiss
-    
-    let id: String
-    @State private var lastName: String
-    @State private var firstName: String
-    @State private var birthday: Date
-    @State private var domicile: String
-    @State private var children: Int
-    @State private var childrenAccounts: [FireChild]
-    
-    @State var showDatePickerSheet = false
     
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                ZStack(alignment: .bottomTrailing) {
-                    Image(Strings.adultWoman)
-                        .resizable()
-                        .scaledToFill()
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                        .frame(width: 100, height: 100)
-                    
-                    Image(systemName: Strings.cam)
-                }
-                .frame(height: 100)
+                ProfileImage()
+                    .padding(.bottom, 60)
                 
                 VStack(spacing: 20) {
                     DisplayForInputFields(title: "Nachname", input: $lastName)
@@ -65,24 +40,39 @@ struct ProfileView: View {
                     
                     Divider()
                     
-                    HStack {
-                        Text("Kinderaccounts")
-                        
-                        Spacer()
-                        
-                        if profileViewModel.fireUser?.childrenAccounts?.isEmpty ?? true {
-                            NavigationLink {
-                                ChildAccountView()
-                            } label: {
-                                Image(systemName: Strings.plusIcon)
-                                    .foregroundColor(.blue)
-                            }
-                        } else {
-                            NavigationLink(destination: ChildrenListView().environmentObject(profileViewModel)) {
-                                Image(systemName: Strings.arrowRight)
-                                    .foregroundColor(.blue)
+                    VStack {
+                        HStack {
+                            Text("Kinderaccounts")
+                            
+                            Spacer()
+                            
+                            if childrenListViewModel.children.isEmpty {
+                                NavigationLink {
+                                    NewChildView()
+                                        .environmentObject(profileViewModel)
+                                        .environmentObject(childProfileViewModel)
+                                } label: {
+                                    Image(systemName: Strings.plusIcon)
+                                        .foregroundColor(.blue)
+                                }
+                            } else {
+                                Button {
+                                    showChildrenList.toggle()
+                                } label: {
+                                    Image(systemName: showChildrenList ? Strings.arrowDown : Strings.arrowRight)
+                                        .foregroundColor(.blue)
+                                }
                             }
                         }
+                        if showChildrenList {
+                            ChildrenListView()
+                                .environmentObject(childrenListViewModel)
+                                .environmentObject(childProfileViewModel)
+                                .multilineTextAlignment(.trailing)
+                        }
+                    }
+                    .onAppear {
+                        childrenListViewModel.fetchChildren()
                     }
                 }
                 .padding()
@@ -90,29 +80,32 @@ struct ProfileView: View {
             
             Spacer()
             
-            HStack {
-                Button {
-                    dismiss()
-                } label: {
-                    PrimaryButtonView(title: "Abbrechen")
-                }
-                
-                Spacer()
-                
-                Button {
-                    profileViewModel.updateUser()
-                    dismiss()
-                } label: {
-                    PrimaryButtonView(title: "Speichern")
-                }
-            }
-            .navigationTitle("Profil")
-            .padding(.horizontal)
-            .padding(.vertical, 30)
-            
+            ButtonsForProfile(action: updateProfile)
         }
-        
+        .navigationTitle("Profil")
+        .padding(.horizontal)
     }
+    
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    @StateObject var childProfileViewModel = ChildProfileViewModel()
+    @StateObject var childrenListViewModel = ChildrenListViewModel()
+    
+    @State private var authManager = AuthManager.shared
+    
+    let id: String
+    @State private var lastName: String
+    @State private var firstName: String
+    @State private var birthday: Date
+    @State private var domicile: String
+    @State private var children: Int
+    
+    @State private var childLoginName = ""
+    
+    @State private var showChildrenList = false
+    
     
     // MARK: - Functions
     
@@ -124,9 +117,24 @@ struct ProfileView: View {
         return formatter.string(from: date)
     }
     
+    
+    private func updateProfile() {
+        
+        profileViewModel.fireUser?.lastName = lastName
+        profileViewModel.fireUser?.firstName = firstName
+        profileViewModel.fireUser?.birthday = birthday
+        profileViewModel.fireUser?.domicile = domicile
+        profileViewModel.fireUser?.children = children
+        
+        profileViewModel.updateUser()
+    }
+    
+    
 }
 
 #Preview {
     ProfileView(fireUser: ProfileViewModel().fireUser ?? FireUser(id: "", email: "", firstName: "", registeredAt: Date()))
         .environmentObject(ProfileViewModel())
+        .environmentObject(ChildProfileViewModel())
+        .environmentObject(ChildrenListViewModel())
 }

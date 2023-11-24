@@ -42,6 +42,7 @@ class AuthManager {
         auth.signIn(withEmail: email, password: password) { authResult, error in
             if let error {
                 print("Login failed:", error)
+                completion(nil)
                 return
             }
             

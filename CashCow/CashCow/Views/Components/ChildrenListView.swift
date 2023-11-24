@@ -9,34 +9,67 @@ import SwiftUI
 
 struct ChildrenListView: View {
     
-    // MARK: - Variables
-    
-    @EnvironmentObject var profileViewModel: ProfileViewModel
-    
-    
     var body: some View {
-        if let children = profileViewModel.fireUser?.childrenAccounts {
-            List(children) { child in
-                HStack {
-                    Image(systemName: Strings.profileImageSystem)
+        VStack {
+            ForEach(childrenListViewModel.children) { child in
+                NavigationLink {
+                    ChildAccountView(child: child)
+                } label: {
+                    Spacer()
                     
-                    Text(child.loginName)
-                    
-                    Image(child.loginImage)
-                    
-                    Button {
+                    HStack(spacing: 20) {
+                        Image(systemName: Strings.profileImageSystem)
                         
-                    } label: {
-                        Image(systemName: Strings.trashIcon)
+                        Text(child.loginName)
+                       
+                        Image(child.loginImage)
+                            .resizable()
+                            .imageSmallAndRound()
+                        
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: Strings.trashIcon)
+                                .foregroundColor(.blue)
+                        }
                     }
+                    .foregroundColor(Colors.textColorOnS)
+                    .padding(5)
+                    .background(Colors.secondaryColor)
+                    .cornerRadius(6)
                 }
             }
+            
+            NavigationLink {
+                NewChildView()
+                    .environmentObject(childProfileViewModel)
+            } label: {
+                TextButtonView(title: "+ Kind hinzufügen")
+                    .foregroundColor(.blue)
+                    .multilineTextAlignment(.center)
+            }
+        }
+        .onAppear {
+            childrenListViewModel.fetchChildren()
         }
     }
+    
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
+    @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
+    
+    
+    
+    // MARK: - Functions
+    
+    
     
 }
 
 #Preview {
     ChildrenListView()
-        .environmentObject(ProfileViewModel())
+        .environmentObject(ChildrenListViewModel())
+        .environmentObject(ChildProfileViewModel())
 }

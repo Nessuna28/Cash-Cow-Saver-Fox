@@ -22,6 +22,10 @@ struct OverviewView: View {
                 
                 NavigatorView()
                     .environmentObject(selectedTab)
+                
+                Image("elefant")
+                    .resizable()
+                    .imageSmallAndRound()
             }
         }
     }

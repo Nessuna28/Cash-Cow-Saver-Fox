@@ -46,6 +46,7 @@
 		914F31482B0F7CC6004B2513 /* FamilyMemberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F31472B0F7CC6004B2513 /* FamilyMemberPicker.swift */; };
 		914F314A2B0F9AEA004B2513 /* NewChildView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F31492B0F9AEA004B2513 /* NewChildView.swift */; };
 		914F31502B10A721004B2513 /* ImageSmallAndRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F314F2B10A721004B2513 /* ImageSmallAndRound.swift */; };
+		914F31542B10BAB0004B2513 /* TabListForOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F31532B10BAB0004B2513 /* TabListForOverview.swift */; };
 		91929AA12B096CC700C68AD2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AA02B096CC700C68AD2 /* AuthViewModel.swift */; };
 		91929AA32B096DEA00C68AD2 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AA22B096DEA00C68AD2 /* HTTPError.swift */; };
 		91929AA52B09754300C68AD2 /* AuthenticationMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AA42B09754300C68AD2 /* AuthenticationMode.swift */; };
@@ -115,6 +116,7 @@
 		914F31472B0F7CC6004B2513 /* FamilyMemberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberPicker.swift; sourceTree = "<group>"; };
 		914F31492B0F9AEA004B2513 /* NewChildView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChildView.swift; sourceTree = "<group>"; };
 		914F314F2B10A721004B2513 /* ImageSmallAndRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSmallAndRound.swift; sourceTree = "<group>"; };
+		914F31532B10BAB0004B2513 /* TabListForOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabListForOverview.swift; sourceTree = "<group>"; };
 		91929AA02B096CC700C68AD2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		91929AA22B096DEA00C68AD2 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		91929AA42B09754300C68AD2 /* AuthenticationMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationMode.swift; sourceTree = "<group>"; };
@@ -230,6 +232,26 @@
 				914F314F2B10A721004B2513 /* ImageSmallAndRound.swift */,
 			);
 			path = Modifier;
+			sourceTree = "<group>";
+		};
+		914F31512B10B9BD004B2513 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				91929AAE2B0CCB3A00C68AD2 /* NavigationBar.swift */,
+				91929AB22B0CD6D000C68AD2 /* TabViewForNavigationBar.swift */,
+				91929AB02B0CD1F700C68AD2 /* NavigatorView.swift */,
+				91929AB62B0CF26D00C68AD2 /* TabViewForTabList.swift */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
+		914F31522B10BA11004B2513 /* ListViews */ = {
+			isa = PBXGroup;
+			children = (
+				91FD321B2B0D28C500018074 /* ChildrenListView.swift */,
+				914F31532B10BAB0004B2513 /* TabListForOverview.swift */,
+			);
+			path = ListViews;
 			sourceTree = "<group>";
 		};
 		91D9DF6D2B0788B600514AF8 /* Onboarding */ = {
@@ -363,18 +385,15 @@
 			isa = PBXGroup;
 			children = (
 				914F314E2B10A6AE004B2513 /* Modifier */,
+				914F31522B10BA11004B2513 /* ListViews */,
 				914F314B2B10A559004B2513 /* Images */,
 				91FD32252B0E208D00018074 /* Buttons */,
 				91FD32242B0E206400018074 /* Picker */,
 				91FD32232B0E201900018074 /* OnboardingComponents */,
+				914F31512B10B9BD004B2513 /* Navigator */,
 				91D9DF7F2B07C7A600514AF8 /* AppIcon.swift */,
 				91929ABA2B0CFFD700C68AD2 /* ProfileNameAndImage.swift */,
-				91929AAE2B0CCB3A00C68AD2 /* NavigationBar.swift */,
-				91929AB22B0CD6D000C68AD2 /* TabViewForNavigationBar.swift */,
-				91929AB02B0CD1F700C68AD2 /* NavigatorView.swift */,
-				91929AB62B0CF26D00C68AD2 /* TabViewForTabList.swift */,
 				91929ABE2B0D0D3300C68AD2 /* DisplayForInputFields.swift */,
-				91FD321B2B0D28C500018074 /* ChildrenListView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -589,6 +608,7 @@
 				91D9DF882B0803A600514AF8 /* SelectionEnterWithCodeButton.swift in Sources */,
 				914F313E2B0EA4BA004B2513 /* ChildProfileRepository.swift in Sources */,
 				91D9DF912B080CF100514AF8 /* ChoiceOption.swift in Sources */,
+				914F31542B10BAB0004B2513 /* TabListForOverview.swift in Sources */,
 				91D9DF6A2B07798B00514AF8 /* FireSettings.swift in Sources */,
 				91D9DF932B094EEB00514AF8 /* AuthenticationView.swift in Sources */,
 				91929AB92B0CFB1600C68AD2 /* ProfileView.swift in Sources */,

@@ -23,9 +23,13 @@ struct OverviewView: View {
                 NavigatorView()
                     .environmentObject(selectedTab)
                 
-                Image("elefant")
-                    .resizable()
-                    .imageSmallAndRound()
+                ScrollView {
+                    ForEach(Tab.allCases) { tab in
+                        TabListForOverview(tab: tab)
+                    }
+                    .padding(.top,50)
+                }
+                .padding(.horizontal)
             }
         }
     }

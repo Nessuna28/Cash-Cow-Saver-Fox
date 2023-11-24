@@ -11,31 +11,42 @@ struct ChildrenListView: View {
     
     var body: some View {
         VStack {
-            List(childrenListViewModel.children) { child in
+            ForEach(childrenListViewModel.children) { child in
                 NavigationLink {
                     ChildAccountView(child: child)
-                        .environmentObject(childrenListViewModel)
                 } label: {
-                    HStack {
+                    Spacer()
+                    
+                    HStack(spacing: 20) {
                         Image(systemName: Strings.profileImageSystem)
                         
                         Text(child.loginName)
-                        
+                       
                         Image(child.loginImage)
+                            .resizable()
+                            .imageSmallAndRound()
                         
                         Button {
                             
                         } label: {
                             Image(systemName: Strings.trashIcon)
+                                .foregroundColor(.blue)
                         }
                     }
+                    .foregroundColor(Colors.textColorOnS)
+                    .padding(5)
+                    .background(Colors.secondaryColor)
+                    .cornerRadius(6)
                 }
             }
             
             NavigationLink {
                 NewChildView()
+                    .environmentObject(childProfileViewModel)
             } label: {
                 TextButtonView(title: "+ Kind hinzufügen")
+                    .foregroundColor(.blue)
+                    .multilineTextAlignment(.center)
             }
         }
         .onAppear {
@@ -47,6 +58,7 @@ struct ChildrenListView: View {
     // MARK: - Variables
     
     @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
+    @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
     
     
     
@@ -59,4 +71,5 @@ struct ChildrenListView: View {
 #Preview {
     ChildrenListView()
         .environmentObject(ChildrenListViewModel())
+        .environmentObject(ChildProfileViewModel())
 }

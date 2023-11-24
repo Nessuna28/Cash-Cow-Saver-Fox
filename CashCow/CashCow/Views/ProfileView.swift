@@ -40,32 +40,35 @@ struct ProfileView: View {
                     
                     Divider()
                     
-                    HStack {
-                        Text("Kinderaccounts")
-                        
-                        Spacer()
-                        
-                        if childrenListViewModel.children.isEmpty {
-                            NavigationLink {
-                                NewChildView()
-                                    .environmentObject(profileViewModel)
-                                    .environmentObject(childProfileViewModel)
-                            } label: {
-                                Image(systemName: Strings.plusIcon)
-                                    .foregroundColor(.blue)
-                            }
-                        } else {
-                            Button {
-                                showChildrenList.toggle()
-                            } label: {
-                                Image(systemName: showChildrenList ? Strings.arrowDown : Strings.arrowRight)
-                                    .foregroundColor(.blue)
-                            }
+                    VStack {
+                        HStack {
+                            Text("Kinderaccounts")
                             
-                            if showChildrenList {
-                                ChildrenListView()
-                                    .environmentObject(childrenListViewModel)
+                            Spacer()
+                            
+                            if childrenListViewModel.children.isEmpty {
+                                NavigationLink {
+                                    NewChildView()
+                                        .environmentObject(profileViewModel)
+                                        .environmentObject(childProfileViewModel)
+                                } label: {
+                                    Image(systemName: Strings.plusIcon)
+                                        .foregroundColor(.blue)
+                                }
+                            } else {
+                                Button {
+                                    showChildrenList.toggle()
+                                } label: {
+                                    Image(systemName: showChildrenList ? Strings.arrowDown : Strings.arrowRight)
+                                        .foregroundColor(.blue)
+                                }
                             }
+                        }
+                        if showChildrenList {
+                            ChildrenListView()
+                                .environmentObject(childrenListViewModel)
+                                .environmentObject(childProfileViewModel)
+                                .multilineTextAlignment(.trailing)
                         }
                     }
                     .onAppear {

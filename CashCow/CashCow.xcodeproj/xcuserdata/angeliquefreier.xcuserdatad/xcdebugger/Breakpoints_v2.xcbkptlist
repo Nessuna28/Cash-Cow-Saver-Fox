@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "1307E49D-AD36-4118-BB34-4CDC7873BB49"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C50F3B92-6362-4C3C-8307-16D5EAB70D32"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CashCow/Views/Components/ChildrenListView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "C50F3B92-6362-4C3C-8307-16D5EAB70D32 - 2b8df8c835ae71c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;CashCow.FireChild&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.List&lt;Swift.Never, SwiftUI.ForEach&lt;Swift.Array&lt;CashCow.FireChild&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, SwiftUI.NavigationLink&lt;CashCow.TextButtonView, &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in CashCow.ChildrenListView.body.getter : some"
+                  moduleName = "CashCow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/angeliquefreier/Documents/Syntax/Swift%20Grundlagen/XCodeProjects/Abschlussprojekt/CashCow/CashCow/Views/Components/ChildrenListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "C50F3B92-6362-4C3C-8307-16D5EAB70D32 - cfddb3e6d134a8e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (CashCow.FireChild) -&gt; SwiftUI.NavigationLink&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;CashCow.FireChild&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.List&lt;Swift.Never, SwiftUI.ForEach&lt;Swift.Array&lt;CashCow.FireChild&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.NavigationLink&lt;SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;&gt;&gt;, SwiftUI.NavigationLink&lt;CashCow.TextButtonView, &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in CashCow.ChildrenListView.body.getter : some"
+                  moduleName = "CashCow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/angeliquefreier/Documents/Syntax/Swift%20Grundlagen/XCodeProjects/Abschlussprojekt/CashCow/CashCow/Views/Components/ChildrenListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "C50F3B92-6362-4C3C-8307-16D5EAB70D32 - b6bed19f9b419c39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;CashCow.FireChild&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Image, SwiftUI.Text, SwiftUI.Image, SwiftUI.Button&lt;SwiftUI.Image&gt;)&gt;&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.List&lt;Swift.Never, SwiftUI.ForEach&lt;Swift.Array&lt;CashCow.FireChild&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Image, SwiftUI.Text, SwiftUI.Image, SwiftUI.Button&lt;SwiftUI.Image&gt;)&gt;&gt;&gt;&gt;, SwiftUI.NavigationLink&lt;CashCow.TextButtonView, &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in CashCow.ChildrenListView.body.getter : some"
+                  moduleName = "CashCow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/angeliquefreier/Documents/Syntax/Swift%20Grundlagen/XCodeProjects/Abschlussprojekt/CashCow/CashCow/Views/Components/ChildrenListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "C50F3B92-6362-4C3C-8307-16D5EAB70D32 - 166c7a0bfb8930a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (CashCow.FireChild) -&gt; SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Image, SwiftUI.Text, SwiftUI.Image, SwiftUI.Button&lt;SwiftUI.Image&gt;)&gt;&gt; in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;CashCow.FireChild&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Image, SwiftUI.Text, SwiftUI.Image, SwiftUI.Button&lt;SwiftUI.Image&gt;)&gt;&gt;&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.List&lt;Swift.Never, SwiftUI.ForEach&lt;Swift.Array&lt;CashCow.FireChild&gt;, Swift.Optional&lt;Swift.String&gt;, SwiftUI.HStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Image, SwiftUI.Text, SwiftUI.Image, SwiftUI.Button&lt;SwiftUI.Image&gt;)&gt;&gt;&gt;&gt;, SwiftUI.NavigationLink&lt;CashCow.TextButtonView, &lt;&lt;opaque return type of SwiftUI.View.environmentObject&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Combine.ObservableObject&gt;(&#x3c4;_1_0) -&gt; some&gt;&gt;.0&gt;)&gt; in CashCow.ChildrenListView.body.getter : some"
+                  moduleName = "CashCow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/angeliquefreier/Documents/Syntax/Swift%20Grundlagen/XCodeProjects/Abschlussprojekt/CashCow/CashCow/Views/Components/ChildrenListView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

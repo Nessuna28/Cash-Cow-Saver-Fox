@@ -11,7 +11,7 @@ struct TabListForOverview: View {
     
     var body: some View {
         HStack {
-            Image(systemName: tab.icon)
+            tab.icon
             
             Text(tab.title)
             
@@ -29,5 +29,5 @@ struct TabListForOverview: View {
 }
 
 #Preview {
-    TabListForOverview(tab: .home)
+    TabListForOverview(tab: .comparison)
 }

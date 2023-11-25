@@ -52,4 +52,5 @@ struct Strings {
     static let cam = "camera.fill"
     static let plusIcon = "plus"
     static let trashIcon = "trash.fill"
+    static let SetUpFinances = "Lass uns beginnen deine Finanzen einzurichten"
 }

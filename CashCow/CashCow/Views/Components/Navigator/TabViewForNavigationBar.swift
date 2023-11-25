@@ -18,7 +18,7 @@ struct TabViewForNavigationBar: View {
     
     var body: some View {
         VStack {
-            Image(systemName: tab.icon)
+            tab.icon
                 .padding(.bottom, 2)
             
             Text(tab.title)

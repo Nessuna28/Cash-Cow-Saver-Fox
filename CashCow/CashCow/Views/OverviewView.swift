@@ -23,6 +23,11 @@ struct OverviewView: View {
                 NavigatorView()
                     .environmentObject(selectedTab)
                 
+                Text(Strings.SetUpFinances)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 50)
+                    .padding(.top, 10)
+                
                 ScrollView {
                     ForEach(Tab.allCases) { tab in
                         TabListForOverview(tab: tab)

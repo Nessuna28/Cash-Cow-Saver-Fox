@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "revenue.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

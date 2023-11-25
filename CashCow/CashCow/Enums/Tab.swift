@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Tab: String, Identifiable, CaseIterable {
     
@@ -28,18 +29,18 @@ enum Tab: String, Identifiable, CaseIterable {
         }
     }
     
-    var icon: String {
+    var icon: Image {
         switch self {
-        case .home: return "house.fill"
-        case .comparison: return ""
-        case .bankAccounts: return ""
-        case .revenue: return ""
-        case .expenditure: return ""
-        case .insurance: return ""
-        case .save: return ""
-        case .paidServices: return ""
-        case .orderAndDeliveryOverview: return ""
-        case .diagrams: return ""
+        case .home: return Image("house")
+        case .comparison: return Image("scale")
+        case .bankAccounts: return Image("bank")
+        case .revenue: return Image("revenue")
+        case .expenditure: return Image("expenditure")
+        case .insurance: return Image("shield")
+        case .save: return Image("piggybank")
+        case .paidServices: return Image("paidservice")
+        case .orderAndDeliveryOverview: return Image("delivery")
+        case .diagrams: return Image("chart")
         }
     }
     

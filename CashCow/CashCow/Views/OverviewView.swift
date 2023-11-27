@@ -14,11 +14,16 @@ struct OverviewView: View {
     @EnvironmentObject var selectedTab: TabViewModel
     @EnvironmentObject var profileViewModel: ProfileViewModel
     
+    @StateObject var authViewModel = AuthViewModel()
+    @StateObject var editViewModel = EditViewModel()
+    
     var body: some View {
         NavigationStack {
             VStack {
                 NavigationBar()
                     .environmentObject(profileViewModel)
+                    .environmentObject(editViewModel)
+                    .environmentObject(authViewModel)
                 
                 NavigatorView()
                     .environmentObject(selectedTab)
@@ -45,4 +50,5 @@ struct OverviewView: View {
     OverviewView()
         .environmentObject(ProfileViewModel())
         .environmentObject(TabViewModel())
+        .environmentObject(AuthViewModel())
 }

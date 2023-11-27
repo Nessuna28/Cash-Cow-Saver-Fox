@@ -18,7 +18,7 @@ struct ProfileImage: View {
                 .overlay(Circle().stroke(Color.white, lineWidth: 2))
                 .frame(width: 100, height: 100)
             
-            Image(systemName: Strings.cam)
+            Image(systemName: Strings.camIcon)
         }
         .frame(height: 100)
     }

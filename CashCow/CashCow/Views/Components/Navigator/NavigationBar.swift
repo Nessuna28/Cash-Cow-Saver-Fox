@@ -19,6 +19,8 @@ struct NavigationBar: View {
             HStack {
                 Spacer()
                 
+                Spacer()
+                
                 ProfileNameAndImage()
                     .environmentObject(profileViewModel)
                 
@@ -26,7 +28,7 @@ struct NavigationBar: View {
                 
                 AppIcon()
                 
-                SettingsButton()
+                EditButton()
             }
             .padding()
         }

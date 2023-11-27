@@ -18,11 +18,10 @@ struct SettingsButton: View {
         Button {
             showSettingsSheet.toggle()
         } label: {
-            Image(systemName: Strings.settingsImage)
+            Image(systemName: Strings.settingsIcon)
                 .font(.title2)
                 .padding(.leading)
         }
-        
     }
     
 }

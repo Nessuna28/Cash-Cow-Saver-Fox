@@ -44,6 +44,10 @@
 		91929ABD2B0D01B200C68AD2 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929ABC2B0D01B200C68AD2 /* SettingsButton.swift */; };
 		91929ABF2B0D0D3300C68AD2 /* DisplayForInputFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929ABE2B0D0D3300C68AD2 /* DisplayForInputFields.swift */; };
 		91929AC52B0D246300C68AD2 /* ChildAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91929AC42B0D246300C68AD2 /* ChildAccountView.swift */; };
+		9198079A2B148F21007D5507 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919807992B148F21007D5507 /* EditButton.swift */; };
+		9198079C2B14BB9C007D5507 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198079B2B14BB9C007D5507 /* EditView.swift */; };
+		9198079E2B14BD7E007D5507 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198079D2B14BD7E007D5507 /* EditViewModel.swift */; };
+		919807A02B14EFB6007D5507 /* DisplayForEditFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198079F2B14EFB6007D5507 /* DisplayForEditFields.swift */; };
 		91D9DF662B0773D000514AF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91D9DF652B0773D000514AF8 /* GoogleService-Info.plist */; };
 		91D9DF6A2B07798B00514AF8 /* FireSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9DF692B07798B00514AF8 /* FireSettings.swift */; };
 		91D9DF6C2B07859D00514AF8 /* PrimaryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */; };
@@ -109,6 +113,10 @@
 		91929ABC2B0D01B200C68AD2 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		91929ABE2B0D0D3300C68AD2 /* DisplayForInputFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayForInputFields.swift; sourceTree = "<group>"; };
 		91929AC42B0D246300C68AD2 /* ChildAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildAccountView.swift; sourceTree = "<group>"; };
+		919807992B148F21007D5507 /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
+		9198079B2B14BB9C007D5507 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		9198079D2B14BD7E007D5507 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
+		9198079F2B14EFB6007D5507 /* DisplayForEditFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayForEditFields.swift; sourceTree = "<group>"; };
 		91D9DF652B0773D000514AF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91D9DF692B07798B00514AF8 /* FireSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireSettings.swift; sourceTree = "<group>"; };
 		91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonView.swift; sourceTree = "<group>"; };
@@ -171,7 +179,9 @@
 		914F314B2B10A559004B2513 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				91D9DF7F2B07C7A600514AF8 /* AppIcon.swift */,
 				9111F6A92B0E4ABC00D66A55 /* ProfileImage.swift */,
+				91929ABA2B0CFFD700C68AD2 /* ProfileNameAndImage.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -295,6 +305,7 @@
 				91929AB42B0CE89D00C68AD2 /* TabViewModel.swift */,
 				914F31412B0EADCF004B2513 /* ChildProfileViewModel.swift */,
 				914F31432B0EC8AC004B2513 /* ChildrenListViewModel.swift */,
+				9198079D2B14BD7E007D5507 /* EditViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -308,6 +319,7 @@
 				91929AB82B0CFB1600C68AD2 /* ProfileView.swift */,
 				914F31492B0F9AEA004B2513 /* NewChildView.swift */,
 				91929AC42B0D246300C68AD2 /* ChildAccountView.swift */,
+				9198079B2B14BB9C007D5507 /* EditView.swift */,
 				91FD32242B0E206400018074 /* Picker */,
 				91D9DF6D2B0788B600514AF8 /* Onboarding */,
 				91F2B7142B0661A900FA3AC3 /* Components */,
@@ -341,9 +353,8 @@
 				91FD32252B0E208D00018074 /* Buttons */,
 				91FD32232B0E201900018074 /* OnboardingComponents */,
 				914F31512B10B9BD004B2513 /* Navigator */,
-				91D9DF7F2B07C7A600514AF8 /* AppIcon.swift */,
-				91929ABA2B0CFFD700C68AD2 /* ProfileNameAndImage.swift */,
 				91929ABE2B0D0D3300C68AD2 /* DisplayForInputFields.swift */,
+				9198079F2B14EFB6007D5507 /* DisplayForEditFields.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -377,6 +388,7 @@
 				91F2B7152B0661C300FA3AC3 /* TextButtonView.swift */,
 				91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */,
 				91FD321D2B0D38A600018074 /* SecondaryButtonView.swift */,
+				919807992B148F21007D5507 /* EditButton.swift */,
 				91929ABC2B0D01B200C68AD2 /* SettingsButton.swift */,
 				9111F6AD2B0E5AF800D66A55 /* ButtonsForProfile.swift */,
 			);
@@ -546,6 +558,8 @@
 				91D9DF762B0798F900514AF8 /* Strings.swift in Sources */,
 				91929AAD2B0B929E00C68AD2 /* ProfileViewModel.swift in Sources */,
 				91F2B70F2B065C2F00FA3AC3 /* FireUser.swift in Sources */,
+				9198079A2B148F21007D5507 /* EditButton.swift in Sources */,
+				9198079E2B14BD7E007D5507 /* EditViewModel.swift in Sources */,
 				91FD321E2B0D38A600018074 /* SecondaryButtonView.swift in Sources */,
 				91D9DF7A2B07B39800514AF8 /* CashCowAnimation.swift in Sources */,
 				91D9DF7C2B07BAA000514AF8 /* LoginView.swift in Sources */,
@@ -555,10 +569,12 @@
 				91929AA52B09754300C68AD2 /* AuthenticationMode.swift in Sources */,
 				91D9DF8C2B080ABE00514AF8 /* OnboardingView4.swift in Sources */,
 				91D9DF8A2B08062B00514AF8 /* SelectionChoiceOption.swift in Sources */,
+				9198079C2B14BB9C007D5507 /* EditView.swift in Sources */,
 				914F31442B0EC8AC004B2513 /* ChildrenListViewModel.swift in Sources */,
 				91D9DF842B07D6B500514AF8 /* SelectionChildButton.swift in Sources */,
 				91929ABB2B0CFFD700C68AD2 /* ProfileNameAndImage.swift in Sources */,
 				91D9DF732B078A0600514AF8 /* TitleWithAnimation.swift in Sources */,
+				919807A02B14EFB6007D5507 /* DisplayForEditFields.swift in Sources */,
 				91FD32202B0D428900018074 /* NumberPickerView.swift in Sources */,
 				91F2B7112B065DBB00FA3AC3 /* FireChild.swift in Sources */,
 				9111F6AC2B0E544A00D66A55 /* ImagePicker.swift in Sources */,

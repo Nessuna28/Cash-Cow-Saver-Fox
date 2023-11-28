@@ -45,7 +45,7 @@ class ChildrenListViewModel: ObservableObject {
     }
     
     
-    private func removeListener() {
+    func removeListener() {
         
         children.removeAll()
         listener?.remove()

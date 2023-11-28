@@ -9,14 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     
-    // MARK: - Variables
-    
-    @EnvironmentObject var tabViewModel: TabViewModel
-    @EnvironmentObject var profileViewModel: ProfileViewModel
-    @EnvironmentObject var authViewModel: AuthViewModel
-    
-    @StateObject var editViewModel = EditViewModel()
-    
     var body: some View {
         NavigationStack {
             VStack {
@@ -24,6 +16,7 @@ struct HomeView: View {
                     .environmentObject(profileViewModel)
                     .environmentObject(editViewModel)
                     .environmentObject(authViewModel)
+                    .environmentObject(childrenListViewModel)
                 
                 NavigatorView()
                     .environmentObject(tabViewModel)
@@ -42,6 +35,7 @@ struct HomeView: View {
                         
                         VStack(alignment: .trailing) {
                             EditView(isShowSheet: $editViewModel.showProcessingSheet.animation())
+                                .environmentObject(settingsViewModel)
                             
                             Spacer()
                         }
@@ -51,6 +45,17 @@ struct HomeView: View {
         }
     }
     
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var tabViewModel: TabViewModel
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
+    @StateObject var childrenListViewModel = ChildrenListViewModel()
+    @StateObject var editViewModel = EditViewModel()
+    @StateObject var settingsViewModel = SettingsViewModel()
+    
 }
 
 #Preview {
@@ -58,4 +63,6 @@ struct HomeView: View {
         .environmentObject(ProfileViewModel())
         .environmentObject(TabViewModel())
         .environmentObject(AuthViewModel())
+        .environmentObject(ChildrenListViewModel())
+        .environmentObject(SettingsViewModel())
 }

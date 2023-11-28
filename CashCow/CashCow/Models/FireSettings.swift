@@ -6,8 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct FireSettings: Codable {
+struct FireSettings {
     
-    
+    let userId: String
+    var backgroundColor: Color
+    var textColor: Color
+    var userFontSize: String
+    var isDarkModeEnabled: Bool
 }

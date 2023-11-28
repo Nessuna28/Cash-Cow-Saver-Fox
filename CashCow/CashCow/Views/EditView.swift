@@ -39,25 +39,31 @@ struct EditView: View {
     @Binding var isShowSheet: Bool
     
     @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
     
     
     // MARK: - Functions
     
     private func showDesignSheet() {
         
+        settingsViewModel.showDesignSettings.toggle()
     }
     
     private func showNotificationSheet() {
-        
+       
+        settingsViewModel.showNotificationSettings.toggle()
     }
     
     private func showCategoriesSheet() {
         
+        settingsViewModel.showCategoriesSettings.toggle()
     }
     
     private func logout() {
         
         authViewModel.logoutUser()
+        childrenListViewModel.removeListener()
     }
     
     
@@ -67,4 +73,6 @@ struct EditView: View {
 #Preview {
     EditView(isShowSheet: .constant(false))
         .environmentObject(AuthViewModel())
+        .environmentObject(ChildrenListViewModel())
+        .environmentObject(SettingsViewModel())
 }

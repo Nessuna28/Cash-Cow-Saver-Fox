@@ -90,8 +90,9 @@ struct ProfileView: View {
     // MARK: - Variables
     
     @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
+    
     @StateObject var childProfileViewModel = ChildProfileViewModel()
-    @StateObject var childrenListViewModel = ChildrenListViewModel()
     
     @State private var authManager = AuthManager.shared
     

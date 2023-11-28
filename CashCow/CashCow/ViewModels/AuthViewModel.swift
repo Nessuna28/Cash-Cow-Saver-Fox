@@ -55,7 +55,7 @@ class AuthViewModel: ObservableObject {
         authManager.loginUser(email: email, password: password) { user in
             guard let user else { return }
             
-            self.user = user
+            //self.user = user
         }
     }
     
@@ -65,7 +65,7 @@ class AuthViewModel: ObservableObject {
         authManager.registerUser(email: email, password: password, repeatedPassword: repeatedPassword) { user in
             guard let user else { return }
             
-            self.user = user
+            //self.user = user
             
             ProfileRepository.createUser(with: user.uid, email: email, firstName: Strings.guest)
             

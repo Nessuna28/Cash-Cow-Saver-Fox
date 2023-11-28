@@ -48,6 +48,7 @@
 		9198079C2B14BB9C007D5507 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198079B2B14BB9C007D5507 /* EditView.swift */; };
 		9198079E2B14BD7E007D5507 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198079D2B14BD7E007D5507 /* EditViewModel.swift */; };
 		919807A02B14EFB6007D5507 /* DisplayForEditFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198079F2B14EFB6007D5507 /* DisplayForEditFields.swift */; };
+		919807A22B15EECF007D5507 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919807A12B15EECF007D5507 /* HomeView.swift */; };
 		91D9DF662B0773D000514AF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91D9DF652B0773D000514AF8 /* GoogleService-Info.plist */; };
 		91D9DF6A2B07798B00514AF8 /* FireSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9DF692B07798B00514AF8 /* FireSettings.swift */; };
 		91D9DF6C2B07859D00514AF8 /* PrimaryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */; };
@@ -117,6 +118,7 @@
 		9198079B2B14BB9C007D5507 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		9198079D2B14BD7E007D5507 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
 		9198079F2B14EFB6007D5507 /* DisplayForEditFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayForEditFields.swift; sourceTree = "<group>"; };
+		919807A12B15EECF007D5507 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		91D9DF652B0773D000514AF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91D9DF692B07798B00514AF8 /* FireSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireSettings.swift; sourceTree = "<group>"; };
 		91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonView.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			children = (
 				91D9DF922B094EEB00514AF8 /* AuthenticationView.swift */,
 				91D9DF7B2B07BAA000514AF8 /* LoginView.swift */,
+				919807A12B15EECF007D5507 /* HomeView.swift */,
 				91929AA62B097E3C00C68AD2 /* OverviewView.swift */,
 				91929AB82B0CFB1600C68AD2 /* ProfileView.swift */,
 				914F31492B0F9AEA004B2513 /* NewChildView.swift */,
@@ -554,6 +557,7 @@
 				91D9DF6C2B07859D00514AF8 /* PrimaryButtonView.swift in Sources */,
 				91929AA72B097E3C00C68AD2 /* OverviewView.swift in Sources */,
 				91F2B7162B0661C300FA3AC3 /* TextButtonView.swift in Sources */,
+				919807A22B15EECF007D5507 /* HomeView.swift in Sources */,
 				91929AB32B0CD6D000C68AD2 /* TabViewForNavigationBar.swift in Sources */,
 				91D9DF762B0798F900514AF8 /* Strings.swift in Sources */,
 				91929AAD2B0B929E00C68AD2 /* ProfileViewModel.swift in Sources */,

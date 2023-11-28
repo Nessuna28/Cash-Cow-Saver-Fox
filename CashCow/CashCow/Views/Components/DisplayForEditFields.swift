@@ -11,8 +11,6 @@ struct DisplayForEditFields: View {
     
     var body: some View {
         HStack {
-            Spacer()
-            
             Image(systemName: icon)
                 .padding(5)
                 .background(Colors.primaryColor)

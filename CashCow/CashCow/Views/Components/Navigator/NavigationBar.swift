@@ -39,4 +39,5 @@ struct NavigationBar: View {
 #Preview {
     NavigationBar()
         .environmentObject(ProfileViewModel())
+        .environmentObject(EditViewModel())
 }

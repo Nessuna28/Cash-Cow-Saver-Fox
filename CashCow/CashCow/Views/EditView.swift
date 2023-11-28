@@ -10,14 +10,10 @@ import SwiftUI
 struct EditView: View {
     
     var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                Spacer()
-                
-                Button(Strings.leave) {
-                    withAnimation {
-                        isShowSheet.toggle()
-                    }
+        VStack(alignment: .trailing, spacing: 20) {
+            Button(Strings.leave) {
+                withAnimation {
+                    isShowSheet.toggle()
                 }
             }
             .padding(.bottom, 15)

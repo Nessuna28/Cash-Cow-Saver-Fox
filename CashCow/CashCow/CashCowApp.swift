@@ -28,7 +28,7 @@ struct CashCowApp: App {
     var body: some Scene {
         WindowGroup {
             if authViewModel.userIsLoggedIn {
-                OverviewView()
+                HomeView()
                     .environmentObject(selectedTab)
                     .environmentObject(authViewModel)
                     .environmentObject(profileViewModel)

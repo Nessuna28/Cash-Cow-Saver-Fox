@@ -25,11 +25,6 @@ struct EditButton: View {
                 .padding(.leading)
                 .opacity(editViewModel.showProcessingSheet ? 0 : 1)
         }
-        
-        if editViewModel.showProcessingSheet {
-            EditView(isShowSheet: $editViewModel.showProcessingSheet.animation())
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }
     }
     
 }

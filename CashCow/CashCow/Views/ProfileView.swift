@@ -26,15 +26,15 @@ struct ProfileView: View {
                     .padding(.bottom, 60)
                 
                 VStack(spacing: 20) {
-                    DisplayForInputFields(title: "Nachname", input: $lastName)
+                    DisplayForInputFields(title: Strings.lastName, input: $lastName)
                     
-                    DisplayForInputFields(title: "Vorname", input: $firstName)
+                    DisplayForInputFields(title: Strings.firstName, input: $firstName)
                     
-                    DatePicker("Geburtstag", selection: $birthday, displayedComponents: .date)
+                    DatePicker(Strings.birthday, selection: $birthday, displayedComponents: .date)
                     
                     Divider()
                     
-                    DisplayForInputFields(title: "Wohnort", input: $domicile)
+                    DisplayForInputFields(title: Strings.domicile, input: $domicile)
                     
                     NumberPickerView(children: $children)
                     
@@ -42,7 +42,7 @@ struct ProfileView: View {
                     
                     VStack {
                         HStack {
-                            Text("Kinderaccounts")
+                            Text(Strings.childrenAccounts)
                             
                             Spacer()
                             
@@ -82,7 +82,7 @@ struct ProfileView: View {
             
             ButtonsForProfile(action: updateProfile)
         }
-        .navigationTitle("Profil")
+        .navigationTitle(Strings.profile)
         .padding(.horizontal)
     }
     

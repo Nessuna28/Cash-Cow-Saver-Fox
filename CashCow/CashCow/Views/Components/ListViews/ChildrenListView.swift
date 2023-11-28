@@ -18,7 +18,7 @@ struct ChildrenListView: View {
                     Spacer()
                     
                     HStack(spacing: 20) {
-                        Image(systemName: Strings.profileImageSystem)
+                        Image(systemName: Strings.profileIconSystem)
                         
                         Text(child.loginName)
                        

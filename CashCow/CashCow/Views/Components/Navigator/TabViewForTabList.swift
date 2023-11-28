@@ -13,7 +13,7 @@ struct TabViewForTabList: View {
     
     var body: some View {
         HStack {
-            Image(systemName: tab.icon)
+            tab.icon
             
             Text(tab.title)
         }

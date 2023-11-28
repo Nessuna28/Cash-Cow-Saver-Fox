@@ -58,10 +58,11 @@ class AuthManager {
     }
     
     
-    func logoutUser() {
+    func logoutUser(completion: @escaping (User?) -> Void) {
         
         do {
             try auth.signOut()
+            completion(auth.currentUser)
         } catch {
             print("Error signing out: ", error)
         }

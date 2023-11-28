@@ -9,24 +9,15 @@ import SwiftUI
 
 struct OverviewView: View {
     
-    // MARK: - Variables
-    
-    @EnvironmentObject var selectedTab: TabViewModel
-    @EnvironmentObject var profileViewModel: ProfileViewModel
-    
     var body: some View {
         NavigationStack {
-            VStack {
-                NavigationBar()
-                    .environmentObject(profileViewModel)
-                
-                NavigatorView()
-                    .environmentObject(selectedTab)
-                
-                Image("elefant")
-                    .resizable()
-                    .imageSmallAndRound()
+            ScrollView {
+                ForEach(Tab.allCases) { tab in
+                    TabListForOverview(tab: tab)
+                }
+                .padding(.top,50)
             }
+            .padding(.horizontal)
         }
     }
     
@@ -36,4 +27,5 @@ struct OverviewView: View {
     OverviewView()
         .environmentObject(ProfileViewModel())
         .environmentObject(TabViewModel())
+        .environmentObject(AuthViewModel())
 }

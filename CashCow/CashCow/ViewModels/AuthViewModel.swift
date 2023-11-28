@@ -65,8 +65,6 @@ class AuthViewModel: ObservableObject {
         authManager.registerUser(email: email, password: password, repeatedPassword: repeatedPassword) { user in
             guard let user else { return }
             
-            self.user = user
-            
             ProfileRepository.createUser(with: user.uid, email: email, firstName: Strings.guest)
             
             self.loginUser(email: email, password: password)
@@ -76,7 +74,9 @@ class AuthViewModel: ObservableObject {
     
     func logoutUser() {
         
-        authManager.logoutUser()
+        authManager.logoutUser() { user in
+            self.user = user
+        }
     }
     
 }

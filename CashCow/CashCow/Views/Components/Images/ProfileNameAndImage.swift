@@ -26,7 +26,7 @@ struct ProfileNameAndImage: View {
                     .foregroundColor(Colors.primaryColor)
                     .padding(.trailing, 5)
                 
-                Image(systemName: Strings.profileImageSystem)
+                Image(systemName: Strings.profileIconSystem)
                     .font(.title2)
             }
         }

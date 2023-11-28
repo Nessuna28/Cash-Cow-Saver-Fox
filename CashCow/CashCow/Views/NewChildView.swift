@@ -20,16 +20,16 @@ struct NewChildView: View {
                 VStack(spacing: 20) {
                     
                     
-                    DisplayForInputFields(title: "Nachname", input: $lastName)
+                    DisplayForInputFields(title: Strings.lastName, input: $lastName)
                     
-                    DisplayForInputFields(title: "Vorname", input: $firstName)
+                    DisplayForInputFields(title: Strings.firstName, input: $firstName)
                     
-                    DatePicker("Geburtstag", selection: $birthday, displayedComponents: .date)
+                    DatePicker(Strings.birthday, selection: $birthday, displayedComponents: .date)
                     
                     Divider()
                         .padding(.bottom, 40)
                     
-                    DisplayForInputFields(title: "Anmeldename", input: $loginName)
+                    DisplayForInputFields(title: Strings.loginName, input: $loginName)
                     
                     ImagePicker(loginImage: $loginImage)
                     
@@ -39,7 +39,7 @@ struct NewChildView: View {
             
             ButtonsForProfile(action: createChild)
         }
-        .navigationTitle("neuer Kinderaccount")
+        .navigationTitle(Strings.newChildAccount)
         .padding(.horizontal)
     }
     

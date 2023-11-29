@@ -34,5 +34,5 @@ struct SecondaryButtonView: View {
 }
 
 #Preview {
-    SecondaryButtonView(title: "Abbrechen")
+    SecondaryButtonView(title: Strings.cancel)
 }

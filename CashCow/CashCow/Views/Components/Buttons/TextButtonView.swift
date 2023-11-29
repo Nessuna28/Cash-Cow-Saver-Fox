@@ -24,5 +24,5 @@ struct TextButtonView: View {
 }
 
 #Preview {
-    TextButtonView(title: "Anmelden")
+    TextButtonView(title: Strings.login)
 }

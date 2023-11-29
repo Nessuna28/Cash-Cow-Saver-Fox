@@ -12,8 +12,8 @@ struct OverviewView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                ForEach(Tab.allCases) { tab in
-                    TabListForOverview(tab: tab)
+                ForEach(ChoiceOption.allCases) { choiceOption in
+                    ChoiceOptionListForOverview(choiceOption: choiceOption)
                 }
                 .padding(.top,50)
             }

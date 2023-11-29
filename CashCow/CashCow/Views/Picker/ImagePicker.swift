@@ -11,11 +11,11 @@ struct ImagePicker: View {
     
     var body: some View {
         HStack {
-            Text("Anmeldebild")
+            Text(Strings.loginImage)
             
             Spacer()
             
-            Picker("Anmeldebild", selection: $loginImage) {
+            Picker("", selection: $loginImage) {
                 ForEach(images, id: \.self) { image in
                     Image(image)
                         .resizable()

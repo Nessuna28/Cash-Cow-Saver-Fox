@@ -7,27 +7,27 @@
 
 import SwiftUI
 
-struct TabListForOverview: View {
+struct ChoiceOptionListForOverview: View {
     
     var body: some View {
         HStack {
-            tab.icon
+            choiceOption.icon
             
-            Text(tab.title)
+            Text(choiceOption.title)
             
             Spacer()
             
             Image(systemName: Strings.plusIcon)
         }
-        .padding(.bottom, 20)
+        .padding(.bottom, 40)
     }
     
     // MARK: - Variables
     
-    let tab: Tab
+    let choiceOption: ChoiceOption
     
 }
 
 #Preview {
-    TabListForOverview(tab: .comparison)
+    ChoiceOptionListForOverview(choiceOption: .bankAccounts)
 }

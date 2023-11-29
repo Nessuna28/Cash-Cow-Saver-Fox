@@ -14,7 +14,7 @@ struct ButtonsForProfile: View {
             Button {
                 dismiss()
             } label: {
-                PrimaryButtonView(title: "Abbrechen")
+                PrimaryButtonView(title: Strings.cancel)
             }
             
             Spacer()
@@ -23,7 +23,7 @@ struct ButtonsForProfile: View {
                 action()
                 dismiss()
             } label: {
-                PrimaryButtonView(title: "Speichern")
+                PrimaryButtonView(title: Strings.save)
             }
         }
         .padding(.vertical, 30)

@@ -13,8 +13,8 @@ enum AuthenticationMode {
     
     var title: String {
         switch self {
-        case .login: return "Anmelden"
-        case .register: return "Registrieren"
+        case .login: return Strings.login
+        case .register: return Strings.register
         }
     }
 }

@@ -11,14 +11,14 @@ struct SelectionChoiceOption: View {
     
     // MARK: - Variables
     
-    let image: String
+    let image: Image
     let title: String
     
     @State private var isChecked = false
     
     var body: some View {
         HStack {
-            Image(systemName: image)
+            image
                 .font(.title2)
                 .padding(8)
                 .background(Colors.primaryColor)
@@ -31,7 +31,7 @@ struct SelectionChoiceOption: View {
             Button(action: {
                         isChecked.toggle()
                     }) {
-                        Image(systemName: isChecked ? "checkmark.square.fill" : "square")
+                        Image(systemName: isChecked ? Strings.checkmarkFill : Strings.checkmarkEmpty)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 20, height: 20)
@@ -49,5 +49,5 @@ struct SelectionChoiceOption: View {
 }
 
 #Preview {
-    SelectionChoiceOption(image: "building.columns.fill", title: "Konten")
+    SelectionChoiceOption(image: Image(Strings.bankIcon), title: Strings.bankAccounts)
 }

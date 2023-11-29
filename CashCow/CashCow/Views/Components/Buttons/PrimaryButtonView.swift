@@ -27,5 +27,5 @@ struct PrimaryButtonView: View {
 }
 
 #Preview {
-    PrimaryButtonView(title: "Los geht´s")
+    PrimaryButtonView(title: Strings.letsGo)
 }

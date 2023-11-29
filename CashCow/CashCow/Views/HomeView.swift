@@ -21,7 +21,7 @@ struct HomeView: View {
                 NavigatorView()
                     .environmentObject(tabViewModel)
                 
-                Text(Strings.SetUpFinances)
+                Text(Strings.setUpFinances)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 50)
                     .padding(.top, 10)

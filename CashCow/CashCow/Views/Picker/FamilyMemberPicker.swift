@@ -11,7 +11,7 @@ struct FamilyMemberPicker: View {
     
     var body: some View {
         HStack {
-            Text("Familienmitglied")
+            Text(Strings.familyMember)
             
             Picker("", selection: $familyMember) {
                 ForEach(members, id: \.self) { member in
@@ -25,12 +25,12 @@ struct FamilyMemberPicker: View {
     
     // MARK: - Variables
     
-    @State private var members = ["keine Angabe", "Sohn", "Tochter"]
+    @State private var members = [Strings.notSpecified, Strings.son, Strings.daughter]
     
     @Binding var familyMember: String
     
 }
 
 #Preview {
-    FamilyMemberPicker(familyMember: .constant("Sohn"))
+    FamilyMemberPicker(familyMember: .constant(Strings.son))
 }

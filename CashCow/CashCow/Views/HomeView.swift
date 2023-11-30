@@ -12,49 +12,37 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                NavigationBar()
-                    .environmentObject(profileViewModel)
-                    .environmentObject(editViewModel)
-                    .environmentObject(authViewModel)
-                    .environmentObject(childrenListViewModel)
-                    .environmentObject(settingsViewModel)
-                
-                NavigatorView()
-                    .environmentObject(tabViewModel)
+                HStack {
+                    Spacer()
+                    
+                    ProfileNameAndImage()
+                        .environmentObject(profileViewModel)
+                        .environmentObject(childrenListViewModel)
+                    
+                    Spacer()
+                    
+                    AppIcon()
+                }
                 
                 Text(Strings.setUpFinances)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 50)
-                    .padding(.top, 10)
+                    .padding(.top, 30)
                 
-                OverviewView()
+                NavigatorView()
+                    .environmentObject(settingsViewModel)
             }
-            .overlay {
-                if editViewModel.showProcessingSheet {
-                    HStack {
-                        Spacer()
-                        
-                        VStack(alignment: .trailing) {
-                            EditView(isShowSheet: $editViewModel.showProcessingSheet.animation())
-                                .environmentObject(childrenListViewModel)
-                            
-                            Spacer()
-                        }
-                    }
-                }
-            }
+            .padding(.horizontal)
         }
     }
     
     
     // MARK: - Variables
     
-    @EnvironmentObject var tabViewModel: TabViewModel
     @EnvironmentObject var profileViewModel: ProfileViewModel
     @EnvironmentObject var authViewModel: AuthViewModel
     
     @StateObject var childrenListViewModel = ChildrenListViewModel()
-    @StateObject var editViewModel = EditViewModel()
     @StateObject var settingsViewModel = SettingsViewModel()
     
 }
@@ -62,7 +50,6 @@ struct HomeView: View {
 #Preview {
     HomeView()
         .environmentObject(ProfileViewModel())
-        .environmentObject(TabViewModel())
         .environmentObject(AuthViewModel())
         .environmentObject(ChildrenListViewModel())
         .environmentObject(SettingsViewModel())

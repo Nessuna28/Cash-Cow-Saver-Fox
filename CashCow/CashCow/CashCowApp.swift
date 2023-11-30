@@ -18,18 +18,14 @@ struct CashCowApp: App {
     
     // MARK: - Variables
     
-    @AppStorage("onboarding") private var onboarding = false
-    
     @StateObject private var authViewModel = AuthViewModel()
     @StateObject private var profileViewModel = ProfileViewModel()
-    @StateObject private var selectedTab = TabViewModel()
     
     
     var body: some Scene {
         WindowGroup {
             if authViewModel.userIsLoggedIn {
                 HomeView()
-                    .environmentObject(selectedTab)
                     .environmentObject(authViewModel)
                     .environmentObject(profileViewModel)
             } else {

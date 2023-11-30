@@ -10,7 +10,7 @@ import SwiftUI
 
 enum Tab: String, Identifiable, CaseIterable {
     
-    case home, comparison, finance, bankAccounts, insurance, saving, paidServices, orderAndDeliveryOverview, diagrams
+    case home, comparison, finance, diagrams, settings
     
     var id: String { rawValue }
     
@@ -19,12 +19,8 @@ enum Tab: String, Identifiable, CaseIterable {
         case .home: return Strings.home
         case .comparison: return Strings.comparison
         case .finance: return Strings.finance
-        case .bankAccounts: return Strings.bankAccounts
-        case .insurance: return Strings.insurance
-        case .saving: return Strings.saving
-        case .paidServices: return Strings.paidServices
-        case .orderAndDeliveryOverview: return Strings.orderAndDeliveryOverview
         case .diagrams: return Strings.diagrams
+        case .settings: return Strings.settings
         }
     }
     
@@ -33,12 +29,18 @@ enum Tab: String, Identifiable, CaseIterable {
         case .home: return Image(Strings.homeIcon)
         case .comparison: return Image(Strings.scaleIcon)
         case .finance: return Image(Strings.financeIcon)
-        case .bankAccounts: return Image(Strings.bankIcon)
-        case .insurance: return Image(Strings.shieldIcon)
-        case .saving: return Image(Strings.savingIcon)
-        case .paidServices: return Image(Strings.paidServicesIcon)
-        case .orderAndDeliveryOverview: return Image(Strings.deliveryIcon)
         case .diagrams: return Image(Strings.diagramIcon)
+        case .settings: return Image(Strings.settingsIcon)
+        }
+    }
+    
+    var view: AnyView {
+        switch self {
+        case .home: return AnyView(OverviewView())
+        case .comparison: return AnyView(ComparisonView())
+        case .finance: return AnyView(FinanceView())
+        case .diagrams: return AnyView(DiagramsView())
+        case .settings: return AnyView(SettingsView())
         }
     }
     

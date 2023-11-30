@@ -17,7 +17,6 @@ struct OverviewView: View {
                 }
                 .padding(.top, 50)
             }
-            .padding(.horizontal)
         }
     }
     
@@ -25,7 +24,4 @@ struct OverviewView: View {
 
 #Preview {
     OverviewView()
-        .environmentObject(ProfileViewModel())
-        .environmentObject(TabViewModel())
-        .environmentObject(AuthViewModel())
 }

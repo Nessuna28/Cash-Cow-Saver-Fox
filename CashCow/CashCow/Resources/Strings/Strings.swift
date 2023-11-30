@@ -105,7 +105,6 @@ struct Strings {
     static let arrowRight = "chevron.right"
     static let arrowLeft = "chevron.left"
     static let arrowDown = "chevron.down"
-    static let settingsIcon = "gearshape.fill"
     static let editIcon = "ellipsis.circle"
     static let camIcon = "camera.fill"
     static let plusIcon = "plus"
@@ -119,6 +118,7 @@ struct Strings {
     static let checkmarkFill = "checkmark.square.fill"
     static let checkmarkEmpty = "square"
     
+    // aus Assets
     static let homeIcon = "house"
     static let scaleIcon = "scale"
     static let bankIcon = "bank"
@@ -131,6 +131,7 @@ struct Strings {
     static let deliveryIcon = "delivery"
     static let diagramIcon = "chart"
     static let creditCardIcon = "creditcard"
+    static let settingsIcon = "settings"
     
     
     // MARK: - IconTexts

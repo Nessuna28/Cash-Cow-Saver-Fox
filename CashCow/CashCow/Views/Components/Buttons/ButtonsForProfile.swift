@@ -38,5 +38,5 @@ struct ButtonsForProfile: View {
 }
 
 #Preview {
-    ButtonsForProfile() { }
+    ButtonsForProfile { }
 }

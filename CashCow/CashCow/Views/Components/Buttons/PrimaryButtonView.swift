@@ -20,7 +20,7 @@ struct PrimaryButtonView: View {
             .font(.headline)
             .padding(.vertical, 10)
             .padding(.horizontal, 20)
-            .background(Colors.primaryColor)
+            .background(Colors.primaryGreen)
             .cornerRadius(20)
     }
     

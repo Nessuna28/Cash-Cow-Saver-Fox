@@ -15,7 +15,7 @@ struct OverviewView: View {
                 ForEach(ChoiceOption.allCases) { choiceOption in
                     ChoiceOptionListForOverview(choiceOption: choiceOption)
                 }
-                .padding(.top,50)
+                .padding(.top, 50)
             }
             .padding(.horizontal)
         }

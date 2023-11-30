@@ -21,7 +21,7 @@ struct NumberPickerView: View {
                 }
             }
             .pickerStyle(.automatic)
-            .foregroundStyle(Colors.primaryColor)
+            .foregroundStyle(Colors.primaryGreen)
         }
     }
     

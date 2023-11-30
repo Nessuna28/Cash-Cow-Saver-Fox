@@ -28,7 +28,7 @@ struct NavigatorView: View {
                 .foregroundColor(Colors.textColorOnS)
             }
         }
-        .background(Colors.secondaryColor)
+        .background(Colors.secondaryGray)
     }
     
     

@@ -39,4 +39,3 @@ struct CashCowApp: App {
         }
     }
 }
-

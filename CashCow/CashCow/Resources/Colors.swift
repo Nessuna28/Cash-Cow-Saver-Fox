@@ -9,8 +9,8 @@ import SwiftUI
 
 struct Colors {
     
-    static let primaryColor = Color("PrimaryColor")
-    static let secondaryColor = Color("SecondaryColor")
+    static let primaryGreen = Color("PrimaryGreen")
+    static let secondaryGray = Color("SecondaryGray")
     static let textColorOnP = Color("TextColorOnPrimary")
     static let textColorOnS = Color("TextColorOnSecondary")
     static let backgroundOnboarding = Color("BackgroundOnboarding")

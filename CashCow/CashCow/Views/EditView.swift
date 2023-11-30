@@ -46,7 +46,6 @@ struct EditView: View {
     // MARK: - Functions
     
     private func showDesignSheet() {
-        
         settingsViewModel.showDesignSettings.toggle()
     }
     
@@ -61,7 +60,6 @@ struct EditView: View {
     }
     
     private func logout() {
-        
         authViewModel.logoutUser()
         childrenListViewModel.removeListener()
     }

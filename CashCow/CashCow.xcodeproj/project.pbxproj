@@ -51,6 +51,7 @@
 		919807A22B15EECF007D5507 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919807A12B15EECF007D5507 /* HomeView.swift */; };
 		919807A42B16207D007D5507 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919807A32B16207D007D5507 /* SettingsViewModel.swift */; };
 		919807A82B173C2A007D5507 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 919807AA2B173C2A007D5507 /* Localizable.strings */; };
+		919807AE2B1877DB007D5507 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919807AD2B1877DB007D5507 /* SettingsView.swift */; };
 		91D9DF662B0773D000514AF8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91D9DF652B0773D000514AF8 /* GoogleService-Info.plist */; };
 		91D9DF6A2B07798B00514AF8 /* FireSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9DF692B07798B00514AF8 /* FireSettings.swift */; };
 		91D9DF6C2B07859D00514AF8 /* PrimaryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */; };
@@ -124,6 +125,7 @@
 		919807A32B16207D007D5507 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		919807A92B173C2A007D5507 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		919807AC2B174650007D5507 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		919807AD2B1877DB007D5507 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		91D9DF652B0773D000514AF8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91D9DF692B07798B00514AF8 /* FireSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireSettings.swift; sourceTree = "<group>"; };
 		91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonView.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				914F31492B0F9AEA004B2513 /* NewChildView.swift */,
 				91929AC42B0D246300C68AD2 /* ChildAccountView.swift */,
 				9198079B2B14BB9C007D5507 /* EditView.swift */,
+				919807AD2B1877DB007D5507 /* SettingsView.swift */,
 				91FD32242B0E206400018074 /* Picker */,
 				91D9DF6D2B0788B600514AF8 /* Onboarding */,
 				91F2B7142B0661A900FA3AC3 /* Components */,
@@ -433,7 +436,8 @@
 				91F2B6C42B064F3D00FA3AC3 /* Sources */,
 				91F2B6C52B064F3D00FA3AC3 /* Frameworks */,
 				91F2B6C62B064F3D00FA3AC3 /* Resources */,
-				91F2B70B2B06548D00FA3AC3 /* ShellScript */,
+				91F2B70B2B06548D00FA3AC3 /* Crashlytics */,
+				919807AF2B187D13007D5507 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -512,8 +516,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		91F2B70B2B06548D00FA3AC3 /* ShellScript */ = {
+		919807AF2B187D13007D5507 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		91F2B70B2B06548D00FA3AC3 /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -526,6 +550,7 @@
 				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
 				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
 			);
+			name = Crashlytics;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -570,6 +595,7 @@
 				91D9DF932B094EEB00514AF8 /* AuthenticationView.swift in Sources */,
 				91929AB92B0CFB1600C68AD2 /* ProfileView.swift in Sources */,
 				91929AB72B0CF26D00C68AD2 /* TabViewForTabList.swift in Sources */,
+				919807AE2B1877DB007D5507 /* SettingsView.swift in Sources */,
 				91929AB52B0CE89D00C68AD2 /* TabViewModel.swift in Sources */,
 				91D9DF6C2B07859D00514AF8 /* PrimaryButtonView.swift in Sources */,
 				91929AA72B097E3C00C68AD2 /* OverviewView.swift in Sources */,
@@ -749,6 +775,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CashCow/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CashCow/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -779,6 +806,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"CashCow/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CashCow/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

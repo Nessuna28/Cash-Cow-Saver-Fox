@@ -10,33 +10,30 @@ import SwiftUI
 struct LoginButton: View {
     
     // MARK: - Variables
-        
-        @EnvironmentObject var authViewModel: AuthViewModel
-        @State private var isActive: Bool = false
-        
-        var body: some View {
-            HStack {
-                Spacer()
-                
-                NavigationLink(
-                    destination: LoginView(),
-                    isActive: $isActive,
-                    label: {
-                        Button(action: setModeOnLogin) {
-                            TextButtonView(title: Strings.login)
-                                .padding(.bottom, 10)
-                                .padding(.trailing, 10)
-                                .foregroundColor(Colors.primaryColor)
-                        }
-                    }
-                )
-                .isDetailLink(false)
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @State private var isActive = false
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            
+            NavigationLink {
+                LoginView()
+            } label: {
+                Button(action: setModeOnLogin) {
+                    TextButtonView(title: Strings.login)
+                        .padding(.bottom, 10)
+                        .padding(.trailing, 10)
+                        .foregroundColor(Colors.primaryGreen)
+                }
             }
         }
-        
+    }
     
-        // MARK: - Functions
-        
+    
+    // MARK: - Functions
+    
         private func setModeOnLogin() {
             authViewModel.authenticationMode = .login
             isActive = true

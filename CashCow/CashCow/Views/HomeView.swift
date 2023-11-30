@@ -17,6 +17,7 @@ struct HomeView: View {
                     .environmentObject(editViewModel)
                     .environmentObject(authViewModel)
                     .environmentObject(childrenListViewModel)
+                    .environmentObject(settingsViewModel)
                 
                 NavigatorView()
                     .environmentObject(tabViewModel)
@@ -28,14 +29,14 @@ struct HomeView: View {
                 
                 OverviewView()
             }
-            .fullScreenCover(isPresented: $editViewModel.showProcessingSheet) {
+            .overlay {
                 if editViewModel.showProcessingSheet {
                     HStack {
                         Spacer()
                         
                         VStack(alignment: .trailing) {
                             EditView(isShowSheet: $editViewModel.showProcessingSheet.animation())
-                                .environmentObject(settingsViewModel)
+                                .environmentObject(childrenListViewModel)
                             
                             Spacer()
                         }

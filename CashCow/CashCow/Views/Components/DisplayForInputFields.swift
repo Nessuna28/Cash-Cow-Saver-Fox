@@ -22,7 +22,7 @@ struct DisplayForInputFields: View {
                 Spacer()
                 
                 TextField(title, text: $input)
-                    .foregroundColor(Colors.primaryColor)
+                    .foregroundColor(Colors.primaryGreen)
                     .multilineTextAlignment(.trailing)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)

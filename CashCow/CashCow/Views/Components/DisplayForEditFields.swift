@@ -10,18 +10,16 @@ import SwiftUI
 struct DisplayForEditFields: View {
     
     var body: some View {
-        HStack {
-            Image(systemName: icon)
-                .padding(5)
-                .background(Colors.primaryColor)
-                .clipShape(Circle())
-            
-            Text(title)
-                .padding(.trailing, 20)
-            
-            Button {
-                action()
-            } label: {
+        Button {
+            action()
+        } label: {
+            HStack {
+                Image(systemName: icon)
+                    .padding(5)
+                
+                Text(title)
+                    .padding(.trailing, 20)
+                
                 Image(systemName: Strings.arrowRight)
             }
         }

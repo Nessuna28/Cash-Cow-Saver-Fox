@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct SettingsButton: View {
-    
-    // MARK: - Variables
-    
-    @State private var showSettingsSheet = false
-    
-    
+  
     var body: some View {
-        Button {
-            showSettingsSheet.toggle()
+        NavigationLink {
+            SettingsView()
+                .environmentObject(settingsViewModel)
         } label: {
             Image(systemName: Strings.settingsIcon)
                 .font(.title2)
@@ -24,8 +20,13 @@ struct SettingsButton: View {
         }
     }
     
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
 }
 
 #Preview {
     SettingsButton()
+        .environmentObject(SettingsViewModel())
 }

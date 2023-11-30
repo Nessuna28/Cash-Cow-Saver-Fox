@@ -35,7 +35,7 @@ struct ChildrenListView: View {
                     }
                     .foregroundColor(Colors.textColorOnS)
                     .padding(5)
-                    .background(Colors.secondaryColor)
+                    .background(Colors.secondaryGray)
                     .cornerRadius(6)
                 }
             }

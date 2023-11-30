@@ -23,10 +23,10 @@ class AuthManager {
     // MARK: - Functions
     
     func registerUser(email: String, password: String, repeatedPassword: String, completion: @escaping (User?) -> Void) {
-        
+        print("manager: register")
         guard password == repeatedPassword else { return }
         
-        auth.createUser(withEmail: email, password: password) { authResult, error in
+        auth.createUser(withEmail: email, password: password) { _, error in
             if let error {
                 print("Registration failed:", error)
                 return
@@ -38,7 +38,7 @@ class AuthManager {
     }
     
     func loginUser(email: String, password: String, completion: @escaping (User?) -> Void) {
-        
+        print("manager: login")
         auth.signIn(withEmail: email, password: password) { authResult, error in
             if let error {
                 print("Login failed:", error)
@@ -58,11 +58,10 @@ class AuthManager {
     }
     
     
-    func logoutUser(completion: @escaping (User?) -> Void) {
-        
+    func logoutUser() {
+        print("manager: logout")
         do {
             try auth.signOut()
-            completion(auth.currentUser)
         } catch {
             print("Error signing out: ", error)
         }

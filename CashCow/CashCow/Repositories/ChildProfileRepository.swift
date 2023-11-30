@@ -23,7 +23,7 @@ class ChildProfileRepository {
     
     static func updateChild(with id: String, familyMember: String, lastName: String, firstName: String, birthday: Date, loginName: String, loginImage: String) {
         
-        let data = ["familyMember": familyMember, "lastName": lastName, "firstName": firstName, "birthday": birthday, "loginName": loginName, "loginImage": loginImage] as [String : Any]
+        let data = ["familyMember": familyMember, "lastName": lastName, "firstName": firstName, "birthday": birthday, "loginName": loginName, "loginImage": loginImage] as [String: Any]
         
         AuthManager.shared.database.collection("children").document(id).setData(data, merge: true) { error in
             if let error {
@@ -36,7 +36,7 @@ class ChildProfileRepository {
     
     static func deleteChild(with id: String) {
         
-        AuthManager.shared.database.collection("children").document(id).delete() { error in
+        AuthManager.shared.database.collection("children").document(id).delete { error in
             if let error {
                 print("Delete child failed:", error)
                 return

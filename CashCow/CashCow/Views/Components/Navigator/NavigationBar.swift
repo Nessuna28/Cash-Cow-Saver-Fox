@@ -9,11 +9,6 @@ import SwiftUI
 
 struct NavigationBar: View {
     
-    // MARK: - Variables
-    
-    @EnvironmentObject var profileViewModel: ProfileViewModel
-    
-    
     var body: some View {
         NavigationStack {
             HStack {
@@ -23,21 +18,36 @@ struct NavigationBar: View {
                 
                 ProfileNameAndImage()
                     .environmentObject(profileViewModel)
+                    .environmentObject(childrenListViewModel)
                 
                 Spacer()
                 
                 AppIcon()
                 
-                EditButton()
+                SettingsButton()
+                    .environmentObject(settingsViewModel)
+                    .environmentObject(authViewModel)
+                    .environmentObject(childrenListViewModel)
             }
             .padding()
         }
     }
+    
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
     
 }
 
 #Preview {
     NavigationBar()
         .environmentObject(ProfileViewModel())
+        .environmentObject(AuthViewModel())
         .environmentObject(EditViewModel())
+        .environmentObject(ChildrenListViewModel())
+        .environmentObject(SettingsViewModel())
 }

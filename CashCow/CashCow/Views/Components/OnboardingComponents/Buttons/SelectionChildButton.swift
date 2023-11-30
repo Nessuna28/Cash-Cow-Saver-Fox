@@ -40,12 +40,12 @@ struct SelectionChildButton: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 50, height: 50)
-        }
-        .padding(.vertical, 5)
-        .padding(.horizontal, 10)
-        .background(Colors.secondaryColor)
-        .cornerRadius(10)
-        .padding(.horizontal, 30)
+            }
+            .padding(.vertical, 5)
+            .padding(.horizontal, 10)
+            .background(Colors.secondaryGray)
+            .cornerRadius(10)
+            .padding(.horizontal, 30)
         }
     }
     

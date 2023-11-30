@@ -27,7 +27,7 @@ struct TabViewForNavigationBar: View {
             if tab.id == tabViewModel.selectedTab.id {
                 Rectangle()
                     .frame(width: 70, height: 2)
-                    .foregroundColor(Colors.primaryColor)
+                    .foregroundColor(Colors.primaryGreen)
             }
         }
     }

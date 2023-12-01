@@ -9,17 +9,6 @@ import SwiftUI
 
 struct AuthenticationView: View {
     
-    // MARK: - Variables
-    
-    @EnvironmentObject var authViewModel: AuthViewModel
-    
-    @State private var name = ""
-    @State private var email = ""
-    @State private var password = ""
-    @State private var repeatedPassword = ""
-    
-    
-    
     var body: some View {
         VStack {
             Spacer()
@@ -83,6 +72,17 @@ struct AuthenticationView: View {
             .disabled(disableAuthentication)
         }
     }
+    
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
+    @State private var name = ""
+    @State private var email = ""
+    @State private var password = ""
+    @State private var repeatedPassword = ""
+    
     
     // MARK: - Computed Properties
     

@@ -17,6 +17,7 @@ struct HomeView: View {
                     
                     ProfileNameAndImage()
                         .environmentObject(profileViewModel)
+                        .environmentObject(childProfileViewModel)
                         .environmentObject(childrenListViewModel)
                     
                     Spacer()
@@ -31,10 +32,12 @@ struct HomeView: View {
                 
                 NavigatorView()
                     .environmentObject(settingsViewModel)
+                    .environmentObject(authViewModel)
+                    .environmentObject(childrenListViewModel)
             }
             .padding(.horizontal)
-//            .foregroundColor(settingsViewModel.settings.textColor)
-//            .background(settingsViewModel.settings.backgroundColor)
+            .foregroundColor(Color(settingsViewModel.textColor))
+            .background(Color(settingsViewModel.backgroundColor))
             .font(.system(size: settingsViewModel.fontSize))
         }
     }
@@ -45,6 +48,7 @@ struct HomeView: View {
     @EnvironmentObject var profileViewModel: ProfileViewModel
     @EnvironmentObject var authViewModel: AuthViewModel
     
+    @StateObject var childProfileViewModel = ChildProfileViewModel()
     @StateObject var childrenListViewModel = ChildrenListViewModel()
     @StateObject var settingsViewModel = SettingsViewModel()
     
@@ -54,6 +58,7 @@ struct HomeView: View {
     HomeView()
         .environmentObject(ProfileViewModel())
         .environmentObject(AuthViewModel())
+        .environmentObject(ChildProfileViewModel())
         .environmentObject(ChildrenListViewModel())
         .environmentObject(SettingsViewModel())
 }

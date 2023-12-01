@@ -9,13 +9,6 @@ import SwiftUI
 
 struct CashCowAnimation: View {
     
-    // MARK: - Variables
-    
-    let images = ["cashcow1", "cashcow2", "cashcow3", "cashcow4", "cashcow5"]
-    
-    @State private var currentIndex = 0
-    
-    
     var body: some View {
         TabView(selection: $currentIndex) {
             ForEach(0..<images.count, id: \.self) { index in
@@ -33,6 +26,13 @@ struct CashCowAnimation: View {
             RunLoop.current.add(timer, forMode: .common)
         }
     }
+    
+    
+    // MARK: - Variables
+    
+    let images = ["cashcow1", "cashcow2", "cashcow3", "cashcow4", "cashcow5"]
+    
+    @State private var currentIndex = 0
     
 }
 

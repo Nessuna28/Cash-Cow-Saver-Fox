@@ -19,8 +19,6 @@ class ChildrenListViewModel: ObservableObject {
     
     // MARK: - Functions
     
-    
-    
     func fetchChildren() {
         
         guard let userId = AuthManager.shared.auth.currentUser?.uid else { return }

@@ -14,8 +14,10 @@ struct NavigatorView: View {
             ForEach(Tab.allCases) { tab in
                 tab.view
                     .environmentObject(settingsViewModel)
-//                    .foregroundColor(settingsViewModel.settings.textColor)
-//                    .background(settingsViewModel.settings.backgroundColor)
+                    .environmentObject(authViewModel)
+                    .environmentObject(childrenListViewModel)
+                    .foregroundColor(Color(settingsViewModel.textColor))
+                    .background(Color(settingsViewModel.backgroundColor))
                     .font(.system(size: settingsViewModel.fontSize))
                     .tabItem {
                         VStack {
@@ -35,10 +37,14 @@ struct NavigatorView: View {
     @State var selectedTab: Tab = .home
     
     @EnvironmentObject var settingsViewModel: SettingsViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
     
 }
 
 #Preview {
     NavigatorView()
         .environmentObject(SettingsViewModel())
+        .environmentObject(AuthViewModel())
+        .environmentObject(ChildrenListViewModel())
 }

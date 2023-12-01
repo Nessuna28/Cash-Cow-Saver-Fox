@@ -49,6 +49,7 @@ struct SelectionChildButton: View {
         }
     }
     
+    
     // MARK: - Functions
     
     private func navigateToAppStore() {

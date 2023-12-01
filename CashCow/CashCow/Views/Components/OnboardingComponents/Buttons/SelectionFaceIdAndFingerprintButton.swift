@@ -34,6 +34,7 @@ struct SelectionFaceIdAndFingerprintButton: View {
         }
     }
     
+    
     // MARK: - Functions
     
     private func saveSelection() {

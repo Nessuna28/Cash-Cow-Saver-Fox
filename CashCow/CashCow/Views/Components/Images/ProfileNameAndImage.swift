@@ -15,6 +15,7 @@ struct ProfileNameAndImage: View {
                 if let user = profileViewModel.fireUser {
                     ProfileView(fireUser: user)
                         .environmentObject(profileViewModel)
+                        .environmentObject(childProfileViewModel)
                         .environmentObject(childrenListViewModel)
                 }
             } label: {
@@ -32,6 +33,7 @@ struct ProfileNameAndImage: View {
     // MARK: - Variables
     
     @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
     @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
     
 }
@@ -39,5 +41,6 @@ struct ProfileNameAndImage: View {
 #Preview {
     ProfileNameAndImage()
         .environmentObject(ProfileViewModel())
+        .environmentObject(ChildProfileViewModel())
         .environmentObject(ChildrenListViewModel())
 }

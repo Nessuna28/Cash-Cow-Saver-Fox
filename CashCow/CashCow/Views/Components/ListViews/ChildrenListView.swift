@@ -60,12 +60,6 @@ struct ChildrenListView: View {
     @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
     @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
     
-    
-    
-    // MARK: - Functions
-    
-    
-    
 }
 
 #Preview {

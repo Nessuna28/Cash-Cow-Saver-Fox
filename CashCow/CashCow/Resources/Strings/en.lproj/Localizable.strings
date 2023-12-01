@@ -89,6 +89,7 @@
 "fontSize" = "Font Size";
 "darkMode" = "Dark Mode";
 "enableDarkMode" = "Enable Dark Mode";
+"settingsSaved" = "Settings were saved.";
 
 "small" = "small";
 "medium" = "medium";

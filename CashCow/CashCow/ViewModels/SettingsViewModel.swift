@@ -8,14 +8,14 @@
 import Foundation
 import SwiftUI
 import FirebaseAuth
-import UIKit
 
 class SettingsViewModel: ObservableObject {
     
     init() {
+        
         settings = FireSettings(userId: AuthManager.shared.auth.currentUser?.uid ?? "", backgroundColor: UIColor(.white).colorToString(), textColor: UIColor(.black).colorToString(), userFontSize: Strings.medium, isDarkModeEnabled: false)
         
-        setSettings()
+        fetchSettings()
     }
     
     
@@ -32,8 +32,21 @@ class SettingsViewModel: ObservableObject {
     @Published var backgroundColorFromPicker = Color.white
     @Published var textColorFromPicker = Color.black
     
-//    @Published var backgroundColor = stringToColor(hexString: settings.backgroundColor)
-//    @Published var textColor = stringToColor(hexString: settings.textColor)
+    @Published var showAlert = false
+   
+    
+    
+    
+    // MARK: - Computed Property
+    
+    var backgroundColor: UIColor {
+        stringToColor(hexString: settings.backgroundColor)
+    }
+    
+    var textColor: UIColor {
+        stringToColor(hexString: settings.textColor)
+    }
+
     
     
     
@@ -53,20 +66,26 @@ class SettingsViewModel: ObservableObject {
         
         subtitleColor = setSubtitleColor()
         titleColor = setTitleColor()
-        
-        createSettings()
     }
     
     
     func createSettings() {
         
-        SettingsRepository.createSettings(with: AuthManager.shared.auth.currentUser?.uid ?? "", settings: settings)
+        setSettings()
+        
+        if let uid = AuthManager.shared.auth.currentUser?.uid {
+            SettingsRepository.createSettings(with: uid, settings: settings)
+        }
     }
     
     
-    func saveSettings() {
+    func updateSettings() {
+        
+        setSettings()
         
         SettingsRepository.updateSettings(with: AuthManager.shared.auth.currentUser?.uid ?? "", settings: settings)
+        
+        fetchSettings()
     }
     
     
@@ -74,9 +93,22 @@ class SettingsViewModel: ObservableObject {
         
         settings = FireSettings(userId: AuthManager.shared.auth.currentUser?.uid ?? "", backgroundColor: UIColor(.white).colorToString(), textColor: UIColor(.black).colorToString(), userFontSize: Strings.medium, isDarkModeEnabled: false)
         
-        self.saveSettings()
+        self.updateSettings()
     }
     
+    
+    func fetchSettings() {
+        
+        setSettings()
+        
+        if let uid = AuthManager.shared.auth.currentUser?.uid {
+            SettingsRepository.fetchSettings { settings in
+                
+                self.settings = settings
+            }
+        }
+    }
+        
     
     private func setFont(_ font: String) -> CGFloat {
         
@@ -112,24 +144,6 @@ class SettingsViewModel: ObservableObject {
             return .red
         }
     }
-}
-
-
-extension UIColor {
-    
-    func colorToString() -> String {
-        
-        guard let colorComponents = self.cgColor.components else {
-            return ""
-        }
-        
-        let red = CGFloat(colorComponents[0])
-        let green = CGFloat(colorComponents[1])
-        let blue = CGFloat(colorComponents[2])
-        let alpha = CGFloat(colorComponents[3])
-        
-        return "\(red), \(green), \(blue), \(alpha)"
-    }
     
     
     func stringToColor(hexString: String) -> UIColor {
@@ -149,3 +163,20 @@ extension UIColor {
     }
 }
 
+
+extension UIColor {
+    
+    func colorToString() -> String {
+        
+        guard let colorComponents = self.cgColor.components else {
+            return ""
+        }
+        
+        let red = CGFloat(colorComponents[0])
+        let green = CGFloat(colorComponents[1])
+        let blue = CGFloat(colorComponents[2])
+        let alpha = CGFloat(colorComponents[3])
+        
+        return "\(red), \(green), \(blue), \(alpha)"
+    }
+}

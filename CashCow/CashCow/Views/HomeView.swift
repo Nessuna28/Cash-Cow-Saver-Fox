@@ -33,6 +33,9 @@ struct HomeView: View {
                     .environmentObject(settingsViewModel)
             }
             .padding(.horizontal)
+//            .foregroundColor(settingsViewModel.settings.textColor)
+//            .background(settingsViewModel.settings.backgroundColor)
+            .font(.system(size: settingsViewModel.fontSize))
         }
     }
     

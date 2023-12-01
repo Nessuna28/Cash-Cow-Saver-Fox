@@ -14,18 +14,16 @@ struct NavigatorView: View {
             ForEach(Tab.allCases) { tab in
                 tab.view
                     .environmentObject(settingsViewModel)
+//                    .foregroundColor(settingsViewModel.settings.textColor)
+//                    .background(settingsViewModel.settings.backgroundColor)
+                    .font(.system(size: settingsViewModel.fontSize))
                     .tabItem {
                         VStack {
-                            ZStack {
-                                Circle()
-                                    .fill(selectedTab == tab ? Color.blue : Color.clear)
-                                    .frame(width: 30, height: 30)
-                                
-                                tab.icon
-                            }
+                            tab.icon
                             
                             Text(tab.title)
                         }
+                        .foregroundColor(settingsViewModel.subtitleColor)
                     }
                     .tag(tab)
             }

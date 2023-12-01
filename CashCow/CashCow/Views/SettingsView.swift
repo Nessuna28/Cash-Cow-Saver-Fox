@@ -12,14 +12,14 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section(header: Text("Farbeinstellungen")) {
-                    ColorPicker("Hintergrundfarbe", selection: $settingsViewModel.settings.backgroundColor)
+                Section(header: Text(Strings.colorSettings)) {
+                    ColorPicker(Strings.backgroundColor, selection: $settingsViewModel.backgroundColorFromPicker)
                     
-                    ColorPicker("Textfarbe", selection: $settingsViewModel.settings.textColor)
+                    ColorPicker(Strings.textColor, selection: $settingsViewModel.textColorFromPicker)
                 }
                 
-                Section(header: Text("Textgröße")) {
-                    Picker("Schriftgröße", selection: $settingsViewModel.settings.userFontSize) {
+                Section(header: Text(Strings.fontSize)) {
+                    Picker("", selection: $settingsViewModel.settings.userFontSize) {
                         ForEach(settingsViewModel.fontSizes, id: \.self) {
                             Text($0)
                         }
@@ -27,20 +27,33 @@ struct SettingsView: View {
                     .pickerStyle(SegmentedPickerStyle())
                 }
                 
-                Section(header: Text("Dark Mode")) {
-                    Toggle("Dark Mode aktivieren", isOn: $settingsViewModel.settings.isDarkModeEnabled)
+                Section(header: Text(Strings.darkMode)) {
+                    Toggle(Strings.enableDarkMode, isOn: $settingsViewModel.settings.isDarkModeEnabled)
                 }
                 
                 Section {
-                    Button("Speichern") {
-                        setSettings()
+                    Button(Strings.resetSettings) {
+                        settingsViewModel.resetSettings()
                     }
                 }
                 
                 Section {
-                    Button("Logout", role: .destructive) {
+                    Button(Strings.save) {
+                        settingsViewModel.saveSettings()
+                        
+                    }
+                }
+                
+                Section {
+                    Button(role: .destructive) {
                         authViewModel.logoutUser()
                         childrenListViewModel.removeListener()
+                    } label: {
+                        HStack {
+                            Image(systemName: Strings.logoutIcon)
+                            
+                            Text(Strings.logout)
+                        }
                     }
                 }
             }
@@ -55,14 +68,8 @@ struct SettingsView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
     
-    
-    // MARK: - Functions
-    
-    private func setSettings() {
-        
-        settingsViewModel.saveSettings()
-    }
 }
+
 
 #Preview {
     SettingsView()

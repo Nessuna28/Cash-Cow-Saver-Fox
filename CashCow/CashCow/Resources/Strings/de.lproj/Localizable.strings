@@ -80,3 +80,16 @@
 
 "profile" = "Profil";
 "newChildAccount" = "neuer Kinderaccount";
+
+
+"resetSettings" = "Einstellungen zurücksetzen";
+"colorSettings" = "Farbeinstellungen";
+"backgroundColor" = "Hintergrundfarbe";
+"textColor" = "Textfarbe";
+"fontSize" = "Schriftgröße";
+"darkMode" = "Dunkelmodus";
+"enableDarkMode" = "Dunkelmodus aktivieren";
+
+"small" = "klein";
+"medium" = "mittel";
+"large" = "groß";

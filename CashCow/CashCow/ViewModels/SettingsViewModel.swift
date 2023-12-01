@@ -8,59 +8,84 @@
 import Foundation
 import SwiftUI
 import FirebaseAuth
+import UIKit
 
 class SettingsViewModel: ObservableObject {
     
     init() {
-        settings = FireSettings(userId: AuthManager.shared.auth.currentUser?.uid ?? "", backgroundColor: .white, textColor: .black, userFontSize: "Mittel", isDarkModeEnabled: false)
-        saveSettings()
+        settings = FireSettings(userId: AuthManager.shared.auth.currentUser?.uid ?? "", backgroundColor: UIColor(.white).colorToString(), textColor: UIColor(.black).colorToString(), userFontSize: Strings.medium, isDarkModeEnabled: false)
+        
+        setSettings()
     }
     
     
     // MARK: - Variables
     
-    let fontSizes = ["Klein", "Mittel", "Groß"]
-    
-    
-    @Published var showDesignSettings = false
-    @Published var showNotificationSettings = false
-    @Published var showCategoriesSettings = false
+    let fontSizes = [Strings.small, Strings.medium, Strings.large]
     
     @Published var settings: FireSettings
     
     @Published var fontSize = CGFloat(16)
     @Published var subtitleColor = Color.blue
-    @Published var titleColor = Color.red
+    @Published var titleColor = Colors.primaryGreen
+    
+    @Published var backgroundColorFromPicker = Color.white
+    @Published var textColorFromPicker = Color.black
+    
+//    @Published var backgroundColor = stringToColor(hexString: settings.backgroundColor)
+//    @Published var textColor = stringToColor(hexString: settings.textColor)
     
     
     
     // MARK: - Functions
     
-    func saveSettings() {
+    func setSettings() {
         
         fontSize = setFont(settings.userFontSize)
         
         if settings.isDarkModeEnabled {
-            settings.backgroundColor = .black
-            settings.textColor = .white
+            settings.backgroundColor = UIColor(.black).colorToString()
+            settings.textColor = UIColor(.white).colorToString()
         } else {
-            settings.backgroundColor = settings.backgroundColor
-            settings.textColor = settings.textColor
+            settings.backgroundColor = UIColor(backgroundColorFromPicker).colorToString()
+            settings.textColor = UIColor(textColorFromPicker).colorToString()
         }
         
         subtitleColor = setSubtitleColor()
         titleColor = setTitleColor()
+        
+        createSettings()
+    }
+    
+    
+    func createSettings() {
+        
+        SettingsRepository.createSettings(with: AuthManager.shared.auth.currentUser?.uid ?? "", settings: settings)
+    }
+    
+    
+    func saveSettings() {
+        
+        SettingsRepository.updateSettings(with: AuthManager.shared.auth.currentUser?.uid ?? "", settings: settings)
+    }
+    
+    
+    func resetSettings() {
+        
+        settings = FireSettings(userId: AuthManager.shared.auth.currentUser?.uid ?? "", backgroundColor: UIColor(.white).colorToString(), textColor: UIColor(.black).colorToString(), userFontSize: Strings.medium, isDarkModeEnabled: false)
+        
+        self.saveSettings()
     }
     
     
     private func setFont(_ font: String) -> CGFloat {
         
         switch font {
-        case "Klein":
+        case Strings.small:
             return 12.0
-        case "Mittel":
+        case Strings.medium:
             return 16.0
-        case "Groß":
+        case Strings.large:
             return 24.0
             
         default:
@@ -71,7 +96,7 @@ class SettingsViewModel: ObservableObject {
     
     private func setSubtitleColor() -> Color {
         
-        if settings.backgroundColor == .blue {
+        if settings.backgroundColor == UIColor(.blue).colorToString() {
             return .white
         } else {
             return .blue
@@ -81,10 +106,46 @@ class SettingsViewModel: ObservableObject {
     
     private func setTitleColor() -> Color {
         
-        if settings.backgroundColor == .red {
+        if settings.backgroundColor == UIColor(Colors.primaryGreen).colorToString() {
             return .white
         } else {
             return .red
         }
     }
 }
+
+
+extension UIColor {
+    
+    func colorToString() -> String {
+        
+        guard let colorComponents = self.cgColor.components else {
+            return ""
+        }
+        
+        let red = CGFloat(colorComponents[0])
+        let green = CGFloat(colorComponents[1])
+        let blue = CGFloat(colorComponents[2])
+        let alpha = CGFloat(colorComponents[3])
+        
+        return "\(red), \(green), \(blue), \(alpha)"
+    }
+    
+    
+    func stringToColor(hexString: String) -> UIColor {
+        
+        let colorComponents = hexString.split(separator: ", ").compactMap { Float($0) }
+        
+        guard colorComponents.count >= 3 else {
+            return .clear
+        }
+        
+        let red = CGFloat(colorComponents[0])
+        let green = CGFloat(colorComponents[1])
+        let blue = CGFloat(colorComponents[2])
+        let alpha = CGFloat(colorComponents[3])
+        
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    }
+}
+

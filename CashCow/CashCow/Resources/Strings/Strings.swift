@@ -148,4 +148,19 @@ struct Strings {
     
     static let profile = NSLocalizedString("profile", comment: "")
     static let newChildAccount = NSLocalizedString("newChildAccount", comment: "")
+    
+    
+    // MARK: - Settings
+    
+    static let resetSettings = NSLocalizedString("resetSettings", comment: "")
+    static let colorSettings = NSLocalizedString("colorSettings", comment: "")
+    static let backgroundColor = NSLocalizedString("backgroundColor", comment: "")
+    static let textColor = NSLocalizedString("textColor", comment: "")
+    static let fontSize = NSLocalizedString("fontSize", comment: "")
+    static let darkMode = NSLocalizedString("darkMode", comment: "")
+    static let enableDarkMode = NSLocalizedString("enableDarkMode", comment: "")
+    
+    static let small = NSLocalizedString("small", comment: "")
+    static let medium = NSLocalizedString("medium", comment: "")
+    static let large = NSLocalizedString("large", comment: "")
 }

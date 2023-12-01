@@ -80,3 +80,16 @@
 
 "profile" = "Profile";
 "newChildAccount" = "New Child Account";
+
+
+"resetSettings" = "Reset Settings";
+"colorSettings" = "Color Settings";
+"backgroundColor" = "Background Color";
+"textColor" = "Text Color";
+"fontSize" = "Font Size";
+"darkMode" = "Dark Mode";
+"enableDarkMode" = "Enable Dark Mode";
+
+"small" = "small";
+"medium" = "medium";
+"large" = "large";

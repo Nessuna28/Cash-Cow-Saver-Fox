@@ -24,19 +24,19 @@ struct SelectionAdultView: View {
             Spacer()
             
             Text(Strings.adult)
-                .foregroundStyle(Colors.primaryColor)
+                .foregroundStyle(Colors.primaryGreen)
             
             Spacer()
             
             Image(systemName: Strings.arrowRight)
-                .foregroundColor(Colors.primaryColor)
+                .foregroundColor(Colors.primaryGreen)
                 .padding(.trailing, 5)
             
             AppIcon()
         }
         .padding(.vertical, 5)
         .padding(.horizontal, 10)
-        .background(Colors.secondaryColor)
+        .background(Colors.secondaryGray)
         .cornerRadius(10)
         .padding(.horizontal, 30)
     }

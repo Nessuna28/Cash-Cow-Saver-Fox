@@ -27,7 +27,7 @@ struct CashCowAnimation: View {
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         .onAppear {
-            let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                 currentIndex = (currentIndex + 1) % images.count
             }
             RunLoop.current.add(timer, forMode: .common)

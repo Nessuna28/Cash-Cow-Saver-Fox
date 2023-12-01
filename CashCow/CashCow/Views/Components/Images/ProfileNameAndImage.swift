@@ -9,21 +9,17 @@ import SwiftUI
 
 struct ProfileNameAndImage: View {
     
-    
-    // MARK: - Variables
-    
-    @EnvironmentObject var profileViewModel: ProfileViewModel
-    
     var body: some View {
         HStack {
             NavigationLink {
                 if let user = profileViewModel.fireUser {
                     ProfileView(fireUser: user)
                         .environmentObject(profileViewModel)
+                        .environmentObject(childrenListViewModel)
                 }
             } label: {
                 Text(profileViewModel.fireUser?.firstName ?? Strings.guest)
-                    .foregroundColor(Colors.primaryColor)
+                    .foregroundColor(Colors.primaryGreen)
                     .padding(.trailing, 5)
                 
                 Image(systemName: Strings.profileIconSystem)
@@ -32,9 +28,16 @@ struct ProfileNameAndImage: View {
         }
     }
     
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
+    
 }
 
 #Preview {
     ProfileNameAndImage()
         .environmentObject(ProfileViewModel())
+        .environmentObject(ChildrenListViewModel())
 }

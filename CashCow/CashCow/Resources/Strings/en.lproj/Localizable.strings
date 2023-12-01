@@ -1,0 +1,95 @@
+/* 
+  Localizable.strings
+  CashCow
+
+  Created by Angelique Freier on 29.11.23.
+  
+*/
+
+"guest" = "Guest";
+"children" = "Children";
+"familyMember" = "Family Member";
+"setUpFinances" = "Let's begin setting up your finances";
+
+"home" = "Home";
+"comparison" = "Comparison";
+"bankAccounts" = "Accounts";
+"finance" = "Finance";
+"revenue" = "Income";
+"expenditure" = "Expenses";
+"banks" = "Banks";
+"creditCards" = "Credit Cards";
+"saving" = "Saving";
+"insurance" = "Insurance";
+"savingAccounts" = "Savings Accounts";
+"paidServices" = "Paid Services";
+"orderAndDeliveryOverview" = "Order and Delivery Overview";
+"diagrams" = "Diagrams";
+
+
+"makeTheBest" = "Make the Best of Your Money";
+"withUsBestOverview" = "With us, you have the best overview of your income and expenses to achieve your personal goals.";
+"letsGo" = "Let's go";
+"furtherUs" = "By using our services, you agree to the following terms:";
+"dataProtection" = "Terms and Privacy Policy";
+"welcome" = "Welcome";
+"justHelp" = "We just want to help you";
+"newHere" = "New here?";
+"yourSecurity" = "Your security is important to us";
+"howToSaveAccount" = "How would you like to protect your account in the future?";
+"whichTabs" = "What matters to you? Choose what you need for your goals.";
+"adult" = "Adult";
+"child" = "Child";
+
+
+"login" = "Log In";
+"faceID" = "Face ID";
+"fingerprint" = "Fingerprint";
+"enterWithCode" = "Enter Code";
+"goOn" = "Continue";
+"register" = "Register";
+"cancel" = "Cancel";
+"save" = "Save";
+"addChild" = "+ Add Child";
+
+
+"email" = "Email";
+"password" = "Password";
+"repeatedPassword" = "Repeat Password";
+"lastName" = "Last Name";
+"firstName" = "First Name";
+"birthday" = "Birthday";
+"domicile" = "Domicile";
+"childrenAccounts" = "Children Accounts";
+"loginName" = "Login Name";
+"loginImage" = "Login Image";
+
+
+"notSpecified" = "Not Specified";
+"son" = "Son";
+"daughter" = "Daughter";
+
+
+"settings" = "Settings";
+"leave" = "Leave";
+"design" = "Design";
+"notification" = "Notifications";
+"categories" = "Categories";
+"logout" = "Log Out";
+
+
+"profile" = "Profile";
+"newChildAccount" = "New Child Account";
+
+
+"resetSettings" = "Reset Settings";
+"colorSettings" = "Color Settings";
+"backgroundColor" = "Background Color";
+"textColor" = "Text Color";
+"fontSize" = "Font Size";
+"darkMode" = "Dark Mode";
+"enableDarkMode" = "Enable Dark Mode";
+
+"small" = "small";
+"medium" = "medium";
+"large" = "large";

@@ -10,37 +10,37 @@ import SwiftUI
 
 enum Tab: String, Identifiable, CaseIterable {
     
-    case home, comparison, bankAccounts, revenue, expenditure, insurance, save, paidServices, orderAndDeliveryOverview, diagrams
+    case home, comparison, finance, diagrams, settings
     
     var id: String { rawValue }
     
     var title: String {
         switch self {
-        case .home: return "Home"
-        case .comparison: return "Gegenüberstellung"
-        case .bankAccounts: return "Konten"
-        case .revenue: return "Einnahmen"
-        case .expenditure: return "Ausgaben"
-        case .insurance: return "Versicherungen"
-        case .save: return "Sparen"
-        case .paidServices: return "Bezahldienste"
-        case .orderAndDeliveryOverview: return "Bestell- u. Lieferübersicht"
-        case .diagrams: return "Diagramme"
+        case .home: return Strings.home
+        case .comparison: return Strings.comparison
+        case .finance: return Strings.finance
+        case .diagrams: return Strings.diagrams
+        case .settings: return Strings.settings
         }
     }
     
     var icon: Image {
         switch self {
-        case .home: return Image("house")
-        case .comparison: return Image("scale")
-        case .bankAccounts: return Image("bank")
-        case .revenue: return Image("revenue")
-        case .expenditure: return Image("expenditure")
-        case .insurance: return Image("shield")
-        case .save: return Image("piggybank")
-        case .paidServices: return Image("paidservice")
-        case .orderAndDeliveryOverview: return Image("delivery")
-        case .diagrams: return Image("chart")
+        case .home: return Image(Strings.homeIcon)
+        case .comparison: return Image(Strings.scaleIcon)
+        case .finance: return Image(Strings.financeIcon)
+        case .diagrams: return Image(Strings.diagramIcon)
+        case .settings: return Image(Strings.settingsIcon)
+        }
+    }
+    
+    var view: AnyView {
+        switch self {
+        case .home: return AnyView(OverviewView())
+        case .comparison: return AnyView(ComparisonView())
+        case .finance: return AnyView(FinanceView())
+        case .diagrams: return AnyView(DiagramsView())
+        case .settings: return AnyView(SettingsView())
         }
     }
     

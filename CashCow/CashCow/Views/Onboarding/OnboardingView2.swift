@@ -28,7 +28,7 @@ struct OnboardingView2: View {
                     
                     Text(Strings.welcome)
                         .font(.title)
-                        .foregroundStyle(Colors.primaryColor)
+                        .foregroundStyle(Colors.primaryGreen)
                     
                     Text(Strings.justHelp)
                         .padding()

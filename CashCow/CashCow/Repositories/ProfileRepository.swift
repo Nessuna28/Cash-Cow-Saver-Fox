@@ -24,7 +24,7 @@ class ProfileRepository {
     
     static func updateUser(with id: String, lastName: String, firstName: String, birthday: Date, domicile: String, children: Int) {
         
-        let data = ["lastName": lastName, "firstName": firstName, "birthday": birthday, "domicile": domicile, "children": children] as [String : Any]
+        let data = ["lastName": lastName, "firstName": firstName, "birthday": birthday, "domicile": domicile, "children": children] as [String: Any]
         
         AuthManager.shared.database.collection("users").document(id).setData(data, merge: true) { error in
             if let error {
@@ -62,7 +62,7 @@ class ProfileRepository {
     
     static func deleteUser(with id: String) {
         
-        AuthManager.shared.database.collection("users").document(id).delete() { error in
+        AuthManager.shared.database.collection("users").document(id).delete { error in
             if let error {
                 print("Delete user failed:", error)
                 return

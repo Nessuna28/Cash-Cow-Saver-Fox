@@ -35,7 +35,7 @@ struct ChildrenListView: View {
                     }
                     .foregroundColor(Colors.textColorOnS)
                     .padding(5)
-                    .background(Colors.secondaryColor)
+                    .background(Colors.secondaryGray)
                     .cornerRadius(6)
                 }
             }
@@ -44,7 +44,7 @@ struct ChildrenListView: View {
                 NewChildView()
                     .environmentObject(childProfileViewModel)
             } label: {
-                TextButtonView(title: "+ Kind hinzufügen")
+                TextButtonView(title: Strings.addChild)
                     .foregroundColor(.blue)
                     .multilineTextAlignment(.center)
             }

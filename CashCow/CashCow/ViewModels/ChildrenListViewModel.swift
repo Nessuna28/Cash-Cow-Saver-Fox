@@ -38,14 +38,13 @@ class ChildrenListViewModel: ObservableObject {
                 }
                 
                 self.children = documents.compactMap { queryDocumentSnapshot -> FireChild? in
-                    return try? queryDocumentSnapshot.data(as: FireChild.self)
+                    try? queryDocumentSnapshot.data(as: FireChild.self)
                 }
-                print(self.children)
             }
     }
     
     
-    private func removeListener() {
+    func removeListener() {
         
         children.removeAll()
         listener?.remove()

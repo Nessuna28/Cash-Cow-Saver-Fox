@@ -26,9 +26,9 @@ struct SelectionFaceIdAndFingerprintButton: View {
                 Image(systemName: Strings.fingerprintImage)
                     .font(.largeTitle)
             }
-            .foregroundColor(Colors.primaryColor)
+            .foregroundColor(Colors.primaryGreen)
             .padding()
-            .background(Colors.secondaryColor)
+            .background(Colors.secondaryGray)
             .cornerRadius(10)
             .padding(.horizontal, 30)
         }

@@ -11,17 +11,17 @@ struct NumberPickerView: View {
     
     var body: some View {
         HStack {
-            Text("Kinder")
+            Text(Strings.children)
             
             Spacer()
             
-            Picker("Kinder", selection: $children) {
+            Picker("", selection: $children) {
                 ForEach(numbers, id: \.self) { number in
                     Text("\(number)")
                 }
             }
             .pickerStyle(.automatic)
-            .foregroundStyle(Colors.primaryColor)
+            .foregroundStyle(Colors.primaryGreen)
         }
     }
     

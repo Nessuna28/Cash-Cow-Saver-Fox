@@ -11,37 +11,37 @@ struct SelectionChoiceOption: View {
     
     // MARK: - Variables
     
-    let image: String
+    let image: Image
     let title: String
     
     @State private var isChecked = false
     
     var body: some View {
         HStack {
-            Image(systemName: image)
+            image
                 .font(.title2)
                 .padding(8)
-                .background(Colors.primaryColor)
+                .background(Colors.primaryGreen)
                 .clipShape(Circle())
             
             Text(title)
             
             Spacer()
             
-            Button(action: {
-                        isChecked.toggle()
-                    }) {
-                        Image(systemName: isChecked ? "checkmark.square.fill" : "square")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(isChecked ? Colors.primaryColor : Colors.textColorOnS)
-                    }
+            Button {
+                isChecked.toggle()
+            } label: {
+                Image(systemName: isChecked ? Strings.checkmarkFill : Strings.checkmarkEmpty)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20, height: 20)
+                    .foregroundColor(isChecked ? Colors.primaryGreen : Colors.textColorOnS)
+            }
         }
         .padding(.horizontal)
         .padding(.vertical, 5)
         .foregroundColor(Colors.textColorOnS)
-        .background(Colors.secondaryColor)
+        .background(Colors.secondaryGray)
         .cornerRadius(10)
         .padding(.horizontal, 30)
     }
@@ -49,5 +49,5 @@ struct SelectionChoiceOption: View {
 }
 
 #Preview {
-    SelectionChoiceOption(image: "building.columns.fill", title: "Konten")
+    SelectionChoiceOption(image: Image(Strings.bankIcon), title: Strings.bankAccounts)
 }

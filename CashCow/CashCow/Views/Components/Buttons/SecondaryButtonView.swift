@@ -16,7 +16,7 @@ struct SecondaryButtonView: View {
     
     var body: some View {
         Text(title)
-            .foregroundStyle(Colors.primaryColor)
+            .foregroundStyle(Colors.primaryGreen)
             .font(.headline)
             .padding(.vertical, 10)
             .padding(.horizontal, 20)
@@ -25,7 +25,7 @@ struct SecondaryButtonView: View {
                     .fill(Color.white)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
-                            .stroke(Colors.primaryColor, lineWidth: 1)
+                            .stroke(Colors.primaryGreen, lineWidth: 1)
                     )
             )
     }
@@ -34,5 +34,5 @@ struct SecondaryButtonView: View {
 }
 
 #Preview {
-    SecondaryButtonView(title: "Abbrechen")
+    SecondaryButtonView(title: Strings.cancel)
 }

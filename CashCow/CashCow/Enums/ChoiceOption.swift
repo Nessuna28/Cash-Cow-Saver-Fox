@@ -6,32 +6,33 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum ChoiceOption: String, Identifiable, CaseIterable {
     
-    case banks, creditCards, insurance, savingAccounts, paidServices, orderAndDeliveryOverview
+    case bankAccounts, creditCards, insurance, savingAccounts, paidServices, orderAndDeliveryOverview
     
     var id: String { rawValue }
     
     var title: String {
         switch self {
-        case .banks: return "Banken"
-        case .creditCards: return "Kreditkarten"
-        case .insurance: return "Versicherungen"
-        case .savingAccounts: return "Sparkonten"
-        case .paidServices: return "Bezahldienste"
-        case .orderAndDeliveryOverview: return "Bestell- u. Lieferübersicht"
+        case .bankAccounts: return Strings.bankAccounts
+        case .creditCards: return Strings.creditCards
+        case .insurance: return Strings.insurance
+        case .savingAccounts: return Strings.savingAccounts
+        case .paidServices: return Strings.paidServices
+        case .orderAndDeliveryOverview: return Strings.orderAndDeliveryOverview
         }
     }
     
-    var icon: String {
+    var icon: Image {
         switch self {
-        case .banks: return "building.columns.fill"
-        case .creditCards: return "creditcard.fill"
-        case .insurance: return "shield.checkered"
-        case .savingAccounts: return "banknote.fill" // TODO: noch ändern
-        case .paidServices: return "banknote.fill"   // TODO: noch ändern
-        case .orderAndDeliveryOverview: return "truck.box.fill"
+        case .bankAccounts: return Image(Strings.bankIcon)
+        case .creditCards: return Image(Strings.creditCardIcon)
+        case .insurance: return Image(Strings.shieldIcon)
+        case .savingAccounts: return Image(Strings.savingIcon)
+        case .paidServices: return Image(Strings.paidServicesIcon)
+        case .orderAndDeliveryOverview: return Image(Strings.deliveryIcon)
         }
     }
     

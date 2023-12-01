@@ -9,53 +9,51 @@ import SwiftUI
 
 struct HomeView: View {
     
-    // MARK: - Variables
-    
-    @EnvironmentObject var tabViewModel: TabViewModel
-    @EnvironmentObject var profileViewModel: ProfileViewModel
-    @EnvironmentObject var authViewModel: AuthViewModel
-    
-    @StateObject var editViewModel = EditViewModel()
-    
     var body: some View {
         NavigationStack {
             VStack {
-                NavigationBar()
-                    .environmentObject(profileViewModel)
-                    .environmentObject(editViewModel)
-                    .environmentObject(authViewModel)
+                HStack {
+                    Spacer()
+                    
+                    ProfileNameAndImage()
+                        .environmentObject(profileViewModel)
+                        .environmentObject(childrenListViewModel)
+                    
+                    Spacer()
+                    
+                    AppIcon()
+                }
                 
-                NavigatorView()
-                    .environmentObject(tabViewModel)
-                
-                Text(Strings.SetUpFinances)
+                Text(Strings.setUpFinances)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 50)
-                    .padding(.top, 10)
+                    .padding(.top, 30)
                 
-                OverviewView()
+                NavigatorView()
+                    .environmentObject(settingsViewModel)
             }
-            .fullScreenCover(isPresented: $editViewModel.showProcessingSheet) {
-                if editViewModel.showProcessingSheet {
-                    HStack {
-                        Spacer()
-                        
-                        VStack(alignment: .trailing) {
-                            EditView(isShowSheet: $editViewModel.showProcessingSheet.animation())
-                            
-                            Spacer()
-                        }
-                    }
-                }
-            }
+            .padding(.horizontal)
+//            .foregroundColor(settingsViewModel.settings.textColor)
+//            .background(settingsViewModel.settings.backgroundColor)
+            .font(.system(size: settingsViewModel.fontSize))
         }
     }
+    
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
+    @StateObject var childrenListViewModel = ChildrenListViewModel()
+    @StateObject var settingsViewModel = SettingsViewModel()
     
 }
 
 #Preview {
     HomeView()
         .environmentObject(ProfileViewModel())
-        .environmentObject(TabViewModel())
         .environmentObject(AuthViewModel())
+        .environmentObject(ChildrenListViewModel())
+        .environmentObject(SettingsViewModel())
 }

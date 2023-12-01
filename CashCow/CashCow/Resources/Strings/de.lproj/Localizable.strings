@@ -1,0 +1,95 @@
+/* 
+  Localizable.strings
+  CashCow
+
+  Created by Angelique Freier on 29.11.23.
+  
+*/
+
+"guest" = "Gast";
+"children" = "Kinder";
+"familyMember" = "Familienmitglied";
+"setUpFinances" = "Lass uns beginnen deine Finanzen einzurichten";
+
+"home" = "Übersicht";
+"comparison" = "Gegenüberstellung";
+"bankAccounts" = "Konten";
+"finance" = "Finanzen";
+"revenue" = "Einnahmen";
+"expenditure" = "Ausgaben";
+"banks" = "Banken";
+"creditCards" = "Kreditkarten";
+"saving" = "Sparen";
+"insurance" = "Versicherungen";
+"savingAccounts" = "Sparkonten";
+"paidServices" = "Bezahldienste";
+"orderAndDeliveryOverview" = "Bestell- u. Lieferübersicht";
+"diagrams" = "Diagramme";
+
+
+"makeTheBest" = "Mach das Beste mit deinem Geld";
+"withUsBestOverview" = "Mit uns hast du die beste Übersicht über deine Einnahmen und Ausgaben zum Erreichen deiner persönlichen Ziele.";
+"letsGo" = "Los geht´s";
+"furtherUs" = "Mit der weiteren Benutzung stimmst du den folgenden Bedingungen zu:";
+"dataProtection" = "AGB - Datenschutzerklärung";
+"welcome" = "Willkommen";
+"justHelp" = "Wir wollen dir nur helfen";
+"newHere" = "Neu hier?";
+"yourSecurity" = "Deine Sicherheit liegt uns am Herzen";
+"howToSaveAccount" = "Wie möchtest du dein Konto zukünftig schützen?";
+"whichTabs" = "Was ist dir alles wichtig? Such dir aus was du für deine Ziele benötigst.";
+"adult" = "Erwachsener";
+"child" = "Kind";
+
+
+"login" = "Anmelden";
+"faceID" = "Face-ID";
+"fingerprint" = "Fingerprint";
+"enterWithCode" = "Code eingeben";
+"goOn" = "Weiter";
+"register" = "Registrieren";
+"cancel" = "Abbrechen";
+"save" = "Speichern";
+"addChild" = "+ Kind hinzufügen";
+
+
+"email" = "Email";
+"password" = "Passwort";
+"repeatedPassword" = "Passwort wiederholen";
+"lastName" = "Nachname";
+"firstName" = "Vorname";
+"birthday" = "Geburtstag";
+"domicile" = "Wohnort";
+"childrenAccounts" = "Kinderaccounts";
+"loginName" = "Anmeldename";
+"loginImage" = "Anmeldebild";
+
+
+"notSpecified" = "keine Angabe";
+"son" = "Sohn";
+"daughter" = "Tochter";
+
+
+"settings" = "Einstellungen";
+"leave" = "Verlassen";
+"design" = "Design";
+"notification" = "Benachrichtigungen";
+"categories" = "Kategorien";
+"logout" = "Abmelden";
+
+
+"profile" = "Profil";
+"newChildAccount" = "neuer Kinderaccount";
+
+
+"resetSettings" = "Einstellungen zurücksetzen";
+"colorSettings" = "Farbeinstellungen";
+"backgroundColor" = "Hintergrundfarbe";
+"textColor" = "Textfarbe";
+"fontSize" = "Schriftgröße";
+"darkMode" = "Dunkelmodus";
+"enableDarkMode" = "Dunkelmodus aktivieren";
+
+"small" = "klein";
+"medium" = "mittel";
+"large" = "groß";

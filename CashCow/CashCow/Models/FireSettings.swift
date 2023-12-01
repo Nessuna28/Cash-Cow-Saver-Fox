@@ -6,8 +6,15 @@
 //
 
 import Foundation
+import SwiftUI
+import FirebaseFirestore
 
-struct FireSettings: Codable {
+struct FireSettings: Codable, Identifiable {
+    @DocumentID var id: String?
     
-    
+    let userId: String
+    var backgroundColor: String
+    var textColor: String
+    var userFontSize: String
+    var isDarkModeEnabled: Bool
 }

@@ -24,7 +24,7 @@ struct AuthenticationView: View {
         VStack {
             Spacer()
             
-            HStack{
+            HStack {
                 TextField(Strings.email, text: $email)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
@@ -40,7 +40,7 @@ struct AuthenticationView: View {
             .cornerRadius(3)
             .padding(.horizontal, 30)
             
-            HStack{
+            HStack {
                 SecureField(Strings.password, text: $password)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
@@ -57,7 +57,7 @@ struct AuthenticationView: View {
             .padding(.horizontal, 30)
             
             if authViewModel.authenticationMode == .register {
-                HStack{
+                HStack {
                     SecureField(Strings.repeatedPassword, text: $repeatedPassword)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)

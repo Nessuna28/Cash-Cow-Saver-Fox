@@ -26,11 +26,11 @@ struct ChildAccountView: View {
                     .padding(.bottom, 60)
                 
                 VStack(spacing: 20) {
-                    DisplayForInputFields(title: "Nachname", input: $lastName)
+                    DisplayForInputFields(title: Strings.lastName, input: $lastName)
                     
-                    DisplayForInputFields(title: "Vorname", input: $firstName)
+                    DisplayForInputFields(title: Strings.firstName, input: $firstName)
                     
-                    DatePicker("Geburtstag", selection: $birthday, displayedComponents: .date)
+                    DatePicker(Strings.birthday, selection: $birthday, displayedComponents: .date)
                     
                     Divider()
                         .padding(.bottom, 40)
@@ -39,7 +39,7 @@ struct ChildAccountView: View {
             
             ButtonsForProfile(action: createChild)
         }
-        .navigationTitle("Kinderaccount")
+        .navigationTitle(Strings.childrenAccounts)
         .padding(.horizontal)
     }
     

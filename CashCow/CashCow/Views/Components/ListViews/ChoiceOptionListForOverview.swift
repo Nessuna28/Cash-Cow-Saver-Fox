@@ -22,6 +22,7 @@ struct ChoiceOptionListForOverview: View {
         .padding(.bottom, 40)
     }
     
+    
     // MARK: - Variables
     
     let choiceOption: ChoiceOption

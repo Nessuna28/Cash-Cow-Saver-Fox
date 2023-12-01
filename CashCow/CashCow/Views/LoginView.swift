@@ -8,12 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    
-    // MARK: - Variables
-    
-    @EnvironmentObject var authViewModel: AuthViewModel
-    
-    
+   
     var body: some View {
         NavigationStack {
             VStack {
@@ -33,6 +28,11 @@ struct LoginView: View {
             }
         }
     }
+    
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
     
 }
 

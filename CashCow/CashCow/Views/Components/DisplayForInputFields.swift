@@ -9,10 +9,6 @@ import SwiftUI
 
 struct DisplayForInputFields: View {
     
-    let title: String
-    @Binding var input: String
-    
-    
     var body: some View {
         VStack {
             HStack {
@@ -31,6 +27,13 @@ struct DisplayForInputFields: View {
             Divider()
         }
     }
+    
+    
+    // MARK: - Variables
+    
+    let title: String
+    
+    @Binding var input: String
     
 }
 

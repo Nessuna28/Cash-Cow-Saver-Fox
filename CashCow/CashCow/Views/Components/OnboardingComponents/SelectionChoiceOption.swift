@@ -9,13 +9,6 @@ import SwiftUI
 
 struct SelectionChoiceOption: View {
     
-    // MARK: - Variables
-    
-    let image: Image
-    let title: String
-    
-    @State private var isChecked = false
-    
     var body: some View {
         HStack {
             image
@@ -45,6 +38,14 @@ struct SelectionChoiceOption: View {
         .cornerRadius(10)
         .padding(.horizontal, 30)
     }
+    
+    
+    // MARK: - Variables
+    
+    let image: Image
+    let title: String
+    
+    @State private var isChecked = false
     
 }
 

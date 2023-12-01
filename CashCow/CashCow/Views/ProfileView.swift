@@ -90,9 +90,8 @@ struct ProfileView: View {
     // MARK: - Variables
     
     @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
     @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
-    
-    @StateObject var childProfileViewModel = ChildProfileViewModel()
     
     @State private var authManager = AuthManager.shared
     
@@ -136,6 +135,7 @@ struct ProfileView: View {
 #Preview {
     ProfileView(fireUser: ProfileViewModel().fireUser ?? FireUser(id: "", email: "", firstName: "", registeredAt: Date()))
         .environmentObject(ProfileViewModel())
+        .environmentObject(ChildProfileViewModel())
         .environmentObject(ChildProfileViewModel())
         .environmentObject(ChildrenListViewModel())
 }

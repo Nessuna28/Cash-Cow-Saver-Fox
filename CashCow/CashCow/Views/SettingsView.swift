@@ -39,8 +39,9 @@ struct SettingsView: View {
                 
                 Section {
                     Button(Strings.save) {
-                        settingsViewModel.saveSettings()
+                        settingsViewModel.updateSettings()
                         
+                        settingsViewModel.showAlert.toggle()
                     }
                 }
                 
@@ -56,6 +57,9 @@ struct SettingsView: View {
                         }
                     }
                 }
+            }
+            .alert(Strings.settingsSaved, isPresented: $settingsViewModel.showAlert) {
+                Button("OK", role: .cancel) { }
             }
         }
         .navigationTitle(Strings.settings)

@@ -9,11 +9,6 @@ import SwiftUI
 
 struct OnboardingView4: View {
     
-    // MARK: - Variables
-    
-    @EnvironmentObject var authViewModel: AuthViewModel
-    
-    
     var body: some View {
         NavigationStack {
             LoginButton()
@@ -39,6 +34,12 @@ struct OnboardingView4: View {
             }
         }
     }
+    
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     
     
     // MARK: - Functions

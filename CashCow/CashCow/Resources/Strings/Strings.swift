@@ -159,6 +159,7 @@ struct Strings {
     static let fontSize = NSLocalizedString("fontSize", comment: "")
     static let darkMode = NSLocalizedString("darkMode", comment: "")
     static let enableDarkMode = NSLocalizedString("enableDarkMode", comment: "")
+    static let settingsSaved = NSLocalizedString("settingsSaved", comment: "")
     
     static let small = NSLocalizedString("small", comment: "")
     static let medium = NSLocalizedString("medium", comment: "")

@@ -89,6 +89,7 @@
 "fontSize" = "Schriftgröße";
 "darkMode" = "Dunkelmodus";
 "enableDarkMode" = "Dunkelmodus aktivieren";
+"settingsSaved" = "Einstellungen wurden gespeichert.";
 
 "small" = "klein";
 "medium" = "mittel";

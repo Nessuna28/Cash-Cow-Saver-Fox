@@ -26,6 +26,10 @@
 "orderAndDeliveryOverview" = "Bestell- u. Lieferübersicht";
 "diagrams" = "Diagramme";
 
+"prifilePicture" = "Profilbild";
+"personal" = "Persönliches";
+"deleteAccount" = "Konto löschen";
+
 
 "makeTheBest" = "Mach das Beste mit deinem Geld";
 "withUsBestOverview" = "Mit uns hast du die beste Übersicht über deine Einnahmen und Ausgaben zum Erreichen deiner persönlichen Ziele.";

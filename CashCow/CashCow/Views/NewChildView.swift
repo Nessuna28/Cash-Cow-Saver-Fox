@@ -11,42 +11,67 @@ struct NewChildView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                ProfileImage()
+            Form {
+                Section("Profilbild") {
+                    ProfileImage()
+                }
                 
-                FamilyMemberPicker(familyMember: $familiyMember)
-                    .padding(.bottom, 30)
-                
-                VStack(spacing: 20) {
-                    
+                Section("persönliches") {
+                    FamilyMemberPicker(familyMember: $familiyMember)
+                        .padding(.bottom, 30)
                     
                     DisplayForInputFields(title: Strings.lastName, input: $lastName)
                     
                     DisplayForInputFields(title: Strings.firstName, input: $firstName)
                     
                     DatePicker(Strings.birthday, selection: $birthday, displayedComponents: .date)
+                }
+                
+                Section("Anmeldedaten") {
                     
-                    Divider()
-                        .padding(.bottom, 40)
-                    
-                    DisplayForInputFields(title: Strings.loginName, input: $loginName)
+                    VStack {
+                        DisplayForInputFields(title: Strings.loginName, input: $loginName)
+                        
+                        HStack {
+                            Spacer()
+                            
+                            if childProfileViewModel.loginNameExists {
+                                Text("nicht verfügbar")
+                                    .font(.footnote)
+                                    .foregroundStyle(.red)
+                            } else {
+                                Text("verfügbar")
+                                    .font(.footnote)
+                                    .foregroundStyle(Colors.primaryGreen)
+                            }
+                        }
+                    }
                     
                     ImagePicker(loginImage: $loginImage)
-                    
-                    Divider()
+                }
+                .onChange(of: loginName) {
+                    childProfileViewModel.checkLoginName(name: loginName)
+                }
+                
+                Section {
+                    Button(Strings.save) {
+                        createChild()
+                    }
+                }
+                .alert("Name vergeben", isPresented: $showAlert) {
+                    Button("OK", role: .cancel) { }
                 }
             }
-            
-            ButtonsForProfile(action: createChild)
         }
         .navigationTitle(Strings.newChildAccount)
-        .padding(.horizontal)
     }
     
     // MARK: - Variables
     
     @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
     @EnvironmentObject var profileViewModel: ProfileViewModel
+    
+    @Environment(\.dismiss) var dismiss
     
     @State private var authManager = AuthManager.shared
     
@@ -57,6 +82,9 @@ struct NewChildView: View {
     
     @State private var loginName = ""
     @State private var loginImage = ""
+    
+    @State private var showAlert = false
+    
     
     
     
@@ -75,9 +103,15 @@ struct NewChildView: View {
     
     private func createChild() {
         
-        setData()
-        
-        childProfileViewModel.createChild()
+        if childProfileViewModel.loginNameExists {
+            showAlert.toggle()
+        } else {
+            setData()
+            
+            childProfileViewModel.createChild()
+            
+            dismiss()
+        }
     }
     
     private func formatDate(date: Date) -> String {

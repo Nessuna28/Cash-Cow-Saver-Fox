@@ -45,7 +45,9 @@ struct OnboardingView1: View {
                     NavigationLink {
                         // TODO: View für Datenschutzbestimmungen erstellen
                     } label: {
-                        TextButtonView(title: Strings.dataProtection)
+                        Text(Strings.dataProtection)
+                            .font(.headline)
+                            .bold()
                     }
                 }
             }

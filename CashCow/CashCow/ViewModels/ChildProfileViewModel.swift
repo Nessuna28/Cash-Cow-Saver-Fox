@@ -24,15 +24,37 @@ class ChildProfileViewModel: ObservableObject {
     @Published var loginName: String = ""
     @Published var loginImage: String = ""
     
+    @Published var loginNameExists = false
+    
     
     // MARK: - Functions
     
-    func createChild() {
+    func checkLoginName(name: String) {
         
-        if let uid = authManager.auth.currentUser?.uid {
-            ChildProfileRepository.createChild(with: uid, familyMember: self.familyMember, lastName: self.lastName ?? "", firstName: self.firstName, birthday: self.birthday ?? Date(), loginName: loginName, loginImage: loginImage)
+        AuthManager.shared.database.collection("children").whereField("loginName", isEqualTo: name).getDocuments { querySnapshot, error in
+            guard let querySnapshot = querySnapshot, error == nil else {
+                print("Error checking for existing child:", error ?? "Unknown error")
+                return
+            }
+            
+            if !querySnapshot.isEmpty {
+                self.loginNameExists = true
+                
+                print("A child with the same login name already exists.")
+            } else {
+                self.loginNameExists = false
+            }
         }
     }
+    
+    
+    func createChild() {
+        
+        if let uid = self.authManager.auth.currentUser?.uid {
+            ChildProfileRepository.createChild(with: uid, familyMember: self.familyMember, lastName: self.lastName ?? "", firstName: self.firstName, birthday: self.birthday ?? Date(), loginName: self.loginName, loginImage: self.loginImage)
+        }
+    }
+    
     
     
     func updateChild(id: String) {

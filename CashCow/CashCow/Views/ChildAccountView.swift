@@ -37,7 +37,7 @@ struct ChildAccountView: View {
                 }
             }
             
-            ButtonsForProfile(action: createChild)
+            SaveButtonAndCancelButton(action: createChild)
         }
         .navigationTitle(Strings.childrenAccounts)
         .padding(.horizontal)

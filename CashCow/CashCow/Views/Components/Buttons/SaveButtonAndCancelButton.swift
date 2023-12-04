@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ButtonsForProfile: View {
+struct SaveButtonAndCancelButton: View {
     
     var body: some View {
         HStack {
@@ -38,5 +38,5 @@ struct ButtonsForProfile: View {
 }
 
 #Preview {
-    ButtonsForProfile { }
+    SaveButtonAndCancelButton { }
 }

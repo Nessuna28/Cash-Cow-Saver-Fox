@@ -10,9 +10,11 @@ import SwiftUI
 struct ComparisonView: View {
     
     var body: some View {
-        Text(Strings.comparison)
-            .font(.title)
-            .bold()
+        NavigationStack {
+            Tab.comparison.icon
+                .font(.title)
+                .navigationTitle(Tab.comparison.title)
+        }
     }
     
 }

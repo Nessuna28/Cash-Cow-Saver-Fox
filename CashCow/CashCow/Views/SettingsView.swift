@@ -11,7 +11,7 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
+            List {
                 Section(header: Text(Strings.colorSettings)) {
                     ColorPicker(Strings.backgroundColor, selection: $settingsViewModel.backgroundColorFromPicker)
                     
@@ -75,7 +75,7 @@ struct SettingsView: View {
                 Button(Strings.okay, role: .cancel) { }
             }
         }
-        .navigationTitle(Strings.settings)
+        .navigationTitle(Tab.settings.title)
     }
     
     

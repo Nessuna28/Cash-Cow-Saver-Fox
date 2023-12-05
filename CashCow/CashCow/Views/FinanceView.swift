@@ -10,9 +10,11 @@ import SwiftUI
 struct FinanceView: View {
     
     var body: some View {
-        Text(Strings.finance)
-            .font(.title)
-            .bold()
+        NavigationStack {
+            Tab.finance.icon
+                .font(.title)
+                .navigationTitle(Tab.finance.title)
+        }
     }
     
 }

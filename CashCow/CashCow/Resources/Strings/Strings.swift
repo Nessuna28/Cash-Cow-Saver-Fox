@@ -37,8 +37,15 @@ struct Strings {
     
     static let profilePicture = NSLocalizedString("prifilePicture", comment: "")
     static let personal = NSLocalizedString("personal", comment: "")
+    static let family = NSLocalizedString("family", comment: "")
     static let deleteAccount = NSLocalizedString("deleteAccount", comment: "")
     static let deleteProfile = NSLocalizedString("deleteProfile", comment: "")
+    static let loginDetails = NSLocalizedString("loginDetails", comment: "")
+    static let available = NSLocalizedString("available", comment: "")
+    static let notAvailable = NSLocalizedString("notAvailable", comment: "")
+    static let assignName = NSLocalizedString("assignName", comment: "")
+    static let okay = NSLocalizedString("okay", comment: "")
+    static let account = NSLocalizedString("account", comment: "")
     
     
     // MARK: - OnboardingTexts
@@ -114,6 +121,7 @@ struct Strings {
     static let editIcon = "ellipsis.circle"
     static let camIcon = "camera.fill"
     static let plusIcon = "plus"
+    static let plusCircleIcon = "plus.circle"
     static let trashIcon = "trash.fill"
     static let pencilIcon = "pencil"
     static let logoutIcon = "door.left.hand.open"

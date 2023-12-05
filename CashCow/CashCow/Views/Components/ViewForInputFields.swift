@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DisplayForInputFields: View {
+struct ViewForInputFields: View {
     
     var body: some View {
         VStack {
@@ -36,5 +36,5 @@ struct DisplayForInputFields: View {
 }
 
 #Preview {
-    DisplayForInputFields(title: Strings.lastName, input: .constant(""))
+    ViewForInputFields(title: Strings.lastName, input: .constant(""))
 }

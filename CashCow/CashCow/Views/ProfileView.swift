@@ -27,45 +27,33 @@ struct ProfileView: View {
                 }
                 
                 Section(Strings.personal) {
-                    DisplayForInputFields(title: Strings.lastName, input: $lastName)
+                    ViewForInputFields(title: Strings.lastName, input: $lastName)
                     
-                    DisplayForInputFields(title: Strings.firstName, input: $firstName)
+                    ViewForInputFields(title: Strings.firstName, input: $firstName)
                     
                     DatePicker(Strings.birthday, selection: $birthday, displayedComponents: .date)
                     
-                    DisplayForInputFields(title: Strings.domicile, input: $domicile)
+                    ViewForInputFields(title: Strings.domicile, input: $domicile)
                     
                     NumberPickerView(children: $children)
                 }
                 
-                Section {
-                    Button(Strings.save) {
-                        updateProfile()
-                        dismiss()
-                    }
-                }
-                
-                Section {
-                    Button(Strings.deleteAccount, role: .destructive) {
-                        profileViewModel.deleteUser()
-                        dismiss()
-                    }
-                }
-                
-                Section {
+                Section(Strings.family) {
                     HStack {
                         Text(Strings.childrenAccounts)
                         
                         Spacer()
                         
                         if childrenListViewModel.children.isEmpty {
-                            NavigationLink {
-                                NewChildView()
-                                    .environmentObject(profileViewModel)
-                                    .environmentObject(childProfileViewModel)
+                            Button {
+                                childProfileViewModel.showSheetNewChild.toggle()
                             } label: {
                                 Image(systemName: Strings.plusIcon)
                                     .foregroundColor(.blue)
+                            }
+                            .sheet(isPresented: $childProfileViewModel.showSheetNewChild) {
+                                NewChildView()
+                                    .environmentObject(childProfileViewModel)
                             }
                         } else {
                             Button {
@@ -78,10 +66,27 @@ struct ProfileView: View {
                     }
                     
                     if showChildrenList {
-                        ChildrenListView()
-                            .environmentObject(childrenListViewModel)
-                            .environmentObject(childProfileViewModel)
-                            .multilineTextAlignment(.trailing)
+                        NavigationLink {
+                            ChildrenListView()
+                                .environmentObject(childrenListViewModel)
+                                .environmentObject(childProfileViewModel)
+                        } label: {
+                            ChildrenList(children: childrenListViewModel.children)
+                        }
+                    }
+                }
+                
+                Section {
+                    Button(Strings.save) {
+                        updateProfile()
+                        dismiss()
+                    }
+                }
+                
+                Section {
+                    Button(Strings.deleteProfile, role: .destructive) {
+                        profileViewModel.deleteUser()
+                        dismiss()
                     }
                 }
                 .onAppear {
@@ -143,7 +148,6 @@ struct ProfileView: View {
 #Preview {
     ProfileView(fireUser: ProfileViewModel().fireUser ?? FireUser(id: "", email: "", firstName: "", registeredAt: Date()))
         .environmentObject(ProfileViewModel())
-        .environmentObject(ChildProfileViewModel())
         .environmentObject(ChildProfileViewModel())
         .environmentObject(ChildrenListViewModel())
 }

@@ -28,8 +28,15 @@
 
 "prifilePicture" = "Profile picture";
 "personal" = "Personal";
+"family" = "Family";
 "deleteAccount" = "Delete Account";
 "deleteProfile" = "Delete Profile";
+"loginDetails" = "Login Details";
+"available" = "available";
+"notAvailable" = "not available";
+"assignName" = "Name already taken";
+"okay" = "okay";
+"account" = "Account";
 
 
 "makeTheBest" = "Make the Best of Your Money";

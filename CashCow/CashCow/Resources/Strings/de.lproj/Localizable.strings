@@ -28,8 +28,15 @@
 
 "prifilePicture" = "Profilbild";
 "personal" = "Persönliches";
+"family" = "Familie";
 "deleteAccount" = "Konto löschen";
 "deleteProfile" = "Profil löschen";
+"loginDetail" = "Anmeldedaten";
+"available" = "verfügbar";
+"notAvailable" = "nicht verfügbar";
+"assignName" = "Name bereits vergeben";
+"okay" = "OK";
+"account" = "Konto";
 
 
 "makeTheBest" = "Mach das Beste mit deinem Geld";

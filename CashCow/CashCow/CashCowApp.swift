@@ -31,6 +31,7 @@ struct CashCowApp: App {
             } else {
                 OnboardingView1()
                     .environmentObject(authViewModel)
+                    .environmentObject(profileViewModel)
             }
         }
     }

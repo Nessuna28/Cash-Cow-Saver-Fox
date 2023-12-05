@@ -28,9 +28,9 @@ struct ChildAccountView: View {
                 
                 
                 Section(Strings.personal) {
-                    DisplayForInputFields(title: Strings.lastName, input: $lastName)
+                    ViewForInputFields(title: Strings.lastName, input: $lastName)
                     
-                    DisplayForInputFields(title: Strings.firstName, input: $firstName)
+                    ViewForInputFields(title: Strings.firstName, input: $firstName)
                     
                     DatePicker(Strings.birthday, selection: $birthday, displayedComponents: .date)
                 }
@@ -57,7 +57,6 @@ struct ChildAccountView: View {
     // MARK: - Variables
     
     @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
-    @EnvironmentObject var profileViewModel: ProfileViewModel
     
     @Environment(\.dismiss) var dismiss
     
@@ -103,6 +102,5 @@ struct ChildAccountView: View {
 
 #Preview {
     ChildAccountView(child: FireChild(parentId: "", familyMember: "", firstName: "", loginName: "", loginImage: "", registeredAt: Date()))
-        .environmentObject(ProfileViewModel())
         .environmentObject(ChildProfileViewModel())
 }

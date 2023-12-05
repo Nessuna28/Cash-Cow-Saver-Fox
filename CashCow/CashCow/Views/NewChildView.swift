@@ -12,35 +12,35 @@ struct NewChildView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("Profilbild") {
+                Section(Strings.profilePicture) {
                     ProfileImage()
                 }
                 
-                Section("persönliches") {
+                Section(Strings.personal) {
                     FamilyMemberPicker(familyMember: $familiyMember)
                         .padding(.bottom, 30)
                     
-                    DisplayForInputFields(title: Strings.lastName, input: $lastName)
+                    ViewForInputFields(title: Strings.lastName, input: $lastName)
                     
-                    DisplayForInputFields(title: Strings.firstName, input: $firstName)
+                    ViewForInputFields(title: Strings.firstName, input: $firstName)
                     
                     DatePicker(Strings.birthday, selection: $birthday, displayedComponents: .date)
                 }
                 
-                Section("Anmeldedaten") {
+                Section(Strings.loginDetails) {
                     
                     VStack {
-                        DisplayForInputFields(title: Strings.loginName, input: $loginName)
+                        ViewForInputFields(title: Strings.loginName, input: $loginName)
                         
                         HStack {
                             Spacer()
                             
                             if childProfileViewModel.loginNameExists {
-                                Text("nicht verfügbar")
+                                Text(Strings.notAvailable)
                                     .font(.footnote)
                                     .foregroundStyle(.red)
                             } else {
-                                Text("verfügbar")
+                                Text(Strings.available)
                                     .font(.footnote)
                                     .foregroundStyle(Colors.primaryGreen)
                             }
@@ -58,8 +58,8 @@ struct NewChildView: View {
                         createChild()
                     }
                 }
-                .alert("Name vergeben", isPresented: $showAlert) {
-                    Button("OK", role: .cancel) { }
+                .alert(Strings.assignName, isPresented: $showAlert) {
+                    Button(Strings.okay, role: .cancel) { }
                 }
             }
         }
@@ -69,7 +69,6 @@ struct NewChildView: View {
     // MARK: - Variables
     
     @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
-    @EnvironmentObject var profileViewModel: ProfileViewModel
     
     @Environment(\.dismiss) var dismiss
     
@@ -128,5 +127,4 @@ struct NewChildView: View {
 #Preview {
     NewChildView()
         .environmentObject(ChildProfileViewModel())
-        .environmentObject(ProfileViewModel())
 }

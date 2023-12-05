@@ -35,18 +35,20 @@ struct OnboardingView1: View {
                         OnboardingView2()
                     } label: {
                         PrimaryButtonView(title: Strings.letsGo)
-                            .padding(20)
+                            .padding(30)
                     }
                     
                     Text(Strings.furtherUse)
+                        .font(.footnote)
                         .multilineTextAlignment(.center)
-                        .padding(30)
+                        .padding(.top, 30)
+                        .padding(.bottom, 5)
                     
                     NavigationLink {
-                        // TODO: View für Datenschutzbestimmungen erstellen
+                        DataProtectionView()
                     } label: {
                         Text(Strings.dataProtection)
-                            .font(.headline)
+                            .font(.footnote)
                             .bold()
                     }
                 }

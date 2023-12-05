@@ -26,6 +26,9 @@ class ChildProfileViewModel: ObservableObject {
     
     @Published var loginNameExists = false
     
+    @Published var showSheetChildAccount = false
+    @Published var showSheetNewChild = false
+    
     
     // MARK: - Functions
     

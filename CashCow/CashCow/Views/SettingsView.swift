@@ -11,7 +11,7 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
+            List {
                 Section(header: Text(Strings.colorSettings)) {
                     ColorPicker(Strings.backgroundColor, selection: $settingsViewModel.backgroundColorFromPicker)
                     
@@ -45,7 +45,7 @@ struct SettingsView: View {
                     }
                 }
                 
-                Section {
+                Section(Strings.account) {
                     Button(role: .destructive) {
                         authViewModel.logoutUser()
                         childrenListViewModel.removeListener()
@@ -56,13 +56,26 @@ struct SettingsView: View {
                             Text(Strings.logout)
                         }
                     }
+                    
+                    Button(role: .destructive) {
+                        authViewModel.logoutUser()
+                        childrenListViewModel.removeListener()
+                        AuthManager.shared.deleteUser()
+                        
+                    } label: {
+                        HStack {
+                            Image(systemName: Strings.deleteIcon)
+                            
+                            Text(Strings.deleteAccount)
+                        }
+                    }
                 }
             }
             .alert(Strings.settingsSaved, isPresented: $settingsViewModel.showAlert) {
-                Button("OK", role: .cancel) { }
+                Button(Strings.okay, role: .cancel) { }
             }
         }
-        .navigationTitle(Strings.settings)
+        .navigationTitle(Tab.settings.title)
     }
     
     

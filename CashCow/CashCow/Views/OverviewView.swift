@@ -11,6 +11,11 @@ struct OverviewView: View {
     
     var body: some View {
         NavigationStack {
+            Text(Strings.setUpFinances)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 50)
+                .padding(.top, 30)
+            
             ScrollView {
                 ForEach(ChoiceOption.allCases) { choiceOption in
                     ChoiceOptionListForOverview(choiceOption: choiceOption)

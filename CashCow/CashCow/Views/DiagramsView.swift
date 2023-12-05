@@ -10,9 +10,11 @@ import SwiftUI
 struct DiagramsView: View {
     
     var body: some View {
-        Text(Strings.diagrams)
-            .font(.title)
-            .bold()
+        NavigationStack {
+            Tab.diagrams.icon
+                .font(.title)
+                .navigationTitle(Tab.diagrams.title)
+        }
     }
     
 }

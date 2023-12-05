@@ -10,24 +10,26 @@ import SwiftUI
 struct NavigatorView: View {
     
     var body: some View {
-        TabView(selection: $selectedTab) {
-            ForEach(Tab.allCases) { tab in
-                tab.view
-                    .environmentObject(settingsViewModel)
-                    .environmentObject(authViewModel)
-                    .environmentObject(childrenListViewModel)
-                    .foregroundColor(Color(settingsViewModel.textColor))
-                    .background(Color(settingsViewModel.backgroundColor))
-                    .font(.system(size: settingsViewModel.fontSize))
-                    .tabItem {
-                        VStack {
-                            tab.icon
-                            
-                            Text(tab.title)
+        NavigationStack {
+            TabView(selection: $selectedTab) {
+                ForEach(Tab.allCases) { tab in
+                    tab.view
+                        .environmentObject(settingsViewModel)
+                        .environmentObject(authViewModel)
+                        .environmentObject(childrenListViewModel)
+    //                    .foregroundColor(Color(settingsViewModel.textColor))
+    //                    .background(Color(settingsViewModel.backgroundColor))
+    //                    .font(.system(size: settingsViewModel.fontSize))
+                        .tabItem {
+                            VStack {
+                                tab.icon
+                                
+                                Text(tab.title)
+                            }
+                            .foregroundColor(settingsViewModel.subtitleColor)
                         }
-                        .foregroundColor(settingsViewModel.subtitleColor)
-                    }
-                    .tag(tab)
+                        .tag(tab)
+                }
             }
         }
     }

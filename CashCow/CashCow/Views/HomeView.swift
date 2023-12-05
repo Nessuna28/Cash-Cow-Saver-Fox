@@ -25,20 +25,15 @@ struct HomeView: View {
                     AppIcon()
                 }
                 
-                Text(Strings.setUpFinances)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 50)
-                    .padding(.top, 30)
-                
                 NavigatorView()
                     .environmentObject(settingsViewModel)
                     .environmentObject(authViewModel)
                     .environmentObject(childrenListViewModel)
             }
             .padding(.horizontal)
-            .foregroundColor(Color(settingsViewModel.textColor))
-            .background(Color(settingsViewModel.backgroundColor))
-            .font(.system(size: settingsViewModel.fontSize))
+//            .foregroundColor(Color(settingsViewModel.textColor))
+//            .background(Color(settingsViewModel.backgroundColor))
+//            .font(.system(size: settingsViewModel.fontSize))
         }
     }
     

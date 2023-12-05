@@ -28,14 +28,21 @@
 
 "prifilePicture" = "Profile picture";
 "personal" = "Personal";
+"family" = "Family";
 "deleteAccount" = "Delete Account";
 "deleteProfile" = "Delete Profile";
+"loginDetails" = "Login Details";
+"available" = "available";
+"notAvailable" = "not available";
+"assignName" = "Name already taken";
+"okay" = "okay";
+"account" = "Account";
 
 
 "makeTheBest" = "Make the Best of Your Money";
 "withUsBestOverview" = "With us, you have the best overview of your income and expenses to achieve your personal goals.";
 "letsGo" = "Let's go";
-"furtherUs" = "By using our services, you agree to the following terms:";
+"furtherUse" = "By using our services, you agree to the following terms:";
 "dataProtection" = "Terms and Privacy Policy";
 "welcome" = "Welcome";
 "justHelp" = "We just want to help you";

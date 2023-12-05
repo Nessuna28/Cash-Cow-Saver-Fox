@@ -21,23 +21,34 @@ struct ChildAccountView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                ProfileImage()
-                    .padding(.bottom, 60)
+            Form {
+                Section(Strings.profilePicture) {
+                    ProfileImage()
+                }
                 
-                VStack(spacing: 20) {
+                
+                Section(Strings.personal) {
                     DisplayForInputFields(title: Strings.lastName, input: $lastName)
                     
                     DisplayForInputFields(title: Strings.firstName, input: $firstName)
                     
                     DatePicker(Strings.birthday, selection: $birthday, displayedComponents: .date)
-                    
-                    Divider()
-                        .padding(.bottom, 40)
+                }
+                
+                Section {
+                    Button(Strings.save) {
+                        childProfileViewModel.updateChild(id: child?.id ?? "")
+                        dismiss()
+                    }
+                }
+                
+                Section {
+                    Button(Strings.deleteProfile, role: .destructive) {
+                        childProfileViewModel.deleteChild(id: child?.id ?? "")
+                        dismiss()
+                    }
                 }
             }
-            
-            ButtonsForProfile(action: createChild)
         }
         .navigationTitle(Strings.childrenAccounts)
         .padding(.horizontal)
@@ -47,6 +58,8 @@ struct ChildAccountView: View {
     
     @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
     @EnvironmentObject var profileViewModel: ProfileViewModel
+    
+    @Environment(\.dismiss) var dismiss
     
     @State private var authManager = AuthManager.shared
     

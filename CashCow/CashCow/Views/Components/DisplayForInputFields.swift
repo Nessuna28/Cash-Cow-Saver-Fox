@@ -23,8 +23,6 @@ struct DisplayForInputFields: View {
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
             }
-            
-            Divider()
         }
     }
     

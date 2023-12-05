@@ -10,7 +10,7 @@ import SwiftUI
 struct ProfileImage: View {
     
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
+        HStack {
             Image(Strings.adultWoman)
                 .resizable()
                 .scaledToFill()
@@ -18,9 +18,20 @@ struct ProfileImage: View {
                 .overlay(Circle().stroke(Color.white, lineWidth: 2))
                 .frame(width: 100, height: 100)
             
-            Image(systemName: Strings.camIcon)
+            Spacer()
+            
+            Button("Bearbeiten") {
+                updateProfileImage()
+            }
         }
         .frame(height: 100)
+    }
+    
+    
+    // MARK: - Functions
+    
+    private func updateProfileImage() {
+        
     }
     
 }

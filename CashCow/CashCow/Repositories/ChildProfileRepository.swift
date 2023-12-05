@@ -11,7 +11,9 @@ class ChildProfileRepository {
     
     static func createChild(with id: String, familyMember: String, lastName: String, firstName: String, birthday: Date, loginName: String, loginImage: String) {
         
-        let child = FireChild(parentId: AuthManager.shared.auth.currentUser?.uid ?? "", familyMember: familyMember, lastName: lastName, firstName: firstName, birthday: birthday, loginName: loginName, loginImage: loginImage, registeredAt: Date())
+        let parentId = AuthManager.shared.auth.currentUser?.uid ?? ""
+        
+        let child = FireChild(parentId: parentId, familyMember: familyMember, lastName: lastName, firstName: firstName, birthday: birthday, loginName: loginName, loginImage: loginImage, registeredAt: Date())
         
         do {
             try AuthManager.shared.database.collection("children").addDocument(from: child)

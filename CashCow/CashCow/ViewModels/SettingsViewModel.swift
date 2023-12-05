@@ -101,12 +101,11 @@ class SettingsViewModel: ObservableObject {
         
         setSettings()
         
-        if let uid = AuthManager.shared.auth.currentUser?.uid {
-            SettingsRepository.fetchSettings { settings in
-                
-                self.settings = settings
-            }
+        SettingsRepository.fetchSettings { settings in
+            
+            self.settings = settings
         }
+        
     }
         
     

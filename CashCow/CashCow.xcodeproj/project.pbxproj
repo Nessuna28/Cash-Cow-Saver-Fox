@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9111F6AA2B0E4ABC00D66A55 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111F6A92B0E4ABC00D66A55 /* ProfileImage.swift */; };
 		9111F6AC2B0E544A00D66A55 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111F6AB2B0E544A00D66A55 /* ImagePicker.swift */; };
-		9111F6AE2B0E5AF800D66A55 /* ButtonsForProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111F6AD2B0E5AF800D66A55 /* ButtonsForProfile.swift */; };
+		9111F6AE2B0E5AF800D66A55 /* SaveButtonAndCancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9111F6AD2B0E5AF800D66A55 /* SaveButtonAndCancelButton.swift */; };
 		9111F6B42B0E98CE00D66A55 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9111F6B32B0E98CE00D66A55 /* FirebaseAnalyticsSwift */; };
 		9111F6C42B0E98CE00D66A55 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9111F6C32B0E98CE00D66A55 /* FirebaseDatabaseSwift */; };
 		9111F6F02B0E9AB200D66A55 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9111F6EF2B0E9AB200D66A55 /* FirebaseAuth */; };
@@ -78,7 +78,6 @@
 		91F2B70F2B065C2F00FA3AC3 /* FireUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2B70E2B065C2F00FA3AC3 /* FireUser.swift */; };
 		91F2B7112B065DBB00FA3AC3 /* FireChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2B7102B065DBB00FA3AC3 /* FireChild.swift */; };
 		91F2B7132B06613B00FA3AC3 /* OnboardingView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2B7122B06613B00FA3AC3 /* OnboardingView1.swift */; };
-		91F2B7162B0661C300FA3AC3 /* TextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2B7152B0661C300FA3AC3 /* TextButtonView.swift */; };
 		91FD321C2B0D28C500018074 /* ChildrenListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD321B2B0D28C500018074 /* ChildrenListView.swift */; };
 		91FD321E2B0D38A600018074 /* SecondaryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD321D2B0D38A600018074 /* SecondaryButtonView.swift */; };
 		91FD32202B0D428900018074 /* NumberPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FD321F2B0D428900018074 /* NumberPickerView.swift */; };
@@ -87,7 +86,7 @@
 /* Begin PBXFileReference section */
 		9111F6A92B0E4ABC00D66A55 /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		9111F6AB2B0E544A00D66A55 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		9111F6AD2B0E5AF800D66A55 /* ButtonsForProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsForProfile.swift; sourceTree = "<group>"; };
+		9111F6AD2B0E5AF800D66A55 /* SaveButtonAndCancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveButtonAndCancelButton.swift; sourceTree = "<group>"; };
 		914F313D2B0EA4BA004B2513 /* ChildProfileRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildProfileRepository.swift; sourceTree = "<group>"; };
 		914F31412B0EADCF004B2513 /* ChildProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildProfileViewModel.swift; sourceTree = "<group>"; };
 		914F31432B0EC8AC004B2513 /* ChildrenListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenListViewModel.swift; sourceTree = "<group>"; };
@@ -144,7 +143,6 @@
 		91F2B70E2B065C2F00FA3AC3 /* FireUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireUser.swift; sourceTree = "<group>"; };
 		91F2B7102B065DBB00FA3AC3 /* FireChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireChild.swift; sourceTree = "<group>"; };
 		91F2B7122B06613B00FA3AC3 /* OnboardingView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView1.swift; sourceTree = "<group>"; };
-		91F2B7152B0661C300FA3AC3 /* TextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonView.swift; sourceTree = "<group>"; };
 		91FD321B2B0D28C500018074 /* ChildrenListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenListView.swift; sourceTree = "<group>"; };
 		91FD321D2B0D38A600018074 /* SecondaryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonView.swift; sourceTree = "<group>"; };
 		91FD321F2B0D428900018074 /* NumberPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPickerView.swift; sourceTree = "<group>"; };
@@ -329,7 +327,7 @@
 				91952B5A2B18C2DF006CF2A2 /* FinanceView.swift */,
 				91952B5C2B18C30E006CF2A2 /* DiagramsView.swift */,
 				919807AD2B1877DB007D5507 /* SettingsView.swift */,
-				91FD32242B0E206400018074 /* Picker */,
+				914F31522B10BA11004B2513 /* ListViews */,
 				91D9DF6D2B0788B600514AF8 /* Onboarding */,
 				91F2B7142B0661A900FA3AC3 /* Components */,
 			);
@@ -358,8 +356,8 @@
 			isa = PBXGroup;
 			children = (
 				91929ABE2B0D0D3300C68AD2 /* DisplayForInputFields.swift */,
+				91FD32242B0E206400018074 /* Picker */,
 				914F314E2B10A6AE004B2513 /* Modifier */,
-				914F31522B10BA11004B2513 /* ListViews */,
 				914F314B2B10A559004B2513 /* Images */,
 				91FD32252B0E208D00018074 /* Buttons */,
 				91FD32232B0E201900018074 /* OnboardingComponents */,
@@ -393,10 +391,9 @@
 			isa = PBXGroup;
 			children = (
 				91D9DF702B07896800514AF8 /* LoginButton.swift */,
-				91F2B7152B0661C300FA3AC3 /* TextButtonView.swift */,
 				91D9DF6B2B07859D00514AF8 /* PrimaryButtonView.swift */,
 				91FD321D2B0D38A600018074 /* SecondaryButtonView.swift */,
-				9111F6AD2B0E5AF800D66A55 /* ButtonsForProfile.swift */,
+				9111F6AD2B0E5AF800D66A55 /* SaveButtonAndCancelButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -559,7 +556,7 @@
 				91D9DF7E2B07C56400514AF8 /* SelectionAdultView.swift in Sources */,
 				914F31482B0F7CC6004B2513 /* FamilyMemberPicker.swift in Sources */,
 				91929AAB2B0B728600C68AD2 /* ProfileRepository.swift in Sources */,
-				9111F6AE2B0E5AF800D66A55 /* ButtonsForProfile.swift in Sources */,
+				9111F6AE2B0E5AF800D66A55 /* SaveButtonAndCancelButton.swift in Sources */,
 				91D9DF782B079AB600514AF8 /* Colors.swift in Sources */,
 				91D9DF712B07896800514AF8 /* LoginButton.swift in Sources */,
 				91929ABF2B0D0D3300C68AD2 /* DisplayForInputFields.swift in Sources */,
@@ -583,7 +580,6 @@
 				91D9DF6C2B07859D00514AF8 /* PrimaryButtonView.swift in Sources */,
 				91929AA72B097E3C00C68AD2 /* OverviewView.swift in Sources */,
 				91952B5D2B18C30E006CF2A2 /* DiagramsView.swift in Sources */,
-				91F2B7162B0661C300FA3AC3 /* TextButtonView.swift in Sources */,
 				919807A22B15EECF007D5507 /* HomeView.swift in Sources */,
 				91D9DF762B0798F900514AF8 /* Strings.swift in Sources */,
 				91929AAD2B0B929E00C68AD2 /* ProfileViewModel.swift in Sources */,

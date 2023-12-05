@@ -21,69 +21,75 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                ProfileImage()
-                    .padding(.bottom, 60)
+            Form {
+                Section(Strings.profilePicture) {
+                    ProfileImage()
+                }
                 
-                VStack(spacing: 20) {
+                Section(Strings.personal) {
                     DisplayForInputFields(title: Strings.lastName, input: $lastName)
                     
                     DisplayForInputFields(title: Strings.firstName, input: $firstName)
                     
                     DatePicker(Strings.birthday, selection: $birthday, displayedComponents: .date)
                     
-                    Divider()
-                    
                     DisplayForInputFields(title: Strings.domicile, input: $domicile)
                     
                     NumberPickerView(children: $children)
-                    
-                    Divider()
-                    
-                    VStack {
-                        HStack {
-                            Text(Strings.childrenAccounts)
-                            
-                            Spacer()
-                            
-                            if childrenListViewModel.children.isEmpty {
-                                NavigationLink {
-                                    NewChildView()
-                                        .environmentObject(profileViewModel)
-                                        .environmentObject(childProfileViewModel)
-                                } label: {
-                                    Image(systemName: Strings.plusIcon)
-                                        .foregroundColor(.blue)
-                                }
-                            } else {
-                                Button {
-                                    showChildrenList.toggle()
-                                } label: {
-                                    Image(systemName: showChildrenList ? Strings.arrowDown : Strings.arrowRight)
-                                        .foregroundColor(.blue)
-                                }
-                            }
-                        }
-                        if showChildrenList {
-                            ChildrenListView()
-                                .environmentObject(childrenListViewModel)
-                                .environmentObject(childProfileViewModel)
-                                .multilineTextAlignment(.trailing)
-                        }
-                    }
-                    .onAppear {
-                        childrenListViewModel.fetchChildren()
+                }
+                
+                Section {
+                    Button(Strings.save) {
+                        updateProfile()
+                        dismiss()
                     }
                 }
-                .padding()
+                
+                Section {
+                    Button(Strings.deleteAccount, role: .destructive) {
+                        profileViewModel.deleteUser()
+                        dismiss()
+                    }
+                }
+                
+                Section {
+                    HStack {
+                        Text(Strings.childrenAccounts)
+                        
+                        Spacer()
+                        
+                        if childrenListViewModel.children.isEmpty {
+                            NavigationLink {
+                                NewChildView()
+                                    .environmentObject(profileViewModel)
+                                    .environmentObject(childProfileViewModel)
+                            } label: {
+                                Image(systemName: Strings.plusIcon)
+                                    .foregroundColor(.blue)
+                            }
+                        } else {
+                            Button {
+                                showChildrenList.toggle()
+                            } label: {
+                                Image(systemName: showChildrenList ? Strings.arrowUp : Strings.arrowDown)
+                                    .foregroundColor(.blue)
+                            }
+                        }
+                    }
+                    
+                    if showChildrenList {
+                        ChildrenListView()
+                            .environmentObject(childrenListViewModel)
+                            .environmentObject(childProfileViewModel)
+                            .multilineTextAlignment(.trailing)
+                    }
+                }
+                .onAppear {
+                    childrenListViewModel.fetchChildren()
+                }
             }
-            
-            Spacer()
-            
-            ButtonsForProfile(action: updateProfile)
         }
         .navigationTitle(Strings.profile)
-        .padding(.horizontal)
     }
     
     
@@ -92,6 +98,8 @@ struct ProfileView: View {
     @EnvironmentObject var profileViewModel: ProfileViewModel
     @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
     @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
+    
+    @Environment(\.dismiss) var dismiss
     
     @State private var authManager = AuthManager.shared
     

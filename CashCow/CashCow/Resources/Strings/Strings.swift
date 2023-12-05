@@ -35,6 +35,11 @@ struct Strings {
     static let orderAndDeliveryOverview = NSLocalizedString("orderAndDeliveryOverview", comment: "")
     static let diagrams = NSLocalizedString("diagrams", comment: "")
     
+    static let profilePicture = NSLocalizedString("prifilePicture", comment: "")
+    static let personal = NSLocalizedString("personal", comment: "")
+    static let deleteAccount = NSLocalizedString("deleteAccount", comment: "")
+    static let deleteProfile = NSLocalizedString("deleteProfile", comment: "")
+    
     
     // MARK: - OnboardingTexts
     
@@ -105,10 +110,12 @@ struct Strings {
     static let arrowRight = "chevron.right"
     static let arrowLeft = "chevron.left"
     static let arrowDown = "chevron.down"
+    static let arrowUp = "chevron.up"
     static let editIcon = "ellipsis.circle"
     static let camIcon = "camera.fill"
     static let plusIcon = "plus"
     static let trashIcon = "trash.fill"
+    static let pencilIcon = "pencil"
     static let logoutIcon = "door.left.hand.open"
     static let profileIconSystem = "person.circle"
     static let categoriesIcon = "list.bullet"

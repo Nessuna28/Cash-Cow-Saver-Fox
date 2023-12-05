@@ -9,11 +9,6 @@ import SwiftUI
 
 struct LoginButton: View {
     
-    // MARK: - Variables
-    
-    @EnvironmentObject var authViewModel: AuthViewModel
-    @State private var isActive = false
-    
     var body: some View {
         HStack {
             Spacer()
@@ -22,7 +17,9 @@ struct LoginButton: View {
                 LoginView()
             } label: {
                 Button(action: setModeOnLogin) {
-                    TextButtonView(title: Strings.login)
+                    Text(Strings.login)
+                        .font(.headline)
+                        .bold()
                         .padding(.bottom, 10)
                         .padding(.trailing, 10)
                         .foregroundColor(Colors.primaryGreen)
@@ -30,6 +27,13 @@ struct LoginButton: View {
             }
         }
     }
+    
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
+    @State private var isActive = false
     
     
     // MARK: - Functions

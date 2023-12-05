@@ -38,7 +38,6 @@ struct ProfileView: View {
                     NumberPickerView(children: $children)
                 }
                 
-                
                 Section {
                     Button(Strings.save) {
                         updateProfile()
@@ -88,13 +87,7 @@ struct ProfileView: View {
                 .onAppear {
                     childrenListViewModel.fetchChildren()
                 }
-                
             }
-                
-               
-            
-                    
-                .padding(.horizontal)
         }
         .navigationTitle(Strings.profile)
     }

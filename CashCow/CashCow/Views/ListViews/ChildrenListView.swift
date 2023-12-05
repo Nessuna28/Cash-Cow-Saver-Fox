@@ -40,9 +40,9 @@ struct ChildrenListView: View {
                 .padding(5)
                 .background(Colors.secondaryGray)
                 .cornerRadius(6)
-                .sheet(isPresented: $showSheet, content: {
+                .sheet(isPresented: $showSheet) {
                     ChildAccountView(child: child)
-                })
+                }
             }
             
             NavigationLink {

@@ -38,6 +38,7 @@ struct Strings {
     static let profilePicture = NSLocalizedString("prifilePicture", comment: "")
     static let personal = NSLocalizedString("personal", comment: "")
     static let deleteAccount = NSLocalizedString("deleteAccount", comment: "")
+    static let deleteProfile = NSLocalizedString("deleteProfile", comment: "")
     
     
     // MARK: - OnboardingTexts

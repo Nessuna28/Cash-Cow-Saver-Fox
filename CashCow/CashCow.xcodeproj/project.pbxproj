@@ -45,6 +45,7 @@
 		91952B5F2B19E08B006CF2A2 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B5E2B19E08A006CF2A2 /* SettingsRepository.swift */; };
 		91952B612B1F36BE006CF2A2 /* DataProtectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B602B1F36BE006CF2A2 /* DataProtectionView.swift */; };
 		91952B632B1F6DE5006CF2A2 /* ChildrenList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B622B1F6DE5006CF2A2 /* ChildrenList.swift */; };
+		91952B652B1FB371006CF2A2 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B642B1FB371006CF2A2 /* ImagePickerManager.swift */; };
 		919807A22B15EECF007D5507 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919807A12B15EECF007D5507 /* HomeView.swift */; };
 		919807A42B16207D007D5507 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919807A32B16207D007D5507 /* SettingsViewModel.swift */; };
 		919807A82B173C2A007D5507 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 919807AA2B173C2A007D5507 /* Localizable.strings */; };
@@ -114,6 +115,7 @@
 		91952B5E2B19E08A006CF2A2 /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
 		91952B602B1F36BE006CF2A2 /* DataProtectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProtectionView.swift; sourceTree = "<group>"; };
 		91952B622B1F6DE5006CF2A2 /* ChildrenList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenList.swift; sourceTree = "<group>"; };
+		91952B642B1FB371006CF2A2 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		919807A12B15EECF007D5507 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		919807A32B16207D007D5507 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		919807A92B173C2A007D5507 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				91F2B6DE2B0650D200FA3AC3 /* AuthManager.swift */,
+				91952B642B1FB371006CF2A2 /* ImagePickerManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				91FD321E2B0D38A600018074 /* SecondaryButtonView.swift in Sources */,
 				91D9DF7A2B07B39800514AF8 /* CashCowAnimation.swift in Sources */,
 				91D9DF7C2B07BAA000514AF8 /* LoginView.swift in Sources */,
+				91952B652B1FB371006CF2A2 /* ImagePickerManager.swift in Sources */,
 				91D9DF822B07D38900514AF8 /* OnboardingView3.swift in Sources */,
 				91929AC52B0D246300C68AD2 /* ChildAccountView.swift in Sources */,
 				91F2B7132B06613B00FA3AC3 /* OnboardingView1.swift in Sources */,

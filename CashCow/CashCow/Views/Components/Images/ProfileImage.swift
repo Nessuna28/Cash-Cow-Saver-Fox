@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ProfileImage: View {
     
@@ -20,8 +21,11 @@ struct ProfileImage: View {
             
             Spacer()
             
-            Button("Bearbeiten") {
-                updateProfileImage()
+            PhotosPicker(selection: 
+                $profileImage,
+                matching: .images, photoLibrary:
+                .shared()) {
+                Text("Foto auswählen")
             }
         }
         .frame(height: 100)
@@ -30,12 +34,9 @@ struct ProfileImage: View {
     
     // MARK: - Functions
     
-    private func updateProfileImage() {
-        
-    }
-    
+    @Binding var profileImage: PhotosPickerItem?
 }
 
 #Preview {
-    ProfileImage()
+    ProfileImage(profileImage: .constant(<#T##value: PhotosPickerItem?##PhotosPickerItem?#>))
 }

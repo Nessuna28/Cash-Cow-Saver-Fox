@@ -74,7 +74,7 @@ class SettingsViewModel: ObservableObject {
         setSettings()
         
         if let uid = AuthManager.shared.auth.currentUser?.uid {
-            SettingsRepository.createSettings(with: uid, settings: settings)
+            FirebaseRepository.createSettings(with: uid, settings: settings)
         }
     }
     
@@ -83,7 +83,7 @@ class SettingsViewModel: ObservableObject {
         
         setSettings()
         
-        SettingsRepository.updateSettings(with: AuthManager.shared.auth.currentUser?.uid ?? "", settings: settings)
+        FirebaseRepository.updateSettings(with: AuthManager.shared.auth.currentUser?.uid ?? "", settings: settings)
         
         fetchSettings()
     }
@@ -101,7 +101,7 @@ class SettingsViewModel: ObservableObject {
         
         setSettings()
         
-        SettingsRepository.fetchSettings { settings in
+        FirebaseRepository.fetchSettings { settings in
             
             self.settings = settings
         }

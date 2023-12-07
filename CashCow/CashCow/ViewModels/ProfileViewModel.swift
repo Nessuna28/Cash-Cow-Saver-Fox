@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import UIKit
+
 
 class ProfileViewModel: ObservableObject {
     
     init() {
         if let uid = AuthManager.shared.auth.currentUser?.uid {
-            ProfileRepository.fetchUser(with: uid) { fireUser in
+            FirebaseRepository.fetchUser(with: uid) { fireUser in
                 guard let fireUser else { return }
                 
                 self.fireUser = fireUser
@@ -23,15 +25,20 @@ class ProfileViewModel: ObservableObject {
     
     @Published var fireUser: FireUser?
     
+    @Published var selectedImage: UIImage?
+    
     
     // MARK: - Functions
+    
+    
+    
     
     func updateUser() {
         
         if let uid = fireUser?.id {
-            ProfileRepository.updateUser(with: uid, lastName: fireUser?.lastName ?? "", firstName: fireUser?.firstName ?? "", birthday: fireUser?.birthday ?? Date(), domicile: fireUser?.domicile ?? "", children: fireUser?.children ?? 0)
+            FirebaseRepository.updateUser(with: uid, lastName: fireUser?.lastName ?? "", firstName: fireUser?.firstName ?? "", birthday: fireUser?.birthday ?? Date(), domicile: fireUser?.domicile ?? "", children: fireUser?.children ?? 0)
             
-            ProfileRepository.fetchUser(with: uid) { fireUser in
+            FirebaseRepository.fetchUser(with: uid) { fireUser in
                 guard let fireUser else { return }
                 
                 self.fireUser = fireUser
@@ -43,7 +50,7 @@ class ProfileViewModel: ObservableObject {
     func deleteUser() {
         
         if let uid = fireUser?.id {
-            ProfileRepository.deleteUser(with: uid)
+            FirebaseRepository.deleteUser(with: uid)
         }
     }
 }

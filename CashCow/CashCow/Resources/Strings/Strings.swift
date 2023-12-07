@@ -46,6 +46,7 @@ struct Strings {
     static let assignName = NSLocalizedString("assignName", comment: "")
     static let okay = NSLocalizedString("okay", comment: "")
     static let account = NSLocalizedString("account", comment: "")
+    static let edit = NSLocalizedString("edit", comment: "")
     
     
     // MARK: - OnboardingTexts

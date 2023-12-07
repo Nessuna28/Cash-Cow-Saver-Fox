@@ -54,7 +54,7 @@ class ChildProfileViewModel: ObservableObject {
     func createChild() {
         
         if let uid = self.authManager.auth.currentUser?.uid {
-            ChildProfileRepository.createChild(with: uid, familyMember: self.familyMember, lastName: self.lastName ?? "", firstName: self.firstName, birthday: self.birthday ?? Date(), loginName: self.loginName, loginImage: self.loginImage)
+            FirebaseRepository.createChild(with: uid, familyMember: self.familyMember, lastName: self.lastName ?? "", firstName: self.firstName, birthday: self.birthday ?? Date(), loginName: self.loginName, loginImage: self.loginImage)
         }
     }
     
@@ -62,12 +62,12 @@ class ChildProfileViewModel: ObservableObject {
     
     func updateChild(id: String) {
         
-        ChildProfileRepository.updateChild(with: id, familyMember: fireChild?.familyMember ?? "", lastName: fireChild?.lastName ?? "", firstName: fireChild?.firstName ?? "", birthday: fireChild?.birthday ?? Date(), loginName: "", loginImage: fireChild?.loginImage ?? "")
+        FirebaseRepository.updateChild(with: id, familyMember: fireChild?.familyMember ?? "", lastName: fireChild?.lastName ?? "", firstName: fireChild?.firstName ?? "", birthday: fireChild?.birthday ?? Date(), loginName: "", loginImage: fireChild?.loginImage ?? "")
     }
     
     
     func deleteChild(id: String) {
         
-        ChildProfileRepository.deleteChild(with: id)
+        FirebaseRepository.deleteChild(with: id)
     }
 }

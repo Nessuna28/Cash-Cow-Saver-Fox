@@ -23,8 +23,14 @@ struct ProfileNameAndImage: View {
                     .foregroundColor(Colors.primaryGreen)
                     .padding(.trailing, 5)
                 
-                Image(systemName: Strings.profileIconSystem)
-                    .font(.title2)
+                if let image = profileViewModel.profileImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Colors.secondaryGray, lineWidth: 2))
+                        .frame(width: 30)
+                }
             }
         }
     }
@@ -32,9 +38,9 @@ struct ProfileNameAndImage: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var profileViewModel: ProfileViewModel
-    @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
-    @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
+    @EnvironmentObject private var profileViewModel: ProfileViewModel
+    @EnvironmentObject private var childProfileViewModel: ChildProfileViewModel
+    @EnvironmentObject private var childrenListViewModel: ChildrenListViewModel
     
 }
 

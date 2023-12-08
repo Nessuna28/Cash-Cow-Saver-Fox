@@ -21,9 +21,9 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
+            List {
                 Section(Strings.profilePicture) {
-                    ProfileImage()
+                    ProfileImage(profileImage: $profileViewModel.profileImage, selectedProfileImage: $profileViewModel.selectedImage)
                 }
                 
                 Section(Strings.personal) {
@@ -100,11 +100,11 @@ struct ProfileView: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var profileViewModel: ProfileViewModel
-    @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
-    @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
+    @EnvironmentObject private var profileViewModel: ProfileViewModel
+    @EnvironmentObject private var childProfileViewModel: ChildProfileViewModel
+    @EnvironmentObject private var childrenListViewModel: ChildrenListViewModel
     
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     
     @State private var authManager = AuthManager.shared
     

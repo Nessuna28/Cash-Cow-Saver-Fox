@@ -13,7 +13,7 @@ struct NewChildView: View {
         NavigationStack {
             Form {
                 Section(Strings.profilePicture) {
-                    ProfileImage()
+                    //ProfileImage()
                 }
                 
                 Section(Strings.personal) {
@@ -68,9 +68,9 @@ struct NewChildView: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
+    @EnvironmentObject private var childProfileViewModel: ChildProfileViewModel
     
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     
     @State private var authManager = AuthManager.shared
     

@@ -76,7 +76,7 @@ struct AuthenticationView: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject private var authViewModel: AuthViewModel
     
     @State private var name = ""
     @State private var email = ""

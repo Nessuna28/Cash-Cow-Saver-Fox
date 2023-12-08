@@ -31,7 +31,7 @@ struct LoginButton: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject private var authViewModel: AuthViewModel
     
     @State private var isActive = false
     

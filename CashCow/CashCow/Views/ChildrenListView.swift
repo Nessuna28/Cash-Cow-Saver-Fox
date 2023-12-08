@@ -56,8 +56,8 @@ struct ChildrenListView: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
-    @EnvironmentObject var childProfileViewModel: ChildProfileViewModel
+    @EnvironmentObject private var childrenListViewModel: ChildrenListViewModel
+    @EnvironmentObject private var childProfileViewModel: ChildProfileViewModel
     
 }
 

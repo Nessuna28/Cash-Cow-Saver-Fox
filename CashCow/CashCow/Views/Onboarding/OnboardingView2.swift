@@ -53,7 +53,7 @@ struct OnboardingView2: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var authViewModel: AuthViewModel
+    @EnvironmentObject private var authViewModel: AuthViewModel
     
 }
 

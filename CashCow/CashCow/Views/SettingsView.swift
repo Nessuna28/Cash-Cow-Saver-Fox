@@ -81,9 +81,9 @@ struct SettingsView: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var settingsViewModel: SettingsViewModel
-    @EnvironmentObject var authViewModel: AuthViewModel
-    @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
+    @EnvironmentObject private var settingsViewModel: SettingsViewModel
+    @EnvironmentObject private var authViewModel: AuthViewModel
+    @EnvironmentObject private var childrenListViewModel: ChildrenListViewModel
     
 }
 

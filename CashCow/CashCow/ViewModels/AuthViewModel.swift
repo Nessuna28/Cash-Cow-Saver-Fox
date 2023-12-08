@@ -67,7 +67,7 @@ class AuthViewModel: ObservableObject {
             guard let user else { return }
             
             FirebaseRepository.createUser(with: user.uid, email: email, firstName: Strings.guest)
-            SettingsRepository.createSettings(with: user.uid, settings: FireSettings(userId: AuthManager.shared.auth.currentUser?.uid ?? "", backgroundColor: UIColor(.white).colorToString(), textColor: UIColor(.black).colorToString(), userFontSize: Strings.medium, isDarkModeEnabled: false))
+            FirebaseRepository.createSettings(with: user.uid, settings: FireSettings(userId: AuthManager.shared.auth.currentUser?.uid ?? "", backgroundColor: UIColor(.white).colorToString(), textColor: UIColor(.black).colorToString(), userFontSize: Strings.medium, isDarkModeEnabled: false))
             
             self.loginUser(email: email, password: password)
         }

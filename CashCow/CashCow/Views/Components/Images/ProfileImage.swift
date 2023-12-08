@@ -12,31 +12,47 @@ struct ProfileImage: View {
     
     var body: some View {
         HStack {
-            Image(Strings.adultWoman)
-                .resizable()
-                .scaledToFill()
-                .clipShape(Circle())
-                .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                .frame(width: 100, height: 100)
-            
             Spacer()
             
-            PhotosPicker(selection: 
-                $profileImage,
-                matching: .images, photoLibrary:
-                .shared()) {
-                Text("Foto auswählen")
+            VStack {
+                if let image = profileImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Colors.secondaryGray, lineWidth: 2))
+                }
+
+                PhotosPicker(selection: $selectedImage, matching: .images, photoLibrary: .shared()) {
+                    Text(Strings.selectPhoto)
+                }
+            }
+            
+            Spacer()
+        }
+        .frame(height: 200)
+        .onChange(of: selectedImage) { newImage in
+            Task {
+                if let imageData = try? await newImage?.loadTransferable(type: Data.self) {
+                    if let uiImage = UIImage(data: imageData) {
+                        selectedProfileImage = uiImage
+                        profileImage = uiImage
+                    }
+                }
             }
         }
-        .frame(height: 100)
     }
     
     
-    // MARK: - Functions
+    // MARK: - Variables
     
-    @Binding var profileImage: PhotosPickerItem?
+    @Binding var profileImage: UIImage?
+    @Binding var selectedProfileImage: UIImage?
+    
+    @State private var selectedImage: PhotosPickerItem?
+    
 }
 
 #Preview {
-    ProfileImage(profileImage: .constant(<#T##value: PhotosPickerItem?##PhotosPickerItem?#>))
+    ProfileImage(profileImage: .constant(UIImage(named: Strings.defaultProfilePicture)), selectedProfileImage: .constant(UIImage()))
 }

@@ -29,9 +29,10 @@ struct SaveButtonAndCancelButton: View {
         .padding(.vertical, 30)
     }
     
+    
     // MARK: - Variables
     
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     
     let action: () -> Void
     

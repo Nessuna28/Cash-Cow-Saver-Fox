@@ -26,13 +26,11 @@ struct CashCowApp: App {
         WindowGroup {
             if authViewModel.userIsLoggedIn {
                 HomeView()
-                    .environmentObject(authViewModel)
-                    .environmentObject(profileViewModel)
             } else {
                 OnboardingView1()
-                    .environmentObject(authViewModel)
-                    .environmentObject(profileViewModel)
             }
         }
+        .environmentObject(authViewModel)
+        .environmentObject(profileViewModel)
     }
 }

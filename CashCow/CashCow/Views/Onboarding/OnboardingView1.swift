@@ -59,15 +59,7 @@ struct OnboardingView1: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject var authViewModel: AuthViewModel
-    
-    
-    
-    // MARK: - Functions
-    
-    private func navigate() {
-        
-    }
+    @EnvironmentObject private var authViewModel: AuthViewModel
     
 }
 

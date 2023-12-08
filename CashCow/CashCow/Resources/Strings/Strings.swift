@@ -46,7 +46,7 @@ struct Strings {
     static let assignName = NSLocalizedString("assignName", comment: "")
     static let okay = NSLocalizedString("okay", comment: "")
     static let account = NSLocalizedString("account", comment: "")
-    static let edit = NSLocalizedString("edit", comment: "")
+    static let selectPhoto = NSLocalizedString("selectPhoto", comment: "")
     
     
     // MARK: - OnboardingTexts
@@ -71,6 +71,7 @@ struct Strings {
     static let adultWoman = "adultwoman"
     static let childBoy = "childboy"
     static let childGirl = "childgirl"
+    static let defaultProfilePicture = "defaultProfilePicture"
     
     static let warningImage = "warning"
     

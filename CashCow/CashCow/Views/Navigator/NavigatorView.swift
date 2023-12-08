@@ -17,9 +17,6 @@ struct NavigatorView: View {
                         .environmentObject(settingsViewModel)
                         .environmentObject(authViewModel)
                         .environmentObject(childrenListViewModel)
-    //                    .foregroundColor(Color(settingsViewModel.textColor))
-    //                    .background(Color(settingsViewModel.backgroundColor))
-    //                    .font(.system(size: settingsViewModel.fontSize))
                         .tabItem {
                             VStack {
                                 tab.icon
@@ -36,11 +33,11 @@ struct NavigatorView: View {
     
     // MARK: - Variables
     
-    @State var selectedTab: Tab = .home
+    @State private var selectedTab: Tab = .home
     
-    @EnvironmentObject var settingsViewModel: SettingsViewModel
-    @EnvironmentObject var authViewModel: AuthViewModel
-    @EnvironmentObject var childrenListViewModel: ChildrenListViewModel
+    @EnvironmentObject private var settingsViewModel: SettingsViewModel
+    @EnvironmentObject private var authViewModel: AuthViewModel
+    @EnvironmentObject private var childrenListViewModel: ChildrenListViewModel
     
 }
 

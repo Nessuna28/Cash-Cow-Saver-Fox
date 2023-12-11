@@ -12,12 +12,20 @@ struct ChildrenListView: View {
     var body: some View {
         List(childrenListViewModel.children) { child in
             Button {
-                childProfileViewModel.currentChildId = child.id
-                childProfileViewModel.fetchChild()
+                childProfileViewModel.currentChildId = child.id ?? ""
                 childProfileViewModel.showSheetChildAccount.toggle()
             } label: {
                 HStack(spacing: 20) {
-                    Image(systemName: Strings.profileIconSystem)
+                    if let image = childProfileViewModel.profileImage {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Colors.secondaryGray, lineWidth: 2))
+                            .frame(width: 30)
+                    } else {
+                        Image(systemName: Strings.profileIconSystem)
+                    }
                     
                     Text(child.loginName)
                     
@@ -43,13 +51,14 @@ struct ChildrenListView: View {
         }
         .toolbar {
             Button {
+                childProfileViewModel.currentChildId = ""
                 childProfileViewModel.showSheetNewChild.toggle()
             } label: {
                 Image(systemName: Strings.plusCircleIcon)
             }
         }
         .sheet(isPresented: $childProfileViewModel.showSheetNewChild) {
-            NewChildView()
+            ChildAccountView()
                 .environmentObject(childProfileViewModel)
         }
         .navigationTitle(Strings.childrenAccounts)

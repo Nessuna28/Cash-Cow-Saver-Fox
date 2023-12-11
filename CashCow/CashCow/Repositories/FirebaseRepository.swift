@@ -92,7 +92,7 @@ class FirebaseRepository {
             return
         }
         
-        let path = "images/profilePictures/\(UUID().uuidString).jpg"
+        let path = "images/profilePictures/\(id).jpg"
         let fileRef = storageRef.child(path)
         
         let uploadTask = fileRef.putData(imageData, metadata: nil) { metadata, error in
@@ -112,43 +112,37 @@ class FirebaseRepository {
     }
     
     
-    static func downloadPhoto(collection: String, completion: @escaping (UIImage?) -> Void) {
+    static func downloadPhoto(collection: String, id: String, completion: @escaping (UIImage?) -> Void) {
         
         let fdb = Firestore.firestore()
-        fdb.collection(collection).getDocuments { snapshot, error in
+        fdb.collection(collection).whereField("userId", isEqualTo: id).getDocuments { snapshot, error in
             if let error {
                 print("Fetching picture failed", error)
+                completion(UIImage(named: Strings.defaultProfilePicture))
                 return
             }
             
-            var paths = [String]()
-            
-            if let snapshot = snapshot {
-                for doc in snapshot.documents {
-                    if let profilePicturePath = doc["profilePicture"] as? String {
-                        paths.append(profilePicturePath)
-                    }
-                }
-            }
-            
-            
-            for path in paths {
-                let storageRef = Storage.storage().reference()
+            if let snapshot = snapshot, let doc = snapshot.documents.first {
                 
-                let fileRef = storageRef.child(path)
-                
-                fileRef.getData(maxSize: (1 * 1024 * 1024)) { data, error in
-                    if let error = error {
-                        print("No image", error)
-                        completion(UIImage(named: Strings.defaultProfilePicture))
-                        return
-                    }
+                if let profilePicturePath = doc["profilePicture"] as? String {
                     
-                    if let data = data, let image = UIImage(data: data) {
-                        completion(image)
-                    } else {
-                        print("Failed to convert data to UIImage.")
-                        completion(UIImage(named: Strings.defaultProfilePicture))
+                    let storageRef = Storage.storage().reference()
+                    
+                    let fileRef = storageRef.child(profilePicturePath)
+                    
+                    fileRef.getData(maxSize: (1 * 1024 * 1024)) { data, error in
+                        if let error = error {
+                            print("No image", error)
+                            completion(UIImage(named: Strings.defaultProfilePicture))
+                            return
+                        }
+                        
+                        if let data = data, let image = UIImage(data: data) {
+                            completion(image)
+                        } else {
+                            print("Failed to convert data to UIImage.")
+                            completion(UIImage(named: Strings.defaultProfilePicture))
+                        }
                     }
                 }
             }
@@ -159,15 +153,17 @@ class FirebaseRepository {
     
     // MARK: - Child
     
-    static func createChild(with id: String, familyMember: String, lastName: String, firstName: String, birthday: Date, loginName: String, loginImage: String) {
+    static func createChild(with id: String, familyMember: String, lastName: String, firstName: String, birthday: Date, loginName: String, loginImage: String, completion: @escaping (String?) -> Void) {
         
         if let parentId = AuthManager.shared.auth.currentUser?.uid {
             let child = FireChild(parentId: parentId, familyMember: familyMember, lastName: lastName, firstName: firstName, birthday: birthday, loginName: loginName, loginImage: loginImage, registeredAt: Date())
             
             do {
                 try AuthManager.shared.database.collection("children").addDocument(from: child)
+                completion(child.id)
             } catch {
                 print("Saving child failed:", error)
+                completion(nil)
             }
         }
     }

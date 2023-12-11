@@ -18,7 +18,7 @@ class ProfileViewModel: ObservableObject {
                 
                 self.fireUser = fireUser
                 
-                self.downloadPhoto()
+                self.downloadPhoto(id: uid)
             }
         }
         
@@ -44,9 +44,9 @@ class ProfileViewModel: ObservableObject {
     }
     
     
-    private func downloadPhoto() {
+    private func downloadPhoto(id: String) {
         
-        FirebaseRepository.downloadPhoto(collection: "users") { image in
+        FirebaseRepository.downloadPhoto(collection: "users", id: id) { image in
             
             self.profileImage = image
         }
@@ -64,7 +64,7 @@ class ProfileViewModel: ObservableObject {
                 guard let fireUser else { return }
                 
                 self.fireUser = fireUser
-                self.downloadPhoto()
+                self.downloadPhoto(id: uid)
             }
         }
     }

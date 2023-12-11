@@ -52,7 +52,7 @@ struct ProfileView: View {
                                     .foregroundColor(.blue)
                             }
                             .sheet(isPresented: $childProfileViewModel.showSheetNewChild) {
-                                NewChildView()
+                                ChildAccountView()
                                     .environmentObject(childProfileViewModel)
                             }
                         } else {
@@ -105,8 +105,6 @@ struct ProfileView: View {
     @EnvironmentObject private var childrenListViewModel: ChildrenListViewModel
     
     @Environment(\.dismiss) private var dismiss
-    
-    @State private var authManager = AuthManager.shared
     
     let id: String
     @State private var lastName: String

@@ -9,18 +9,6 @@ import SwiftUI
 
 struct ChildAccountView: View {
     
-    init(child: FireChild?) {
-        if let child = child {
-            print("childAccount: \(child)")
-            self.child = child
-            self._familiyMember = State(initialValue: child.familyMember )
-            self._lastName = State(initialValue: child.lastName ?? "")
-            self._firstName = State(initialValue: child.firstName)
-            self._birthday = State(initialValue: child.birthday ?? Date())
-        }
-    }
-    
-    
     var body: some View {
         NavigationStack {
             List {
@@ -28,29 +16,64 @@ struct ChildAccountView: View {
                     ProfileImage(profileImage: $childProfileViewModel.profileImage, selectedProfileImage: $childProfileViewModel.selectedImage)
                 }
                 
-                
                 Section(Strings.personal) {
-                    ViewForInputFields(title: Strings.lastName, input: $lastName)
+                    ViewForInputFields(title: Strings.lastName, input: $childProfileViewModel.lastName)
                     
-                    ViewForInputFields(title: Strings.firstName, input: $firstName)
+                    ViewForInputFields(title: Strings.firstName, input: $childProfileViewModel.firstName)
                     
-                    DatePicker(Strings.birthday, selection: $birthday, displayedComponents: .date)
+                    DatePicker(Strings.birthday, selection: $childProfileViewModel.birthday, displayedComponents: .date)
+                }
+                
+                Section(Strings.loginDetails) {
+                    
+                    VStack {
+                        ViewForInputFields(title: Strings.loginName, input: $childProfileViewModel.loginName)
+                        
+                        HStack {
+                            Spacer()
+                            
+                            if childProfileViewModel.loginNameExists {
+                                Text(Strings.notAvailable)
+                                    .font(.footnote)
+                                    .foregroundStyle(.red)
+                            } else {
+                                Text(Strings.available)
+                                    .font(.footnote)
+                                    .foregroundStyle(Colors.primaryGreen)
+                            }
+                        }
+                    }
+                    
+                    ImagePicker(loginImage: $childProfileViewModel.loginImage)
+                }
+                .onChange(of: childProfileViewModel.loginName) {
+                    childProfileViewModel.checkLoginName(name: childProfileViewModel.loginName)
                 }
                 
                 Section {
                     Button(Strings.save) {
-                        createChild()
-                        dismiss()
+                        if childProfileViewModel.currentChildId.isEmpty {
+                            createChild()
+                        } else {
+                            updateChild()
+                        }
                     }
                 }
                 
-                Section {
-                    Button(Strings.deleteProfile, role: .destructive) {
-                        childProfileViewModel.deleteChild(id: child?.id ?? "")
-                        dismiss()
+                if !childProfileViewModel.currentChildId.isEmpty {
+                    Section {
+                        Button(Strings.deleteProfile, role: .destructive) {
+                            deleteChild(id: childProfileViewModel.fireChild?.id ?? "")
+                        }
                     }
                 }
             }
+            .alert(Strings.assignName, isPresented: $showAlert) {
+                Button(Strings.okay, role: .cancel) { }
+            }
+        }
+        .onAppear {
+            childProfileViewModel.fetchChild()
         }
         .navigationTitle(Strings.childrenAccounts)
         .padding(.horizontal)
@@ -61,37 +84,39 @@ struct ChildAccountView: View {
     
     @EnvironmentObject private var childProfileViewModel: ChildProfileViewModel
     
-    @Environment(\.dismiss) private var dismiss
-    
-    @State private var authManager = AuthManager.shared
-    
-    @State private var child: FireChild?
-    
-    @State private var familiyMember = ""
-    @State private var lastName = ""
-    @State private var firstName = ""
-    @State private var birthday = Date()
+    @State private var showAlert = false
     
     
     
     // MARK: - Functions
     
-    private func setData() {
-        
-        childProfileViewModel.familyMember = familiyMember
-        childProfileViewModel.lastName = lastName
-        childProfileViewModel.firstName = firstName
-        childProfileViewModel.birthday = birthday
-    }
-    
-    
     private func createChild() {
         
-        setData()
-        
-        guard let id = child?.id else { return }
-        childProfileViewModel.updateChild(id: id)
+        if childProfileViewModel.loginNameExists {
+            showAlert.toggle()
+        } else {
+            childProfileViewModel.createChild()
+            
+            childProfileViewModel.closeNewChildSheet()
+        }
     }
+    
+    
+    private func updateChild() {
+        
+        guard let id = childProfileViewModel.fireChild?.id else { return }
+        
+        childProfileViewModel.updateChild(id: id)
+        childProfileViewModel.closeChildAccountSheet()
+    }
+    
+    
+    private func deleteChild(id: String) {
+        
+        childProfileViewModel.deleteChild(id: id)
+        childProfileViewModel.closeChildAccountSheet()
+    }
+    
     
     private func formatDate(date: Date) -> String {
         
@@ -104,6 +129,6 @@ struct ChildAccountView: View {
 }
 
 #Preview {
-    ChildAccountView(child: FireChild(parentId: "", familyMember: "", firstName: "", loginName: "", loginImage: "", registeredAt: Date()))
+    ChildAccountView()
         .environmentObject(ChildProfileViewModel())
 }

@@ -9,21 +9,23 @@ import SwiftUI
 
 struct ChildAccountView: View {
     
-    init?(child: FireChild?) {
-        self.child = child
-
-        self._familiyMember = State(initialValue: child?.familyMember ?? "")
-        self._lastName = State(initialValue: child?.lastName ?? "")
-        self._firstName = State(initialValue: child?.firstName ?? "")
-        self._birthday = State(initialValue: child?.birthday ?? Date())
+    init(child: FireChild?) {
+        if let child = child {
+            print("childAccount: \(child)")
+            self.child = child
+            self._familiyMember = State(initialValue: child.familyMember )
+            self._lastName = State(initialValue: child.lastName ?? "")
+            self._firstName = State(initialValue: child.firstName)
+            self._birthday = State(initialValue: child.birthday ?? Date())
+        }
     }
     
     
     var body: some View {
         NavigationStack {
-            Form {
+            List {
                 Section(Strings.profilePicture) {
-                    //ProfileImage()
+                    ProfileImage(profileImage: $childProfileViewModel.profileImage, selectedProfileImage: $childProfileViewModel.selectedImage)
                 }
                 
                 
@@ -37,7 +39,7 @@ struct ChildAccountView: View {
                 
                 Section {
                     Button(Strings.save) {
-                        childProfileViewModel.updateChild(id: child?.id ?? "")
+                        createChild()
                         dismiss()
                     }
                 }
@@ -53,6 +55,7 @@ struct ChildAccountView: View {
         .navigationTitle(Strings.childrenAccounts)
         .padding(.horizontal)
     }
+    
     
     // MARK: - Variables
     

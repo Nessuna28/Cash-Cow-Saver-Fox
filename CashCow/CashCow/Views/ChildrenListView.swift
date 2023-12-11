@@ -12,6 +12,8 @@ struct ChildrenListView: View {
     var body: some View {
         List(childrenListViewModel.children) { child in
             Button {
+                childProfileViewModel.currentChildId = child.id
+                childProfileViewModel.fetchChild()
                 childProfileViewModel.showSheetChildAccount.toggle()
             } label: {
                 HStack(spacing: 20) {
@@ -25,7 +27,7 @@ struct ChildrenListView: View {
                 }
             }
             .sheet(isPresented: $childProfileViewModel.showSheetChildAccount) {
-                ChildAccountView(child: child)
+                ChildAccountView()
                     .environmentObject(childProfileViewModel)
             }
             .swipeActions(allowsFullSwipe: false) {

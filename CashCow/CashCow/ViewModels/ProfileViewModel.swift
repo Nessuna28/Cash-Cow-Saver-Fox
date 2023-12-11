@@ -18,7 +18,7 @@ class ProfileViewModel: ObservableObject {
                 
                 self.fireUser = fireUser
                 
-                self.retrievePhoto()
+                self.downloadPhoto()
             }
         }
         
@@ -36,21 +36,19 @@ class ProfileViewModel: ObservableObject {
     
     // MARK: - Functions
     
-    func uploadPhoto() {
+    private func uploadPhoto() {
         
         if let uid = fireUser?.id {
-            FirebaseRepository.uploadPhoto(with: uid, image: selectedImage)
+            FirebaseRepository.uploadPhoto(with: uid, collection: "users", image: selectedImage)
         }
     }
     
     
-    func retrievePhoto() {
+    private func downloadPhoto() {
         
-        if let uid = fireUser?.id {
-            FirebaseRepository.downloadPhoto(with: uid) { image in
-                
-                self.profileImage = image
-            }
+        FirebaseRepository.downloadPhoto(collection: "users") { image in
+            
+            self.profileImage = image
         }
     }
     
@@ -66,7 +64,7 @@ class ProfileViewModel: ObservableObject {
                 guard let fireUser else { return }
                 
                 self.fireUser = fireUser
-                self.retrievePhoto()
+                self.downloadPhoto()
             }
         }
     }

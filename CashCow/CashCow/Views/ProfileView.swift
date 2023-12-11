@@ -115,8 +115,6 @@ struct ProfileView: View {
     @State private var domicile: String
     @State private var children: Int
     
-    @State private var childLoginName = ""
-    
     @State private var showChildrenList = false
     
     

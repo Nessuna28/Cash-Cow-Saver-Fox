@@ -76,7 +76,7 @@ class FirebaseRepository {
     }
     
     
-    static func uploadPhoto(with id: String, image: UIImage?) {
+    static func uploadPhoto(with id: String, collection: String, image: UIImage?) {
         
         guard let image else {
             print("No image")
@@ -102,7 +102,7 @@ class FirebaseRepository {
             }
             
             let fdb = Firestore.firestore()
-            fdb.collection("users").document(id).setData(["profilePicture": path], merge: true) { error in
+            fdb.collection(collection).document(id).setData(["profilePicture": path], merge: true) { error in
                 if let error {
                     print("Update photo failed:", error)
                     return
@@ -112,10 +112,10 @@ class FirebaseRepository {
     }
     
     
-    static func downloadPhoto(with id: String, completion: @escaping (UIImage?) -> Void) {
+    static func downloadPhoto(collection: String, completion: @escaping (UIImage?) -> Void) {
         
         let fdb = Firestore.firestore()
-        fdb.collection("users").getDocuments { snapshot, error in
+        fdb.collection(collection).getDocuments { snapshot, error in
             if let error {
                 print("Fetching picture failed", error)
                 return
@@ -168,6 +168,31 @@ class FirebaseRepository {
                 try AuthManager.shared.database.collection("children").addDocument(from: child)
             } catch {
                 print("Saving child failed:", error)
+            }
+        }
+    }
+    
+    
+    static func fetchChild(with id: String, completion: @escaping (FireChild?) -> Void) {
+        
+        AuthManager.shared.database.collection("children").document(id).getDocument { document, error in
+            if let error {
+                print("Fetching child failed:", error)
+                completion(nil)
+                return
+            }
+            
+            guard let document else {
+                print("No document!")
+                completion(nil)
+                return
+            }
+            
+            do {
+                let child = try document.data(as: FireChild.self)
+                completion(child)
+            } catch {
+                print("Document is not a child", error)
             }
         }
     }

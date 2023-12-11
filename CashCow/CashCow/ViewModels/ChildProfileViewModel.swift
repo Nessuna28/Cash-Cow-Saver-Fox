@@ -6,14 +6,20 @@
 //
 
 import Foundation
+import UIKit
 
 class ChildProfileViewModel: ObservableObject {
+    
+    init() {
+        self.profileImage = UIImage(named: Strings.defaultProfilePicture)
+    }
     
     
     // MARK: - Variables
     
     private let authManager = AuthManager.shared
     
+    @Published var currentChildId: String?
     @Published var fireChild: FireChild?
     
     @Published var familyMember: String = ""
@@ -28,6 +34,9 @@ class ChildProfileViewModel: ObservableObject {
     
     @Published var showSheetChildAccount = false
     @Published var showSheetNewChild = false
+    
+    @Published var selectedImage: UIImage?
+    @Published var profileImage: UIImage?
     
     
     // MARK: - Functions
@@ -59,8 +68,22 @@ class ChildProfileViewModel: ObservableObject {
     }
     
     
+    func fetchChild() {
+        
+        if let id = currentChildId {
+            print("ChildViewModel: \(id)")
+            FirebaseRepository.fetchChild(with: id) { fireChild in
+                self.fireChild = fireChild
+                print("ChildViewModel: \(self.fireChild?.firstName ?? "kein Kind")")
+                self.downloadPhoto()
+            }
+        }
+    }
+    
     
     func updateChild(id: String) {
+        
+        uploadPhoto()
         
         FirebaseRepository.updateChild(with: id, familyMember: fireChild?.familyMember ?? "", lastName: fireChild?.lastName ?? "", firstName: fireChild?.firstName ?? "", birthday: fireChild?.birthday ?? Date(), loginName: "", loginImage: fireChild?.loginImage ?? "")
     }
@@ -69,5 +92,22 @@ class ChildProfileViewModel: ObservableObject {
     func deleteChild(id: String) {
         
         FirebaseRepository.deleteChild(with: id)
+    }
+    
+    
+    private func uploadPhoto() {
+        
+        if let id = fireChild?.id {
+            FirebaseRepository.uploadPhoto(with: id, collection: "children", image: selectedImage)
+        }
+    }
+    
+    
+    private func downloadPhoto() {
+        
+        FirebaseRepository.downloadPhoto(collection: "children") { image in
+            
+            self.profileImage = image
+        }
     }
 }

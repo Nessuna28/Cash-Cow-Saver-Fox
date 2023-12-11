@@ -11,9 +11,9 @@ struct NewChildView: View {
     
     var body: some View {
         NavigationStack {
-            Form {
+            List {
                 Section(Strings.profilePicture) {
-                    //ProfileImage()
+                    ProfileImage(profileImage: $childProfileViewModel.profileImage, selectedProfileImage: $childProfileViewModel.selectedImage)
                 }
                 
                 Section(Strings.personal) {

@@ -10,11 +10,6 @@ import UIKit
 
 class ChildProfileViewModel: ObservableObject {
     
-    init() {
-        self.profileImage = UIImage(named: Strings.defaultProfilePicture)
-    }
-    
-    
     // MARK: - Variables
     
     private let authManager = AuthManager.shared

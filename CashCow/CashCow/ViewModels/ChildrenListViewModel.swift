@@ -14,6 +14,8 @@ class ChildrenListViewModel: ObservableObject {
     
     @Published var children = [FireChild]()
     
+    @Published var profileImages: [String: UIImage?]?
+    
     private var listener: ListenerRegistration?
     
     
@@ -38,7 +40,21 @@ class ChildrenListViewModel: ObservableObject {
                 self.children = documents.compactMap { queryDocumentSnapshot -> FireChild? in
                     try? queryDocumentSnapshot.data(as: FireChild.self)
                 }
+                
+                self.downloadPictures()
+                print(self.profileImages?.keys)
             }
+    }
+    
+    
+    private func downloadPictures() {
+        
+        for child in children {
+            FirebaseRepository.downloadPhoto(collection: "children", id: child.id ?? "") { image in
+                
+                self.profileImages?[child.id ?? ""] = image
+            }
+        }
     }
     
     

@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 
 enum ChoiceOption: String, Identifiable, CaseIterable {
-    
     case bankAccounts, creditCards, insurance, savingAccounts, paidServices, orderAndDeliveryOverview
     
     var id: String { rawValue }

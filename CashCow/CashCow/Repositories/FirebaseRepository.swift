@@ -115,7 +115,7 @@ class FirebaseRepository {
     static func downloadPhoto(collection: String, id: String, completion: @escaping (UIImage?) -> Void) {
         
         let fdb = Firestore.firestore()
-        fdb.collection(collection).whereField("userId", isEqualTo: id).getDocuments { snapshot, error in
+        fdb.collection(collection).whereField("id", isEqualTo: id).getDocuments { snapshot, error in
             if let error {
                 print("Fetching picture failed", error)
                 completion(UIImage(named: Strings.defaultProfilePicture))

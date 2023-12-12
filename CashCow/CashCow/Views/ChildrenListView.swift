@@ -16,8 +16,8 @@ struct ChildrenListView: View {
                 childProfileViewModel.showSheetChildAccount.toggle()
             } label: {
                 HStack(spacing: 20) {
-                    if let image = childProfileViewModel.profileImage {
-                        Image(uiImage: image)
+                    if let image = childrenListViewModel.profileImages?.filter({ $0.key == child.id }) {
+                        Image(uiImage: image[child.id ?? ""]!!)
                             .resizable()
                             .scaledToFit()
                             .clipShape(Circle())

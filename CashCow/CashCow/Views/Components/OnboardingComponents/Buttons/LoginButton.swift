@@ -33,15 +33,13 @@ struct LoginButton: View {
     
     @EnvironmentObject private var authViewModel: AuthViewModel
     
-    @State private var isActive = false
     
     
     // MARK: - Functions
     
-        private func setModeOnLogin() {
-            authViewModel.authenticationMode = .login
-            isActive = true
-        }
+    private func setModeOnLogin() {
+        authViewModel.authenticationMode = .login
+    }
     
 }
 

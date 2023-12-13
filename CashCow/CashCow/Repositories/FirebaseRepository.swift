@@ -95,7 +95,7 @@ class FirebaseRepository {
         let path = "images/profilePictures/\(id).jpg"
         let fileRef = storageRef.child(path)
         
-        let uploadTask = fileRef.putData(imageData, metadata: nil) { metadata, error in
+        fileRef.putData(imageData, metadata: nil) { metadata, error in
             guard let metadata = metadata else {
                 print("Failed to push image to Storage:")
                 return
@@ -113,40 +113,38 @@ class FirebaseRepository {
     
     
     static func downloadPhoto(collection: String, id: String, completion: @escaping (UIImage?) -> Void) {
-        
-        let fdb = Firestore.firestore()
-        fdb.collection(collection).whereField("id", isEqualTo: id).getDocuments { snapshot, error in
-            if let error {
-                print("Fetching picture failed", error)
-                completion(UIImage(named: Strings.defaultProfilePicture))
-                return
-            }
-            
-            if let snapshot = snapshot, let doc = snapshot.documents.first {
+            let fdb = Firestore.firestore()
+            fdb.collection(collection).whereField("id", isEqualTo: id).getDocuments { snapshot, error in
+                if let error {
+                    print("Fetching picture failed", error)
+                    completion(UIImage(named: Strings.defaultProfilePicture))
+                    return
+                }
                 
-                if let profilePicturePath = doc["profilePicture"] as? String {
-                    
-                    let storageRef = Storage.storage().reference()
-                    
-                    let fileRef = storageRef.child(profilePicturePath)
-                    
-                    fileRef.getData(maxSize: (1 * 1024 * 1024)) { data, error in
-                        if let error = error {
-                            print("No image", error)
-                            completion(UIImage(named: Strings.defaultProfilePicture))
-                            return
-                        }
+                if let snapshot = snapshot, let doc = snapshot.documents.first {
+                    if let profilePicturePath = doc["profilePicture"] as? String {
+                        let storageRef = Storage.storage().reference()
                         
-                        if let data = data, let image = UIImage(data: data) {
-                            completion(image)
-                        } else {
-                            print("Failed to convert data to UIImage.")
-                            completion(UIImage(named: Strings.defaultProfilePicture))
+                        let fileRef = storageRef.child(profilePicturePath)
+                        
+                        fileRef.getData(maxSize: (5 * 1024 * 1024)) { data, error in
+                            
+                            if let error = error {
+                                print("No image", error)
+                                completion(UIImage(named: Strings.defaultProfilePicture))
+                                return
+                            }
+                            
+                            if let data = data, let image = UIImage(data: data) {
+                                completion(image)
+                            } else {
+                                print("Failed to convert data to UIImage.")
+                                completion(UIImage(named: Strings.defaultProfilePicture))
+                            }
                         }
                     }
                 }
             }
-        }
     }
     
     

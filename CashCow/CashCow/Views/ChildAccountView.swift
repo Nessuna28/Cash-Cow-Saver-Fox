@@ -17,6 +17,8 @@ struct ChildAccountView: View {
                 }
                 
                 Section(Strings.personal) {
+                    FamilyMemberPicker(familyMember: $childProfileViewModel.familyMember)
+                    
                     ViewForInputFields(title: Strings.lastName, input: $childProfileViewModel.lastName)
                     
                     ViewForInputFields(title: Strings.firstName, input: $childProfileViewModel.firstName)
@@ -24,30 +26,32 @@ struct ChildAccountView: View {
                     DatePicker(Strings.birthday, selection: $childProfileViewModel.birthday, displayedComponents: .date)
                 }
                 
-                Section(Strings.loginDetails) {
-                    
-                    VStack {
-                        ViewForInputFields(title: Strings.loginName, input: $childProfileViewModel.loginName)
+                if childProfileViewModel.currentChildId.isEmpty {
+                    Section(Strings.loginDetails) {
                         
-                        HStack {
-                            Spacer()
+                        VStack {
+                            ViewForInputFields(title: Strings.loginName, input: $childProfileViewModel.loginName)
                             
-                            if childProfileViewModel.loginNameExists {
-                                Text(Strings.notAvailable)
-                                    .font(.footnote)
-                                    .foregroundStyle(.red)
-                            } else {
-                                Text(Strings.available)
-                                    .font(.footnote)
-                                    .foregroundStyle(Colors.primaryGreen)
+                            HStack {
+                                Spacer()
+                                
+                                if childProfileViewModel.loginNameExists {
+                                    Text(Strings.notAvailable)
+                                        .font(.footnote)
+                                        .foregroundStyle(.red)
+                                } else {
+                                    Text(Strings.available)
+                                        .font(.footnote)
+                                        .foregroundStyle(Colors.primaryGreen)
+                                }
                             }
                         }
+                        
+                        ImagePicker(loginImage: $childProfileViewModel.loginImage)
                     }
-                    
-                    ImagePicker(loginImage: $childProfileViewModel.loginImage)
-                }
-                .onChange(of: childProfileViewModel.loginName) {
-                    childProfileViewModel.checkLoginName(name: childProfileViewModel.loginName)
+                    .onChange(of: childProfileViewModel.loginName) {
+                        childProfileViewModel.checkLoginName(name: childProfileViewModel.loginName)
+                    }
                 }
                 
                 Section {

@@ -10,24 +10,18 @@ import SwiftUI
 struct ChildrenListView: View {
     
     var body: some View {
-        List(childrenListViewModel.children) { child in
+        ForEach(childrenListViewModel.children) { child in
             Button {
                 childProfileViewModel.currentChildId = child.id ?? ""
                 childProfileViewModel.showSheetChildAccount.toggle()
             } label: {
                 HStack(spacing: 20) {
-                    if let image = childrenListViewModel.profileImages?.filter({ $0.key == child.id }) {
-                        Image(uiImage: image[child.id ?? ""]!!)
-                            .resizable()
-                            .scaledToFit()
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Colors.secondaryGray, lineWidth: 2))
-                            .frame(width: 30)
-                    } else {
-                        Image(systemName: Strings.profileIconSystem)
-                    }
+                    ChildImage(id: child.id ?? "")
+                        .environmentObject(childrenListViewModel)
                     
                     Text(child.loginName)
+                    
+                    Spacer()
                     
                     Image(child.loginImage)
                         .resizable()
@@ -49,13 +43,13 @@ struct ChildrenListView: View {
         .onAppear {
             childrenListViewModel.fetchChildren()
         }
-        .toolbar {
-            Button {
-                childProfileViewModel.currentChildId = ""
-                childProfileViewModel.showSheetNewChild.toggle()
-            } label: {
-                Image(systemName: Strings.plusCircleIcon)
-            }
+        
+        Button {
+            childProfileViewModel.currentChildId = ""
+            childProfileViewModel.showSheetNewChild.toggle()
+        } label: {
+            Text(Strings.addChild)
+                .padding(.top, 20)
         }
         .sheet(isPresented: $childProfileViewModel.showSheetNewChild) {
             ChildAccountView()

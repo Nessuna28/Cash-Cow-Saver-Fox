@@ -66,13 +66,9 @@ struct ProfileView: View {
                     }
                     
                     if showChildrenList {
-                        NavigationLink {
-                            ChildrenListView()
-                                .environmentObject(childrenListViewModel)
-                                .environmentObject(childProfileViewModel)
-                        } label: {
-                            ChildrenList(children: childrenListViewModel.children)
-                        }
+                        ChildrenListView()
+                            .environmentObject(childrenListViewModel)
+                            .environmentObject(childProfileViewModel)
                     }
                 }
                 

@@ -16,8 +16,21 @@ struct ChildrenListView: View {
                 childProfileViewModel.showSheetChildAccount.toggle()
             } label: {
                 HStack(spacing: 20) {
-                    ChildImage(id: child.id ?? "")
-                        .environmentObject(childrenListViewModel)
+                    if let image = childrenListViewModel.profileImages[child.id ?? ""] {
+                        Image(uiImage: image!)
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Colors.secondaryGray, lineWidth: 2))
+                            .frame(width: 30)
+                    } else {
+                        Image(uiImage: UIImage(named: Strings.defaultProfilePicture)!)
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Colors.secondaryGray, lineWidth: 2))
+                            .frame(width: 30)
+                    }
                     
                     Text(child.loginName)
                     

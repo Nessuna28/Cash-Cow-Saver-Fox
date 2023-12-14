@@ -128,7 +128,6 @@ class FirebaseRepository {
                         let fileRef = storageRef.child(profilePicturePath)
                         
                         fileRef.getData(maxSize: (5 * 1024 * 1024)) { data, error in
-                            
                             if let error = error {
                                 print("No image", error)
                                 completion(UIImage(named: Strings.defaultProfilePicture))

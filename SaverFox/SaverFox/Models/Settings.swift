@@ -12,7 +12,7 @@ import FirebaseFirestore
 struct Settings: Codable, Identifiable {
     @DocumentID var id: String?
     
-    let userId: String
+    let childId: String
     var backgroundColor: String
     var textColor: String
     var userFontSize: String

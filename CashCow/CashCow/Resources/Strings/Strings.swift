@@ -35,7 +35,7 @@ struct Strings {
     static let orderAndDeliveryOverview = NSLocalizedString("orderAndDeliveryOverview", comment: "")
     static let diagrams = NSLocalizedString("diagrams", comment: "")
     
-    static let profilePicture = NSLocalizedString("prifilePicture", comment: "")
+    static let profilePicture = NSLocalizedString("profilePicture", comment: "")
     static let personal = NSLocalizedString("personal", comment: "")
     static let family = NSLocalizedString("family", comment: "")
     static let deleteAccount = NSLocalizedString("deleteAccount", comment: "")

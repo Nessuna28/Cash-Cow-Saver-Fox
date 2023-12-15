@@ -77,7 +77,7 @@ struct LoginView: View {
     
     // MARK: - Variables
     
-    @StateObject private var childProfileViewModel = ChildProfileViewModel()
+    @StateObject private var childProfileViewModel = AuthViewModel()
     
     
 }

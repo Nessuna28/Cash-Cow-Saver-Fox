@@ -44,11 +44,19 @@ struct Strings {
     static let loginName = NSLocalizedString("loginName", comment: "")
     static let loginImage = NSLocalizedString("loginImage", comment: "")
     
+    static let guest = NSLocalizedString("guest", comment: "")
+    
     
     // Images
     
     static let appTitle = "title"
     static let appImage = "saverfox"
+    static let defaultProfilePicture = "defaultProfilePicture"
+    
+    
+    // Icons
+    
+    static let settingsIcon = "gear"
     
     
     // Buttons

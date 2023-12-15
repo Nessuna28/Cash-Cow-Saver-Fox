@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ChildProfileViewModel: ObservableObject {
+class AuthViewModel: ObservableObject {
     
     init() {
         self.selectedtLoginName = ""

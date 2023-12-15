@@ -37,13 +37,14 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                FinanceView()
-                    .padding(.top, 50)
-                
-                Spacer()
+                NavigatorView()
             }
+            .padding(.horizontal)
+            
+//            CustomTabView()
+//                .padding(0)
         }
-        .padding(.horizontal)
+        
     }
     
     

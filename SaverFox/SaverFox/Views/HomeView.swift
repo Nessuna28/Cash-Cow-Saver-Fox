@@ -37,8 +37,10 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                OverviewView()
+                FinanceView()
                     .padding(.top, 50)
+                
+                Spacer()
             }
         }
         .padding(.horizontal)

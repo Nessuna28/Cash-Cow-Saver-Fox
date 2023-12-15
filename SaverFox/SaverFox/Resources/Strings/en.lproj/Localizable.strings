@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  SaverFox
+
+  Created by Angelique Freier on 07.12.23.
+  
+*/
+
+"ape" = "Ape";
+"dino" = "Dino";
+"elephant" = "Elephant";
+"sloth" = "Sloth";
+"fox" = "Fox";
+"giraffe" = "Giraffe";
+"bunny" = "Bunny";
+"dog" = "Dog";
+"kangaroo" = "Kangaroo";
+"cat" = "Cat";
+"koala" = "Koala";
+"crocodile" = "Crocodile";
+"lion" = "Lion";
+"mouse" = "Mouse";
+"hippo" = "Hippo";
+"panda" = "Panda";
+"parrot" = "Parrot";
+"deer" = "Deer";
+"seal" = "Seal";
+"sheep" = "Sheep";
+"tortoise" = "Tortoise";
+"snake" = "Snake";
+"pig" = "Pig";
+"tiger" = "Tiger";
+"zebra" = "Zebra";
+
+
+"welcome" = "Welcome";
+"loginName" = "Login Name:";
+"loginImage" = "Login Image:";
+
+
+"letsGo" = "Let's go";

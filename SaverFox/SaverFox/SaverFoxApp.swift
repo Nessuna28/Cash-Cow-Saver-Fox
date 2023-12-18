@@ -18,8 +18,20 @@ struct SaverFoxApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            if authViewModel.childIsLoggedIn {
+                HomeView()
+            } else {
+                LoginView()
+            }
         }
+        .environmentObject(authViewModel)
+        .environmentObject(profileViewModel)
     }
+    
+    
+    // MARK: - Variables
+    
+    @StateObject private var authViewModel = AuthViewModel()
+    @StateObject private var profileViewModel = ProfileViewModel()
     
 }

@@ -16,11 +16,6 @@ struct CashCowApp: App {
         FirebaseApp.configure()
     }
     
-    // MARK: - Variables
-    
-    @StateObject private var authViewModel = AuthViewModel()
-    @StateObject private var profileViewModel = ProfileViewModel()
-    
     
     var body: some Scene {
         WindowGroup {
@@ -33,4 +28,10 @@ struct CashCowApp: App {
         .environmentObject(authViewModel)
         .environmentObject(profileViewModel)
     }
+    
+    
+    // MARK: - Variables
+    
+    @StateObject private var authViewModel = AuthViewModel()
+    @StateObject private var profileViewModel = ProfileViewModel()
 }

@@ -11,7 +11,7 @@ struct ProfileNameAndImage: View {
     
     var body: some View {
         HStack {
-            Text(profileViewModel.child.firstName)
+            Text(profileViewModel.child?.firstName ?? Strings.guest)
                 .foregroundStyle(Colors.primaryOrange)
             
             if let image = profileViewModel.profilePicture {

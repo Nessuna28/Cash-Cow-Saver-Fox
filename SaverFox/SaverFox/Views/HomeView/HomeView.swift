@@ -50,11 +50,13 @@ struct HomeView: View {
     
     // MARK: - Variables
     
-    @StateObject private var profileViewModel = ProfileViewModel()
+    @EnvironmentObject private var profileViewModel: ProfileViewModel
+    
     @StateObject private var settingsViewModel = SettingsViewModel()
     
 }
 
 #Preview {
     HomeView()
+        .environmentObject(ProfileViewModel())
 }

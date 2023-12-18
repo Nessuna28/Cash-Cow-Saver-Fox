@@ -11,7 +11,14 @@ class CurrencyConverterViewModel: ObservableObject {
     
     // MARK: - Variables
     
-    @ Published var showSheet = false
+    @Published var showSheet = false
+    
+    @Published var value = 0.0
+    @Published var from = "EUR"
+    @Published var to = "PLN"
+    
+    @Published var data = [CurrencyConverter]()
+    
     
     
     // MARK: - Functions
@@ -25,5 +32,17 @@ class CurrencyConverterViewModel: ObservableObject {
     func closeSheet() {
         
         showSheet = false
+    }
+    
+    
+    func fetchData() {
+        
+        Task {
+            do {
+                self.data = try await CurrencyConverterRepository.fetchData()
+            } catch {
+                print("Error loading data from API", error.localizedDescription)
+            }
+        }
     }
 }

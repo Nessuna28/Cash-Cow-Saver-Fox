@@ -33,7 +33,6 @@
 		91C2B1842B2C8402004C1B53 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 91C2B1832B2C8402004C1B53 /* FirebaseFirestore */; };
 		91C2B1862B2C8408004C1B53 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 91C2B1852B2C8408004C1B53 /* FirebaseFirestoreSwift */; };
 		91C2B1882B2C843A004C1B53 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 91C2B1872B2C843A004C1B53 /* FirebaseStorage */; };
-		91C2B18C2B2C87F2004C1B53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C2B18B2B2C87F2004C1B53 /* GoogleService-Info.plist */; };
 		91C2B18E2B2C8D73004C1B53 /* CurrencyConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B18D2B2C8D73004C1B53 /* CurrencyConverterViewModel.swift */; };
 		91C2B1902B2C8F0D004C1B53 /* CurrencyConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B18F2B2C8F0D004C1B53 /* CurrencyConverterView.swift */; };
 		91C2B1922B2C93A2004C1B53 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1912B2C93A2004C1B53 /* Tab.swift */; };
@@ -49,6 +48,13 @@
 		91C2B1AE2B2CE5A1004C1B53 /* RewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1AD2B2CE5A1004C1B53 /* RewardsView.swift */; };
 		91C2B1B02B2CE5BC004C1B53 /* GamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1AF2B2CE5BC004C1B53 /* GamesView.swift */; };
 		91C2B1B22B2CE90D004C1B53 /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1B12B2CE90D004C1B53 /* NavigatorView.swift */; };
+		91C2B1B42B30388F004C1B53 /* CurrencyConverterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1B32B30388F004C1B53 /* CurrencyConverterRepository.swift */; };
+		91C2B1B62B3038D9004C1B53 /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1B52B3038D9004C1B53 /* CurrencyConverter.swift */; };
+		91C2B1B82B304122004C1B53 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1B72B304122004C1B53 /* Currency.swift */; };
+		91C2B1BA2B3041AC004C1B53 /* LastUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1B92B3041AC004C1B53 /* LastUpdate.swift */; };
+		91C2B1BD2B304AD6004C1B53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C2B1BC2B304AD6004C1B53 /* GoogleService-Info.plist */; };
+		91C2B1C12B304CC6004C1B53 /* FirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1C02B304CC6004C1B53 /* FirestoreRepository.swift */; };
+		91C2B1C42B304D2C004C1B53 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1C32B304D2C004C1B53 /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +81,6 @@
 		91C2B1712B2C81E2004C1B53 /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
 		91C2B1732B2C821A004C1B53 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		91C2B1752B2C8317004C1B53 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		91C2B18B2B2C87F2004C1B53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../CashCow/CashCow/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91C2B18D2B2C8D73004C1B53 /* CurrencyConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterViewModel.swift; sourceTree = "<group>"; };
 		91C2B18F2B2C8F0D004C1B53 /* CurrencyConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterView.swift; sourceTree = "<group>"; };
 		91C2B1912B2C93A2004C1B53 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
@@ -91,6 +96,13 @@
 		91C2B1AD2B2CE5A1004C1B53 /* RewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsView.swift; sourceTree = "<group>"; };
 		91C2B1AF2B2CE5BC004C1B53 /* GamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesView.swift; sourceTree = "<group>"; };
 		91C2B1B12B2CE90D004C1B53 /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
+		91C2B1B32B30388F004C1B53 /* CurrencyConverterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterRepository.swift; sourceTree = "<group>"; };
+		91C2B1B52B3038D9004C1B53 /* CurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverter.swift; sourceTree = "<group>"; };
+		91C2B1B72B304122004C1B53 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		91C2B1B92B3041AC004C1B53 /* LastUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdate.swift; sourceTree = "<group>"; };
+		91C2B1BC2B304AD6004C1B53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		91C2B1C02B304CC6004C1B53 /* FirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreRepository.swift; sourceTree = "<group>"; };
+		91C2B1C32B304D2C004C1B53 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +141,7 @@
 		91952B712B2078D6006CF2A2 /* SaverFox */ = {
 			isa = PBXGroup;
 			children = (
+				91C2B1C22B304D16004C1B53 /* Manager */,
 				91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */,
 				91952B862B207969006CF2A2 /* Resources */,
 				91952B842B20794B006CF2A2 /* Enums */,
@@ -137,6 +150,7 @@
 				91952B822B20792B006CF2A2 /* ViewModels */,
 				91952B812B207923006CF2A2 /* Views */,
 				91952B762B2078D8006CF2A2 /* Assets.xcassets */,
+				91C2B1BC2B304AD6004C1B53 /* GoogleService-Info.plist */,
 				91952B782B2078D8006CF2A2 /* Preview Content */,
 			);
 			path = SaverFox;
@@ -183,8 +197,8 @@
 				91952B952B21C837006CF2A2 /* AuthViewModel.swift */,
 				91C2B1672B2C57D2004C1B53 /* ProfileViewModel.swift */,
 				91C2B16D2B2C5F88004C1B53 /* SettingsViewModel.swift */,
-				91C2B18D2B2C8D73004C1B53 /* CurrencyConverterViewModel.swift */,
 				91C2B1992B2CACB3004C1B53 /* FinanceViewModel.swift */,
+				91C2B18D2B2C8D73004C1B53 /* CurrencyConverterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -192,6 +206,8 @@
 		91952B832B207935006CF2A2 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				91C2B1B32B30388F004C1B53 /* CurrencyConverterRepository.swift */,
+				91C2B1C02B304CC6004C1B53 /* FirestoreRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -209,6 +225,7 @@
 		91952B852B20795C006CF2A2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				91C2B1BB2B3041CE004C1B53 /* API */,
 				91952B932B21B1AC006CF2A2 /* Child.swift */,
 				91C2B1752B2C8317004C1B53 /* Settings.swift */,
 				91C2B19C2B2CAF31004C1B53 /* Finance.swift */,
@@ -248,7 +265,6 @@
 		91C2B1822B2C8402004C1B53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				91C2B18B2B2C87F2004C1B53 /* GoogleService-Info.plist */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -287,6 +303,24 @@
 				91952B8F2B20A32C006CF2A2 /* ImageList.swift */,
 			);
 			path = LoginView;
+			sourceTree = "<group>";
+		};
+		91C2B1BB2B3041CE004C1B53 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				91C2B1B52B3038D9004C1B53 /* CurrencyConverter.swift */,
+				91C2B1B72B304122004C1B53 /* Currency.swift */,
+				91C2B1B92B3041AC004C1B53 /* LastUpdate.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		91C2B1C22B304D16004C1B53 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				91C2B1C32B304D2C004C1B53 /* DatabaseManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,7 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91952B7A2B2078D8006CF2A2 /* Preview Assets.xcassets in Resources */,
-				91C2B18C2B2C87F2004C1B53 /* GoogleService-Info.plist in Resources */,
+				91C2B1BD2B304AD6004C1B53 /* GoogleService-Info.plist in Resources */,
 				91952BA02B21DC85006CF2A2 /* Localizable.strings in Resources */,
 				91952B772B2078D8006CF2A2 /* Assets.xcassets in Resources */,
 			);
@@ -420,7 +454,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91C2B1B82B304122004C1B53 /* Currency.swift in Sources */,
 				91C2B19A2B2CACB3004C1B53 /* FinanceViewModel.swift in Sources */,
+				91C2B1C42B304D2C004C1B53 /* DatabaseManager.swift in Sources */,
+				91C2B1B62B3038D9004C1B53 /* CurrencyConverter.swift in Sources */,
 				91952B892B207995006CF2A2 /* Colors.swift in Sources */,
 				91C2B19D2B2CAF31004C1B53 /* Finance.swift in Sources */,
 				91952B8B2B2079A4006CF2A2 /* Strings.swift in Sources */,
@@ -441,6 +478,8 @@
 				91C2B1B02B2CE5BC004C1B53 /* GamesView.swift in Sources */,
 				91C2B1B22B2CE90D004C1B53 /* NavigatorView.swift in Sources */,
 				91952B982B21CF25006CF2A2 /* LoginImages.swift in Sources */,
+				91C2B1BA2B3041AC004C1B53 /* LastUpdate.swift in Sources */,
+				91C2B1B42B30388F004C1B53 /* CurrencyConverterRepository.swift in Sources */,
 				91C2B1682B2C57D2004C1B53 /* ProfileViewModel.swift in Sources */,
 				91C2B1922B2C93A2004C1B53 /* Tab.swift in Sources */,
 				91C2B1642B2C3E6F004C1B53 /* Fonts.swift in Sources */,
@@ -449,6 +488,7 @@
 				91C2B1982B2CABB6004C1B53 /* FinanceView.swift in Sources */,
 				91952B962B21C837006CF2A2 /* AuthViewModel.swift in Sources */,
 				91C2B1702B2C81A6004C1B53 /* OverviewView.swift in Sources */,
+				91C2B1C12B304CC6004C1B53 /* FirestoreRepository.swift in Sources */,
 				91C2B1AB2B2CE4E8004C1B53 /* SavingView.swift in Sources */,
 				91C2B1A72B2CDBB6004C1B53 /* CustomTabView.swift in Sources */,
 				91C2B16E2B2C5F88004C1B53 /* SettingsViewModel.swift in Sources */,

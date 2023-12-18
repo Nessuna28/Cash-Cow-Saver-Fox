@@ -76,6 +76,8 @@ class FirebaseRepository {
     }
     
     
+    // MARK: - Photo
+    
     static func uploadPhoto(with id: String, collection: String, image: UIImage?) {
         
         guard let image else {
@@ -150,9 +152,8 @@ class FirebaseRepository {
     
     // MARK: - Child
     
-    static func createChild(with id: String, familyMember: String, lastName: String, firstName: String, birthday: Date, loginName: String, loginImage: String, completion: @escaping (String?) -> Void) {
+    static func createChild(with parentId: String, familyMember: String, lastName: String, firstName: String, birthday: Date, loginName: String, loginImage: String, completion: @escaping (String?) -> Void) {
         
-        if let parentId = AuthManager.shared.auth.currentUser?.uid {
             let child = FireChild(parentId: parentId, familyMember: familyMember, lastName: lastName, firstName: firstName, birthday: birthday, loginName: loginName, loginImage: loginImage, registeredAt: Date())
             
             do {
@@ -162,7 +163,6 @@ class FirebaseRepository {
                 print("Saving child failed:", error)
                 completion(nil)
             }
-        }
     }
     
     

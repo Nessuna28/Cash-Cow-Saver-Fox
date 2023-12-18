@@ -6,14 +6,16 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
 struct Child: Codable, Identifiable {
+    @DocumentID var id: String?
     
-    var id: String
-    
-    var lastName: String
+    var familyMember: String
+    var lastName: String?
     var firstName: String
-    var birthday: Date
+    var birthday: Date?
+    var profilePicture: String?
     
     var loginName: String
     var loginImage: String

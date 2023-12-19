@@ -19,9 +19,9 @@ class FinanceViewModel: ObservableObject {
     @Published var showRevenueSheet = false
     @Published var showExpenditureSheet = false
     
-    @Published var finance = [Finance(childId: "", date: Date(), category: "Einnahmen", icon: "", fromOrFor: "Mutti", title: "Taschengeld", sumOfMoney: 15.00),
-                              Finance(childId: "", date: Date(), category: "Einnahmen", icon: "", fromOrFor: "Mutti", title: "für Zeugnis", sumOfMoney: 5.00),
-                              Finance(childId: "", date: Date(), category: "Ausgaben", icon: "", fromOrFor: "Tedi", title: "für Kuscheltier", sumOfMoney: 6.50)]
+    @Published var finance = [Finance(childId: "1", date: Date(), category: "Einnahmen", icon: "", fromOrFor: "Mutti", title: "Taschengeld", sumOfMoney: 15.00),
+                              Finance(childId: "2", date: Date(), category: "Einnahmen", icon: "", fromOrFor: "Mutti", title: "für Zeugnis", sumOfMoney: 5.00),
+                              Finance(childId: "3", date: Date(), category: "Ausgaben", icon: "", fromOrFor: "Tedi", title: "für Kuscheltier", sumOfMoney: 6.50)]
     
     @Published var revenue = [Finance]()
     @Published var expenditure = [Finance]()

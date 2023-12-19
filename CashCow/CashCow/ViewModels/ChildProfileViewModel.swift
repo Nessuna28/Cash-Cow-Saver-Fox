@@ -70,8 +70,8 @@ class ChildProfileViewModel: ObservableObject {
     
     func createChild() {
         
-        if let uid = self.authManager.auth.currentUser?.uid {
-            FirebaseRepository.createChild(with: uid, familyMember: self.familyMember, lastName: self.lastName, firstName: self.firstName, birthday: self.birthday, loginName: self.loginName, loginImage: self.loginImage) { childId in
+        if let parentId = self.authManager.auth.currentUser?.uid {
+            FirebaseRepository.createChild(with: parentId, familyMember: self.familyMember, lastName: self.lastName, firstName: self.firstName, birthday: self.birthday, loginName: self.loginName, loginImage: self.loginImage) { childId in
                 guard let childId else { return }
                 
                 self.uploadPhoto(id: childId)

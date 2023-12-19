@@ -38,6 +38,7 @@ struct HomeView: View {
                 Spacer()
                 
                 NavigatorView()
+                    .padding(.top, 30)
             }
             .padding(.horizontal)
             
@@ -50,11 +51,13 @@ struct HomeView: View {
     
     // MARK: - Variables
     
-    @StateObject private var profileViewModel = ProfileViewModel()
+    @EnvironmentObject private var profileViewModel: ProfileViewModel
+    
     @StateObject private var settingsViewModel = SettingsViewModel()
     
 }
 
 #Preview {
     HomeView()
+        .environmentObject(ProfileViewModel())
 }

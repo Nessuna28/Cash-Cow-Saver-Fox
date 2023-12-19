@@ -16,8 +16,8 @@ struct ImagePicker: View {
             Spacer()
             
             Picker("", selection: $loginImage) {
-                ForEach(images, id: \.self) { image in
-                    Image(image)
+                ForEach(LoginImages.allCases) { image in
+                    image.image
                         .resizable()
                         .scaledToFit()
                         .frame(width: 50, height: 50)
@@ -30,12 +30,10 @@ struct ImagePicker: View {
     
     // MARK: - Variables
     
-    @State private var images = ["affe", "dino", "elefant", "faultier", "giraffe", "hase", "hund", "katze", "koala", "krokodil", "loewe", "maus", "panda", "papagei", "reh", "robbe", "schaf", "schlange", "schwein", "tiger", "zebra"]
-    
-    @Binding var loginImage: String
+    @Binding var loginImage: LoginImages
     
 }
 
 #Preview {
-    ImagePicker(loginImage: .constant("affe"))
+    ImagePicker(loginImage: .constant(.ape))
 }

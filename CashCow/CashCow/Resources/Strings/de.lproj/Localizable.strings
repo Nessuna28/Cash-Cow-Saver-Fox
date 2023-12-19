@@ -107,3 +107,30 @@
 "small" = "klein";
 "medium" = "mittel";
 "large" = "groß";
+
+
+"ape" = "Affe";
+"dino" = "Dino";
+"elephant" = "Elefant";
+"sloth" = "Faultier";
+"fox" = "Fuchs";
+"giraffe" = "Giraffe";
+"bunny" = "Hase";
+"dog" = "Hund";
+"kangaroo" = "Känguru";
+"cat" = "Katze";
+"koala" = "Koala";
+"crocodile" = "Krokodile";
+"lion" = "Löwe";
+"mouse" = "Maus";
+"hippo" = "Nilpferd";
+"panda" = "Panda";
+"parrot" = "Papagei";
+"deer" = "Reh";
+"seal" = "Robbe";
+"sheep" = "Schaf";
+"tortoise" = "Schildkröte";
+"snake" = "Schlange";
+"pig" = "Schwein";
+"tiger" = "Tiger";
+"zebra" = "Zebra";

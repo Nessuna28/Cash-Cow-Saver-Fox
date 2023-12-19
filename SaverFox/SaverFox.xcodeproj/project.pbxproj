@@ -16,7 +16,7 @@
 		91952B902B20A32C006CF2A2 /* ImageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B8F2B20A32C006CF2A2 /* ImageList.swift */; };
 		91952B942B21B1AC006CF2A2 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B932B21B1AC006CF2A2 /* Child.swift */; };
 		91952B962B21C837006CF2A2 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B952B21C837006CF2A2 /* AuthViewModel.swift */; };
-		91952B982B21CF25006CF2A2 /* LoginImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B972B21CF25006CF2A2 /* LoginImages.swift */; };
+		91952B982B21CF25006CF2A2 /* LoginImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B972B21CF25006CF2A2 /* LoginImage.swift */; };
 		91952BA02B21DC85006CF2A2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 91952BA22B21DC85006CF2A2 /* Localizable.strings */; };
 		91C2B1642B2C3E6F004C1B53 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1632B2C3E6F004C1B53 /* Fonts.swift */; };
 		91C2B1662B2C577B004C1B53 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1652B2C577B004C1B53 /* HomeView.swift */; };
@@ -50,11 +50,12 @@
 		91C2B1B22B2CE90D004C1B53 /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1B12B2CE90D004C1B53 /* NavigatorView.swift */; };
 		91C2B1B42B30388F004C1B53 /* CurrencyConverterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1B32B30388F004C1B53 /* CurrencyConverterRepository.swift */; };
 		91C2B1B62B3038D9004C1B53 /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1B52B3038D9004C1B53 /* CurrencyConverter.swift */; };
-		91C2B1B82B304122004C1B53 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1B72B304122004C1B53 /* Currency.swift */; };
-		91C2B1BA2B3041AC004C1B53 /* LastUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1B92B3041AC004C1B53 /* LastUpdate.swift */; };
+		91C2B1BA2B3041AC004C1B53 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1B92B3041AC004C1B53 /* ApiResponse.swift */; };
 		91C2B1BD2B304AD6004C1B53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 91C2B1BC2B304AD6004C1B53 /* GoogleService-Info.plist */; };
 		91C2B1C12B304CC6004C1B53 /* FirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1C02B304CC6004C1B53 /* FirestoreRepository.swift */; };
 		91C2B1C42B304D2C004C1B53 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1C32B304D2C004C1B53 /* DatabaseManager.swift */; };
+		91C2B1C82B31A1F8004C1B53 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1C72B31A1F8004C1B53 /* Currency.swift */; };
+		91C2B1CA2B31C47D004C1B53 /* CurrencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1C92B31C47D004C1B53 /* CurrencyPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +69,7 @@
 		91952B8F2B20A32C006CF2A2 /* ImageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageList.swift; sourceTree = "<group>"; };
 		91952B932B21B1AC006CF2A2 /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
 		91952B952B21C837006CF2A2 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		91952B972B21CF25006CF2A2 /* LoginImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginImages.swift; sourceTree = "<group>"; };
+		91952B972B21CF25006CF2A2 /* LoginImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginImage.swift; sourceTree = "<group>"; };
 		91952BA12B21DC85006CF2A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		91952BA52B21DD3F006CF2A2 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		91C2B1632B2C3E6F004C1B53 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -98,11 +99,12 @@
 		91C2B1B12B2CE90D004C1B53 /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
 		91C2B1B32B30388F004C1B53 /* CurrencyConverterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterRepository.swift; sourceTree = "<group>"; };
 		91C2B1B52B3038D9004C1B53 /* CurrencyConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverter.swift; sourceTree = "<group>"; };
-		91C2B1B72B304122004C1B53 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		91C2B1B92B3041AC004C1B53 /* LastUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdate.swift; sourceTree = "<group>"; };
+		91C2B1B92B3041AC004C1B53 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		91C2B1BC2B304AD6004C1B53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		91C2B1C02B304CC6004C1B53 /* FirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreRepository.swift; sourceTree = "<group>"; };
 		91C2B1C32B304D2C004C1B53 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		91C2B1C72B31A1F8004C1B53 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		91C2B1C92B31C47D004C1B53 /* CurrencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +143,8 @@
 		91952B712B2078D6006CF2A2 /* SaverFox */ = {
 			isa = PBXGroup;
 			children = (
-				91C2B1C22B304D16004C1B53 /* Manager */,
 				91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */,
+				91C2B1C22B304D16004C1B53 /* Manager */,
 				91952B862B207969006CF2A2 /* Resources */,
 				91952B842B20794B006CF2A2 /* Enums */,
 				91952B852B20795C006CF2A2 /* Models */,
@@ -169,6 +171,7 @@
 			children = (
 				91C2B1692B2C58C2004C1B53 /* ProfileNameAndImage.swift */,
 				91C2B16B2B2C5E52004C1B53 /* AppIcon.swift */,
+				91C2B1C92B31C47D004C1B53 /* CurrencyPicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -215,9 +218,10 @@
 		91952B842B20794B006CF2A2 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				91952B972B21CF25006CF2A2 /* LoginImages.swift */,
+				91952B972B21CF25006CF2A2 /* LoginImage.swift */,
 				91C2B1912B2C93A2004C1B53 /* Tab.swift */,
 				91C2B1932B2C9549004C1B53 /* HTTPError.swift */,
+				91C2B1C72B31A1F8004C1B53 /* Currency.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -308,9 +312,8 @@
 		91C2B1BB2B3041CE004C1B53 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				91C2B1B92B3041AC004C1B53 /* ApiResponse.swift */,
 				91C2B1B52B3038D9004C1B53 /* CurrencyConverter.swift */,
-				91C2B1B72B304122004C1B53 /* Currency.swift */,
-				91C2B1B92B3041AC004C1B53 /* LastUpdate.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -454,7 +457,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91C2B1B82B304122004C1B53 /* Currency.swift in Sources */,
 				91C2B19A2B2CACB3004C1B53 /* FinanceViewModel.swift in Sources */,
 				91C2B1C42B304D2C004C1B53 /* DatabaseManager.swift in Sources */,
 				91C2B1B62B3038D9004C1B53 /* CurrencyConverter.swift in Sources */,
@@ -476,9 +478,11 @@
 				91952B902B20A32C006CF2A2 /* ImageList.swift in Sources */,
 				91C2B1942B2C9549004C1B53 /* HTTPError.swift in Sources */,
 				91C2B1B02B2CE5BC004C1B53 /* GamesView.swift in Sources */,
+				91C2B1C82B31A1F8004C1B53 /* Currency.swift in Sources */,
 				91C2B1B22B2CE90D004C1B53 /* NavigatorView.swift in Sources */,
-				91952B982B21CF25006CF2A2 /* LoginImages.swift in Sources */,
-				91C2B1BA2B3041AC004C1B53 /* LastUpdate.swift in Sources */,
+				91952B982B21CF25006CF2A2 /* LoginImage.swift in Sources */,
+				91C2B1CA2B31C47D004C1B53 /* CurrencyPicker.swift in Sources */,
+				91C2B1BA2B3041AC004C1B53 /* ApiResponse.swift in Sources */,
 				91C2B1B42B30388F004C1B53 /* CurrencyConverterRepository.swift in Sources */,
 				91C2B1682B2C57D2004C1B53 /* ProfileViewModel.swift in Sources */,
 				91C2B1922B2C93A2004C1B53 /* Tab.swift in Sources */,

@@ -33,11 +33,13 @@ class AuthViewModel: ObservableObject {
         
         FirestoreRepository.fetchChild(with: selectedtLoginName) { child in
             self.currentChild = child
+            
+            self.checkLoginData()
         }
     }
     
     
-    func checkLoginData() {
+    private func checkLoginData() {
         
         if currentChild == nil {
             incorrectData = "Diesen Loginnamen gibt es nicht."

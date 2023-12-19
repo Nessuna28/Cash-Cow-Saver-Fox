@@ -1,5 +1,5 @@
 //
-//  LoginImages.swift
+//  LoginImage.swift
 //  SaverFox
 //
 //  Created by Angelique Freier on 07.12.23.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum LoginImages: String, Identifiable, CaseIterable {
+enum LoginImage: String, Identifiable, CaseIterable {
     case ape, dino, elephant, sloth, fox, giraffe, bunny, dog, kangaroo, cat, koala, crocodile, lion, mouse, hippo, panda, parrot, deer, seal, sheep, tortoise, snake, pig, tiger, zebra
     
     var id: String { rawValue }

@@ -12,7 +12,7 @@ struct ImageList: View {
     var body: some View {
         VStack {
             LazyVGrid(columns: gridItems) {
-                ForEach(LoginImages.allCases) { image in
+                ForEach(LoginImage.allCases) { image in
                     Button {
                         loginImage = image.title
                     } label: {
@@ -40,5 +40,5 @@ struct ImageList: View {
 }
 
 #Preview {
-    ImageList(loginImage: .constant("affe"))
+    ImageList(loginImage: .constant("Affe"))
 }

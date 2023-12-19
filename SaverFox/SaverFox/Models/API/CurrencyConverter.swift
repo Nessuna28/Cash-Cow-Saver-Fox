@@ -9,6 +9,8 @@ import Foundation
 
 struct CurrencyConverter: Codable {
     
-    var meta: [LastUpdate]
-    var data: [Currency]
+    // swiftlint:disable identifier_name
+    var from: String
+    var to: String
+    var amount: Int
 }

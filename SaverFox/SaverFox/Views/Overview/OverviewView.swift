@@ -48,6 +48,7 @@ struct OverviewView: View {
                     Text("Währungsrechner")
                 }
             }
+            .padding(30)
             .sheet(isPresented: $currencyConverterViewModel.showSheet) {
                 CurrencyConverterView()
             }

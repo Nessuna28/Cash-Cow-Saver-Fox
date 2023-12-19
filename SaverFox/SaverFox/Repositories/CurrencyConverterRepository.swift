@@ -9,13 +9,25 @@ import Foundation
 
 class CurrencyConverterRepository {
     
-    static func fetchData() async throws -> [CurrencyConverter] {
-        guard let url = URL(string: "https://api.currencyapi.com/v3/convert?value=12") else {
+    private static var apiKey = "e0cf46a0cdmsh1d32c337e66c00ep1ae79ajsne3f27873ba4d"
+    
+    static func fetchData(fromCurrency: String, toCurrency: String, amount: Int) async throws -> ApiResponse {
+        
+        let headers = [
+            "X-RapidAPI-Key": apiKey,
+            "X-RapidAPI-Host": "currency-conversion-and-exchange-rates.p.rapidapi.com"
+        ]
+        
+        guard let url = URL(string: "https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert?from=\(fromCurrency)&to=\(toCurrency)&amount=\(amount)") else {
             throw HTTPError.invalidURL
         }
         
-        let (data, _) = try await URLSession.shared.data(from: url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
         
-        return try JSONDecoder().decode([CurrencyConverter].self, from:  data)
+        let (data, _) = try await URLSession.shared.data(for: request)
+        
+        return try JSONDecoder().decode(ApiResponse.self, from: data)
     }
 }

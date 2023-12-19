@@ -97,9 +97,8 @@ struct LoginView: View {
     private func logInChild() {
         
         authViewModel.fetchChild()
-        authViewModel.checkLoginData()
         
-        if !authViewModel.incorrectData.isEmpty {
+        if authViewModel.incorrectData.isEmpty {
             profileViewModel.child = authViewModel.currentChild
             
             profileViewModel.downloadPhoto()

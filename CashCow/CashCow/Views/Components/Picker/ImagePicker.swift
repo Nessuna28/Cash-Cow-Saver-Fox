@@ -30,10 +30,10 @@ struct ImagePicker: View {
     
     // MARK: - Variables
     
-    @Binding var loginImage: String
+    @Binding var loginImage: LoginImages
     
 }
 
 #Preview {
-    ImagePicker(loginImage: .constant("affe"))
+    ImagePicker(loginImage: .constant(.ape))
 }

@@ -62,8 +62,8 @@
             filePath = "SaverFox/Views/Overview/CurrencyConverterView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "setDataAndMakeRequest()"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,88 +78,10 @@
             filePath = "SaverFox/Views/Overview/CurrencyConverterView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "setDataAndMakeRequest()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2331FC7A-4E29-46BD-8BAD-B40DBE5CC208"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SaverFox/ViewModels/CurrencyConverterViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "fetchData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2331FC7A-4E29-46BD-8BAD-B40DBE5CC208 - c251113b690e8025"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in SaverFox.CurrencyConverterViewModel.fetchData() -&gt; ()"
-                  moduleName = "SaverFox"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/angeliquefreier/Documents/Syntax/Swift%20Grundlagen/XCodeProjects/CashCow/SaverFox/SaverFox/ViewModels/CurrencyConverterViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "2331FC7A-4E29-46BD-8BAD-B40DBE5CC208 - 5050f8a14bb17c09"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in SaverFox.CurrencyConverterViewModel.fetchData() -&gt; ()"
-                  moduleName = "SaverFox"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/angeliquefreier/Documents/Syntax/Swift%20Grundlagen/XCodeProjects/CashCow/SaverFox/SaverFox/ViewModels/CurrencyConverterViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  uuid = "2331FC7A-4E29-46BD-8BAD-B40DBE5CC208 - ae89aed26d990c07"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in SaverFox.CurrencyConverterViewModel.fetchData() -&gt; ()"
-                  moduleName = "SaverFox"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/angeliquefreier/Documents/Syntax/Swift%20Grundlagen/XCodeProjects/CashCow/SaverFox/SaverFox/ViewModels/CurrencyConverterViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "2331FC7A-4E29-46BD-8BAD-B40DBE5CC208 - c51e0fa5ee22ca68"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in SaverFox.CurrencyConverterViewModel.fetchData() -&gt; ()"
-                  moduleName = "SaverFox"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/angeliquefreier/Documents/Syntax/Swift%20Grundlagen/XCodeProjects/CashCow/SaverFox/SaverFox/ViewModels/CurrencyConverterViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

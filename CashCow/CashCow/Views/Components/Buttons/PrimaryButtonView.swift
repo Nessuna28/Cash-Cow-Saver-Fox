@@ -9,11 +9,6 @@ import SwiftUI
 
 struct PrimaryButtonView: View {
     
-    // MARK: - Variables
-    
-    let title: String
-    
-    
     var body: some View {
         Text(title)
             .foregroundStyle(Colors.textColorOnP)
@@ -23,6 +18,11 @@ struct PrimaryButtonView: View {
             .background(Colors.primaryGreen)
             .cornerRadius(20)
     }
+    
+    
+    // MARK: - Variables
+    
+    let title: String
     
 }
 

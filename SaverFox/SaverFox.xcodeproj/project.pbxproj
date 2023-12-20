@@ -56,6 +56,7 @@
 		91C2B1C42B304D2C004C1B53 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1C32B304D2C004C1B53 /* DatabaseManager.swift */; };
 		91C2B1C82B31A1F8004C1B53 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1C72B31A1F8004C1B53 /* Currency.swift */; };
 		91C2B1CA2B31C47D004C1B53 /* CurrencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1C92B31C47D004C1B53 /* CurrencyPicker.swift */; };
+		91C2B1CC2B3314C9004C1B53 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1CB2B3314C9004C1B53 /* PrimaryButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +106,7 @@
 		91C2B1C32B304D2C004C1B53 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		91C2B1C72B31A1F8004C1B53 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		91C2B1C92B31C47D004C1B53 /* CurrencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPicker.swift; sourceTree = "<group>"; };
+		91C2B1CB2B3314C9004C1B53 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				91C2B1692B2C58C2004C1B53 /* ProfileNameAndImage.swift */,
 				91C2B16B2B2C5E52004C1B53 /* AppIcon.swift */,
 				91C2B1C92B31C47D004C1B53 /* CurrencyPicker.swift */,
+				91C2B1CB2B3314C9004C1B53 /* PrimaryButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				91952B962B21C837006CF2A2 /* AuthViewModel.swift in Sources */,
 				91C2B1702B2C81A6004C1B53 /* OverviewView.swift in Sources */,
 				91C2B1C12B304CC6004C1B53 /* FirestoreRepository.swift in Sources */,
+				91C2B1CC2B3314C9004C1B53 /* PrimaryButton.swift in Sources */,
 				91C2B1AB2B2CE4E8004C1B53 /* SavingView.swift in Sources */,
 				91C2B1A72B2CDBB6004C1B53 /* CustomTabView.swift in Sources */,
 				91C2B16E2B2C5F88004C1B53 /* SettingsViewModel.swift in Sources */,

@@ -17,6 +17,7 @@ struct PrimaryButton: View {
                 .bold()
                 .background(Colors.primaryOrange)
                 .cornerRadius(20)
+                .padding(40)
         }
     }
             

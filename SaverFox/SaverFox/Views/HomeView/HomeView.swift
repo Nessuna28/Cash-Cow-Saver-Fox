@@ -10,40 +10,50 @@ import SwiftUI
 struct HomeView: View {
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                HStack {
-                    Spacer()
-                    
-                    NavigationLink {
-                        ProfileView()
-                    } label: {
-                        ProfileNameAndImage()
-                            .environmentObject(profileViewModel)
+        ZStack {
+            NavigationStack {
+                VStack {
+                    HStack {
+                        Spacer()
+                        
+                        NavigationLink {
+                            ProfileView()
+                                .environmentObject(profileViewModel)
+                        } label: {
+                            ProfileNameAndImage()
+                                .environmentObject(profileViewModel)
+                        }
+                        
+                        AppIcon()
+                            .padding(.leading, 30)
+                            .padding(.trailing)
+                        
+                        NavigationLink {
+                            SettingsView()
+                                .environmentObject(authViewModel)
+                                .environmentObject(settingsViewModel)
+                        } label: {
+                            Image(systemName: Strings.settingsIcon)
+                                .font(.title2)
+                        }
                     }
                     
                     Spacer()
                     
-                    AppIcon()
-                        .padding(.trailing)
-                    
-                    NavigationLink {
-                        SettingsView()
-                    } label: {
-                        Image(systemName: Strings.settingsIcon)
-                            .font(.title2)
-                    }
+                    NavigatorView()
+                        .padding(.top, 30)
                 }
+                .padding(.horizontal)
                 
-                Spacer()
-                
-                NavigatorView()
-                    .padding(.top, 30)
+    //            CustomTabView()
+    //                .padding(0)
             }
-            .padding(.horizontal)
             
-//            CustomTabView()
-//                .padding(0)
+            if settingsViewModel.appLock && !biometryViewModel.authenticated {
+                BiometryView()
+                    .environmentObject(biometryViewModel)
+                    .environmentObject(profileViewModel)
+            }
         }
         
     }
@@ -51,13 +61,16 @@ struct HomeView: View {
     
     // MARK: - Variables
     
+    @EnvironmentObject private var authViewModel: AuthViewModel
     @EnvironmentObject private var profileViewModel: ProfileViewModel
     
     @StateObject private var settingsViewModel = SettingsViewModel()
+    @StateObject private var biometryViewModel = BiometryViewModel()
     
 }
 
 #Preview {
     HomeView()
         .environmentObject(ProfileViewModel())
+        .environmentObject(AuthViewModel())
 }

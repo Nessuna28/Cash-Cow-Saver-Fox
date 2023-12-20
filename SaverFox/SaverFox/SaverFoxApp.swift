@@ -18,6 +18,7 @@ struct SaverFoxApp: App {
     
     var body: some Scene {
         WindowGroup {
+            
             if authViewModel.childIsLoggedIn {
                 HomeView()
             } else {

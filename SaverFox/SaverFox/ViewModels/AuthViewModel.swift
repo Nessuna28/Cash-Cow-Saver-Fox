@@ -6,22 +6,24 @@
 //
 
 import Foundation
+import SwiftUI
 
 class AuthViewModel: ObservableObject {
     
     init() {
-        self.selectedtLoginName = ""
-        self.selectedtLoginImage = ""
+        self.selectedLoginName = ""
+        self.selectedLoginImage = ""
     }
     
     
     // MARK: - Variables
     
-    @Published var selectedtLoginName: String
-    @Published var selectedtLoginImage: String
+    @AppStorage("childIsLoggedIn") var childIsLoggedIn = false
+    
+    @Published var selectedLoginName: String
+    @Published var selectedLoginImage: String
     
     @Published var currentChild: Child?
-    @Published var childIsLoggedIn = false
     
     @Published var incorrectData = ""
     
@@ -31,7 +33,7 @@ class AuthViewModel: ObservableObject {
     
     func fetchChild() {
         
-        FirestoreRepository.fetchChild(with: selectedtLoginName) { child in
+        FirestoreRepository.fetchChild(with: selectedLoginName) { child in
             self.currentChild = child
             
             self.checkLoginData()
@@ -44,7 +46,7 @@ class AuthViewModel: ObservableObject {
         if currentChild == nil {
             incorrectData = "Diesen Loginnamen gibt es nicht."
         } else {
-            if selectedtLoginImage == currentChild?.loginImage {
+            if selectedLoginImage == currentChild?.loginImage {
                 childIsLoggedIn = true
             } else {
                 incorrectData = "Dein Loginbild ist leider falsch."

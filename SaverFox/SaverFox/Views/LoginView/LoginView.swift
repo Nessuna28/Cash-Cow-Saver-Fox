@@ -32,7 +32,7 @@ struct LoginView: View {
                 HStack {
                     Text(Strings.loginName)
                     
-                    TextField("", text: $authViewModel.selectedtLoginName)
+                    TextField("", text: $authViewModel.selectedLoginName)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
                 }
@@ -42,14 +42,14 @@ struct LoginView: View {
                 HStack {
                     Text(Strings.loginImage)
                     
-                    TextField("", text: $authViewModel.selectedtLoginImage)
+                    TextField("", text: $authViewModel.selectedLoginImage)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
                 }
                 
                 Divider()
                 
-                ImageList(loginImage: $authViewModel.selectedtLoginImage)
+                ImageList(loginImage: $authViewModel.selectedLoginImage)
                     .frame(width: 250)
                     .padding(5)
                     .border(Color.black, width: 1)
@@ -60,18 +60,7 @@ struct LoginView: View {
                         .bold()
                 }
                 
-                Button {
-                    logInChild()
-                } label: {
-                    Text(Strings.letsGo)
-                        .foregroundStyle(Colors.textColor)
-                        .font(.headline)
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 20)
-                        .background(Colors.primaryOrange)
-                        .cornerRadius(20)
-                        .padding(30)
-                }
+                PrimaryButton(action: logInChild, text: Strings.letsGo)
                 .disabled(disableAuthentication)
             }
         }
@@ -81,7 +70,7 @@ struct LoginView: View {
     // MARK: - Computed Properties
     
     private var disableAuthentication: Bool {
-        authViewModel.selectedtLoginName.isEmpty || authViewModel.selectedtLoginImage.isEmpty
+        authViewModel.selectedLoginName.isEmpty || authViewModel.selectedLoginImage.isEmpty
     }
     
     
@@ -97,12 +86,7 @@ struct LoginView: View {
     private func logInChild() {
         
         authViewModel.fetchChild()
-        
-        if authViewModel.incorrectData.isEmpty {
-            profileViewModel.child = authViewModel.currentChild
-            
-            profileViewModel.downloadPhoto()
-        }
+        profileViewModel.currentLoginName = authViewModel.selectedLoginName
     }
     
 }

@@ -36,7 +36,6 @@ struct CurrencyConverterView: View {
                     .foregroundStyle(Colors.secondaryOrange)
                 
                 PrimaryButton(action: setDataAndMakeRequest, text: "umrechnen")
-                .padding(40)
             }
             .multilineTextAlignment(.center)
             .padding(.horizontal, 30)

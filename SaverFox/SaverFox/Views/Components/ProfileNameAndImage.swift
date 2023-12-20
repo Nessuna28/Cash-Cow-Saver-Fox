@@ -20,7 +20,7 @@ struct ProfileNameAndImage: View {
                     .scaledToFit()
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Colors.secondaryOrange, lineWidth: 2))
-                    .frame(width: 30)
+                    .frame(width: 40)
             }
         }
     }

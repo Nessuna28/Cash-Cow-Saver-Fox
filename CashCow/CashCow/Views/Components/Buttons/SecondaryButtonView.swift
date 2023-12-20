@@ -9,11 +9,6 @@ import SwiftUI
 
 struct SecondaryButtonView: View {
     
-    // MARK: - Variables
-    
-    let title: String
-    
-    
     var body: some View {
         Text(title)
             .foregroundStyle(Colors.primaryGreen)
@@ -30,6 +25,10 @@ struct SecondaryButtonView: View {
             )
     }
     
+    
+    // MARK: - Variables
+    
+    let title: String
     
 }
 

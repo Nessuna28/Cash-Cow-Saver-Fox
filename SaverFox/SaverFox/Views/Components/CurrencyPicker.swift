@@ -10,7 +10,7 @@ import SwiftUI
 struct CurrencyPicker: View {
     
     var body: some View {
-        HStack {
+        VStack {
             Text(text)
             
             Picker("", selection: $currency) {
@@ -18,8 +18,9 @@ struct CurrencyPicker: View {
                     Text(currency.title)
                 }
             }
-            .pickerStyle(.automatic)
+            .pickerStyle(.menu)
         }
+        .padding(.bottom, 30)
     }
     
     // MARK: - Variables

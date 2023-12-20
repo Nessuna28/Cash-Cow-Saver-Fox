@@ -6,12 +6,19 @@
 //
 
 import Foundation
+import SwiftUI
 import UIKit
 
 
 class ProfileViewModel: ObservableObject {
     
+    init() {
+        fetchChild(selectedLoginName: currentLoginName)
+    }
+    
     // MARK: - Variables
+    
+    @AppStorage("loginName") var currentLoginName = ""
     
     @Published var child: Child?
     @Published var profilePicture: UIImage?
@@ -20,6 +27,16 @@ class ProfileViewModel: ObservableObject {
     
     
     // MARK: - Functions
+    
+    func fetchChild(selectedLoginName: String) {
+        
+        FirestoreRepository.fetchChild(with: selectedLoginName) { child in
+            self.child = child
+            
+            self.downloadPhoto()
+        }
+    }
+    
     
     func updateChild() {
         
@@ -40,7 +57,7 @@ class ProfileViewModel: ObservableObject {
     }
     
     
-    func downloadPhoto() {
+    private func downloadPhoto() {
         
         guard let child = child else { return }
         

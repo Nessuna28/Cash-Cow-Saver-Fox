@@ -57,6 +57,8 @@
 		91C2B1C82B31A1F8004C1B53 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1C72B31A1F8004C1B53 /* Currency.swift */; };
 		91C2B1CA2B31C47D004C1B53 /* CurrencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1C92B31C47D004C1B53 /* CurrencyPicker.swift */; };
 		91C2B1CC2B3314C9004C1B53 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1CB2B3314C9004C1B53 /* PrimaryButton.swift */; };
+		91C2B1CE2B334213004C1B53 /* BiometryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1CD2B334213004C1B53 /* BiometryViewModel.swift */; };
+		91C2B1D02B334536004C1B53 /* BiometryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2B1CF2B334536004C1B53 /* BiometryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +109,8 @@
 		91C2B1C72B31A1F8004C1B53 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		91C2B1C92B31C47D004C1B53 /* CurrencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPicker.swift; sourceTree = "<group>"; };
 		91C2B1CB2B3314C9004C1B53 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		91C2B1CD2B334213004C1B53 /* BiometryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryViewModel.swift; sourceTree = "<group>"; };
+		91C2B1CF2B334536004C1B53 /* BiometryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				91952B952B21C837006CF2A2 /* AuthViewModel.swift */,
+				91C2B1CD2B334213004C1B53 /* BiometryViewModel.swift */,
 				91C2B1672B2C57D2004C1B53 /* ProfileViewModel.swift */,
 				91C2B16D2B2C5F88004C1B53 /* SettingsViewModel.swift */,
 				91C2B1992B2CACB3004C1B53 /* FinanceViewModel.swift */,
@@ -308,6 +313,7 @@
 			children = (
 				91952B8D2B209D95006CF2A2 /* LoginView.swift */,
 				91952B8F2B20A32C006CF2A2 /* ImageList.swift */,
+				91C2B1CF2B334536004C1B53 /* BiometryView.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -463,6 +469,7 @@
 				91C2B19A2B2CACB3004C1B53 /* FinanceViewModel.swift in Sources */,
 				91C2B1C42B304D2C004C1B53 /* DatabaseManager.swift in Sources */,
 				91C2B1B62B3038D9004C1B53 /* CurrencyConverter.swift in Sources */,
+				91C2B1CE2B334213004C1B53 /* BiometryViewModel.swift in Sources */,
 				91952B892B207995006CF2A2 /* Colors.swift in Sources */,
 				91C2B19D2B2CAF31004C1B53 /* Finance.swift in Sources */,
 				91952B8B2B2079A4006CF2A2 /* Strings.swift in Sources */,
@@ -493,6 +500,7 @@
 				91C2B1962B2CA111004C1B53 /* ProfileView.swift in Sources */,
 				91952B942B21B1AC006CF2A2 /* Child.swift in Sources */,
 				91C2B1982B2CABB6004C1B53 /* FinanceView.swift in Sources */,
+				91C2B1D02B334536004C1B53 /* BiometryView.swift in Sources */,
 				91952B962B21C837006CF2A2 /* AuthViewModel.swift in Sources */,
 				91C2B1702B2C81A6004C1B53 /* OverviewView.swift in Sources */,
 				91C2B1C12B304CC6004C1B53 /* FirestoreRepository.swift in Sources */,

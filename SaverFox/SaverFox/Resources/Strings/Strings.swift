@@ -46,6 +46,8 @@ struct Strings {
     
     static let guest = NSLocalizedString("guest", comment: "")
     
+    static let logout = NSLocalizedString("logout", comment: "")
+    
     
     // Images
     
@@ -57,6 +59,7 @@ struct Strings {
     // Icons
     
     static let settingsIcon = "gear"
+    static let logoutIcon = "door.left.hand.open"
     
     
     // Buttons

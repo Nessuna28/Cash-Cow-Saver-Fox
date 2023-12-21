@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum Tab: String, Identifiable, CaseIterable {
-    case overview, finance, saving, rewards, games
+    case overview, finance, saving, rewards
     
     var id: String { rawValue }
     
@@ -18,8 +18,7 @@ enum Tab: String, Identifiable, CaseIterable {
         case .overview: return "Übersicht"
         case .finance: return "Finanzen"
         case .saving: return "Sparen"
-        case .rewards: return "Belohnungen"
-        case .games: return "Spiele"
+        case .rewards: return "Punkte"
         }
     }
     
@@ -29,7 +28,6 @@ enum Tab: String, Identifiable, CaseIterable {
         case .finance: return Image("finance")
         case .saving: return Image("piggybank")
         case .rewards: return Image("rewards")
-        case .games: return Image("games")
         }
     }
     
@@ -39,7 +37,6 @@ enum Tab: String, Identifiable, CaseIterable {
         case .finance: return AnyView(FinanceView())
         case .saving: return AnyView(SavingView())
         case .rewards: return AnyView(RewardsView())
-        case .games: return AnyView(GamesView())
         }
     }
 }

@@ -11,56 +11,25 @@ struct FinanceView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                Text("Einnahmen")
-                    .bold()
-                
-                Spacer()
-                
-                Button(action: financeViewModel.openRevenueSheet) {
-                    Image(systemName: "plus")
-                        .foregroundColor(Colors.primaryOrange)
-                }
-            }
+            DisplayPanel(title: "Einnahmen", navigationView: AnyView(NewRevenueView()), list: financeViewModel.revenue, view: AnyView(FinanceListView(finance: financeViewModel.revenue)))
             
-            if financeViewModel.sumRevenue == 0.00 {
-                Text("bisher keine Einnahmen")
-            } else {
-                FinanceList(finance: financeViewModel.revenue)
-            }
-            
-            HStack {
-                Text("Ausgaben")
-                    .bold()
+            DisplayPanel(title: "Ausgaben", navigationView: AnyView(NewExpenditureView()), list: financeViewModel.expenditure, view: AnyView(FinanceListView(finance: financeViewModel.expenditure)))
                 
-                Spacer()
-                
-                Button(action: financeViewModel.openExpenditureSheet) {
-                    Image(systemName: "plus")
-                        .foregroundColor(Colors.primaryOrange)
-                }
-            }
-            .padding(.top, 50)
-            
-            if financeViewModel.sumExpenditure == 0.00 {
-                Text("bisher keine Ausgaben")
-            } else {
-                FinanceList(finance: financeViewModel.expenditure)
-            }
+            Spacer()
             
             Text(String(format: "%.2f € zur Verfügung", financeViewModel.currentSum))
                 .foregroundStyle(Colors.primaryOrange)
         }
-        .environmentObject(financeViewModel)
     }
     
     
     // MARK: - Variables
     
-    @StateObject private var financeViewModel = FinanceViewModel()
+    @EnvironmentObject private var financeViewModel: FinanceViewModel
     
 }
 
 #Preview {
     FinanceView()
+        .environmentObject(FinanceViewModel())
 }

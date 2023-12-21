@@ -12,11 +12,20 @@ struct OverviewView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Taschengeld:")
-                    .padding(.trailing, 30)
-                
-                Text("gib deinen Stand ein")
-                    .foregroundStyle(Colors.primaryOrange)
+                if financeViewModel.initialAmount == nil {
+                    TextField("Wieviel Geld hast du gerade?", text: $amount)
+                        .foregroundStyle(Colors.primaryOrange)
+                    
+                    Button("speichern") {
+                        financeViewModel.setInitialAmount(amount: amount)
+                    }
+                } else {
+                    Text("Taschengeld:")
+                        .padding(.trailing, 30)
+                    
+                    Text(String(format: "%.2f €", financeViewModel.currentSum))
+                        .foregroundStyle(Colors.primaryOrange)
+                }
             }
             
             HStack {
@@ -26,13 +35,16 @@ struct OverviewView: View {
                 Text("0 Punkte")
                     .foregroundStyle(Colors.primaryOrange)
                     .padding(.trailing, 30)
-                
             }
             
             Image("animation1")
                 .resizable()
                 .scaledToFit()
                 .padding(.vertical, 30)
+            
+            Warning()
+                .environmentObject(financeViewModel)
+                .environmentObject(savingViewModel)
             
             Spacer()
             
@@ -48,10 +60,15 @@ struct OverviewView: View {
                     Text("Währungsrechner")
                 }
             }
-            .padding(30)
             .sheet(isPresented: $currencyConverterViewModel.showSheet) {
                 CurrencyConverterView()
             }
+        }
+        .alert(isPresented: $financeViewModel.showAlert) {
+            Alert(title: Text("Ungültige Eingabe"),
+                  message: Text(financeViewModel.errorDescription),
+                  dismissButton: .default(Text("Okay"))
+            )
         }
     }
     
@@ -60,8 +77,19 @@ struct OverviewView: View {
     
     @StateObject private var currencyConverterViewModel = CurrencyConverterViewModel()
     
+    @EnvironmentObject private var financeViewModel: FinanceViewModel
+    @EnvironmentObject private var savingViewModel: SavingViewModel
+    
+    @State private var amount = ""
+    
+    
+    
+    // MARK: - Function
+    
 }
 
 #Preview {
     OverviewView()
+        .environmentObject(FinanceViewModel())
+        .environmentObject(SavingViewModel())
 }

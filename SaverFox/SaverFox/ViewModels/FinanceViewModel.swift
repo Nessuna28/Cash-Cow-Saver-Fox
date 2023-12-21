@@ -10,49 +10,52 @@ import Foundation
 class FinanceViewModel: ObservableObject {
     
     init() {
+        finance = [
+//            Finance(childId: "1", date: Date(), category: "Einnahmen", icon: "", fromOrFor: "Mutti", title: "Taschengeld", sumOfMoney: 15.00),
+//            Finance(childId: "2", date: Date(), category: "Einnahmen", icon: "", fromOrFor: "Mutti", title: "für Zeugnis", sumOfMoney: 5.00),
+//            Finance(childId: "3", date: Date(), category: "Ausgaben", icon: "", fromOrFor: "Tedi", title: "für Kuscheltier", sumOfMoney: 6.50)
+        ]
+        
         filterIncomeAndExpenses()
         calculateActualTotal()
     }
     
     // MARK: - Variables
     
-    @Published var showRevenueSheet = false
-    @Published var showExpenditureSheet = false
+    @Published var initialAmountAsString: String?
+    @Published var initialAmount: Double?
     
-    @Published var finance = [Finance(childId: "1", date: Date(), category: "Einnahmen", icon: "", fromOrFor: "Mutti", title: "Taschengeld", sumOfMoney: 15.00),
-                              Finance(childId: "2", date: Date(), category: "Einnahmen", icon: "", fromOrFor: "Mutti", title: "für Zeugnis", sumOfMoney: 5.00),
-                              Finance(childId: "3", date: Date(), category: "Ausgaben", icon: "", fromOrFor: "Tedi", title: "für Kuscheltier", sumOfMoney: 6.50)]
+    @Published var showAlert = false
+    @Published var errorDescription = ""
+    
+    @Published var finance: [Finance]
     
     @Published var revenue = [Finance]()
     @Published var expenditure = [Finance]()
     @Published var sumRevenue = 0.00
     @Published var sumExpenditure = 0.00
-    @Published var currentSum = 0.00
+    @Published var currentSum = 0.0
+
     
     
     // MARK: - Functions
     
-    func openRevenueSheet() {
+    func setInitialAmount(amount: String) {
         
-        showRevenueSheet = true
-    }
-    
-    
-    func openExpenditureSheet() {
+        if amount.contains(".") {
+            if let value = Double(amount), !value.isNaN {
+                initialAmount = value
+                calculateActualTotal()
+            } else {
+                errorDescription = "Gib bitte eine Zahl ein! \n Beispiel: 10.00"
+                showAlert.toggle()
+            }
+        } else {
+            errorDescription = "Gib bitte eine Kommazahl mit einem Punkt anstatt ein Komma ein! \n Beispiel: 10.00"
+            showAlert.toggle()
+        }
         
-        showExpenditureSheet = true
-    }
-    
-    
-    func closeRevenueSheet() {
         
-        showRevenueSheet = false
-    }
-    
-    
-    func closeExpenditureSheet() {
-        
-        showExpenditureSheet = false
     }
     
     
@@ -60,11 +63,11 @@ class FinanceViewModel: ObservableObject {
         
         for finance in finance {
             if finance.category == "Einnahmen" {
-                self.revenue.append(finance)
-                self.sumRevenue += finance.sumOfMoney
+                revenue.append(finance)
+                sumRevenue += finance.sumOfMoney
             } else if finance.category == "Ausgaben" {
-                self.expenditure.append(finance)
-                self.sumExpenditure += finance.sumOfMoney
+                expenditure.append(finance)
+                sumExpenditure += finance.sumOfMoney
             }
         }
     }
@@ -72,6 +75,6 @@ class FinanceViewModel: ObservableObject {
     
     private func calculateActualTotal() {
         
-        self.currentSum = self.sumRevenue - self.sumExpenditure
+        currentSum += (initialAmount ?? 0.0) + sumRevenue - sumExpenditure
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91680D712B349C810075609F /* SaveAndCancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D702B349C810075609F /* SaveAndCancelButton.swift */; };
+		91680D732B349E3D0075609F /* IconPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D722B349E3D0075609F /* IconPicker.swift */; };
 		91952B732B2078D6006CF2A2 /* SaverFoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */; };
 		91952B772B2078D8006CF2A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91952B762B2078D8006CF2A2 /* Assets.xcassets */; };
 		91952B7A2B2078D8006CF2A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91952B792B2078D8006CF2A2 /* Preview Assets.xcassets */; };
@@ -70,6 +72,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		91680D702B349C810075609F /* SaveAndCancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAndCancelButton.swift; sourceTree = "<group>"; };
+		91680D722B349E3D0075609F /* IconPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPicker.swift; sourceTree = "<group>"; };
 		91952B6F2B2078D6006CF2A2 /* SaverFox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaverFox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaverFoxApp.swift; sourceTree = "<group>"; };
 		91952B762B2078D8006CF2A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				91C2B1C92B31C47D004C1B53 /* CurrencyPicker.swift */,
 				91C2B1CB2B3314C9004C1B53 /* PrimaryButton.swift */,
 				91C2B1D72B343FA0004C1B53 /* DisplayPanel.swift */,
+				91680D702B349C810075609F /* SaveAndCancelButton.swift */,
+				91680D722B349E3D0075609F /* IconPicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -501,7 +507,9 @@
 				91C2B1D22B342DA6004C1B53 /* TabbarViewModel.swift in Sources */,
 				91C2B19A2B2CACB3004C1B53 /* FinanceViewModel.swift in Sources */,
 				91C2B1C42B304D2C004C1B53 /* DatabaseManager.swift in Sources */,
+				91680D732B349E3D0075609F /* IconPicker.swift in Sources */,
 				91C2B1B62B3038D9004C1B53 /* CurrencyConverter.swift in Sources */,
+				91680D712B349C810075609F /* SaveAndCancelButton.swift in Sources */,
 				91C2B1CE2B334213004C1B53 /* BiometryViewModel.swift in Sources */,
 				91952B892B207995006CF2A2 /* Colors.swift in Sources */,
 				91C2B19D2B2CAF31004C1B53 /* Finance.swift in Sources */,

@@ -54,8 +54,6 @@ class FinanceViewModel: ObservableObject {
             errorDescription = "Gib bitte eine Kommazahl mit einem Punkt anstatt ein Komma ein! \n Beispiel: 10.00"
             showAlert.toggle()
         }
-        
-        
     }
     
     

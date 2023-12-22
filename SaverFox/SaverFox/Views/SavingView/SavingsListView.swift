@@ -1,28 +1,28 @@
 //
-//  FinanceList.swift
+//  SavingsListView.swift
 //  SaverFox
 //
-//  Created by Angelique Freier on 15.12.23.
+//  Created by Angelique Freier on 21.12.23.
 //
 
 import SwiftUI
 
-struct FinanceList: View {
+struct SavingsListView: View {
     
     var body: some View {
         ScrollView {
-            ForEach(finance.sorted(by: { $0.date > $1.date })) { finance in
+            ForEach(savingsGoalList.sorted(by: { $0.date > $1.date })) { savingsGoal in
                 HStack {
-                    Image(finance.icon)
+                    Image(savingsGoal.icon)
                         .padding(5)
                         .background(Colors.primaryOrange)
                         .clipShape(Circle())
                     
-                    Text(finance.title)
+                    Text(savingsGoal.title)
                     
                     Spacer()
                     
-                    Text(String(format: "%.2f €", finance.sumOfMoney))
+                    Text(String(format: "%.2f €", savingsGoal.sumOfMoney))
                 }
                 .padding()
                 .overlay(
@@ -37,10 +37,10 @@ struct FinanceList: View {
     
     // MARK: - Variables
     
-    let finance: [Finance]
+    let savingsGoalList: [SavingsGoal]
     
 }
 
 #Preview {
-    FinanceList(finance: FinanceViewModel().revenue)
+    SavingsListView(savingsGoalList: [])
 }

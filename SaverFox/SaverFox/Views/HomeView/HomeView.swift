@@ -40,13 +40,9 @@ struct HomeView: View {
                     
                     Spacer()
                     
-                    NavigatorView()
-                        .padding(.top, 30)
+                    Tabbar()
                 }
                 .padding(.horizontal)
-                
-    //            CustomTabView()
-    //                .padding(0)
             }
             
             if settingsViewModel.appLock && !biometryViewModel.authenticated {

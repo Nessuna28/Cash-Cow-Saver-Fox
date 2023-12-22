@@ -1,13 +1,13 @@
 //
-//  SavingView.swift
+//  NewExpenditureView.swift
 //  SaverFox
 //
-//  Created by Angelique Freier on 15.12.23.
+//  Created by Angelique Freier on 21.12.23.
 //
 
 import SwiftUI
 
-struct SavingView: View {
+struct NewExpenditureView: View {
     
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -16,5 +16,5 @@ struct SavingView: View {
 }
 
 #Preview {
-    SavingView()
+    NewExpenditureView()
 }

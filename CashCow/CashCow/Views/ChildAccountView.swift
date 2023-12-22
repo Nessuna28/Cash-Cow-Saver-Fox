@@ -28,7 +28,6 @@ struct ChildAccountView: View {
                 
                 if childProfileViewModel.currentChildId.isEmpty {
                     Section(Strings.loginDetails) {
-                        
                         VStack {
                             ViewForInputFields(title: Strings.loginName, input: $childProfileViewModel.loginName)
                             
@@ -47,7 +46,7 @@ struct ChildAccountView: View {
                             }
                         }
                         
-                        ImagePicker(loginImage: $childProfileViewModel.loginImage)
+                        ImagePicker(loginImage: $loginImage)
                     }
                     .onChange(of: childProfileViewModel.loginName) {
                         childProfileViewModel.checkLoginName(name: childProfileViewModel.loginName)
@@ -89,6 +88,7 @@ struct ChildAccountView: View {
     @EnvironmentObject private var childProfileViewModel: ChildProfileViewModel
     
     @State private var showAlert = false
+    @State private var loginImage = ""
     
     
     
@@ -99,6 +99,7 @@ struct ChildAccountView: View {
         if childProfileViewModel.loginNameExists {
             showAlert.toggle()
         } else {
+            childProfileViewModel.loginImage = childProfileViewModel.getTitle(forLoginImage: loginImage) ?? ""
             childProfileViewModel.createChild()
             
             childProfileViewModel.closeNewChildSheet()

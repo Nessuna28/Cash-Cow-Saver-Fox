@@ -49,6 +49,15 @@ class ChildProfileViewModel: ObservableObject {
     }
     
     
+    func getTitle(forLoginImage title: String) -> String? {
+        
+        guard let loginImage = LoginImages.allCases.first(where: { $0.rawValue == title }) else {
+            return nil
+        }
+        return loginImage.title
+    }
+    
+    
     func checkLoginName(name: String) {
         
         AuthManager.shared.database.collection("children").whereField("loginName", isEqualTo: name).getDocuments { querySnapshot, error in

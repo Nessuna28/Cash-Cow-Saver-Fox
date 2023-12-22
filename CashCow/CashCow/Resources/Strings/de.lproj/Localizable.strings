@@ -26,7 +26,7 @@
 "orderAndDeliveryOverview" = "Bestell- u. Lieferübersicht";
 "diagrams" = "Diagramme";
 
-"prifilePicture" = "Profilbild";
+"profilePicture" = "Profilbild";
 "personal" = "Persönliches";
 "family" = "Familie";
 "deleteAccount" = "Konto löschen";

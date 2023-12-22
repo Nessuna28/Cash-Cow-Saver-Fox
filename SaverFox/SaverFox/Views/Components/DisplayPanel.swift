@@ -16,9 +16,7 @@ struct DisplayPanel: View {
             
             Spacer()
             
-            NavigationLink {
-                navigationView
-            } label: {
+            Button(action: action) {
                 Image(systemName: "plus")
                     .foregroundColor(Colors.primaryOrange)
             }
@@ -37,7 +35,7 @@ struct DisplayPanel: View {
     // MARK: - Variables
     
     let title: String
-    let navigationView: AnyView
+    let action: () -> Void
     
     let list: [Any]
     let view: AnyView
@@ -45,5 +43,5 @@ struct DisplayPanel: View {
 }
 
 #Preview {
-    DisplayPanel(title: "Einnahmen", navigationView: AnyView(NewSavingsGoalView()), list: [], view: AnyView(SavingsListView(savingsGoalList: [])))
+    DisplayPanel(title: "Einnahmen", action: { }, list: [], view: AnyView(SavingsListView(savingsGoalList: [])))
 }

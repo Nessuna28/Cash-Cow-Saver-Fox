@@ -35,6 +35,9 @@ class FinanceViewModel: ObservableObject {
     @Published var sumRevenue = 0.00
     @Published var sumExpenditure = 0.00
     @Published var currentSum = 0.0
+    
+    @Published var showRevenueSheet = false
+    @Published var showExpenditureSheet = false
 
     
     
@@ -74,5 +77,29 @@ class FinanceViewModel: ObservableObject {
     private func calculateActualTotal() {
         
         currentSum += (initialAmount ?? 0.0) + sumRevenue - sumExpenditure
+    }
+    
+    
+    func openRevenueSheet() {
+        
+        showRevenueSheet.toggle()
+    }
+    
+    
+    func closeRevenueSheet() {
+        
+        showRevenueSheet = false
+    }
+    
+    
+    func openExpenditureSheet() {
+        
+        showExpenditureSheet.toggle()
+    }
+    
+    
+    func closeExpenditureSheet() {
+        
+        showExpenditureSheet = false
     }
 }

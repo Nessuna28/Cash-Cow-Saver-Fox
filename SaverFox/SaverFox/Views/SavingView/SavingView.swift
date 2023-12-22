@@ -11,7 +11,7 @@ struct SavingView: View {
     
     var body: some View {
         VStack {
-            DisplayPanel(title: "Sparziele", navigationView: AnyView(NewSavingsGoalView()), list: savingViewModel.savingsGoalList, view: AnyView(SavingsListView(savingsGoalList: savingViewModel.savingsGoalList)))
+            DisplayPanel(title: "Sparziele", action: savingViewModel.openSheet, list: savingViewModel.savingsGoalList, view: AnyView(SavingsListView(savingsGoalList: savingViewModel.savingsGoalList)))
             
             Image("animation2")
                 .resizable()
@@ -24,6 +24,9 @@ struct SavingView: View {
                 .environmentObject(savingViewModel)
                 .environmentObject(financeViewModel)
         }
+        .sheet(isPresented: $savingViewModel.showSheet, content: {
+            NewSavingsGoalView()
+        })
     }
     
     

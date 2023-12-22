@@ -37,6 +37,8 @@ class SavingViewModel: ObservableObject {
     @Published var showAlert = false
     @Published var errorDescription = ""
     
+    @Published var showSheet = false
+    
     
     
     // MARK: - Functions
@@ -62,6 +64,18 @@ class SavingViewModel: ObservableObject {
             errorDescription = "Gib bitte eine Kommazahl mit einem Punkt anstatt ein Komma ein! \n Beispiel: 10.00"
             showAlert.toggle()
         }
+    }
+    
+    
+    func openSheet() {
+        
+        showSheet.toggle()
+    }
+    
+    
+    func closeSheet() {
+        
+        showSheet = false
     }
     
 }

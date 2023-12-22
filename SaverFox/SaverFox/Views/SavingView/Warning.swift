@@ -12,7 +12,12 @@ struct Warning: View {
     var body: some View {
         ForEach(savingViewModel.savingsGoalList) { savingsGoal in
             if let remainingDays = Calendar.current.dateComponents([.day], from: Date(), to: savingsGoal.date).day, remainingDays <= 5 {
-                Text("In \(remainingDays) Tagen ist \(savingsGoal.title)")
+                if remainingDays < 2 {
+                    Text("In \(remainingDays) Tag ist \(savingsGoal.title)")
+                } else {
+                    Text("In \(remainingDays) Tagen ist \(savingsGoal.title)")
+                }
+                
                 let differenceAmount = savingViewModel.calculateDifference(availableAmount: financeViewModel.currentSum, amount: savingsGoal.sumOfMoney)
                 
                 if differenceAmount < 0 {

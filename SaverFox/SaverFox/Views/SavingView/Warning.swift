@@ -22,14 +22,17 @@ struct Warning: View {
                 
                 if differenceAmount < 0 {
                     Text(String(format: "Dir fehlen noch %.2f €", abs(differenceAmount)))
+                        .foregroundStyle(.red)
                 } else if differenceAmount > 10 {
                     Text("Du hast gut gespart.")
+                        .foregroundStyle(.green)
                 } else {
                     Text("Dein Geld reicht für dieses Sparziel, aber nur wenn du bis dahin kein Geld mehr ausgibst.")
+                        .foregroundStyle(.blue)
                 }
             }
         }
-        .foregroundColor(.red)
+        .foregroundStyle(Colors.primaryOrange)
     }
     
     

@@ -1,13 +1,13 @@
 //
-//  ImagePicker.swift
-//  CashCow
+//  LoginImagePicker.swift
+//  SaverFox
 //
-//  Created by Angelique Freier on 22.11.23.
+//  Created by Angelique Freier on 22.12.23.
 //
 
 import SwiftUI
 
-struct ImagePicker: View {
+struct LoginImagePicker: View {
     
     var body: some View {
         HStack {
@@ -16,7 +16,7 @@ struct ImagePicker: View {
             Spacer()
             
             Picker("", selection: $loginImage) {
-                ForEach(LoginImages.allCases) { image in
+                ForEach(LoginImage.allCases) { image in
                     image.image
                         .resizable()
                         .scaledToFit()
@@ -35,5 +35,5 @@ struct ImagePicker: View {
 }
 
 #Preview {
-    ImagePicker(loginImage: .constant(""))
+    LoginImagePicker(loginImage: .constant("Faultier"))
 }

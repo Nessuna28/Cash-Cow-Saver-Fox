@@ -16,7 +16,6 @@ struct OnboardingView1: View {
                     .ignoresSafeArea(.all)
                 
                 VStack {
-                    
                     LoginButton()
                         .environmentObject(authViewModel)
                     

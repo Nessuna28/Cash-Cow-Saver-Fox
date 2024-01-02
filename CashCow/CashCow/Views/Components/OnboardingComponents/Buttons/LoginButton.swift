@@ -15,6 +15,7 @@ struct LoginButton: View {
             
             NavigationLink {
                 LoginView()
+                    .environmentObject(authViewModel)
             } label: {
                 Button(action: setModeOnLogin) {
                     Text(Strings.login)

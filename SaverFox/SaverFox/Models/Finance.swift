@@ -12,6 +12,7 @@ struct Finance: Codable, Identifiable {
     @DocumentID var id: String?
     
     let childId: String
+    
     var date: Date
     var category: String
     var icon: String

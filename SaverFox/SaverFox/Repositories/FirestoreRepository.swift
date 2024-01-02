@@ -92,16 +92,7 @@ class FirestoreRepository {
     
     
     static func downloadPhoto(profilePicture: String?, completion: @escaping (UIImage?) -> Void) {
-        //        let fdb = Firestore.firestore()
-        //        fdb.collection("children").whereField("id", isEqualTo: id).getDocuments { snapshot, error in
-        //            if let error {
-        //                print("Fetching picture failed", error)
-        //                completion(UIImage(named: Strings.defaultProfilePicture))
-        //                return
-        //            }
-        //
-        //            if let snapshot = snapshot, let doc = snapshot.documents.first {
-        //                if let profilePicturePath = doc["profilePicture"] as? String {
+        
         if let image = profilePicture {
             let storageRef = Storage.storage().reference()
             let fileRef = storageRef.child(image)
@@ -123,7 +114,17 @@ class FirestoreRepository {
         } else {
             completion(UIImage(named: Strings.defaultProfilePicture))
         }
-        //            }
-        //        }
+    }
+    
+    
+    static func createFinaces(id: String, initialAmount: Double, currentPoints: Int, revenue: [Finance], expenditure: [Finance], savingsGoals: [SavingsGoal]) {
+        
+        let finances = Finances(initialAmount: initialAmount, currentPoints: currentPoints, revenue: revenue, expenditure: expenditure, savingsGoals: savingsGoals)
+        
+        do {
+            try DatabaseManager.shared.database.collection("children").document(id).collection("finances").addDocument(from: finances)
+        } catch {
+            print("Saving finances failed:", error)
+        }
     }
 }

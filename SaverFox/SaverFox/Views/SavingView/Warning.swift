@@ -11,7 +11,7 @@ struct Warning: View {
     
     var body: some View {
         ForEach(savingViewModel.savingsGoalList) { savingsGoal in
-            if let remainingDays = Calendar.current.dateComponents([.day], from: Date(), to: savingsGoal.date).day, remainingDays <= 5 {
+            if let remainingDays = Calendar.current.dateComponents([.day], from: Date(), to: savingsGoal.date).day, remainingDays >= 0, remainingDays <= 5 {
                 if remainingDays < 2 {
                     Text("In \(remainingDays) Tag ist \(savingsGoal.title)")
                 } else {

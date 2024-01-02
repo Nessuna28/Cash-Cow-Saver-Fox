@@ -13,6 +13,7 @@
 		91680D782B35D28C0075609F /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D772B35D28C0075609F /* InputField.swift */; };
 		91680D7C2B35D6D70075609F /* LoginImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D7B2B35D6D70075609F /* LoginImagePicker.swift */; };
 		91680D7E2B4419BC0075609F /* LoginDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D7D2B4419BC0075609F /* LoginDataView.swift */; };
+		91680D802B4448970075609F /* Finances.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D7F2B4448970075609F /* Finances.swift */; };
 		91952B732B2078D6006CF2A2 /* SaverFoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */; };
 		91952B772B2078D8006CF2A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91952B762B2078D8006CF2A2 /* Assets.xcassets */; };
 		91952B7A2B2078D8006CF2A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91952B792B2078D8006CF2A2 /* Preview Assets.xcassets */; };
@@ -82,6 +83,7 @@
 		91680D772B35D28C0075609F /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		91680D7B2B35D6D70075609F /* LoginImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginImagePicker.swift; sourceTree = "<group>"; };
 		91680D7D2B4419BC0075609F /* LoginDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataView.swift; sourceTree = "<group>"; };
+		91680D7F2B4448970075609F /* Finances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finances.swift; sourceTree = "<group>"; };
 		91952B6F2B2078D6006CF2A2 /* SaverFox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaverFox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaverFoxApp.swift; sourceTree = "<group>"; };
 		91952B762B2078D8006CF2A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				91C2B1BB2B3041CE004C1B53 /* API */,
 				91952B932B21B1AC006CF2A2 /* Child.swift */,
 				91C2B1752B2C8317004C1B53 /* Settings.swift */,
+				91680D7F2B4448970075609F /* Finances.swift */,
 				91C2B19C2B2CAF31004C1B53 /* Finance.swift */,
 				91C2B1DC2B3445BB004C1B53 /* SavingsGoal.swift */,
 			);
@@ -552,6 +555,7 @@
 				91952B732B2078D6006CF2A2 /* SaverFoxApp.swift in Sources */,
 				91C2B1A42B2CBB48004C1B53 /* FinanceListView.swift in Sources */,
 				91952B902B20A32C006CF2A2 /* ImageList.swift in Sources */,
+				91680D802B4448970075609F /* Finances.swift in Sources */,
 				91C2B1D42B342FAE004C1B53 /* Tabbar.swift in Sources */,
 				91C2B1E92B348DA9004C1B53 /* NewExpenditureView.swift in Sources */,
 				91C2B1D62B3430CA004C1B53 /* TabbarView.swift in Sources */,

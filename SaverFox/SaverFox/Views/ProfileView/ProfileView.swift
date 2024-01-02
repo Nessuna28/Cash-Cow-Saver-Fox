@@ -22,70 +22,30 @@ struct ProfileView: View {
                 InputField(title: "Nachname", input: profileViewModel.child?.lastName ?? "")
                 
                 InputField(title: "Vorname", input: profileViewModel.child?.firstName ?? "")
+                
+                InputField(title: "Geburtstag", input: formatDate(date: profileViewModel.child?.birthday ?? Date()))
             }
             
             Section("Logindaten") {
-                if profileViewModel.updateLoginName {
-                    VStack {
-                        TextField(Strings.loginName, text: $profileViewModel.loginName)
-                        
-                        HStack {
-                            Spacer()
-                            
-                            if profileViewModel.loginNameExists {
-                                Text("nicht verfügbar")
-                                    .font(.footnote)
-                                    .foregroundStyle(.red)
-                            } else {
-                                Text("verfügbar")
-                                    .font(.footnote)
-                                    .foregroundStyle(.green)
-                            }
-                        }
-                        
-                        Button("Speichern") {
-                            profileViewModel.toggleUpdateLoginName()
-                        }
-                    }
-                } else {
-                    Button(action: profileViewModel.toggleUpdateLoginName) {
-                        InputField(title: "Anmeldename", input: profileViewModel.loginName)
-                    }
-                }
-                
-                if profileViewModel.updateLoginImage {
-                    VStack {
-                        LoginImagePicker(loginImage: $profileViewModel.selectedLoginImage)
-                        
-                        Button("Speichern") {
-                            profileViewModel.toggleUpdateLoginImage()
-                        }
-                    }
-                } else {
-                    HStack {
-                        Button(action: profileViewModel.toggleUpdateLoginImage) {
-                            Text("Anmeldebild")
-                            
-                            Spacer()
-                            
-                            Image("profileViewModel.loginImage")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 50)
-                        }
-                    }
-                }
+                LoginDataView()
+                    .environmentObject(profileViewModel)
             }
             
             Section {
                 Button {
                     profileViewModel.updateChild()
-                    dismiss()
+                    profileViewModel.toggleShowAlert()
                 } label: {
-                    Text("Speicher")
+                    Text("Speichern")
                         .foregroundStyle(Colors.primaryOrange)
                 }
             }
+        }
+        .alert(isPresented: $profileViewModel.showAlert) {
+            Alert(title: Text("Gespeichert"),
+                  message: Text("Deine Daten wurden erfolgreich gespeichert"),
+                  dismissButton: .default(Text("Okay"))
+            )
         }
     }
     
@@ -94,6 +54,17 @@ struct ProfileView: View {
     
     @EnvironmentObject private var profileViewModel: ProfileViewModel
     @Environment(\.dismiss) private var dismiss
+    
+    
+    // MARK: - Functions
+    
+    private func formatDate(date: Date) -> String {
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
+    }
     
 }
 

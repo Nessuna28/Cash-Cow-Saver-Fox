@@ -14,7 +14,6 @@ class ProfileViewModel: ObservableObject {
     
     init() {
         fetchChild(selectedLoginName: currentLoginName)
-        currentLoginImage = getLoginImage()
     }
     
     // MARK: - Variables
@@ -26,10 +25,7 @@ class ProfileViewModel: ObservableObject {
     
     @Published var selectedImage: UIImage?
     
-    @Published var lastName = ""
-    @Published var firstName = ""
-    @Published var familyMember = ""
-    @Published var birthday = Date()
+    
     @Published var loginName = ""
     @Published var loginImage = ""
     
@@ -40,6 +36,8 @@ class ProfileViewModel: ObservableObject {
     
     @Published var updateLoginName = false
     @Published var updateLoginImage = false
+    
+    @Published var showAlert = false
     
     
     // MARK: - Functions
@@ -52,9 +50,9 @@ class ProfileViewModel: ObservableObject {
     }
     
     
-    func getLoginImage() -> Image {
+    func getImage(forLoginImage title: String) -> Image {
         
-        guard let image = LoginImage.allCases.first(where: { $0.title == child?.loginImage }) else { return Image("") }
+        guard let image = LoginImage.allCases.first(where: { $0.title == title }) else { return Image("") }
         
         return image.image
     }
@@ -65,6 +63,8 @@ class ProfileViewModel: ObservableObject {
         FirestoreRepository.fetchChild(with: selectedLoginName) { child in
             self.child = child
             
+            self.currentLoginImage = self.getImage(forLoginImage: child?.loginImage ?? "")
+            self.loginImage = child?.loginImage ?? ""
             self.downloadPhoto()
         }
     }
@@ -93,8 +93,19 @@ class ProfileViewModel: ObservableObject {
         
         guard let id = child?.id else { return }
         
-        FirestoreRepository.updateChild(with: id, familyMember: child?.familyMember ?? "", lastName: child?.lastName ?? "", firstName: child?.firstName ?? "", birthday: child?.birthday ?? Date(), loginName: child?.loginName ?? "", loginImage: child?.loginImage ?? "")
+        if loginName.isEmpty {
+            loginName = child?.loginName ?? ""
+        }
         
+        if loginImage.isEmpty {
+            loginImage = child?.loginImage ?? ""
+        }
+        
+        FirestoreRepository.updateChild(with: id, familyMember: child?.familyMember ?? "", lastName: child?.lastName ?? "", firstName: child?.firstName ?? "", birthday: child?.birthday ?? Date(), loginName: loginName, loginImage: loginImage)
+        
+        currentLoginName = loginName
+        
+        fetchChild(selectedLoginName: currentLoginName)
         downloadPhoto()
     }
     
@@ -127,6 +138,12 @@ class ProfileViewModel: ObservableObject {
     func toggleUpdateLoginName() {
         
         updateLoginName.toggle()
+    }
+    
+    
+    func toggleShowAlert() {
+        
+        showAlert.toggle()
     }
     
 }

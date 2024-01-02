@@ -12,6 +12,7 @@
 		91680D752B35CDC20075609F /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D742B35CDC20075609F /* ProfileImage.swift */; };
 		91680D782B35D28C0075609F /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D772B35D28C0075609F /* InputField.swift */; };
 		91680D7C2B35D6D70075609F /* LoginImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D7B2B35D6D70075609F /* LoginImagePicker.swift */; };
+		91680D7E2B4419BC0075609F /* LoginDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D7D2B4419BC0075609F /* LoginDataView.swift */; };
 		91952B732B2078D6006CF2A2 /* SaverFoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */; };
 		91952B772B2078D8006CF2A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91952B762B2078D8006CF2A2 /* Assets.xcassets */; };
 		91952B7A2B2078D8006CF2A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91952B792B2078D8006CF2A2 /* Preview Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		91680D742B35CDC20075609F /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		91680D772B35D28C0075609F /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		91680D7B2B35D6D70075609F /* LoginImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginImagePicker.swift; sourceTree = "<group>"; };
+		91680D7D2B4419BC0075609F /* LoginDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataView.swift; sourceTree = "<group>"; };
 		91952B6F2B2078D6006CF2A2 /* SaverFox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaverFox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaverFoxApp.swift; sourceTree = "<group>"; };
 		91952B762B2078D8006CF2A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				91C2B1952B2CA111004C1B53 /* ProfileView.swift */,
 				91680D772B35D28C0075609F /* InputField.swift */,
+				91680D7D2B4419BC0075609F /* LoginDataView.swift */,
 				91680D7B2B35D6D70075609F /* LoginImagePicker.swift */,
 			);
 			path = ProfileView;
@@ -345,9 +348,9 @@
 		91C2B1A52B2CDB8D004C1B53 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				91C2B1652B2C577B004C1B53 /* HomeView.swift */,
 				91C2B16B2B2C5E52004C1B53 /* AppIcon.swift */,
 				91C2B1692B2C58C2004C1B53 /* ProfileNameAndImage.swift */,
-				91C2B1652B2C577B004C1B53 /* HomeView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91680D7E2B4419BC0075609F /* LoginDataView.swift in Sources */,
 				91C2B1D22B342DA6004C1B53 /* TabbarViewModel.swift in Sources */,
 				91C2B19A2B2CACB3004C1B53 /* FinanceViewModel.swift in Sources */,
 				91C2B1C42B304D2C004C1B53 /* DatabaseManager.swift in Sources */,

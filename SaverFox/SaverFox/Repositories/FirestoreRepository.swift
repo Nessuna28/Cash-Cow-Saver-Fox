@@ -87,7 +87,7 @@ class FirestoreRepository {
         let finance = Finance(date: date, category: category, icon: icon, fromOrFor: fromOrFor, title: title, sumOfMoney: sumOfMoney)
         
         do {
-            try DatabaseManager.shared.database.collection("children").document(id).collection("finances").addDocument(from: finance)
+            try DatabaseManager.shared.database.collection("children").document(id).collection("finances").document().setData(from: finance)
         } catch {
             print("Saving finance failed:", error)
         }
@@ -100,10 +100,30 @@ class FirestoreRepository {
         
         do {
             try DatabaseManager.shared.database.collection("children").document(id).collection("savingsGoals").document().setData(from: savingsGoal)
-            print(id)
-            print(savingsGoal)
         } catch {
             print("Saving savings goal failed:", error)
+        }
+    }
+    
+    
+    static func deleteFinance(with id: String, financeId: String) {
+        
+        DatabaseManager.shared.database.collection("children").document(id).collection("finances").document(financeId).delete { error in
+            if let error {
+                print("Delete finance failed:", error)
+                return
+            }
+        }
+    }
+    
+    
+    static func deleteSavingsGoal(with id: String, savingsGoalId: String) {
+        
+        DatabaseManager.shared.database.collection("children").document(id).collection("savingsGoals").document(savingsGoalId).delete { error in
+            if let error {
+                print("Delete savings goal failed:", error)
+                return
+            }
         }
     }
     

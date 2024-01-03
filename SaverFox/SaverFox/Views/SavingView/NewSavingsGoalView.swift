@@ -79,4 +79,5 @@ struct NewSavingsGoalView: View {
 #Preview {
     NewSavingsGoalView()
         .environmentObject(SavingViewModel())
+        .environmentObject(ProfileViewModel())
 }

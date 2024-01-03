@@ -43,5 +43,5 @@ struct DisplayPanel: View {
 }
 
 #Preview {
-    DisplayPanel(title: "Einnahmen", action: { }, list: [], view: AnyView(SavingsListView(savingsGoalList: [])))
+    DisplayPanel(title: "Einnahmen", action: { }, list: [], view: AnyView(SavingsListView(id: "")))
 }

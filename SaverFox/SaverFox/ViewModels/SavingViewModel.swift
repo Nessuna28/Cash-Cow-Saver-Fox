@@ -90,6 +90,12 @@ class SavingViewModel: ObservableObject {
     }
     
     
+    func deleteSavingsGoal(with id: String, savingsGoalId: String) {
+        
+        FirestoreRepository.deleteSavingsGoal(with: id, savingsGoalId: savingsGoalId)
+    }
+    
+    
     func removeListener() {
         
         savingsGoalList.removeAll()

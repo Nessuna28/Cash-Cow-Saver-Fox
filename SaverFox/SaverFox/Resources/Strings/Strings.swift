@@ -60,6 +60,7 @@ struct Strings {
     
     static let settingsIcon = "gear"
     static let logoutIcon = "door.left.hand.open"
+    static let trashIcon = "trash.fill"
     
     
     // Buttons

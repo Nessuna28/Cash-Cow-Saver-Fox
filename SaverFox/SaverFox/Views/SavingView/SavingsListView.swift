@@ -11,24 +11,39 @@ struct SavingsListView: View {
     
     var body: some View {
         ScrollView {
-            ForEach(savingsGoalList.sorted(by: { $0.date > $1.date })) { savingsGoal in
+            ForEach(savingViewModel.savingsGoalList.sorted(by: { $0.date > $1.date })) { savingsGoal in
                 HStack {
-                    Image(savingsGoal.icon)
-                        .padding(5)
-                        .background(Colors.primaryOrange)
-                        .clipShape(Circle())
+                    HStack {
+                        Image(savingsGoal.icon)
+                            .padding(5)
+                            .background(Colors.primaryOrange)
+                            .clipShape(Circle())
+                        
+                        Text(savingsGoal.title)
+                        
+                        Spacer()
+                        
+                        Text(String(format: "%.2f €", savingsGoal.sumOfMoney))
+                    }
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Colors.secondaryOrange, lineWidth: 1)
+                    )
                     
-                    Text(savingsGoal.title)
-                    
-                    Spacer()
-                    
-                    Text(String(format: "%.2f €", savingsGoal.sumOfMoney))
+                    Button {
+                        savingViewModel.deleteSavingsGoal(with: id, savingsGoalId: savingsGoal.id ?? "")
+                    } label: {
+                        Image(systemName: Strings.trashIcon)
+                    }
                 }
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Colors.secondaryOrange, lineWidth: 1)
-                )
+//                .swipeActions(allowsFullSwipe: false) {
+//                    Button(role: .destructive) {
+//                        savingViewModel.deleteSavingsGoal(with: id, savingsGoalId: savingsGoal.id ?? "")
+//                    } label: {
+//                        Image(systemName: Strings.trashIcon)
+//                    }
+//                }
             }
         }
         .frame(maxHeight: .infinity)
@@ -37,10 +52,13 @@ struct SavingsListView: View {
     
     // MARK: - Variables
     
-    let savingsGoalList: [SavingsGoal]
+    @EnvironmentObject private var savingViewModel: SavingViewModel
+    
+    let id: String
     
 }
 
 #Preview {
-    SavingsListView(savingsGoalList: [])
+    SavingsListView(id: "")
+        .environmentObject(SavingViewModel())
 }

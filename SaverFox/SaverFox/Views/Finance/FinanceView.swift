@@ -11,10 +11,10 @@ struct FinanceView: View {
     
     var body: some View {
         VStack {
-            DisplayPanel(title: "Einnahmen", action: financeViewModel.openRevenueSheet, list: financeViewModel.revenue, view: AnyView(FinanceListView(finance: financeViewModel.revenue)))
+            DisplayPanel(title: "Einnahmen", action: financeViewModel.openRevenueSheet, list: financeViewModel.revenue, view: AnyView(FinanceListView(finances: financeViewModel.revenue, id: profileViewModel.child?.id ?? "")))
             
-            DisplayPanel(title: "Ausgaben", action: financeViewModel.openExpenditureSheet, list: financeViewModel.expenditure, view: AnyView(FinanceListView(finance: financeViewModel.expenditure)))
-                
+            DisplayPanel(title: "Ausgaben", action: financeViewModel.openExpenditureSheet, list: financeViewModel.expenditure, view: AnyView(FinanceListView(finances: financeViewModel.expenditure, id: profileViewModel.child?.id ?? "")))
+            
             Spacer()
             
             Text(String(format: "%.2f € zur Verfügung", financeViewModel.currentSum))
@@ -22,13 +22,19 @@ struct FinanceView: View {
         }
         .onAppear {
             financeViewModel.calculateActualTotal(initialAmount: profileViewModel.child?.initialAmount ?? 0.0)
+            if let id = profileViewModel.child?.id {
+                financeViewModel.fetchFinances(with: id)
+            }
         }
         .sheet(isPresented: $financeViewModel.showRevenueSheet, content: {
             NewRevenueView()
+                
         })
         .sheet(isPresented: $financeViewModel.showExpenditureSheet, content: {
             NewExpenditureView()
         })
+        .environmentObject(financeViewModel)
+        .environmentObject(profileViewModel)
     }
     
     

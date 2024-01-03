@@ -21,4 +21,7 @@ struct FireChild: Codable, Identifiable {
     var loginImage: String
     
     var registeredAt: Date
+    
+    var initialAmount: Double?
+    var currentPoints: Int?
 }

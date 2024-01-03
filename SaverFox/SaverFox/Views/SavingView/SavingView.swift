@@ -11,7 +11,7 @@ struct SavingView: View {
     
     var body: some View {
         VStack {
-            DisplayPanel(title: "Sparziele", action: savingViewModel.openSheet, list: savingViewModel.savingsGoalList, view: AnyView(SavingsListView(savingsGoalList: savingViewModel.savingsGoalList)))
+            DisplayPanel(title: "Sparziele", action: savingViewModel.toggleShowSheet, list: savingViewModel.savingsGoalList, view: AnyView(SavingsListView(savingsGoalList: savingViewModel.savingsGoalList)))
             
             Image("animation2")
                 .resizable()

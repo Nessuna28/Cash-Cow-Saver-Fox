@@ -20,6 +20,9 @@ struct FinanceView: View {
             Text(String(format: "%.2f € zur Verfügung", financeViewModel.currentSum))
                 .foregroundStyle(Colors.primaryOrange)
         }
+        .onAppear {
+            financeViewModel.calculateActualTotal(initialAmount: profileViewModel.child?.initialAmount ?? 0.0)
+        }
         .sheet(isPresented: $financeViewModel.showRevenueSheet, content: {
             NewRevenueView()
         })
@@ -32,10 +35,12 @@ struct FinanceView: View {
     // MARK: - Variables
     
     @EnvironmentObject private var financeViewModel: FinanceViewModel
+    @EnvironmentObject private var profileViewModel: ProfileViewModel
     
 }
 
 #Preview {
     FinanceView()
         .environmentObject(FinanceViewModel())
+        .environmentObject(ProfileViewModel())
 }

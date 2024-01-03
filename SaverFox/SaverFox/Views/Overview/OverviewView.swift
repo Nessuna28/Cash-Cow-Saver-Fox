@@ -12,12 +12,14 @@ struct OverviewView: View {
     var body: some View {
         VStack {
             HStack {
-                if financeViewModel.initialAmount == nil {
+                if profileViewModel.child?.initialAmount == nil {
                     TextField("Wieviel Geld hast du gerade?", text: $amount)
                         .foregroundStyle(Colors.primaryOrange)
                     
                     Button("speichern") {
                         financeViewModel.setInitialAmount(amount: amount)
+                        profileViewModel.initialAmount = financeViewModel.initialAmount ?? 0.0
+                        profileViewModel.updateInitialAmount()
                     }
                 } else {
                     Text("Taschengeld:")
@@ -79,6 +81,7 @@ struct OverviewView: View {
     
     @EnvironmentObject private var financeViewModel: FinanceViewModel
     @EnvironmentObject private var savingViewModel: SavingViewModel
+    @EnvironmentObject private var profileViewModel: ProfileViewModel
     
     @State private var amount = ""
     
@@ -92,4 +95,5 @@ struct OverviewView: View {
     OverviewView()
         .environmentObject(FinanceViewModel())
         .environmentObject(SavingViewModel())
+        .environmentObject(ProfileViewModel())
 }

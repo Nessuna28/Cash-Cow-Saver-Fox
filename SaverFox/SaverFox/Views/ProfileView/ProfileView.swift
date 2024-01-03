@@ -33,7 +33,7 @@ struct ProfileView: View {
             
             Section {
                 Button {
-                    profileViewModel.updateChild()
+                    profileViewModel.updateLoginData()
                     profileViewModel.toggleShowAlert()
                 } label: {
                     Text("Speichern")

@@ -15,4 +15,5 @@ class DatabaseManager {
     static let shared = DatabaseManager()
     
     let database = Firestore.firestore()
+    
 }

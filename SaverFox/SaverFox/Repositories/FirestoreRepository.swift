@@ -40,15 +40,70 @@ class FirestoreRepository {
     }
     
     
-    static func updateChild(with id: String, familyMember: String, lastName: String, firstName: String, birthday: Date, loginName: String, loginImage: String) {
+    static func updateLoginData(with id: String, loginName: String, loginImage: String) {
         
-        let data = ["familyMember": familyMember, "lastName": lastName, "firstName": firstName, "birthday": birthday, "loginName": loginName, "loginImage": loginImage] as [String: Any]
+        let data = ["loginName": loginName, "loginImage": loginImage]
         
         DatabaseManager.shared.database.collection("children").document(id).setData(data, merge: true) { error in
             if let error {
-                print("Update child failed:", error)
+                print("Update login data failed:", error)
                 return
             }
+        }
+    }
+    
+    
+    static func updateInitialAmount(with id: String, initialAmount: Double) {
+        
+        let data = ["initialAmount": initialAmount]
+        
+        DatabaseManager.shared.database.collection("children").document(id).setData(data, merge: true) { error in
+            if let error {
+                print("Update initial amount failed:", error)
+                return
+            }
+        }
+    }
+    
+    
+    static func updateCurrentPoints(with id: String, currentPoints: Int) {
+        
+        let data = ["currentPoints": currentPoints]
+        
+        DatabaseManager.shared.database.collection("children").document(id).setData(data, merge: true) { error in
+            if let error {
+                print("Update current points failed:", error)
+                return
+            }
+        }
+    }
+    
+    
+    
+    // MARK: - Finances
+    
+    static func createFinance(with id: String, date: Date, category: String, icon: String, fromOrFor: String, title: String, sumOfMoney: Double) {
+        
+        let finance = Finance(date: date, category: category, icon: icon, fromOrFor: fromOrFor, title: title, sumOfMoney: sumOfMoney)
+        
+        do {
+            try DatabaseManager.shared.database.collection("children").document(id).collection("finances").addDocument(from: finance)
+        } catch {
+            print("Saving finance failed:", error)
+        }
+    }
+
+    
+    static func createSavingsGoal(with id: String, date: Date, icon: String, title: String, sumOfMoney: Double) {
+        
+        let savingsGoal = SavingsGoal(date: date, icon: icon, title: title, sumOfMoney: sumOfMoney)
+        
+        do {
+            try DatabaseManager.shared.database.collection("children").document(id).collection("savingsGoals").document().setData(from: savingsGoal)
+            print(id)
+            print(savingsGoal)
+        } catch {
+            print("Saving savings goal failed:", error)
         }
     }
     
@@ -116,15 +171,4 @@ class FirestoreRepository {
         }
     }
     
-    
-    static func createFinaces(id: String, initialAmount: Double, currentPoints: Int, revenue: [Finance], expenditure: [Finance], savingsGoals: [SavingsGoal]) {
-        
-        let finances = Finances(initialAmount: initialAmount, currentPoints: currentPoints, revenue: revenue, expenditure: expenditure, savingsGoals: savingsGoals)
-        
-        do {
-            try DatabaseManager.shared.database.collection("children").document(id).collection("finances").addDocument(from: finances)
-        } catch {
-            print("Saving finances failed:", error)
-        }
-    }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class FinanceViewModel: ObservableObject {
     
@@ -17,7 +18,6 @@ class FinanceViewModel: ObservableObject {
         ]
         
         filterIncomeAndExpenses()
-        calculateActualTotal()
     }
     
     // MARK: - Variables
@@ -38,6 +38,8 @@ class FinanceViewModel: ObservableObject {
     
     @Published var showRevenueSheet = false
     @Published var showExpenditureSheet = false
+    
+    private var listener: ListenerRegistration?
 
     
     
@@ -48,7 +50,6 @@ class FinanceViewModel: ObservableObject {
         if amount.contains(".") {
             if let value = Double(amount), !value.isNaN {
                 initialAmount = value
-                calculateActualTotal()
             } else {
                 errorDescription = "Gib bitte eine Zahl ein! \n Beispiel: 10.00"
                 showAlert.toggle()
@@ -74,9 +75,9 @@ class FinanceViewModel: ObservableObject {
     }
     
     
-    private func calculateActualTotal() {
+    func calculateActualTotal(initialAmount: Double) {
         
-        currentSum += (initialAmount ?? 0.0) + sumRevenue - sumExpenditure
+        currentSum += initialAmount + sumRevenue - sumExpenditure
     }
     
     
@@ -101,5 +102,33 @@ class FinanceViewModel: ObservableObject {
     func closeExpenditureSheet() {
         
         showExpenditureSheet = false
+    }
+    
+    
+    func fetchFinances(with id: String) {
+        
+        listener = DatabaseManager.shared.database.collection("children").document(id).collection("finances")
+            .addSnapshotListener { querySnapshot, error in
+                if let error {
+                    print("Fetching finances failed:", error)
+                    return
+                }
+                
+                guard let documents = querySnapshot?.documents else {
+                    print("No document!")
+                    return
+                }
+                
+                self.finance = documents.compactMap { queryDocumentSnapshot -> Finance? in
+                    try? queryDocumentSnapshot.data(as: Finance.self)
+                }
+            }
+    }
+    
+    
+    func removeListener() {
+        
+        finance.removeAll()
+        listener?.remove()
     }
 }

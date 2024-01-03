@@ -57,6 +57,7 @@ struct NewSavingsGoalView: View {
     @State private var amount = ""
     
     @EnvironmentObject private var savingViewModel: SavingViewModel
+    @EnvironmentObject private var profileViewModel: ProfileViewModel
     
     
     // MARK: - Functions
@@ -67,6 +68,10 @@ struct NewSavingsGoalView: View {
         savingViewModel.date = date
         savingViewModel.icon = icon
         savingViewModel.setSumOfMoney(amount: amount)
+        
+        if let id = profileViewModel.child?.id {
+            savingViewModel.createSavingsGoal(id: id)
+        }
     }
     
 }

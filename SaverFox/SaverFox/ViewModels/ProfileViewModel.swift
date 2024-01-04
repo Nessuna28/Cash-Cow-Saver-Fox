@@ -21,6 +21,7 @@ class ProfileViewModel: ObservableObject {
     @AppStorage("loginName") var currentLoginName = ""
     
     @Published var child: Child?
+    
     @Published var profilePicture: UIImage?
     
     @Published var selectedImage: UIImage?
@@ -36,6 +37,8 @@ class ProfileViewModel: ObservableObject {
     
     @Published var updateLoginName = false
     @Published var updateLoginImage = false
+    
+    @Published var initialAmount = 0.0
     
     @Published var showAlert = false
     
@@ -62,11 +65,11 @@ class ProfileViewModel: ObservableObject {
         
         FirestoreRepository.fetchChild(with: selectedLoginName) { child in
             self.child = child
-            
-            self.currentLoginImage = self.getImage(forLoginImage: child?.loginImage ?? "")
-            self.loginImage = child?.loginImage ?? ""
-            self.downloadPhoto()
         }
+        
+        self.currentLoginImage = self.getImage(forLoginImage: child?.loginImage ?? "")
+        self.loginImage = child?.loginImage ?? ""
+        self.downloadPhoto()
     }
     
     
@@ -89,31 +92,42 @@ class ProfileViewModel: ObservableObject {
     }
     
     
-    func updateChild() {
+    func updateLoginData() {
         
-        guard let id = child?.id else { return }
+        guard let id = self.child?.id else { return }
         
         if loginName.isEmpty {
-            loginName = child?.loginName ?? ""
+            loginName = self.child?.loginName ?? ""
         }
         
         if loginImage.isEmpty {
-            loginImage = child?.loginImage ?? ""
+            loginImage = self.child?.loginImage ?? ""
         }
         
-        FirestoreRepository.updateChild(with: id, familyMember: child?.familyMember ?? "", lastName: child?.lastName ?? "", firstName: child?.firstName ?? "", birthday: child?.birthday ?? Date(), loginName: loginName, loginImage: loginImage)
+        FirestoreRepository.updateLoginData(with: id, loginName: loginName, loginImage: loginImage)
         
         currentLoginName = loginName
         
         fetchChild(selectedLoginName: currentLoginName)
+        
         downloadPhoto()
+    }
+    
+    
+    func updateInitialAmount() {
+        
+        guard let id = self.child?.id else { return }
+        
+        FirestoreRepository.updateInitialAmount(with: id, initialAmount: initialAmount)
+        
+        fetchChild(selectedLoginName: currentLoginName)
     }
     
     
     
     func uploadPhoto() {
         
-        guard let id = child?.id else { return }
+        guard let id = self.child?.id else { return }
         
         FirestoreRepository.uploadPhoto(with: id, collection: "children", image: selectedImage)
     }
@@ -121,7 +135,7 @@ class ProfileViewModel: ObservableObject {
     
     private func downloadPhoto() {
         
-        guard let child = child else { return }
+        guard let child = self.child else { return }
         
         FirestoreRepository.downloadPhoto(profilePicture: child.profilePicture) { image in
             self.profilePicture = image

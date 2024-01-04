@@ -6,26 +6,14 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class SavingViewModel: ObservableObject {
-    
-    init() {
-            self.savingsGoalList = [
-                SavingsGoal(childId: "1", date: calendar.date(from: dateComponents1) ?? Date(), icon: "", title: "Weihnachten", sumOfMoney: 40.00),
-//                SavingsGoal(childId: "1", date: calendar.date(from: dateComponents2) ?? Date(), icon: "", title: "Mutti Geburtstag", sumOfMoney: 20.00),
-//                SavingsGoal(childId: "1", date: calendar.date(from: dateComponents3) ?? Date(), icon: "", title: "Jill Geburtstag", sumOfMoney: 10.00)
-            ]
-        }
     
     
     // MARK: - Variables
     
-    let calendar = Calendar.current
-    let dateComponents1 = DateComponents(year: 2023, month: 12, day: 24)
-    let dateComponents2 = DateComponents(year: 2024, month: 2, day: 13)
-    let dateComponents3 = DateComponents(year: 2024, month: 3, day: 25)
-    
-    @Published var savingsGoalList: [SavingsGoal]
+    @Published var savingsGoalList: [SavingsGoal] = []
     
     @Published var savingsGoal: SavingsGoal?
     
@@ -38,6 +26,8 @@ class SavingViewModel: ObservableObject {
     @Published var errorDescription = ""
     
     @Published var showSheet = false
+    
+    private var listener: ListenerRegistration?
     
     
     
@@ -67,15 +57,49 @@ class SavingViewModel: ObservableObject {
     }
     
     
-    func openSheet() {
+    func toggleShowSheet() {
         
         showSheet.toggle()
     }
     
     
-    func closeSheet() {
+    func createSavingsGoal(id: String) {
         
-        showSheet = false
+        FirestoreRepository.createSavingsGoal(with: id, date: date, icon: icon, title: title, sumOfMoney: sumOfMoney)
+    }
+    
+    
+    func fetchSavingsGoals(with id: String) {
+        
+        listener = DatabaseManager.shared.database.collection("children").document(id).collection("savingsGoals")
+            .addSnapshotListener { querySnapshot, error in
+                if let error {
+                    print("Fetching savings goals failed:", error)
+                    return
+                }
+                
+                guard let documents = querySnapshot?.documents else {
+                    print("No document!")
+                    return
+                }
+                
+                self.savingsGoalList = documents.compactMap { queryDocumentSnapshot -> SavingsGoal? in
+                    try? queryDocumentSnapshot.data(as: SavingsGoal.self)
+                }
+            }
+    }
+    
+    
+    func deleteSavingsGoal(with id: String, savingsGoalId: String) {
+        
+        FirestoreRepository.deleteSavingsGoal(with: id, savingsGoalId: savingsGoalId)
+    }
+    
+    
+    func removeListener() {
+        
+        savingsGoalList.removeAll()
+        listener?.remove()
     }
     
 }

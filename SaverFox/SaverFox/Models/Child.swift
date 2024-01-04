@@ -19,4 +19,8 @@ struct Child: Codable, Identifiable {
     
     var loginName: String
     var loginImage: String
+    
+    var initialAmount: Double?
+    var currentPoints: Int?
+    
 }

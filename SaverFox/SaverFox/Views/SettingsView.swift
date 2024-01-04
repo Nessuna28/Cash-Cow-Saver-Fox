@@ -20,6 +20,8 @@ struct SettingsView: View {
             Section {
                 Button(role: .destructive) {
                     authViewModel.logoutChild()
+                    savingViewModel.removeListener()
+                    financeViewModel.removeListener()
                 } label: {
                     HStack {
                         Image(systemName: Strings.logoutIcon)
@@ -37,6 +39,8 @@ struct SettingsView: View {
     
     @EnvironmentObject private var authViewModel: AuthViewModel
     @EnvironmentObject private var settingsViewModel: SettingsViewModel
+    @EnvironmentObject private var savingViewModel: SavingViewModel
+    @EnvironmentObject private var financeViewModel: FinanceViewModel
     
 }
 
@@ -44,4 +48,6 @@ struct SettingsView: View {
     SettingsView()
         .environmentObject(AuthViewModel())
         .environmentObject(SettingsViewModel())
+        .environmentObject(SavingViewModel())
+        .environmentObject(FinanceViewModel())
 }

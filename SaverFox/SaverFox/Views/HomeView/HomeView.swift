@@ -41,6 +41,7 @@ struct HomeView: View {
                     Spacer()
                     
                     Tabbar()
+                        .environmentObject(profileViewModel)
                 }
                 .padding(.horizontal)
             }

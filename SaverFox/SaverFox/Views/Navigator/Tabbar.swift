@@ -14,6 +14,7 @@ struct Tabbar: View {
             tabbarViewModel.selectedTab.view
                 .environmentObject(financeViewModel)
                 .environmentObject(savingViewModel)
+                .environmentObject(profileViewModel)
                 .padding(.vertical, 30)
             
             TabbarView()
@@ -27,8 +28,14 @@ struct Tabbar: View {
     @StateObject private var tabbarViewModel = TabbarViewModel()
     @StateObject private var financeViewModel = FinanceViewModel()
     @StateObject private var savingViewModel = SavingViewModel()
+    
+    @EnvironmentObject private var profileViewModel: ProfileViewModel
 }
 
 #Preview {
     Tabbar()
+        .environmentObject(TabbarViewModel())
+        .environmentObject(FinanceViewModel())
+        .environmentObject(SavingViewModel())
+        .environmentObject(ProfileViewModel())
 }

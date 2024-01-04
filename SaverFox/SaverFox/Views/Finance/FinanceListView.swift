@@ -11,24 +11,32 @@ struct FinanceListView: View {
     
     var body: some View {
         ScrollView {
-            ForEach(finance.sorted(by: { $0.date > $1.date })) { finance in
+            ForEach(finances.sorted(by: { $0.date > $1.date })) { finance in
                 HStack {
-                    Image(finance.icon)
-                        .padding(5)
-                        .background(Colors.primaryOrange)
-                        .clipShape(Circle())
+                    HStack {
+                        Image(finance.icon)
+                            .padding(5)
+                            .background(Colors.primaryOrange)
+                            .clipShape(Circle())
+                        
+                        Text(finance.title)
+                        
+                        Spacer()
+                        
+                        Text(String(format: "%.2f €", finance.sumOfMoney))
+                    }
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Colors.secondaryOrange, lineWidth: 1)
+                    )
                     
-                    Text(finance.title)
-                    
-                    Spacer()
-                    
-                    Text(String(format: "%.2f €", finance.sumOfMoney))
+                    Button {
+                        financeViewModel.deleteFinance(with: id, financeId: finance.id ?? "")
+                    } label: {
+                        Image(systemName: Strings.trashIcon)
+                    }
                 }
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Colors.secondaryOrange, lineWidth: 1)
-                )
             }
         }
         .frame(maxHeight: .infinity)
@@ -37,10 +45,14 @@ struct FinanceListView: View {
     
     // MARK: - Variables
     
-    let finance: [Finance]
+    @EnvironmentObject private var financeViewModel: FinanceViewModel
+    
+    let finances: [Finance]
+    let id: String
     
 }
 
 #Preview {
-    FinanceListView(finance: FinanceViewModel().revenue)
+    FinanceListView(finances: [], id: "")
+        .environmentObject(FinanceViewModel())
 }

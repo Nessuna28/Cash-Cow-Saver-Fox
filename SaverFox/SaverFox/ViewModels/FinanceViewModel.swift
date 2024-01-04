@@ -6,19 +6,10 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class FinanceViewModel: ObservableObject {
     
-    init() {
-        finance = [
-//            Finance(childId: "1", date: Date(), category: "Einnahmen", icon: "", fromOrFor: "Mutti", title: "Taschengeld", sumOfMoney: 15.00),
-//            Finance(childId: "2", date: Date(), category: "Einnahmen", icon: "", fromOrFor: "Mutti", title: "für Zeugnis", sumOfMoney: 5.00),
-//            Finance(childId: "3", date: Date(), category: "Ausgaben", icon: "", fromOrFor: "Tedi", title: "für Kuscheltier", sumOfMoney: 6.50)
-        ]
-        
-        filterIncomeAndExpenses()
-        calculateActualTotal()
-    }
     
     // MARK: - Variables
     
@@ -28,7 +19,14 @@ class FinanceViewModel: ObservableObject {
     @Published var showAlert = false
     @Published var errorDescription = ""
     
-    @Published var finance: [Finance]
+    @Published var finances: [Finance] = []
+    
+    @Published var date = Date()
+    @Published var category = ""
+    @Published var icon = ""
+    @Published var fromOrFor = ""
+    @Published var title = ""
+    @Published var sumOfMoney = 0.0
     
     @Published var revenue = [Finance]()
     @Published var expenditure = [Finance]()
@@ -38,6 +36,8 @@ class FinanceViewModel: ObservableObject {
     
     @Published var showRevenueSheet = false
     @Published var showExpenditureSheet = false
+    
+    private var listener: ListenerRegistration?
 
     
     
@@ -48,7 +48,6 @@ class FinanceViewModel: ObservableObject {
         if amount.contains(".") {
             if let value = Double(amount), !value.isNaN {
                 initialAmount = value
-                calculateActualTotal()
             } else {
                 errorDescription = "Gib bitte eine Zahl ein! \n Beispiel: 10.00"
                 showAlert.toggle()
@@ -62,11 +61,16 @@ class FinanceViewModel: ObservableObject {
     
     private func filterIncomeAndExpenses() {
         
-        for finance in finance {
-            if finance.category == "Einnahmen" {
+        revenue = []
+        expenditure = []
+        sumRevenue = 0.0
+        sumExpenditure = 0.0
+        
+        for finance in finances {
+            if finance.category == "Einnahme" {
                 revenue.append(finance)
                 sumRevenue += finance.sumOfMoney
-            } else if finance.category == "Ausgaben" {
+            } else if finance.category == "Ausgabe" {
                 expenditure.append(finance)
                 sumExpenditure += finance.sumOfMoney
             }
@@ -74,9 +78,27 @@ class FinanceViewModel: ObservableObject {
     }
     
     
-    private func calculateActualTotal() {
+    func calculateActualTotal(initialAmount: Double) {
         
-        currentSum += (initialAmount ?? 0.0) + sumRevenue - sumExpenditure
+        currentSum = 0.0
+        
+        currentSum += initialAmount + sumRevenue - sumExpenditure
+    }
+    
+    
+    func setSumOfMoney(amount: String) {
+        
+        if amount.contains(".") {
+            if let value = Double(amount), !value.isNaN {
+                sumOfMoney = value
+            } else {
+                errorDescription = "Gib bitte eine Zahl ein! \n Beispiel: 10.00"
+                showAlert.toggle()
+            }
+        } else {
+            errorDescription = "Gib bitte eine Kommazahl mit einem Punkt anstatt ein Komma ein! \n Beispiel: 10.00"
+            showAlert.toggle()
+        }
     }
     
     
@@ -101,5 +123,47 @@ class FinanceViewModel: ObservableObject {
     func closeExpenditureSheet() {
         
         showExpenditureSheet = false
+    }
+    
+    
+    func createFinance(with id: String) {
+        
+        FirestoreRepository.createFinance(with: id, date: date, category: category, icon: icon, fromOrFor: fromOrFor, title: title, sumOfMoney: sumOfMoney)
+    }
+    
+    
+    func fetchFinances(with id: String) {
+        
+        listener = DatabaseManager.shared.database.collection("children").document(id).collection("finances")
+            .addSnapshotListener { querySnapshot, error in
+                if let error {
+                    print("Fetching finances failed:", error)
+                    return
+                }
+                
+                guard let documents = querySnapshot?.documents else {
+                    print("No document!")
+                    return
+                }
+                
+                self.finances = documents.compactMap { queryDocumentSnapshot -> Finance? in
+                    try? queryDocumentSnapshot.data(as: Finance.self)
+                }
+                
+                self.filterIncomeAndExpenses()
+            }
+    }
+    
+    
+    func deleteFinance(with id: String, financeId: String) {
+        
+        FirestoreRepository.deleteFinance(with: id, financeId: financeId)
+    }
+    
+    
+    func removeListener() {
+        
+        finances.removeAll()
+        listener?.remove()
     }
 }

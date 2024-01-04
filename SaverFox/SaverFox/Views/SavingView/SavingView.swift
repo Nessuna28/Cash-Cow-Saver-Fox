@@ -11,7 +11,8 @@ struct SavingView: View {
     
     var body: some View {
         VStack {
-            DisplayPanel(title: "Sparziele", action: savingViewModel.openSheet, list: savingViewModel.savingsGoalList, view: AnyView(SavingsListView(savingsGoalList: savingViewModel.savingsGoalList)))
+            DisplayPanel(title: "Sparziele", action: savingViewModel.toggleShowSheet, list: savingViewModel.savingsGoalList, view: AnyView(SavingsListView(id: profileViewModel.child?.id ?? "")))
+                .environmentObject(savingViewModel)
             
             Image("animation2")
                 .resizable()
@@ -24,8 +25,14 @@ struct SavingView: View {
                 .environmentObject(savingViewModel)
                 .environmentObject(financeViewModel)
         }
+        .onAppear {
+            if let id = profileViewModel.child?.id {
+                savingViewModel.fetchSavingsGoals(with: id)
+            }
+        }
         .sheet(isPresented: $savingViewModel.showSheet, content: {
             NewSavingsGoalView()
+                .environmentObject(profileViewModel)
         })
     }
     
@@ -34,6 +41,7 @@ struct SavingView: View {
     
     @EnvironmentObject private var savingViewModel: SavingViewModel
     @EnvironmentObject private var financeViewModel: FinanceViewModel
+    @EnvironmentObject private var profileViewModel: ProfileViewModel
     
 }
 
@@ -41,4 +49,5 @@ struct SavingView: View {
     SavingView()
         .environmentObject(FinanceViewModel())
         .environmentObject(SavingViewModel())
+        .environmentObject(ProfileViewModel())
 }

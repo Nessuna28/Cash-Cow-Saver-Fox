@@ -7,11 +7,24 @@
 
 import Foundation
 import FirebaseFirestore
+import Combine
 
 class SavingViewModel: ObservableObject {
     
+    init() {
+        
+        cancellable = FirestoreRepository.shared.child
+            .sink { child in
+                guard let id = child?.id else { return }
+                
+                self.fetchSavingsGoals(with: id)
+            }
+    }
+    
     
     // MARK: - Variables
+    
+    private var cancellable: AnyCancellable?
     
     @Published var savingsGoalList: [SavingsGoal] = []
     
@@ -41,7 +54,7 @@ class SavingViewModel: ObservableObject {
     }
     
     
-    func setSumOfMoney(amount: String) {
+    func convertStringToNumber(amount: String) {
         
         if amount.contains(".") {
             if let value = Double(amount), !value.isNaN {

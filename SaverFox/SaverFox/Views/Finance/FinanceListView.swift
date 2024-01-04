@@ -14,12 +14,17 @@ struct FinanceListView: View {
             ForEach(finances.sorted(by: { $0.date > $1.date })) { finance in
                 HStack {
                     HStack {
-                        Image(finance.icon)
+                        Image(systemName: finance.icon)
                             .padding(5)
                             .background(Colors.primaryOrange)
                             .clipShape(Circle())
                         
-                        Text(finance.title)
+                        VStack(alignment: .leading) {
+                            Text(finance.fromOrFor)
+                                .font(.footnote)
+                            
+                            Text(finance.title)
+                        }
                         
                         Spacer()
                         

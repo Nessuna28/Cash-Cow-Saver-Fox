@@ -24,11 +24,15 @@ struct NewExpenditureView: View {
                 Text("Wo hast du das Geld ausgegeben?")
                 
                 TextField("wo", text: $financeViewModel.fromOrFor)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
                     .padding(.bottom, 30)
                 
                 Text("Wofür hast du das Geld ausgegeben?")
                 
                 TextField("Titel", text: $financeViewModel.title)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
                     .padding(.bottom, 30)
                 
                 Text("Welches Icon möchtest du dafür?")
@@ -39,6 +43,8 @@ struct NewExpenditureView: View {
                 Text("Wieviel Geld hast du ausgegeben?")
                 
                 TextField("Betrag", text: $amount)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
                     .padding(.bottom, 30)
                 
                 
@@ -50,6 +56,12 @@ struct NewExpenditureView: View {
             SaveAndCancelButton(action: saveFinance)
         }
         .frame(width: 350)
+        .alert(isPresented: $financeViewModel.showAlert) {
+            Alert(title: Text("Ungültige Eingabe"),
+                  message: Text(financeViewModel.errorDescription),
+                  dismissButton: .default(Text("Okay"))
+            )
+        }
     }
         
         
@@ -66,7 +78,7 @@ struct NewExpenditureView: View {
         
         private func saveFinance() {
         
-            financeViewModel.setSumOfMoney(amount: amount)
+            financeViewModel.convertStringToNumber(amount: amount, selection: "sum")
             financeViewModel.category = "Ausgabe"
             
             if let id = profileViewModel.child?.id {

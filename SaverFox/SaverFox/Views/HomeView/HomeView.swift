@@ -32,6 +32,8 @@ struct HomeView: View {
                             SettingsView()
                                 .environmentObject(authViewModel)
                                 .environmentObject(settingsViewModel)
+                                .environmentObject(financeViewModel)
+                                .environmentObject(savingViewModel)
                         } label: {
                             Image(systemName: Strings.settingsIcon)
                                 .font(.title2)
@@ -42,6 +44,9 @@ struct HomeView: View {
                     
                     Tabbar()
                         .environmentObject(profileViewModel)
+                        .environmentObject(savingViewModel)
+                        .environmentObject(financeViewModel)
+                        .environmentObject(pointsViewModel)
                 }
                 .padding(.horizontal)
             }
@@ -60,9 +65,12 @@ struct HomeView: View {
     
     @EnvironmentObject private var authViewModel: AuthViewModel
     @EnvironmentObject private var profileViewModel: ProfileViewModel
+    @EnvironmentObject private var financeViewModel: FinanceViewModel
     
     @StateObject private var settingsViewModel = SettingsViewModel()
     @StateObject private var biometryViewModel = BiometryViewModel()
+    @StateObject private var savingViewModel = SavingViewModel()
+    @StateObject private var pointsViewModel = PointsViewModel()
     
 }
 
@@ -70,4 +78,7 @@ struct HomeView: View {
     HomeView()
         .environmentObject(ProfileViewModel())
         .environmentObject(AuthViewModel())
+        .environmentObject(FinanceViewModel())
+        .environmentObject(SavingViewModel())
+        .environmentObject(PointsViewModel())
 }

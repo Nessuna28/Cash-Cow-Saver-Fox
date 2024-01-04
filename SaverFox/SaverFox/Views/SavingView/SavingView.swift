@@ -25,11 +25,6 @@ struct SavingView: View {
                 .environmentObject(savingViewModel)
                 .environmentObject(financeViewModel)
         }
-        .onAppear {
-            if let id = profileViewModel.child?.id {
-                savingViewModel.fetchSavingsGoals(with: id)
-            }
-        }
         .sheet(isPresented: $savingViewModel.showSheet, content: {
             NewSavingsGoalView()
                 .environmentObject(profileViewModel)

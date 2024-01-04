@@ -19,6 +19,8 @@ struct NewSavingsGoalView: View {
                 Text("Für was möchtest du sparen?")
                 
                 TextField("Titel", text: $title)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
                     .padding(.bottom, 30)
                 
                 Text("Welches Icon möchtest du dafür?")
@@ -34,6 +36,8 @@ struct NewSavingsGoalView: View {
                 Text("Wieviel möchtest du sparen?")
                 
                 TextField("Betrag", text: $amount)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
                     .padding(.bottom, 30)
                 
                 
@@ -45,6 +49,12 @@ struct NewSavingsGoalView: View {
             SaveAndCancelButton(action: saveSavingsGoal)
         }
         .frame(width: 300)
+        .alert(isPresented: $savingViewModel.showAlert) {
+            Alert(title: Text("Ungültige Eingabe"),
+                  message: Text(savingViewModel.errorDescription),
+                  dismissButton: .default(Text("Okay"))
+            )
+        }
 
     }
     
@@ -67,7 +77,7 @@ struct NewSavingsGoalView: View {
         savingViewModel.title = title
         savingViewModel.date = date
         savingViewModel.icon = icon
-        savingViewModel.setSumOfMoney(amount: amount)
+        savingViewModel.convertStringToNumber(amount: amount)
         
         if let id = profileViewModel.child?.id {
             savingViewModel.createSavingsGoal(id: id)

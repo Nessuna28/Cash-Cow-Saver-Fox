@@ -13,7 +13,7 @@ struct LoginDataView: View {
         if profileViewModel.updateLoginName {
             VStack {
                 HStack {
-                    TextField(Strings.loginName, text: $profileViewModel.loginName)
+                    TextField(Strings.loginName, text: $profileViewModel.selectedLoginName)
                         .textInputAutocapitalization(.never)
                         .disableAutocorrection(true)
                     
@@ -29,8 +29,8 @@ struct LoginDataView: View {
                             .foregroundStyle(.green)
                     }
                 }
-                .onChange(of: profileViewModel.loginName) {
-                    profileViewModel.checkLoginName(name: profileViewModel.loginName)
+                .onChange(of: profileViewModel.selectedLoginName) {
+                    profileViewModel.checkLoginName(name: profileViewModel.selectedLoginName)
                 }
                 
                 Button("Speichern") {
@@ -45,11 +45,10 @@ struct LoginDataView: View {
         
         if profileViewModel.updateLoginImage {
             VStack {
-                LoginImagePicker(loginImage: $profileViewModel.selectedLoginImage)
+                LoginImagePicker(loginImage: $profileViewModel.selectedLoginImageAsRawValue)
                 
                 Button("Speichern") {
-                    profileViewModel.currentLoginImage = profileViewModel.getImage(forLoginImage: profileViewModel.selectedLoginImage)
-                    profileViewModel.getTitle(forLoginImage: profileViewModel.selectedLoginImage)
+                    profileViewModel.getTitle(forLoginImage: profileViewModel.selectedLoginImageAsRawValue)
                     profileViewModel.toggleUpdateLoginImage()
                 }
             }
@@ -60,7 +59,7 @@ struct LoginDataView: View {
                     
                     Spacer()
                     
-                    profileViewModel.currentLoginImage?
+                    profileViewModel.loginImage?
                         .resizable()
                         .scaledToFit()
                         .frame(width: 40)

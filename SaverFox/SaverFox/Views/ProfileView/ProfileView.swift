@@ -53,7 +53,7 @@ struct ProfileView: View {
     // MARK: - Variables
     
     @EnvironmentObject private var profileViewModel: ProfileViewModel
-    @Environment(\.dismiss) private var dismiss
+    
     
     
     // MARK: - Functions

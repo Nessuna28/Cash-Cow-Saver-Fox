@@ -13,6 +13,9 @@
 		91680D782B35D28C0075609F /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D772B35D28C0075609F /* InputField.swift */; };
 		91680D7C2B35D6D70075609F /* LoginImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D7B2B35D6D70075609F /* LoginImagePicker.swift */; };
 		91680D7E2B4419BC0075609F /* LoginDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D7D2B4419BC0075609F /* LoginDataView.swift */; };
+		91680D842B46D1DD0075609F /* PointsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D832B46D1DD0075609F /* PointsViewModel.swift */; };
+		91680D892B46E8E20075609F /* RedeemPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D882B46E8E20075609F /* RedeemPointsView.swift */; };
+		91680D8B2B470E890075609F /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D8A2B470E890075609F /* TextButton.swift */; };
 		91952B732B2078D6006CF2A2 /* SaverFoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */; };
 		91952B772B2078D8006CF2A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91952B762B2078D8006CF2A2 /* Assets.xcassets */; };
 		91952B7A2B2078D8006CF2A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91952B792B2078D8006CF2A2 /* Preview Assets.xcassets */; };
@@ -82,6 +85,9 @@
 		91680D772B35D28C0075609F /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
 		91680D7B2B35D6D70075609F /* LoginImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginImagePicker.swift; sourceTree = "<group>"; };
 		91680D7D2B4419BC0075609F /* LoginDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataView.swift; sourceTree = "<group>"; };
+		91680D832B46D1DD0075609F /* PointsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsViewModel.swift; sourceTree = "<group>"; };
+		91680D882B46E8E20075609F /* RedeemPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedeemPointsView.swift; sourceTree = "<group>"; };
+		91680D8A2B470E890075609F /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		91952B6F2B2078D6006CF2A2 /* SaverFox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaverFox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaverFoxApp.swift; sourceTree = "<group>"; };
 		91952B762B2078D8006CF2A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -168,6 +174,31 @@
 			path = ProfileView;
 			sourceTree = "<group>";
 		};
+		91680D852B46D4410075609F /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				91C2B1732B2C821A004C1B53 /* SettingsView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		91680D862B46D4530075609F /* RewardsView */ = {
+			isa = PBXGroup;
+			children = (
+				91C2B1AD2B2CE5A1004C1B53 /* RewardsView.swift */,
+				91680D882B46E8E20075609F /* RedeemPointsView.swift */,
+			);
+			path = RewardsView;
+			sourceTree = "<group>";
+		};
+		91680D872B46D49A0075609F /* GamesView */ = {
+			isa = PBXGroup;
+			children = (
+				91C2B1AF2B2CE5BC004C1B53 /* GamesView.swift */,
+			);
+			path = GamesView;
+			sourceTree = "<group>";
+		};
 		91952B662B2078D5006CF2A2 = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +251,7 @@
 				91680D702B349C810075609F /* SaveAndCancelButton.swift */,
 				91680D722B349E3D0075609F /* IconPicker.swift */,
 				91680D742B35CDC20075609F /* ProfileImage.swift */,
+				91680D8A2B470E890075609F /* TextButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -231,12 +263,12 @@
 				91952B8C2B2079C5006CF2A2 /* Navigator */,
 				91C2B1A52B2CDB8D004C1B53 /* HomeView */,
 				91680D762B35D26D0075609F /* ProfileView */,
-				91C2B1732B2C821A004C1B53 /* SettingsView.swift */,
+				91680D852B46D4410075609F /* SettingsView */,
 				91C2B19B2B2CADBB004C1B53 /* Overview */,
 				91C2B19E2B2CB5AF004C1B53 /* Finance */,
 				91C2B1D92B3444BE004C1B53 /* SavingView */,
-				91C2B1AD2B2CE5A1004C1B53 /* RewardsView.swift */,
-				91C2B1AF2B2CE5BC004C1B53 /* GamesView.swift */,
+				91680D862B46D4530075609F /* RewardsView */,
+				91680D872B46D49A0075609F /* GamesView */,
 				91952B802B207913006CF2A2 /* Components */,
 			);
 			path = Views;
@@ -253,6 +285,7 @@
 				91C2B18D2B2C8D73004C1B53 /* CurrencyConverterViewModel.swift */,
 				91C2B1992B2CACB3004C1B53 /* FinanceViewModel.swift */,
 				91C2B1E02B34481D004C1B53 /* SavingViewModel.swift */,
+				91680D832B46D1DD0075609F /* PointsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -528,6 +561,7 @@
 				91C2B1D22B342DA6004C1B53 /* TabbarViewModel.swift in Sources */,
 				91C2B19A2B2CACB3004C1B53 /* FinanceViewModel.swift in Sources */,
 				91C2B1C42B304D2C004C1B53 /* DatabaseManager.swift in Sources */,
+				91680D892B46E8E20075609F /* RedeemPointsView.swift in Sources */,
 				91680D732B349E3D0075609F /* IconPicker.swift in Sources */,
 				91C2B1B62B3038D9004C1B53 /* CurrencyConverter.swift in Sources */,
 				91680D712B349C810075609F /* SaveAndCancelButton.swift in Sources */,
@@ -559,6 +593,7 @@
 				91C2B1B02B2CE5BC004C1B53 /* GamesView.swift in Sources */,
 				91C2B1C82B31A1F8004C1B53 /* Currency.swift in Sources */,
 				91952B982B21CF25006CF2A2 /* LoginImage.swift in Sources */,
+				91680D8B2B470E890075609F /* TextButton.swift in Sources */,
 				91C2B1CA2B31C47D004C1B53 /* CurrencyPicker.swift in Sources */,
 				91C2B1BA2B3041AC004C1B53 /* ApiResponse.swift in Sources */,
 				91C2B1B42B30388F004C1B53 /* CurrencyConverterRepository.swift in Sources */,
@@ -573,6 +608,7 @@
 				91952B962B21C837006CF2A2 /* AuthViewModel.swift in Sources */,
 				91680D7C2B35D6D70075609F /* LoginImagePicker.swift in Sources */,
 				91C2B1702B2C81A6004C1B53 /* OverviewView.swift in Sources */,
+				91680D842B46D1DD0075609F /* PointsViewModel.swift in Sources */,
 				91C2B1E52B348BA5004C1B53 /* NewSavingsGoalView.swift in Sources */,
 				91C2B1C12B304CC6004C1B53 /* FirestoreRepository.swift in Sources */,
 				91C2B1CC2B3314C9004C1B53 /* PrimaryButton.swift in Sources */,

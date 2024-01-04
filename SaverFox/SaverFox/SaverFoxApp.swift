@@ -27,6 +27,7 @@ struct SaverFoxApp: App {
         }
         .environmentObject(authViewModel)
         .environmentObject(profileViewModel)
+        .environmentObject(financeViewModel)
     }
     
     
@@ -34,5 +35,6 @@ struct SaverFoxApp: App {
     
     @StateObject private var authViewModel = AuthViewModel()
     @StateObject private var profileViewModel = ProfileViewModel()
+    @StateObject private var financeViewModel = FinanceViewModel()
     
 }

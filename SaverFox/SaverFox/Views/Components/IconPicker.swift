@@ -30,7 +30,14 @@ struct IconPicker: View {
         "iphone.gen1",
         "gamecontroller.fill",
         "applewatch",
-        "airpodsmax"
+        "airpodsmax",
+        "cart.fill",
+        "banknote.fill",
+        "dishwasher.fill",
+        "trash.fill",
+        "house.fill",
+        "dog.fill",
+        "doc.richtext.fill",
     ]
 }
 

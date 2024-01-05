@@ -167,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				91C2B1952B2CA111004C1B53 /* ProfileView.swift */,
+				91680D742B35CDC20075609F /* ProfileImage.swift */,
 				91680D772B35D28C0075609F /* InputField.swift */,
 				91680D7D2B4419BC0075609F /* LoginDataView.swift */,
 				91680D7B2B35D6D70075609F /* LoginImagePicker.swift */,
@@ -250,7 +251,6 @@
 				91C2B1D72B343FA0004C1B53 /* DisplayPanel.swift */,
 				91680D702B349C810075609F /* SaveAndCancelButton.swift */,
 				91680D722B349E3D0075609F /* IconPicker.swift */,
-				91680D742B35CDC20075609F /* ProfileImage.swift */,
 				91680D8A2B470E890075609F /* TextButton.swift */,
 			);
 			path = Components;

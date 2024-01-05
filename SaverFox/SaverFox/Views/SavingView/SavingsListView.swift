@@ -14,12 +14,17 @@ struct SavingsListView: View {
             ForEach(savingViewModel.savingsGoalList.sorted(by: { $0.date > $1.date })) { savingsGoal in
                 HStack {
                     HStack {
-                        Image(savingsGoal.icon)
+                        Image(systemName: savingsGoal.icon)
                             .padding(5)
                             .background(Colors.primaryOrange)
                             .clipShape(Circle())
                         
-                        Text(savingsGoal.title)
+                        VStack(alignment: .leading) {
+                            Text("bis \(formatDate(date: savingsGoal.date))")
+                                .font(.footnote)
+                            
+                            Text(savingsGoal.title)
+                        }
                         
                         Spacer()
                         
@@ -55,6 +60,17 @@ struct SavingsListView: View {
     @EnvironmentObject private var savingViewModel: SavingViewModel
     
     let id: String
+    
+    
+    // MARK: - Functions
+    
+    private func formatDate(date: Date) -> String {
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
+    }
     
 }
 

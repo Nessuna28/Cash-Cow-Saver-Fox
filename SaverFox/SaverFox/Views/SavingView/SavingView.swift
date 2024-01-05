@@ -14,7 +14,7 @@ struct SavingView: View {
             DisplayPanel(title: "Sparziele", action: savingViewModel.toggleShowSheet, list: savingViewModel.savingsGoalList, view: AnyView(SavingsListView(id: profileViewModel.child?.id ?? "")))
                 .environmentObject(savingViewModel)
             
-            Image("animation2")
+            Image("animation2-removebg")
                 .resizable()
                 .scaledToFit()
                 .padding(.vertical, 30)

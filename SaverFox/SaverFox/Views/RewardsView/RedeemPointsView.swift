@@ -30,7 +30,7 @@ struct RedeemPointsView: View {
         }
         .alert(isPresented: $pointsViewModel.showAlert) {
             Alert(title: Text("Ungültige Eingabe"),
-                  message: Text(pointsViewModel.errorDescription),
+                  message: Text(pointsViewModel.alertText),
                   dismissButton: .default(Text("Okay"))
             )
         }

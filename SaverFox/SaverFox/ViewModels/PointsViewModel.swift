@@ -14,6 +14,8 @@ class PointsViewModel: ObservableObject {
         
         cancellable = FirestoreRepository.shared.child
             .sink { child in
+                self.rewardClaimDate = child?.rewardClaimDate
+                
                 guard let points = child?.currentPoints else { return }
                 
                 self.points = points
@@ -29,18 +31,53 @@ class PointsViewModel: ObservableObject {
     @Published var pointsToBeRedeemed = 0
     
     @Published var inquiry = ""
+    @Published var rewardClaimDate: Date?
+    @Published var rewardPoints = 0
     
     @Published var showRedeemSheet = false
     
     @Published var showAlert = false
-    @Published var errorDescription = ""
+    @Published var alertText = ""
+    @Published var showRewardAlert = false
     
     
     // MARK: - Functions
     
-    func addPoints() {
+    func addPoints(expenditure: [Finance]) {
         
-        points += 5
+        guard let rewardClaimDate = rewardClaimDate else { return }
+        
+        let expendituresInLast30Days = expenditure.filter { expenditure in
+            return expenditure.date > rewardClaimDate
+        }
+        
+        let sum = expendituresInLast30Days.reduce(0) { $0 + $1.sumOfMoney }
+        let tenPoints = 10
+        let fivePoints = 5
+        let twoPoints = 2
+        
+        if sum <= 0.00 {
+            points += tenPoints
+            alertText = "Dir wurden \(tenPoints) gutgeschrieben."
+            showRewardAlert.toggle()
+        } else if sum <= 5.00 {
+            points += fivePoints
+            alertText = "Dir wurden \(fivePoints) gutgeschrieben."
+            showRewardAlert.toggle()
+        } else if sum <= 10.00 {
+            points += twoPoints
+            alertText = "Dir wurden \(twoPoints) gutgeschrieben."
+            showRewardAlert.toggle()
+        } else {
+            alertText = ""
+            showRewardAlert.toggle()
+        }
+    }
+    
+    
+    func updateRewardClaimDate(with id: String) {
+        
+        FirestoreRepository.updateRewardClaimDate(with: id, rewardClaimDate: Date())
     }
     
     
@@ -76,7 +113,7 @@ class PointsViewModel: ObservableObject {
         if let value = Int(points){
             pointsToBeRedeemed = value
         } else {
-            errorDescription = "Gib bitte eine Zahl ein! \n Beispiel: 5"
+            alertText = "Gib bitte eine Zahl ein! \n Beispiel: 5"
             showAlert.toggle()
         }
     }

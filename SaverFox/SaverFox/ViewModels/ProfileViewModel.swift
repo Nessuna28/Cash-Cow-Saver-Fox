@@ -112,7 +112,9 @@ class ProfileViewModel: ObservableObject {
         
         guard let id = self.child?.id else { return }
         
-        FirestoreRepository.uploadPhoto(with: id, collection: "children", image: selectedImage)
+        guard let image = selectedImage else { return }
+        
+        FirestoreRepository.uploadPhoto(with: id, collection: "children", image: image)
     }
     
     

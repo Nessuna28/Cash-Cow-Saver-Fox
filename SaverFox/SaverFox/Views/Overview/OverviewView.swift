@@ -41,7 +41,7 @@ struct OverviewView: View {
                     .padding(.trailing, 30)
             }
             
-            Image("animation1")
+            Image("animation1-removebg")
                 .resizable()
                 .scaledToFit()
                 .padding(.vertical, 30)
@@ -84,6 +84,7 @@ struct OverviewView: View {
     @EnvironmentObject private var financeViewModel: FinanceViewModel
     @EnvironmentObject private var savingViewModel: SavingViewModel
     @EnvironmentObject private var profileViewModel: ProfileViewModel
+    @EnvironmentObject private var pointsViewModel: PointsViewModel
     
     @State private var amount = ""
     
@@ -94,4 +95,5 @@ struct OverviewView: View {
         .environmentObject(FinanceViewModel())
         .environmentObject(SavingViewModel())
         .environmentObject(ProfileViewModel())
+        .environmentObject(PointsViewModel())
 }

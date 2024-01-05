@@ -154,7 +154,7 @@ class FirebaseRepository {
     
     static func createChild(with parentId: String, familyMember: String, lastName: String, firstName: String, birthday: Date, loginName: String, loginImage: String, completion: @escaping (String?) -> Void) {
         
-            let child = FireChild(parentId: parentId, familyMember: familyMember, lastName: lastName, firstName: firstName, birthday: birthday, loginName: loginName, loginImage: loginImage, registeredAt: Date())
+            let child = FireChild(parentId: parentId, familyMember: familyMember, lastName: lastName, firstName: firstName, birthday: birthday, loginName: loginName, loginImage: loginImage, registeredAt: Date(), rewardClaimDate: Date())
             
             do {
                 try AuthManager.shared.database.collection("children").addDocument(from: child)

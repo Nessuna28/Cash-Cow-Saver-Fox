@@ -20,8 +20,12 @@ struct FinanceListView: View {
                             .clipShape(Circle())
                         
                         VStack(alignment: .leading) {
-                            Text(finance.fromOrFor)
-                                .font(.footnote)
+                            HStack {
+                                Text("\(formatDate(date: finance.date))")
+                                
+                                Text(finance.fromOrFor)
+                            }
+                            .font(.footnote)
                             
                             Text(finance.title)
                         }
@@ -54,6 +58,17 @@ struct FinanceListView: View {
     
     let finances: [Finance]
     let id: String
+    
+    
+    // MARK: - Functions
+    
+    private func formatDate(date: Date) -> String {
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
+    }
     
 }
 

@@ -33,6 +33,7 @@ struct ProfileView: View {
             
             Section {
                 Button {
+                    profileViewModel.uploadPhoto()
                     profileViewModel.updateLoginData()
                     profileViewModel.toggleShowAlert()
                 } label: {

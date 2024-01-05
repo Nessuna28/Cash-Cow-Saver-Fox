@@ -83,6 +83,19 @@ class FirestoreRepository {
     }
     
     
+    static func updateRewardClaimDate(with id: String, rewardClaimDate: Date) {
+        
+        let data = ["rewardClaimDate": rewardClaimDate]
+        
+        DatabaseManager.shared.database.collection("children").document(id).setData(data, merge: true) { error in
+            if let error {
+                print("Update reward claim date failed:", error)
+                return
+            }
+        }
+    }
+    
+    
     
     // MARK: - Finances
     

@@ -15,13 +15,21 @@ struct TipsView: View {
                 .bold()
                 .padding(.bottom)
             
-            Text("Gib nicht alles auf einmal aus")
+            Text(tipViewModel.currentTip)
         }
         .padding()
         .background(Colors.secondaryOrange)
         .cornerRadius(10)
         .padding()
+        .onAppear {
+            tipViewModel.setCurrentTip()
+        }
     }
+    
+    
+    // MARK: - Variables
+    
+    @StateObject private var tipViewModel = TipViewModel()
     
 }
 

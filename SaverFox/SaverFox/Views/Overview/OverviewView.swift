@@ -14,10 +14,12 @@ struct OverviewView: View {
             HStack {
                 if profileViewModel.child?.initialAmount == nil {
                     TextField("Wieviel Geld hast du gerade?", text: $amount)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
                         .foregroundStyle(Colors.primaryOrange)
                     
                     Button("speichern") {
-                        financeViewModel.setInitialAmount(amount: amount)
+                        financeViewModel.convertStringToNumber(amount: amount, selection: "init")
                         profileViewModel.initialAmount = financeViewModel.initialAmount ?? 0.0
                         profileViewModel.updateInitialAmount()
                     }
@@ -34,12 +36,12 @@ struct OverviewView: View {
                 Text("Punktekonto:")
                     .padding(.trailing, 30)
                 
-                Text("0 Punkte")
+                Text("\(profileViewModel.child?.currentPoints ?? 0) Punkte")
                     .foregroundStyle(Colors.primaryOrange)
                     .padding(.trailing, 30)
             }
             
-            Image("animation1")
+            Image("animation1-removebg")
                 .resizable()
                 .scaledToFit()
                 .padding(.vertical, 30)
@@ -82,12 +84,9 @@ struct OverviewView: View {
     @EnvironmentObject private var financeViewModel: FinanceViewModel
     @EnvironmentObject private var savingViewModel: SavingViewModel
     @EnvironmentObject private var profileViewModel: ProfileViewModel
+    @EnvironmentObject private var pointsViewModel: PointsViewModel
     
     @State private var amount = ""
-    
-    
-    
-    // MARK: - Function
     
 }
 
@@ -96,4 +95,5 @@ struct OverviewView: View {
         .environmentObject(FinanceViewModel())
         .environmentObject(SavingViewModel())
         .environmentObject(ProfileViewModel())
+        .environmentObject(PointsViewModel())
 }

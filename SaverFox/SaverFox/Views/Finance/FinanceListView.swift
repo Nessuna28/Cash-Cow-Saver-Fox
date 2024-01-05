@@ -14,12 +14,21 @@ struct FinanceListView: View {
             ForEach(finances.sorted(by: { $0.date > $1.date })) { finance in
                 HStack {
                     HStack {
-                        Image(finance.icon)
+                        Image(systemName: finance.icon)
                             .padding(5)
                             .background(Colors.primaryOrange)
                             .clipShape(Circle())
                         
-                        Text(finance.title)
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text("\(formatDate(date: finance.date))")
+                                
+                                Text(finance.fromOrFor)
+                            }
+                            .font(.footnote)
+                            
+                            Text(finance.title)
+                        }
                         
                         Spacer()
                         
@@ -49,6 +58,17 @@ struct FinanceListView: View {
     
     let finances: [Finance]
     let id: String
+    
+    
+    // MARK: - Functions
+    
+    private func formatDate(date: Date) -> String {
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
+    }
     
 }
 

@@ -13,9 +13,9 @@ struct Warning: View {
         ForEach(savingViewModel.savingsGoalList) { savingsGoal in
             if let remainingDays = Calendar.current.dateComponents([.day], from: Date(), to: savingsGoal.date).day, remainingDays >= 0, remainingDays <= 5 {
                 if remainingDays < 2 {
-                    Text("In \(remainingDays) Tag ist \(savingsGoal.title)")
+                    Text("In \(remainingDays) Tag erreichst du dein Sparziel: \(savingsGoal.title)")
                 } else {
-                    Text("In \(remainingDays) Tagen ist \(savingsGoal.title)")
+                    Text("In \(remainingDays) Tagen erreichst du dein Sparziel: \(savingsGoal.title)")
                 }
                 
                 let differenceAmount = savingViewModel.calculateDifference(availableAmount: financeViewModel.currentSum, amount: savingsGoal.sumOfMoney)
@@ -33,6 +33,7 @@ struct Warning: View {
             }
         }
         .foregroundStyle(Colors.primaryOrange)
+        .font(.footnote)
     }
     
     

@@ -33,6 +33,7 @@ struct ProfileView: View {
             
             Section {
                 Button {
+                    profileViewModel.uploadPhoto()
                     profileViewModel.updateLoginData()
                     profileViewModel.toggleShowAlert()
                 } label: {
@@ -53,7 +54,7 @@ struct ProfileView: View {
     // MARK: - Variables
     
     @EnvironmentObject private var profileViewModel: ProfileViewModel
-    @Environment(\.dismiss) private var dismiss
+    
     
     
     // MARK: - Functions

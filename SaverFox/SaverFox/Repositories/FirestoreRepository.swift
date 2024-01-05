@@ -10,24 +10,28 @@ import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 import UIKit
+import Combine
 
 class FirestoreRepository {
     
+    var child = CurrentValueSubject<Child?,Never>(nil)
+    static let shared = FirestoreRepository()
+    
     // MARK: - Child
     
-    static func fetchChild(with loginName: String, completion: @escaping (Child?) -> Void) {
+    func fetchChild(with loginName: String, loginImage: String) {
         
-        DatabaseManager.shared.database.collection("children").whereField("loginName", isEqualTo: loginName)
+        DatabaseManager.shared.database.collection("children")
+            .whereField("loginName", isEqualTo: loginName)
+            .whereField("loginImage", isEqualTo: loginImage)
             .addSnapshotListener { querySnapshot, error in
                 if let error {
                     print("Fetching children failed:", error)
-                    completion(nil)
                     return
                 }
                 
                 guard let documents = querySnapshot?.documents else {
                     print("No document!")
-                    completion(nil)
                     return
                 }
                 
@@ -35,7 +39,7 @@ class FirestoreRepository {
                     try? queryDocumentSnapshot.data(as: Child.self)
                 }
                 
-                completion(children.first)
+                self.child.send(children.first)
             }
     }
     
@@ -73,6 +77,19 @@ class FirestoreRepository {
         DatabaseManager.shared.database.collection("children").document(id).setData(data, merge: true) { error in
             if let error {
                 print("Update current points failed:", error)
+                return
+            }
+        }
+    }
+    
+    
+    static func updateRewardClaimDate(with id: String, rewardClaimDate: Date) {
+        
+        let data = ["rewardClaimDate": rewardClaimDate]
+        
+        DatabaseManager.shared.database.collection("children").document(id).setData(data, merge: true) { error in
+            if let error {
+                print("Update reward claim date failed:", error)
                 return
             }
         }

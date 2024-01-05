@@ -54,8 +54,8 @@ struct LoginView: View {
                     .padding(5)
                     .border(Color.black, width: 1)
                 
-                if !authViewModel.incorrectData.isEmpty {
-                    Text(authViewModel.incorrectData)
+                if !authViewModel.errorMessage.isEmpty {
+                    Text(authViewModel.errorMessage)
                         .foregroundStyle(Colors.primaryOrange)
                         .bold()
                 }
@@ -87,6 +87,7 @@ struct LoginView: View {
         
         authViewModel.fetchChild()
         profileViewModel.currentLoginName = authViewModel.selectedLoginName
+        profileViewModel.currentLoginImageAsTitle = authViewModel.selectedLoginImage
     }
     
 }

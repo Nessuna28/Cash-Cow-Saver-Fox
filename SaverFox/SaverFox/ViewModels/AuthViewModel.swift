@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class AuthViewModel: ObservableObject {
     
@@ -18,14 +19,14 @@ class AuthViewModel: ObservableObject {
     
     // MARK: - Variables
     
+    private var cancellable: AnyCancellable?
+    
     @AppStorage("childIsLoggedIn") var childIsLoggedIn = false
     
     @Published var selectedLoginName: String
     @Published var selectedLoginImage: String
     
-    @Published var currentChild: Child?
-    
-    @Published var incorrectData = ""
+    @Published var errorMessage = ""
     
     
     
@@ -33,31 +34,21 @@ class AuthViewModel: ObservableObject {
     
     func fetchChild() {
         
-        FirestoreRepository.fetchChild(with: selectedLoginName) { child in
-            self.currentChild = child
-            
-            self.checkLoginData()
-        }
-    }
-    
-    
-    private func checkLoginData() {
-        
-        if currentChild == nil {
-            incorrectData = "Diesen Loginnamen gibt es nicht."
-        } else {
-            if selectedLoginImage == currentChild?.loginImage {
-                childIsLoggedIn = true
-            } else {
-                incorrectData = "Dein Loginbild ist leider falsch."
+        FirestoreRepository.shared.fetchChild(with: selectedLoginName, loginImage: selectedLoginImage)
+        cancellable = FirestoreRepository.shared.child
+            .sink { child in
+                guard let child = child else {
+                    self.errorMessage = "Deine Anmeldung ist fehlgeschlagen"
+                    return
+                }
+                
+                self.childIsLoggedIn = true
             }
-        }
     }
     
     
     func logoutChild() {
         
-        currentChild = nil
         childIsLoggedIn = false
     }
 }

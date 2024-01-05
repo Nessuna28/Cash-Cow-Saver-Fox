@@ -26,9 +26,9 @@ struct Tabbar: View {
     // MARK: - Variables
     
     @StateObject private var tabbarViewModel = TabbarViewModel()
-    @StateObject private var financeViewModel = FinanceViewModel()
-    @StateObject private var savingViewModel = SavingViewModel()
     
+    @EnvironmentObject private var financeViewModel: FinanceViewModel
+    @EnvironmentObject private var savingViewModel: SavingViewModel
     @EnvironmentObject private var profileViewModel: ProfileViewModel
 }
 

@@ -14,7 +14,7 @@ struct SavingView: View {
             DisplayPanel(title: "Sparziele", action: savingViewModel.toggleShowSheet, list: savingViewModel.savingsGoalList, view: AnyView(SavingsListView(id: profileViewModel.child?.id ?? "")))
                 .environmentObject(savingViewModel)
             
-            Image("animation2")
+            Image("animation2-removebg")
                 .resizable()
                 .scaledToFit()
                 .padding(.vertical, 30)
@@ -24,11 +24,6 @@ struct SavingView: View {
             Warning()
                 .environmentObject(savingViewModel)
                 .environmentObject(financeViewModel)
-        }
-        .onAppear {
-            if let id = profileViewModel.child?.id {
-                savingViewModel.fetchSavingsGoals(with: id)
-            }
         }
         .sheet(isPresented: $savingViewModel.showSheet, content: {
             NewSavingsGoalView()

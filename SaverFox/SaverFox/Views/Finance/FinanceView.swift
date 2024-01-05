@@ -20,12 +20,6 @@ struct FinanceView: View {
             Text(String(format: "%.2f € zur Verfügung", financeViewModel.currentSum))
                 .foregroundStyle(Colors.primaryOrange)
         }
-        .onAppear {
-            financeViewModel.calculateActualTotal(initialAmount: profileViewModel.child?.initialAmount ?? 0.0)
-            if let id = profileViewModel.child?.id {
-                financeViewModel.fetchFinances(with: id)
-            }
-        }
         .sheet(isPresented: $financeViewModel.showRevenueSheet, content: {
             NewRevenueView()
                 

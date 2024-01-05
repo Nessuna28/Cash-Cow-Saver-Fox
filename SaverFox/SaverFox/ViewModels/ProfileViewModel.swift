@@ -8,33 +8,42 @@
 import Foundation
 import SwiftUI
 import UIKit
+import Combine
 
 
 class ProfileViewModel: ObservableObject {
     
     init() {
-        fetchChild(selectedLoginName: currentLoginName)
+        
+        FirestoreRepository.shared.fetchChild(with: currentLoginName, loginImage: currentLoginImageAsTitle)
+        cancellable = FirestoreRepository.shared.child
+            .sink { child in
+                guard let child else { return }
+                
+                self.child = child
+                self.loginImage = self.getImage(forLoginImage: child.loginImage)
+                self.downloadPhoto(child: child)
+            }
     }
     
     // MARK: - Variables
     
+    private var cancellable: AnyCancellable?
+    
     @AppStorage("loginName") var currentLoginName = ""
+    @AppStorage("loginImage") var currentLoginImageAsTitle = ""
     
     @Published var child: Child?
+    @Published var loginImage: Image?
     
     @Published var profilePicture: UIImage?
-    
     @Published var selectedImage: UIImage?
     
-    
-    @Published var loginName = ""
-    @Published var loginImage = ""
+    @Published var selectedLoginName = ""
+    @Published var selectedLoginImageAsRawValue = ""
+    @Published var selectedLoginImageAsTitle = ""
     
     @Published var loginNameExists = false
-    
-    @Published var selectedLoginImage = ""
-    @Published var currentLoginImage: Image?
-    
     @Published var updateLoginName = false
     @Published var updateLoginImage = false
     
@@ -47,9 +56,9 @@ class ProfileViewModel: ObservableObject {
     
     func getTitle(forLoginImage title: String) {
         
-        guard let image = LoginImage.allCases.first(where: { $0.rawValue == selectedLoginImage }) else { return }
+        guard let image = LoginImage.allCases.first(where: { $0.rawValue == selectedLoginImageAsRawValue }) else { return }
         
-        loginImage = image.title
+        selectedLoginImageAsTitle = image.title
     }
     
     
@@ -58,18 +67,6 @@ class ProfileViewModel: ObservableObject {
         guard let image = LoginImage.allCases.first(where: { $0.title == title }) else { return Image("") }
         
         return image.image
-    }
-    
-    
-    func fetchChild(selectedLoginName: String) {
-        
-        FirestoreRepository.fetchChild(with: selectedLoginName) { child in
-            self.child = child
-        }
-        
-        self.currentLoginImage = self.getImage(forLoginImage: child?.loginImage ?? "")
-        self.loginImage = child?.loginImage ?? ""
-        self.downloadPhoto()
     }
     
     
@@ -94,23 +91,11 @@ class ProfileViewModel: ObservableObject {
     
     func updateLoginData() {
         
-        guard let id = self.child?.id else { return }
+        guard let id = child?.id else { return }
         
-        if loginName.isEmpty {
-            loginName = self.child?.loginName ?? ""
-        }
+        currentLoginImageAsTitle = selectedLoginImageAsTitle
         
-        if loginImage.isEmpty {
-            loginImage = self.child?.loginImage ?? ""
-        }
-        
-        FirestoreRepository.updateLoginData(with: id, loginName: loginName, loginImage: loginImage)
-        
-        currentLoginName = loginName
-        
-        fetchChild(selectedLoginName: currentLoginName)
-        
-        downloadPhoto()
+        FirestoreRepository.updateLoginData(with: id, loginName: currentLoginName, loginImage: currentLoginImageAsTitle)
     }
     
     
@@ -119,8 +104,6 @@ class ProfileViewModel: ObservableObject {
         guard let id = self.child?.id else { return }
         
         FirestoreRepository.updateInitialAmount(with: id, initialAmount: initialAmount)
-        
-        fetchChild(selectedLoginName: currentLoginName)
     }
     
     
@@ -129,13 +112,13 @@ class ProfileViewModel: ObservableObject {
         
         guard let id = self.child?.id else { return }
         
-        FirestoreRepository.uploadPhoto(with: id, collection: "children", image: selectedImage)
+        guard let image = selectedImage else { return }
+        
+        FirestoreRepository.uploadPhoto(with: id, collection: "children", image: image)
     }
     
     
-    private func downloadPhoto() {
-        
-        guard let child = self.child else { return }
+    private func downloadPhoto(child: Child) {
         
         FirestoreRepository.downloadPhoto(profilePicture: child.profilePicture) { image in
             self.profilePicture = image

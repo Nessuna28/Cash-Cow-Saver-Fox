@@ -7,11 +7,24 @@
 
 import Foundation
 import FirebaseFirestore
+import Combine
 
 class FinanceViewModel: ObservableObject {
     
+    init() {
+        
+        cancellable = FirestoreRepository.shared.child
+            .sink { child in
+                guard let child, let id = child.id else { return }
+                
+                self.fetchFinances(with: id, initialAmount: child.initialAmount ?? 0.0)
+            }
+    }
+    
     
     // MARK: - Variables
+    
+    private var cancellable: AnyCancellable?
     
     @Published var initialAmountAsString: String?
     @Published var initialAmount: Double?
@@ -43,11 +56,15 @@ class FinanceViewModel: ObservableObject {
     
     // MARK: - Functions
     
-    func setInitialAmount(amount: String) {
+    func convertStringToNumber(amount: String, selection: String) {
         
         if amount.contains(".") {
             if let value = Double(amount), !value.isNaN {
-                initialAmount = value
+                if selection == "init" {
+                    initialAmount = value
+                } else if selection == "sum" {
+                    sumOfMoney = value
+                }
             } else {
                 errorDescription = "Gib bitte eine Zahl ein! \n Beispiel: 10.00"
                 showAlert.toggle()
@@ -78,27 +95,9 @@ class FinanceViewModel: ObservableObject {
     }
     
     
-    func calculateActualTotal(initialAmount: Double) {
+    private func calculateActualTotal(initialAmount: Double) {
         
-        currentSum = 0.0
-        
-        currentSum += initialAmount + sumRevenue - sumExpenditure
-    }
-    
-    
-    func setSumOfMoney(amount: String) {
-        
-        if amount.contains(".") {
-            if let value = Double(amount), !value.isNaN {
-                sumOfMoney = value
-            } else {
-                errorDescription = "Gib bitte eine Zahl ein! \n Beispiel: 10.00"
-                showAlert.toggle()
-            }
-        } else {
-            errorDescription = "Gib bitte eine Kommazahl mit einem Punkt anstatt ein Komma ein! \n Beispiel: 10.00"
-            showAlert.toggle()
-        }
+        currentSum = (initialAmount + sumRevenue) - sumExpenditure
     }
     
     
@@ -128,11 +127,13 @@ class FinanceViewModel: ObservableObject {
     
     func createFinance(with id: String) {
         
-        FirestoreRepository.createFinance(with: id, date: date, category: category, icon: icon, fromOrFor: fromOrFor, title: title, sumOfMoney: sumOfMoney)
+        if sumOfMoney > 0 {
+            FirestoreRepository.createFinance(with: id, date: date, category: category, icon: icon, fromOrFor: fromOrFor, title: title, sumOfMoney: sumOfMoney)
+        }
     }
     
     
-    func fetchFinances(with id: String) {
+    func fetchFinances(with id: String, initialAmount: Double) {
         
         listener = DatabaseManager.shared.database.collection("children").document(id).collection("finances")
             .addSnapshotListener { querySnapshot, error in
@@ -151,6 +152,7 @@ class FinanceViewModel: ObservableObject {
                 }
                 
                 self.filterIncomeAndExpenses()
+                self.calculateActualTotal(initialAmount: initialAmount)
             }
     }
     

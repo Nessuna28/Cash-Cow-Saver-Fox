@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "animation1-removebg.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

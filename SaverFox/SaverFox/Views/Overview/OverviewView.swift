@@ -11,34 +11,39 @@ struct OverviewView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                if profileViewModel.child?.initialAmount == nil {
-                    TextField("Wieviel Geld hast du gerade?", text: $amount)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .foregroundStyle(Colors.primaryOrange)
-                    
-                    Button("speichern") {
-                        financeViewModel.convertStringToNumber(amount: amount, selection: "init")
-                        profileViewModel.initialAmount = financeViewModel.initialAmount ?? 0.0
-                        profileViewModel.updateInitialAmount()
+            VStack(alignment: .leading) {
+                HStack {
+                    if profileViewModel.child?.initialAmount == nil {
+                        TextField("Wieviel Geld hast du gerade?", text: $amount)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                            .foregroundStyle(Colors.primaryOrange)
+                        
+                        Button("speichern") {
+                            financeViewModel.convertStringToNumber(amount: amount, selection: "init")
+                            profileViewModel.initialAmount = financeViewModel.initialAmount ?? 0.0
+                            profileViewModel.updateInitialAmount()
+                        }
+                    } else {
+                        Text("Taschengeld:")
+                            .padding(.leading, 60)
+                        
+                        Text(String(format: "%.2f €", financeViewModel.currentSum))
+                            .foregroundStyle(Colors.primaryOrange)
+                            .padding(.leading, 30)
                     }
-                } else {
-                    Text("Taschengeld:")
-                        .padding(.trailing, 30)
-                    
-                    Text(String(format: "%.2f €", financeViewModel.currentSum))
-                        .foregroundStyle(Colors.primaryOrange)
                 }
-            }
-            
-            HStack {
-                Text("Punktekonto:")
-                    .padding(.trailing, 30)
                 
-                Text("\(profileViewModel.child?.currentPoints ?? 0) Punkte")
-                    .foregroundStyle(Colors.primaryOrange)
-                    .padding(.trailing, 30)
+                HStack {
+                    Text("Punktekonto:")
+                        .padding(.leading, 60)
+                    
+                    Text("\(profileViewModel.child?.currentPoints ?? 0) Punkte")
+                        .foregroundStyle(Colors.primaryOrange)
+                        .padding(.leading, 30)
+                    
+                    Text(overviewViewModel.emoji)
+                }
             }
             
             Image("animation1-removebg")
@@ -74,12 +79,16 @@ struct OverviewView: View {
                   dismissButton: .default(Text("Okay"))
             )
         }
+        .onAppear {
+            overviewViewModel.setEmoji(points: profileViewModel.child?.currentPoints ?? 0)
+        }
     }
     
     
     // MARK: - Variables
     
     @StateObject private var currencyConverterViewModel = CurrencyConverterViewModel()
+    @StateObject private var overviewViewModel = OverviewViewModel()
     
     @EnvironmentObject private var financeViewModel: FinanceViewModel
     @EnvironmentObject private var savingViewModel: SavingViewModel

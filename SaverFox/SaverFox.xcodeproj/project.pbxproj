@@ -17,6 +17,7 @@
 		91680D892B46E8E20075609F /* RedeemPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D882B46E8E20075609F /* RedeemPointsView.swift */; };
 		91680D8B2B470E890075609F /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D8A2B470E890075609F /* TextButton.swift */; };
 		91680D8F2B4866180075609F /* TipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D8E2B4866180075609F /* TipViewModel.swift */; };
+		91680D912B486C4F0075609F /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D902B486C4F0075609F /* OverviewViewModel.swift */; };
 		91952B732B2078D6006CF2A2 /* SaverFoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */; };
 		91952B772B2078D8006CF2A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91952B762B2078D8006CF2A2 /* Assets.xcassets */; };
 		91952B7A2B2078D8006CF2A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91952B792B2078D8006CF2A2 /* Preview Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		91680D882B46E8E20075609F /* RedeemPointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedeemPointsView.swift; sourceTree = "<group>"; };
 		91680D8A2B470E890075609F /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		91680D8E2B4866180075609F /* TipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewModel.swift; sourceTree = "<group>"; };
+		91680D902B486C4F0075609F /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
 		91952B6F2B2078D6006CF2A2 /* SaverFox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaverFox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaverFoxApp.swift; sourceTree = "<group>"; };
 		91952B762B2078D8006CF2A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				91C2B1E02B34481D004C1B53 /* SavingViewModel.swift */,
 				91680D832B46D1DD0075609F /* PointsViewModel.swift */,
 				91680D8E2B4866180075609F /* TipViewModel.swift */,
+				91680D902B486C4F0075609F /* OverviewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				91C2B1B02B2CE5BC004C1B53 /* GamesView.swift in Sources */,
 				91C2B1C82B31A1F8004C1B53 /* Currency.swift in Sources */,
 				91952B982B21CF25006CF2A2 /* LoginImage.swift in Sources */,
+				91680D912B486C4F0075609F /* OverviewViewModel.swift in Sources */,
 				91680D8B2B470E890075609F /* TextButton.swift in Sources */,
 				91C2B1CA2B31C47D004C1B53 /* CurrencyPicker.swift in Sources */,
 				91C2B1BA2B3041AC004C1B53 /* ApiResponse.swift in Sources */,

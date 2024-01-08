@@ -20,7 +20,7 @@ struct SavingsListView: View {
                             .clipShape(Circle())
                         
                         VStack(alignment: .leading) {
-                            Text("bis \(formatDate(date: savingsGoal.date))")
+                            Text("\(Strings.until) \(formatDate(date: savingsGoal.date))")
                                 .font(.footnote)
                             
                             Text(savingsGoal.title)

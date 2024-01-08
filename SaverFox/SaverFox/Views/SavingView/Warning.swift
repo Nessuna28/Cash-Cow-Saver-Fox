@@ -13,21 +13,21 @@ struct Warning: View {
         ForEach(savingViewModel.savingsGoalList) { savingsGoal in
             if let remainingDays = Calendar.current.dateComponents([.day], from: Date(), to: savingsGoal.date).day, remainingDays >= 0, remainingDays <= 5 {
                 if remainingDays < 2 {
-                    Text("In \(remainingDays) Tag erreichst du dein Sparziel: \(savingsGoal.title)")
+                    Text("\(Strings.into) \(remainingDays) \(Strings.day) \(Strings.reachYourSavingsGoal): \(savingsGoal.title)")
                 } else {
-                    Text("In \(remainingDays) Tagen erreichst du dein Sparziel: \(savingsGoal.title)")
+                    Text("\(Strings.into) \(remainingDays) \(Strings.days) \(Strings.reachYourSavingsGoal): \(savingsGoal.title)")
                 }
                 
                 let differenceAmount = savingViewModel.calculateDifference(availableAmount: financeViewModel.currentSum, amount: savingsGoal.sumOfMoney)
                 
                 if differenceAmount < 0 {
-                    Text(String(format: "Dir fehlen noch %.2f €", abs(differenceAmount)))
+                    Text(String(format: "\(Strings.youAreStillMissing) %.2f €", abs(differenceAmount)))
                         .foregroundStyle(.red)
                 } else if differenceAmount > 10 {
-                    Text("Du hast gut gespart.")
+                    Text(Strings.wellSaved)
                         .foregroundStyle(.green)
                 } else {
-                    Text("Dein Geld reicht für dieses Sparziel, aber nur wenn du bis dahin kein Geld mehr ausgibst.")
+                    Text(Strings.MoneyIsJustEnough)
                         .foregroundStyle(.blue)
                 }
             }

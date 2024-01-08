@@ -58,15 +58,15 @@ class PointsViewModel: ObservableObject {
         
         if sum <= 0.00 {
             points += tenPoints
-            alertText = "Dir wurden \(tenPoints) gutgeschrieben."
+            alertText = "\(Strings.wereGivenToYou) \(tenPoints) \(Strings.pointsCredited)."
             showRewardAlert.toggle()
         } else if sum <= 5.00 {
             points += fivePoints
-            alertText = "Dir wurden \(fivePoints) gutgeschrieben."
+            alertText = "\(Strings.wereGivenToYou) \(fivePoints) \(Strings.pointsCredited)."
             showRewardAlert.toggle()
         } else if sum <= 10.00 {
             points += twoPoints
-            alertText = "Dir wurden \(twoPoints) gutgeschrieben."
+            alertText = "\(Strings.wereGivenToYou) \(twoPoints) \(Strings.pointsCredited)."
             showRewardAlert.toggle()
         } else {
             alertText = ""
@@ -96,9 +96,16 @@ class PointsViewModel: ObservableObject {
         
         convertStringToNumber(points: inquiry)
         
-        points -= pointsToBeRedeemed
+        if pointsToBeRedeemed <= points {
+            points -= pointsToBeRedeemed
+            
+            updateCurrentPoints(with: id)
+        } else {
+            alertText = Strings.enterInt
+            showAlert.toggle()
+        }
         
-        updateCurrentPoints(with: id)
+        
     }
     
     
@@ -110,10 +117,10 @@ class PointsViewModel: ObservableObject {
     
     func convertStringToNumber(points: String) {
         
-        if let value = Int(points){
+        if let value = Int(points) {
             pointsToBeRedeemed = value
         } else {
-            alertText = "Gib bitte eine Zahl ein! \n Beispiel: 5"
+            alertText = Strings.notEnoughPoints
             showAlert.toggle()
         }
     }

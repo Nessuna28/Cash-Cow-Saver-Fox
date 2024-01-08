@@ -14,9 +14,9 @@ enum Currency: String, Identifiable, CaseIterable {
     
     var title: String {
         switch self {
-        case .euro: return "Euro"
-        case .zloty: return "Zloty"
-        case .dollar: return "US-Dollar"
+        case .euro: return Strings.euro
+        case .zloty: return Strings.zloty
+        case .dollar: return Strings.dollar
         }
     }
     

@@ -14,19 +14,19 @@ struct OverviewView: View {
             VStack(alignment: .leading) {
                 HStack {
                     if profileViewModel.child?.initialAmount == nil {
-                        TextField("Wieviel Geld hast du gerade?", text: $amount)
+                        TextField(Strings.howMuchMoney, text: $amount)
                             .textInputAutocapitalization(.never)
                             .disableAutocorrection(true)
                             .foregroundStyle(Colors.primaryOrange)
                         
-                        Button("speichern") {
+                        Button(Strings.save) {
                             financeViewModel.convertStringToNumber(amount: amount, selection: "init")
                             profileViewModel.initialAmount = financeViewModel.initialAmount ?? 0.0
                             profileViewModel.updateInitialAmount()
                         }
                     } else {
-                        Text("Taschengeld:")
-                            .padding(.leading, 60)
+                        Text("\(Strings.pocketMoney):")
+                            .padding(.leading, 50)
                         
                         Text(String(format: "%.2f €", financeViewModel.currentSum))
                             .foregroundStyle(Colors.primaryOrange)
@@ -35,10 +35,10 @@ struct OverviewView: View {
                 }
                 
                 HStack {
-                    Text("Punktekonto:")
-                        .padding(.leading, 60)
+                    Text("\(Strings.pointsAccount):")
+                        .padding(.leading, 50)
                     
-                    Text("\(profileViewModel.child?.currentPoints ?? 0) Punkte")
+                    Text("\(profileViewModel.child?.currentPoints ?? 0) \(Strings.points)")
                         .foregroundStyle(Colors.primaryOrange)
                         .padding(.leading, 30)
                     
@@ -66,7 +66,7 @@ struct OverviewView: View {
                         .scaledToFit()
                         .frame(width: 30, height: 30)
                     
-                    Text("Währungsrechner")
+                    Text(Strings.currencyConverter)
                 }
             }
             .sheet(isPresented: $currencyConverterViewModel.showSheet) {
@@ -74,9 +74,9 @@ struct OverviewView: View {
             }
         }
         .alert(isPresented: $financeViewModel.showAlert) {
-            Alert(title: Text("Ungültige Eingabe"),
+            Alert(title: Text(Strings.invalidInput),
                   message: Text(financeViewModel.errorDescription),
-                  dismissButton: .default(Text("Okay"))
+                  dismissButton: .default(Text(Strings.okay))
             )
         }
         .onAppear {

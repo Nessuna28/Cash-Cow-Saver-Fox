@@ -60,11 +60,11 @@ class SavingViewModel: ObservableObject {
             if let value = Double(amount), !value.isNaN {
                 sumOfMoney = value
             } else {
-                errorDescription = "Gib bitte eine Zahl ein! \n Beispiel: 10.00"
+                errorDescription = Strings.enterANumber
                 showAlert.toggle()
             }
         } else {
-            errorDescription = "Gib bitte eine Kommazahl mit einem Punkt anstatt ein Komma ein! \n Beispiel: 10.00"
+            errorDescription = Strings.enterAPoint
             showAlert.toggle()
         }
     }

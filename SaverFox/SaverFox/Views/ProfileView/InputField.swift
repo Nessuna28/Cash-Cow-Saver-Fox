@@ -34,5 +34,5 @@ struct InputField: View {
 }
 
 #Preview {
-    InputField(title: "Name", input: "Pups")
+    InputField(title: "Name", input: "Fred")
 }

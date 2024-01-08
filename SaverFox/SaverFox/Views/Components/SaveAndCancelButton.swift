@@ -14,7 +14,7 @@ struct SaveAndCancelButton: View {
             Button {
                 dismiss()
             } label: {
-                Text("Abbrechen")
+                Text(Strings.cancel)
                     .foregroundStyle(Colors.textColor)
             }
             
@@ -24,7 +24,7 @@ struct SaveAndCancelButton: View {
                 action()
                 dismiss()
             } label: {
-                Text("Speichern")
+                Text(Strings.save)
                     .foregroundStyle(Colors.primaryOrange)
             }
         }

@@ -11,10 +11,10 @@ struct RewardsView: View {
     
     var body: some View {
         VStack {
-            Text("Dein Punktekonto beträgt")
+            Text(Strings.pointsAccountIs)
                 .font(.title)
             
-            Text("\(pointsViewModel.points) Punkte")
+            Text("\(pointsViewModel.points) \(Strings.points)")
                 .font(.title)
                 .padding(.bottom, 20)
             
@@ -22,7 +22,7 @@ struct RewardsView: View {
                let remainingDays = Calendar.current.dateComponents([.day], from: rewardClaimDate, to: Date()).day,
                remainingDays >= 30 {
                 Button(action: checkRewardAndUpdatePoints) {
-                    Text("Es ist Zeit zu gucken, ob dir eine Belohnung zusteht.")
+                    Text(Strings.whetherRewardAvailable)
                 }
             }
             
@@ -31,28 +31,28 @@ struct RewardsView: View {
                 .scaledToFit()
                 .padding(.vertical, 30)
             
-            Text("Was möchtest du mit deinen Punkten tun?")
+            Text(Strings.whatToDoWithPoints)
                 .padding(.bottom, 30)
             
             NavigationLink {
                 GamesView()
                     .environmentObject(pointsViewModel)
             } label: {
-                TextButton(action: pointsViewModel.unlockGames, title: "Spiele freischalten")
+                TextButton(action: pointsViewModel.unlockGames, title: Strings.unlockGames)
             }
             
-            Text("oder")
+            Text(Strings.orSo)
             
-            TextButton(action: pointsViewModel.toggleShowRedeemSheet, title: "Punkte bei deinen Eltern einlösen")
+            TextButton(action: pointsViewModel.toggleShowRedeemSheet, title: Strings.redeemPoints)
         }
         .sheet(isPresented: $pointsViewModel.showRedeemSheet, content: {
             RedeemPointsView()
                 .environmentObject(pointsViewModel)
         })
         .alert(isPresented: $pointsViewModel.showRewardAlert) {
-            Alert(title: Text("Belohnung"),
+            Alert(title: Text(Strings.reward),
                   message: Text(pointsViewModel.alertText),
-                  dismissButton: .default(Text("Okay"))
+                  dismissButton: .default(Text(Strings.okay))
             )
         }
     }

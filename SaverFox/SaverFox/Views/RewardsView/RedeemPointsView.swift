@@ -11,27 +11,27 @@ struct RedeemPointsView: View {
     
     var body: some View {
         VStack {
-            Text("Du möchtest Punkte bei deinen Eltern einlösen")
+            Text(Strings.youWantToRedeemPoints)
                 .font(.title2)
                 .padding(40)
             
-            Text("Wieviel Punkte möchtest du einlösen?")
+            Text(Strings.howManyPointsToRedeem)
             
-            TextField("Punkte", text: $pointsViewModel.inquiry)
+            TextField(Strings.points, text: $pointsViewModel.inquiry)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .padding(40)
             
-            PrimaryButton(action: sendInquiryAndCloseSheet, text: "Anfrage senden")
+            PrimaryButton(action: sendInquiryAndCloseSheet, text: Strings.sendRequest)
             
-            Text("Für diese Anfrage werden dir \(pointsViewModel.inquiry) Punkte abgezogen.")
+            Text("\(Strings.forThisRequest) \(pointsViewModel.inquiry) \(Strings.pointsDeducted).")
                 .font(.footnote)
                 .foregroundStyle(Colors.primaryOrange)
         }
         .alert(isPresented: $pointsViewModel.showAlert) {
-            Alert(title: Text("Ungültige Eingabe"),
+            Alert(title: Text(Strings.invalidInput),
                   message: Text(pointsViewModel.alertText),
-                  dismissButton: .default(Text("Okay"))
+                  dismissButton: .default(Text(Strings.okay))
             )
         }
     }

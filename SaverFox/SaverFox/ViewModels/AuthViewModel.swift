@@ -38,7 +38,7 @@ class AuthViewModel: ObservableObject {
         cancellable = FirestoreRepository.shared.child
             .sink { child in
                 guard let child = child else {
-                    self.errorMessage = "Deine Anmeldung ist fehlgeschlagen"
+                    self.errorMessage = Strings.loginFailed
                     return
                 }
                 

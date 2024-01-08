@@ -11,7 +11,7 @@ struct TipsView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Tipps")
+            Text(Strings.tips)
                 .bold()
                 .padding(.bottom)
             

@@ -24,7 +24,7 @@ struct ProfileImage: View {
                 }
 
                 PhotosPicker(selection: $selectedImage, matching: .images, photoLibrary: .shared()) {
-                    Text("Wähle ein Foto")
+                    Text(Strings.chooseAPhoto)
                 }
             }
             

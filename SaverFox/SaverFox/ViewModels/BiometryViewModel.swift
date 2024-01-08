@@ -56,7 +56,7 @@ class BiometryViewModel: ObservableObject {
         }
         
         do {
-            let success = try await context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Face ID/Touch ID ist aktuell nicht verfügbar.")
+            let success = try await context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: Strings.unlockingNotPossible)
             complition(success)
         } catch {
             DispatchQueue.main.async {

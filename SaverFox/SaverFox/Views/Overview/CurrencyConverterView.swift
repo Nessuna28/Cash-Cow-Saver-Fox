@@ -11,7 +11,7 @@ struct CurrencyConverterView: View {
     
     var body: some View {
         VStack {
-            Text("Währungsrechner")
+            Text(Strings.currencyConverter)
                 .font(.largeTitle)
                 .padding()
             
@@ -23,25 +23,25 @@ struct CurrencyConverterView: View {
             Spacer()
             
             VStack {
-                CurrencyPicker(text: "Von welcher Währung möchtest du umrechnen?", currency: $fromCurrency)
+                CurrencyPicker(text: Strings.fromWhichCurrency, currency: $fromCurrency)
                 
-                CurrencyPicker(text: "In welche Währung möchtest du umrechnen?", currency: $toCurrency)
+                CurrencyPicker(text: Strings.inWhichCurrency, currency: $toCurrency)
                 
-                Text("Gib den Betrag ein, den du umgerechnet haben möchtest")
+                Text(Strings.enterAmountToConvert)
                 
-                TextField("Betrag", text: $amount)
+                TextField(Strings.amount, text: $amount)
                 
-                Text("Gib nur einen Betrag ohne Komma ein!")
+                Text(Strings.enterInt)
                     .font(.footnote)
                     .foregroundStyle(Colors.secondaryOrange)
                 
-                PrimaryButton(action: setDataAndMakeRequest, text: "umrechnen")
+                PrimaryButton(action: setDataAndMakeRequest, text: Strings.convert)
             }
             .multilineTextAlignment(.center)
             .padding(.horizontal, 30)
             
             if currencyConverterViewModel.data.result != 0.0 {
-                Text("\(currencyConverterViewModel.amount) \(fromCurrencyTitle) sind umgerechnet")
+                Text("\(currencyConverterViewModel.amount) \(fromCurrencyTitle) \(Strings.areConverted)")
                     .foregroundStyle(Colors.primaryOrange)
                 
                 Text(String(format: "%.2f \(toCurrencytTitle)", currencyConverterViewModel.data.result))
@@ -52,9 +52,9 @@ struct CurrencyConverterView: View {
         }
         .multilineTextAlignment(.center)
         .alert(isPresented: $currencyConverterViewModel.showAlert) {
-            Alert(title: Text("Fehler"),
-                  message: Text(currencyConverterViewModel.errorDescription ?? "Die Umrechnung hat nicht geklappt."),
-                  dismissButton: .default(Text("Okay"))
+            Alert(title: Text(Strings.error),
+                  message: Text(currencyConverterViewModel.errorDescription ?? Strings.conversionFailed),
+                  dismissButton: .default(Text(Strings.okay))
             )
         }
     }
@@ -78,8 +78,8 @@ struct CurrencyConverterView: View {
     
     private func setDataAndMakeRequest() {
         
-        fromCurrencyTitle = currencyConverterViewModel.getTitle(forCurrency: fromCurrency) ?? "Euro"
-        toCurrencytTitle = currencyConverterViewModel.getTitle(forCurrency: toCurrency) ?? "Euro"
+        fromCurrencyTitle = currencyConverterViewModel.getTitle(forCurrency: fromCurrency) ?? Strings.euro
+        toCurrencytTitle = currencyConverterViewModel.getTitle(forCurrency: toCurrency) ?? Strings.euro
         
         currencyConverterViewModel.fromCurrency = currencyConverterViewModel.getCode(forCurrency: fromCurrency) ?? ""
         currencyConverterViewModel.toCurrency = currencyConverterViewModel.getCode(forCurrency: toCurrency) ?? ""

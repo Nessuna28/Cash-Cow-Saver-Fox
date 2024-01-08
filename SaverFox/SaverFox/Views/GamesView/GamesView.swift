@@ -10,7 +10,7 @@ import SwiftUI
 struct GamesView: View {
     
     var body: some View {
-        Text("Spiele")
+        Text(Strings.games)
             .font(.title)
             .bold()
     }

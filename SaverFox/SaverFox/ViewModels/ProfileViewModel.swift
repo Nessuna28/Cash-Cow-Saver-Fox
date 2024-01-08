@@ -143,4 +143,10 @@ class ProfileViewModel: ObservableObject {
         showAlert.toggle()
     }
     
+    func emptyLoginData() {
+        
+        currentLoginName = ""
+        currentLoginImageAsTitle = ""
+    }
+    
 }

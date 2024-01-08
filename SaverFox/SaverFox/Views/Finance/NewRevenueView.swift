@@ -11,38 +11,38 @@ struct NewRevenueView: View {
     
     var body: some View {
         VStack {
-            Text("Einnahme hinzufügen")
+            Text(Strings.addIntake)
                 .font(.title2)
                 .padding()
             
             VStack(alignment: .leading) {
-                Text("Wann hast du das Geld bekommen?")
+                Text(Strings.whenToGetMoney)
                 
-                DatePicker("Datum", selection: $financeViewModel.date, in: ...Date(), displayedComponents: .date)
+                DatePicker(Strings.date, selection: $financeViewModel.date, in: ...Date(), displayedComponents: .date)
                     .padding(.bottom, 30)
                 
-                Text("Von wem hast du das Geld bekommen?")
+                Text(Strings.fromWhomGetMoney)
                 
-                TextField("von", text: $financeViewModel.fromOrFor)
+                TextField(Strings.from, text: $financeViewModel.fromOrFor)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     .padding(.bottom, 30)
                 
-                Text("Wofür hast du das Geld bekommen?")
+                Text(Strings.getMoneyFor)
                 
-                TextField("Titel", text: $financeViewModel.title)
+                TextField(Strings.title, text: $financeViewModel.title)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     .padding(.bottom, 30)
                 
-                Text("Welches Icon möchtest du dafür?")
+                Text(Strings.whichIcon)
                 
                 IconPicker(selectedIcon: $financeViewModel.icon)
                     .padding(.bottom, 30)
                 
-                Text("Wieviel Geld hast du bekommen")
+                Text(Strings.HowMuchMoneyGet)
                 
-                TextField("Betrag", text: $amount)
+                TextField(Strings.amount, text: $amount)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     .padding(.bottom, 30)
@@ -57,9 +57,9 @@ struct NewRevenueView: View {
         }
         .frame(width: 350)
         .alert(isPresented: $financeViewModel.showAlert) {
-            Alert(title: Text("Ungültige Eingabe"),
+            Alert(title: Text(Strings.invalidInput),
                   message: Text(financeViewModel.errorDescription),
-                  dismissButton: .default(Text("Okay"))
+                  dismissButton: .default(Text(Strings.okay))
             )
         }
     }
@@ -79,7 +79,7 @@ struct NewRevenueView: View {
         private func saveFinance() {
         
             financeViewModel.convertStringToNumber(amount: amount, selection: "sum")
-            financeViewModel.category = "Einnahme"
+            financeViewModel.category = "intake"
             
             if let id = profileViewModel.child?.id {
                 financeViewModel.createFinance(with: id)

@@ -30,7 +30,7 @@ struct LoginView: View {
                     .padding(40)
                 
                 HStack {
-                    Text(Strings.loginName)
+                    Text("\(Strings.loginName):")
                     
                     TextField("", text: $authViewModel.selectedLoginName)
                         .textInputAutocapitalization(.never)
@@ -40,7 +40,7 @@ struct LoginView: View {
                 Divider()
                 
                 HStack {
-                    Text(Strings.loginImage)
+                    Text("\(Strings.loginImage):")
                     
                     TextField("", text: $authViewModel.selectedLoginImage)
                         .textInputAutocapitalization(.never)

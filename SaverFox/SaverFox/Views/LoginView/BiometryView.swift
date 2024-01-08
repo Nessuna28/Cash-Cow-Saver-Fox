@@ -17,7 +17,7 @@ struct BiometryView: View {
                 .frame(width: 150, height: 150)
                 .padding()
             
-            Text("Willkommen zurück")
+            Text(Strings.welcomeBack)
                 .font(.title)
             
             Text(profileViewModel.child?.firstName ?? Strings.guest)
@@ -43,9 +43,9 @@ struct BiometryView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(Colors.secondaryOrange))
         .alert(isPresented: $biometryViewModel.showAlert) {
-            Alert(title: Text("Fehler"),
-                  message: Text(biometryViewModel.errorDescription ?? "Die Authentifizierung hat nicht geklappt."),
-                  dismissButton: .default(Text("Okay"))
+            Alert(title: Text(Strings.error),
+                  message: Text(biometryViewModel.errorDescription ?? Strings.authenticationFailed),
+                  dismissButton: .default(Text(Strings.okay))
             )
         }
     }

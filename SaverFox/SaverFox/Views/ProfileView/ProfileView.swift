@@ -11,22 +11,22 @@ struct ProfileView: View {
     
     var body: some View {
         List {
-            Section("Profilbild") {
+            Section(Strings.profilePicture) {
                 ProfileImage(profileImage: $profileViewModel.profilePicture, selectedProfileImage: $profileViewModel.selectedImage)
                     .environmentObject(profileViewModel)
             }
             
-            Section("Persönliches \ndiese Daten können nicht geändert werden") {
-                InputField(title: "Familienmitglied", input: profileViewModel.child?.familyMember ?? "")
+            Section("\(Strings.personal) \(Strings.dataCannotBeChanged)") {
+                InputField(title: Strings.familyMember, input: profileViewModel.child?.familyMember ?? "")
                 
-                InputField(title: "Nachname", input: profileViewModel.child?.lastName ?? "")
+                InputField(title: Strings.lastName, input: profileViewModel.child?.lastName ?? "")
                 
-                InputField(title: "Vorname", input: profileViewModel.child?.firstName ?? "")
+                InputField(title: Strings.firstName, input: profileViewModel.child?.firstName ?? "")
                 
-                InputField(title: "Geburtstag", input: formatDate(date: profileViewModel.child?.birthday ?? Date()))
+                InputField(title: Strings.birthday, input: formatDate(date: profileViewModel.child?.birthday ?? Date()))
             }
             
-            Section("Logindaten") {
+            Section(Strings.loginData) {
                 LoginDataView()
                     .environmentObject(profileViewModel)
             }
@@ -37,15 +37,15 @@ struct ProfileView: View {
                     profileViewModel.updateLoginData()
                     profileViewModel.toggleShowAlert()
                 } label: {
-                    Text("Speichern")
+                    Text(Strings.save)
                         .foregroundStyle(Colors.primaryOrange)
                 }
             }
         }
         .alert(isPresented: $profileViewModel.showAlert) {
-            Alert(title: Text("Gespeichert"),
-                  message: Text("Deine Daten wurden erfolgreich gespeichert"),
-                  dismissButton: .default(Text("Okay"))
+            Alert(title: Text(Strings.saved),
+                  message: Text(Strings.dataSaved),
+                  dismissButton: .default(Text(Strings.okay))
             )
         }
     }

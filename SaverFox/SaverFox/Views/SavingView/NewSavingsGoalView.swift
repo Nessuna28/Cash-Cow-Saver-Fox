@@ -11,31 +11,31 @@ struct NewSavingsGoalView: View {
     
     var body: some View {
         VStack {
-            Text("Sparziel hinzufügen")
+            Text(Strings.addSavingsGoal)
                 .font(.title2)
                 .padding()
             
             VStack(alignment: .leading) {
-                Text("Für was möchtest du sparen?")
+                Text(Strings.saveForWhat)
                 
-                TextField("Titel", text: $title)
+                TextField(Strings.title, text: $title)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     .padding(.bottom, 30)
                 
-                Text("Welches Icon möchtest du dafür?")
+                Text(Strings.whichIcon)
                 
                 IconPicker(selectedIcon: $icon)
                     .padding(.bottom, 30)
                 
-                Text("Bis wann möchtest du sparen?")
+                Text(Strings.saveUntilWhen)
                 
-                DatePicker("Datum", selection: $date, in: Date()..., displayedComponents: .date)
+                DatePicker(Strings.date, selection: $date, in: Date()..., displayedComponents: .date)
                     .padding(.bottom, 30)
                 
-                Text("Wieviel möchtest du sparen?")
+                Text(Strings.howMuchSave)
                 
-                TextField("Betrag", text: $amount)
+                TextField(Strings.amount, text: $amount)
                     .textInputAutocapitalization(.never)
                     .disableAutocorrection(true)
                     .padding(.bottom, 30)
@@ -50,9 +50,9 @@ struct NewSavingsGoalView: View {
         }
         .frame(width: 300)
         .alert(isPresented: $savingViewModel.showAlert) {
-            Alert(title: Text("Ungültige Eingabe"),
+            Alert(title: Text(Strings.invalidInput),
                   message: Text(savingViewModel.errorDescription),
-                  dismissButton: .default(Text("Okay"))
+                  dismissButton: .default(Text(Strings.okay))
             )
         }
 

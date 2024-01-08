@@ -31,6 +31,7 @@ struct HomeView: View {
                         NavigationLink {
                             SettingsView()
                                 .environmentObject(authViewModel)
+                                .environmentObject(profileViewModel)
                                 .environmentObject(settingsViewModel)
                                 .environmentObject(financeViewModel)
                                 .environmentObject(savingViewModel)

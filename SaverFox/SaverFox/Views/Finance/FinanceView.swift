@@ -11,13 +11,13 @@ struct FinanceView: View {
     
     var body: some View {
         VStack {
-            DisplayPanel(title: "Einnahmen", action: financeViewModel.openRevenueSheet, list: financeViewModel.revenue, view: AnyView(FinanceListView(finances: financeViewModel.revenue, id: profileViewModel.child?.id ?? "")))
+            DisplayPanel(title: Strings.revenue, action: financeViewModel.openRevenueSheet, list: financeViewModel.revenue, view: AnyView(FinanceListView(finances: financeViewModel.revenue, id: profileViewModel.child?.id ?? "")))
             
-            DisplayPanel(title: "Ausgaben", action: financeViewModel.openExpenditureSheet, list: financeViewModel.expenditure, view: AnyView(FinanceListView(finances: financeViewModel.expenditure, id: profileViewModel.child?.id ?? "")))
+            DisplayPanel(title: Strings.expenditure, action: financeViewModel.openExpenditureSheet, list: financeViewModel.expenditure, view: AnyView(FinanceListView(finances: financeViewModel.expenditure, id: profileViewModel.child?.id ?? "")))
             
             Spacer()
             
-            Text(String(format: "%.2f € zur Verfügung", financeViewModel.currentSum))
+            Text(String(format: "%.2f € \(Strings.beAvailable)", financeViewModel.currentSum))
                 .foregroundStyle(Colors.primaryOrange)
         }
         .sheet(isPresented: $financeViewModel.showRevenueSheet, content: {

@@ -23,7 +23,7 @@ struct DisplayPanel: View {
         }
         
         if list.isEmpty {
-            Text("Bisher keine \(title)")
+            Text("\(Strings.noneSoFar) \(title)")
                 .padding(.top)
         } else {
             view

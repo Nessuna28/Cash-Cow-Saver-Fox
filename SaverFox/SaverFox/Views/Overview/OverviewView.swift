@@ -11,34 +11,39 @@ struct OverviewView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                if profileViewModel.child?.initialAmount == nil {
-                    TextField("Wieviel Geld hast du gerade?", text: $amount)
-                        .textInputAutocapitalization(.never)
-                        .disableAutocorrection(true)
-                        .foregroundStyle(Colors.primaryOrange)
-                    
-                    Button("speichern") {
-                        financeViewModel.convertStringToNumber(amount: amount, selection: "init")
-                        profileViewModel.initialAmount = financeViewModel.initialAmount ?? 0.0
-                        profileViewModel.updateInitialAmount()
+            VStack(alignment: .leading) {
+                HStack {
+                    if profileViewModel.child?.initialAmount == nil {
+                        TextField(Strings.howMuchMoney, text: $amount)
+                            .textInputAutocapitalization(.never)
+                            .disableAutocorrection(true)
+                            .foregroundStyle(Colors.primaryOrange)
+                        
+                        Button(Strings.save) {
+                            financeViewModel.convertStringToNumber(amount: amount, selection: "init")
+                            profileViewModel.initialAmount = financeViewModel.initialAmount ?? 0.0
+                            profileViewModel.updateInitialAmount()
+                        }
+                    } else {
+                        Text("\(Strings.pocketMoney):")
+                            .padding(.leading, 50)
+                        
+                        Text(String(format: "%.2f €", financeViewModel.currentSum))
+                            .foregroundStyle(Colors.primaryOrange)
+                            .padding(.leading, 30)
                     }
-                } else {
-                    Text("Taschengeld:")
-                        .padding(.trailing, 30)
-                    
-                    Text(String(format: "%.2f €", financeViewModel.currentSum))
-                        .foregroundStyle(Colors.primaryOrange)
                 }
-            }
-            
-            HStack {
-                Text("Punktekonto:")
-                    .padding(.trailing, 30)
                 
-                Text("\(profileViewModel.child?.currentPoints ?? 0) Punkte")
-                    .foregroundStyle(Colors.primaryOrange)
-                    .padding(.trailing, 30)
+                HStack {
+                    Text("\(Strings.pointsAccount):")
+                        .padding(.leading, 50)
+                    
+                    Text("\(profileViewModel.child?.currentPoints ?? 0) \(Strings.points)")
+                        .foregroundStyle(Colors.primaryOrange)
+                        .padding(.leading, 30)
+                    
+                    Text(overviewViewModel.emoji)
+                }
             }
             
             Image("animation1-removebg")
@@ -61,7 +66,7 @@ struct OverviewView: View {
                         .scaledToFit()
                         .frame(width: 30, height: 30)
                     
-                    Text("Währungsrechner")
+                    Text(Strings.currencyConverter)
                 }
             }
             .sheet(isPresented: $currencyConverterViewModel.showSheet) {
@@ -69,10 +74,13 @@ struct OverviewView: View {
             }
         }
         .alert(isPresented: $financeViewModel.showAlert) {
-            Alert(title: Text("Ungültige Eingabe"),
+            Alert(title: Text(Strings.invalidInput),
                   message: Text(financeViewModel.errorDescription),
-                  dismissButton: .default(Text("Okay"))
+                  dismissButton: .default(Text(Strings.okay))
             )
+        }
+        .onAppear {
+            overviewViewModel.setEmoji(points: profileViewModel.child?.currentPoints ?? 0)
         }
     }
     
@@ -80,6 +88,7 @@ struct OverviewView: View {
     // MARK: - Variables
     
     @StateObject private var currencyConverterViewModel = CurrencyConverterViewModel()
+    @StateObject private var overviewViewModel = OverviewViewModel()
     
     @EnvironmentObject private var financeViewModel: FinanceViewModel
     @EnvironmentObject private var savingViewModel: SavingViewModel

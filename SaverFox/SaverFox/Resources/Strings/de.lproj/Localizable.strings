@@ -33,13 +33,126 @@
 "zebra" = "Zebra";
 
 
+"overview" = "Übersicht";
+"finances" = "Finanzen";
+"saving" = "Sparen";
+"rewards" = "Punkte";
+
+
+"euro" = "Euro";
+"zloty" = "Zloty";
+"dollar" = "US-Dollar";
+
+
 "welcome" = "Willkommen";
-"loginName" = "Anmeldename:";
-"loginImage" = "Anmeldebild:";
+"welcomeBack" = "Willkommen zurück";
+"loginName" = "Anmeldename";
+"loginImage" = "Anmeldebild";
+"error" = "Fehler";
+"authenticationFailed" = "Die Authentifizierung hat nicht geklappt.";
+"letsGo" = "Los geht´s";
+
+"okay" = "Okay";
 
 "guest" = "Gast";
 
+"profilePicture" = "Profilbild";
+"personal" = "Persönliches";
+"dataCannotBeChanged" = "\ndiese Daten können nicht geändert werden";
+"familyMember" = "Familienmitglied";
+"lastName" = "Nachname";
+"firstName" = "Vorname";
+"birthday" = "Geburtstag";
+"loginData" = "Logindaten";
+"chooseAPhoto" = "Wähle ein Foto";
+"available" = "verfügbar";
+"notAvailable" = "nicht verfügbar";
+
+"save" = "Speichern";
+"cancel" = "Abbrechen";
+"saved" = "Gespeichert";
+"dataSaved" = "Deine Daten wurden erfolgreich gespeichert.";
+
+"settings" = "Einstellungen";
+"security" = "Sicherheit";
+"lockApp" = "App sperren?";
 "logout" = "Abmelden";
 
+"loginFailed" = "Deine Anmeldung ist fehlgeschlagen";
+"unlockingNotPossible" = "Face ID/Touch ID ist aktuell nicht verfügbar.";
+"enterANumber" = "Gib bitte eine Zahl ein! \n Beispiel: 10.00";
+"enterAPoint" = "Gib bitte eine Kommazahl mit einem Punkt anstatt ein Komma ein! \n Beispiel: 10.00";
+"wereGivenToYou" = "Dir wurden";
+"points" = "Punkte";
+"pointsCredited" = "Punkte gutgeschrieben";
+"enterInt" = "Gib bitte eine Zahl ohne Komma ein! \n Beispiel: 5";
 
-"letsGo" = "Los geht´s";
+"howMuchMoney" = "Wieviel Geld hast du gerade?";
+"pocketMoney" = "Taschengeld";
+"pointsAccount" = "Punktekonto";
+"currencyConverter" = "Währungsrechner";
+"invalidInput" = "Ungültige Eingabe";
+"fromWhichCurrency" = "Von welcher Währung möchtest du umrechnen?";
+"inWhichCurrency" = "In welche Währung möchtest du umrechnen?";
+"enterAmountToConvert" = "Gib den Betrag ein, den du umgerechnet haben möchtest";
+"amount" = "Betrag";
+"convert" = "umrechnen";
+"areConverted" = "sind umgerechnet";
+"conversionFailed" = "Die Umrechnung hat nicht geklappt.";
+"revenue" = "Einnahmen";
+"expenditure" = "Ausgaben";
+"beAvailable" = "zur Verfügung";
+"addOutput" = "Ausgabe hinzufügen";
+"addIntake" = "Einnahme hinzufügen";
+"whenToGetMoney" = "Wann hast du das Geld bekommen?";
+"date" = "Datum";
+"fromWhomGetMoney" = "Von wem hast du das Geld bekommen?";
+"from" = "von";
+"getMoneyFor" = "Wofür hast du das Geld bekommen?";
+"title" = "Titel";
+"whichIcon" = "Welches Icon möchtest du dafür?";
+"HowMuchMoneyGet" = "Wieviel Geld hast du bekommen?";
+"whenMoneySpent" = "Wann hast du das Geld ausgegeben?";
+"whereMoneySpent" = "Wo hast du das Geld ausgegeben?";
+"wherE" = "wo";
+"whatMoneyWasSpentOn" = "Wofür hast du das Geld ausgegeben?";
+"howMuchMoneySpent" = "Wieviel Geld hast du ausgegeben?";
+"savingsGoals" = "Sparziele";
+"until" = "bis";
+"into" = "in";
+"day" = "Tag";
+"days" = "Tage";
+"reachYourSavingsGoal" = "erreichst du dein Sparziel";
+"youAreStillMissing" = "Dir fehlen noch";
+"wellSaved" = "Du hast gut gespart.";
+"MoneyIsJustEnough" = "Dein Geld reicht für dieses Sparziel, aber nur wenn du bis dahin kein Geld mehr ausgibst.";
+"addSavingsGoal" = "Sparziel hinzufügen";
+"saveForWhat" = "Für was möchtest du sparen?";
+"saveUntilWhen" = "Bis wann möchtest du sparen?";
+"howMuchSave" = "Wieviel möchtest du sparen?";
+"pointsAccountIs" = "Dein Punktekonto beträgt";
+"whetherRewardAvailable" = "Es ist Zeit zu gucken, ob dir eine Belohnung zusteht.";
+"whatToDoWithPoints" = "Was möchtest du mit deinen Punkten tun?";
+"unlockGames" = "Spiele freischalten";
+"orSo" = "oder";
+"redeemPoints" = "Punkte bei deinen Eltern einlösen";
+"reward" = "Belohnung";
+"youWantToRedeemPoints" = "Du möchtest Punkte bei deinen Eltern einlösen";
+"howManyPointsToRedeem" = "Wieviel Punkte möchtest du einlösen?";
+"sendRequest" = "Anfrage senden";
+"forThisRequest" = "Für diese Anfrage werden dir";
+"pointsDeducted" = "Punkte abgezogen";
+"notEnoughPoints" = "Du hast nicht genügend Punkte. \n Wähle bitte nur soviel Punkte wie du auch hast.";
+
+"games" = "Spiele";
+
+"noneSoFar" = "Bisher keine";
+
+
+"tips" = "Tipps";
+"tip1" = "Gib nicht alles auf einmal aus!";
+"tip2" = "Überlege vorher, ob du das was du kaufen möchtest wirklich brauchst.";
+"tip3" = "Wenn du viel spart kannst du dir später etwas Großes kaufen.";
+"tip4" = "Rechne beim Einkaufen im Kopf immer mit, so kannst du sicher sein, dass dein Geld auch reicht.";
+"tip5" = "Denk an besondere Anlässe wie Geburtstage und leg dir Geld dafür zur Seite.";
+"noTip" = "kein Tipp verfügbar";

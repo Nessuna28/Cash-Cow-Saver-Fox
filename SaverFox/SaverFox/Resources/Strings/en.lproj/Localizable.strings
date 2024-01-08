@@ -33,13 +33,125 @@
 "zebra" = "Zebra";
 
 
+"overview" = "Overview";
+"finances" = "Finances";
+"saving" = "Saving";
+"rewards" = "Points";
+
+"euro" = "Euro";
+"zloty" = "Zloty";
+"dollar" = "US Dollar";
+
 "welcome" = "Welcome";
-"loginName" = "Login Name:";
-"loginImage" = "Login Image:";
+"welcomeBack" = "Welcome back";
+"loginName" = "Username";
+"loginImage" = "Login Image";
+"error" = "Error";
+"authenticationFailed" = "Authentication failed.";
+"letsGo" = "Let's go";
+
+"okay" = "Okay";
 
 "guest" = "Guest";
 
+"profilePicture" = "Profile Picture";
+"personal" = "Personal";
+"dataCannotBeChanged" = "\nthis data cannot be changed";
+"familyMember" = "Family Member";
+"lastName" = "Last Name";
+"firstName" = "First Name";
+"birthday" = "Birthday";
+"loginData" = "Login Data";
+"chooseAPhoto" = "Choose a Photo";
+"available" = "available";
+"notAvailable" = "not available";
+
+"save" = "Save";
+"cancel" = "Cancel";
+"saved" = "Saved";
+"dataSaved" = "Your data has been successfully saved.";
+
+"settings" = "Settings";
+"security" = "Security";
+"lockApp" = "Lock App?";
 "logout" = "Logout";
 
+"loginFailed" = "Login failed";
+"unlockingNotPossible" = "Face ID/Touch ID is currently not available.";
+"enterANumber" = "Please enter a number! \n Example: 10.00";
+"enterAPoint" = "Please enter a decimal number with a dot instead of a comma! \n Example: 10.00";
+"wereGivenToYou" = "You were given";
+"points" = "Points";
+"pointsCredited" = "Points credited";
+"enterInt" = "Please enter a whole number without a comma! \n Example: 5";
 
-"letsGo" = "Let's go";
+"howMuchMoney" = "How much money do you have?";
+"pocketMoney" = "Pocket Money";
+"pointsAccount" = "Points Account";
+"currencyConverter" = "Currency Converter";
+"invalidInput" = "Invalid Input";
+"fromWhichCurrency" = "From which currency do you want to convert?";
+"inWhichCurrency" = "In which currency do you want to convert?";
+"enterAmountToConvert" = "Enter the amount you want to convert";
+"amount" = "Amount";
+"convert" = "Convert";
+"areConverted" = "are converted";
+"conversionFailed" = "Conversion failed.";
+"revenue" = "Revenue";
+"expenditure" = "Expenditure";
+"beAvailable" = "available";
+"addOutput" = "Add Expenditure";
+"addIntake" = "Add Revenue";
+"whenToGetMoney" = "When did you get the money?";
+"date" = "Date";
+"fromWhomGetMoney" = "From whom did you get the money?";
+"from" = "from";
+"getMoneyFor" = "What did you get the money for?";
+"title" = "Title";
+"whichIcon" = "Which Icon do you want for this?";
+"HowMuchMoneyGet" = "How much money did you get?";
+"whenMoneySpent" = "When did you spend the money?";
+"whereMoneySpent" = "Where did you spend the money?";
+"wherE" = "where";
+"whatMoneyWasSpentOn" = "What was the money spent on?";
+"howMuchMoneySpent" = "How much money did you spend?";
+"savingsGoals" = "Savings Goals";
+"until" = "until";
+"into" = "into";
+"day" = "Day";
+"days" = "Days";
+"reachYourSavingsGoal" = "you reach your savings goal";
+"youAreStillMissing" = "You are still missing";
+"wellSaved" = "You have saved well.";
+"MoneyIsJustEnough" = "Your money is enough for this savings goal, but only if you don't spend any more until then.";
+"addSavingsGoal" = "Add Savings Goal";
+"saveForWhat" = "What do you want to save for?";
+"saveUntilWhen" = "Until when do you want to save?";
+"howMuchSave" = "How much do you want to save?";
+"pointsAccountIs" = "Your points account is";
+"whetherRewardAvailable" = "It's time to check if you are eligible for a reward.";
+"whatToDoWithPoints" = "What do you want to do with your points?";
+"unlockGames" = "Unlock Games";
+"orSo" = "or";
+"redeemPoints" = "Redeem points with your parents";
+"reward" = "Reward";
+"youWantToRedeemPoints" = "You want to redeem points with your parents";
+"howManyPointsToRedeem" = "How many points do you want to redeem?";
+"sendRequest" = "Send Request";
+"forThisRequest" = "For this request, you will be deducted";
+"pointsDeducted" = "points.";
+"notEnoughPoints" = "You don't have enough points. \n Please choose only as many points as you have.";
+
+
+"games" = "Games";
+
+"noneSoFar" = "None so far";
+
+"tips" = "Tips";
+"tip1" = "Don't spend everything at once!";
+"tip2" = "Think beforehand whether you really need what you";
+"tip2" = "Think beforehand whether you really need what you want to buy.";
+"tip3" = "If you save a lot, you can buy something big later.";
+"tip4" = "Always calculate in your head when shopping, so you can be sure your money will be enough.";
+"tip5" = "Think of special occasions like birthdays and set aside money for them.";
+"noTip" = "no tip available";

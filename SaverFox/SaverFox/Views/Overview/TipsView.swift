@@ -11,17 +11,25 @@ struct TipsView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Tipps")
+            Text(Strings.tips)
                 .bold()
                 .padding(.bottom)
             
-            Text("Gib nicht alles auf einmal aus")
+            Text(tipViewModel.currentTip)
         }
         .padding()
         .background(Colors.secondaryOrange)
         .cornerRadius(10)
         .padding()
+        .onAppear {
+            tipViewModel.setCurrentTip()
+        }
     }
+    
+    
+    // MARK: - Variables
+    
+    @StateObject private var tipViewModel = TipViewModel()
     
 }
 

@@ -15,10 +15,10 @@ enum Tab: String, Identifiable, CaseIterable {
     
     var title: String {
         switch self {
-        case .overview: return "Übersicht"
-        case .finance: return "Finanzen"
-        case .saving: return "Sparen"
-        case .rewards: return "Punkte"
+        case .overview: return Strings.overview
+        case .finance: return Strings.finances
+        case .saving: return Strings.saving
+        case .rewards: return Strings.rewards
         }
     }
     

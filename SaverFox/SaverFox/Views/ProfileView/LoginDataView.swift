@@ -20,11 +20,11 @@ struct LoginDataView: View {
                     Spacer()
                     
                     if profileViewModel.loginNameExists {
-                        Text("nicht verfügbar")
+                        Text(Strings.notAvailable)
                             .font(.footnote)
                             .foregroundStyle(.red)
                     } else {
-                        Text("verfügbar")
+                        Text(Strings.available)
                             .font(.footnote)
                             .foregroundStyle(.green)
                     }
@@ -33,13 +33,13 @@ struct LoginDataView: View {
                     profileViewModel.checkLoginName(name: profileViewModel.selectedLoginName)
                 }
                 
-                Button("Speichern") {
+                Button(Strings.save) {
                     profileViewModel.toggleUpdateLoginName()
                 }
             }
         } else {
             Button(action: profileViewModel.toggleUpdateLoginName) {
-                InputField(title: "Anmeldename", input: profileViewModel.child?.loginName ?? Strings.guest)
+                InputField(title: Strings.loginName, input: profileViewModel.child?.loginName ?? Strings.guest)
             }
         }
         
@@ -47,7 +47,7 @@ struct LoginDataView: View {
             VStack {
                 LoginImagePicker(loginImage: $profileViewModel.selectedLoginImageAsRawValue)
                 
-                Button("Speichern") {
+                Button(Strings.save) {
                     profileViewModel.getTitle(forLoginImage: profileViewModel.selectedLoginImageAsRawValue)
                     profileViewModel.toggleUpdateLoginImage()
                 }
@@ -55,7 +55,7 @@ struct LoginDataView: View {
         } else {
             Button(action: profileViewModel.toggleUpdateLoginImage) {
                 HStack {
-                    Text("Anmeldebild")
+                    Text(Strings.loginImage)
                     
                     Spacer()
                     

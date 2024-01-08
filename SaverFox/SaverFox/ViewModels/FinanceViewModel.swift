@@ -66,11 +66,11 @@ class FinanceViewModel: ObservableObject {
                     sumOfMoney = value
                 }
             } else {
-                errorDescription = "Gib bitte eine Zahl ein! \n Beispiel: 10.00"
+                errorDescription = Strings.enterANumber
                 showAlert.toggle()
             }
         } else {
-            errorDescription = "Gib bitte eine Kommazahl mit einem Punkt anstatt ein Komma ein! \n Beispiel: 10.00"
+            errorDescription = Strings.enterAPoint
             showAlert.toggle()
         }
     }
@@ -84,10 +84,10 @@ class FinanceViewModel: ObservableObject {
         sumExpenditure = 0.0
         
         for finance in finances {
-            if finance.category == "Einnahme" {
+            if finance.category == "intake" {
                 revenue.append(finance)
                 sumRevenue += finance.sumOfMoney
-            } else if finance.category == "Ausgabe" {
+            } else if finance.category == "output" {
                 expenditure.append(finance)
                 sumExpenditure += finance.sumOfMoney
             }

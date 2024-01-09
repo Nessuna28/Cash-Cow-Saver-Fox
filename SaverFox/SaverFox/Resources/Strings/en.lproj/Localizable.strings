@@ -118,6 +118,7 @@
 "howMuchMoneySpent" = "How much money did you spend?";
 "savingsGoals" = "Savings Goals";
 "until" = "until";
+"savingsGoalReachedToday" = "Today you reached your savings goal";
 "into" = "into";
 "day" = "Day";
 "days" = "Days";
@@ -153,6 +154,8 @@
 "forFifteenPoints" = "for 15 points";
 "forTenPoints" = "for 10 points";
 "forFivePoints" = "for 5 points";
+
+"currency" = "$";
 
 "tips" = "Tips";
 "tip1" = "Don't spend everything at once!";

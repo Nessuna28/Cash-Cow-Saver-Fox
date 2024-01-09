@@ -36,9 +36,9 @@ struct ChildrenListView: View {
                     
                     Spacer()
                     
-                    Image(child.loginImage)
+                    childrenListViewModel.getImage(forLoginImage: child.loginImage)
                         .resizable()
-                        .imageSmallAndRound()
+                        .frame(width: 30, height: 30)
                 }
             }
             .sheet(isPresented: $childProfileViewModel.showSheetChildAccount) {
@@ -55,6 +55,7 @@ struct ChildrenListView: View {
         }
         .onAppear {
             childrenListViewModel.fetchChildren()
+            childrenListViewModel.downloadPictures()
         }
         
         Button {

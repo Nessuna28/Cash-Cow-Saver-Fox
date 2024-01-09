@@ -15,11 +15,13 @@ struct GamesView: View {
                 Text(Strings.collection)
                     .font(.title)
                     .multilineTextAlignment(.leading)
-                    .padding(.bottom, 30)
+                    .padding(.vertical, 30)
             }
             
             VStack(alignment: .leading) {
                 Text(Strings.forFivePoints)
+                    .font(.footnote)
+                    .bold()
                 
                 LazyVGrid(columns: gridItems) {
                     ForEach(gamesViewModel.fivePointsGame, id: \.name) { game in
@@ -37,6 +39,8 @@ struct GamesView: View {
             
             VStack(alignment: .leading) {
                 Text(Strings.forTenPoints)
+                    .font(.footnote)
+                    .bold()
                 
                 LazyVGrid(columns: gridItems) {
                     ForEach(gamesViewModel.tenPointsGame, id: \.name) { game in
@@ -54,6 +58,8 @@ struct GamesView: View {
             
             VStack(alignment: .leading) {
                 Text(Strings.forFifteenPoints)
+                    .font(.footnote)
+                    .bold()
                 
                 LazyVGrid(columns: gridItems) {
                     ForEach(gamesViewModel.fifteenPointsGame, id: \.name) { game in
@@ -71,6 +77,8 @@ struct GamesView: View {
             
             VStack(alignment: .leading) {
                 Text(Strings.forTwentyPoints)
+                    .font(.footnote)
+                    .bold()
                 
                 LazyVGrid(columns: gridItems) {
                     ForEach(gamesViewModel.twentyPointsGame, id: \.name) { game in

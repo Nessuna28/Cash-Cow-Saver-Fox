@@ -128,6 +128,7 @@ struct Strings {
     static let howMuchMoneySpent = NSLocalizedString("howMuchMoneySpent", comment: "")
     static let savingsGoals = NSLocalizedString("savingsGoals", comment: "")
     static let until = NSLocalizedString("until", comment: "")
+    static let savingsGoalReachedToday = NSLocalizedString("savingsGoalReachedToday", comment: "")
     static let into = NSLocalizedString("into", comment: "")
     static let day = NSLocalizedString("day", comment: "")
     static let days = NSLocalizedString("days", comment: "")
@@ -162,6 +163,9 @@ struct Strings {
     static let forFifteenPoints = NSLocalizedString("forFifteenPoints", comment: "")
     static let forTenPoints = NSLocalizedString("forTenPoints", comment: "")
     static let forFivePoints = NSLocalizedString("forFivePoints", comment: "")
+    
+    
+    static let currency = NSLocalizedString("currency", comment: "")
     
     
     // Tipps

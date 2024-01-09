@@ -175,7 +175,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		91680D762B35D26D0075609F /* ProfileView */ = {
+		91680D762B35D26D0075609F /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				91C2B1952B2CA111004C1B53 /* ProfileView.swift */,
@@ -184,33 +184,33 @@
 				91680D7D2B4419BC0075609F /* LoginDataView.swift */,
 				91680D7B2B35D6D70075609F /* LoginImagePicker.swift */,
 			);
-			path = ProfileView;
+			path = Profile;
 			sourceTree = "<group>";
 		};
-		91680D852B46D4410075609F /* SettingsView */ = {
+		91680D852B46D4410075609F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				91C2B1732B2C821A004C1B53 /* SettingsView.swift */,
 			);
-			path = SettingsView;
+			path = Settings;
 			sourceTree = "<group>";
 		};
-		91680D862B46D4530075609F /* RewardsView */ = {
+		91680D862B46D4530075609F /* Rewards */ = {
 			isa = PBXGroup;
 			children = (
 				91C2B1AD2B2CE5A1004C1B53 /* RewardsView.swift */,
 				91680D882B46E8E20075609F /* RedeemPointsView.swift */,
 			);
-			path = RewardsView;
+			path = Rewards;
 			sourceTree = "<group>";
 		};
-		91680D872B46D49A0075609F /* GamesView */ = {
+		91680D872B46D49A0075609F /* Games */ = {
 			isa = PBXGroup;
 			children = (
 				91C2B1AF2B2CE5BC004C1B53 /* GamesView.swift */,
 				91680D9B2B4D65480075609F /* GameImageAndTitle.swift */,
 			);
-			path = GamesView;
+			path = Games;
 			sourceTree = "<group>";
 		};
 		91680D942B4D3ABC0075609F /* Fonts */ = {
@@ -285,13 +285,13 @@
 				91C2B1AC2B2CE520004C1B53 /* LoginView */,
 				91952B8C2B2079C5006CF2A2 /* Navigator */,
 				91C2B1A52B2CDB8D004C1B53 /* HomeView */,
-				91680D762B35D26D0075609F /* ProfileView */,
-				91680D852B46D4410075609F /* SettingsView */,
+				91680D762B35D26D0075609F /* Profile */,
+				91680D852B46D4410075609F /* Settings */,
 				91C2B19B2B2CADBB004C1B53 /* Overview */,
 				91C2B19E2B2CB5AF004C1B53 /* Finance */,
-				91C2B1D92B3444BE004C1B53 /* SavingView */,
-				91680D862B46D4530075609F /* RewardsView */,
-				91680D872B46D49A0075609F /* GamesView */,
+				91C2B1D92B3444BE004C1B53 /* Saving */,
+				91680D862B46D4530075609F /* Rewards */,
+				91680D872B46D49A0075609F /* Games */,
 				91952B802B207913006CF2A2 /* Components */,
 			);
 			path = Views;
@@ -442,7 +442,7 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		91C2B1D92B3444BE004C1B53 /* SavingView */ = {
+		91C2B1D92B3444BE004C1B53 /* Saving */ = {
 			isa = PBXGroup;
 			children = (
 				91C2B1AA2B2CE4E8004C1B53 /* SavingView.swift */,
@@ -450,7 +450,7 @@
 				91C2B1E22B3452E4004C1B53 /* Warning.swift */,
 				91C2B1E42B348BA5004C1B53 /* NewSavingsGoalView.swift */,
 			);
-			path = SavingView;
+			path = Saving;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

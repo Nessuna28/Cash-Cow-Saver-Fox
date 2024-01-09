@@ -28,7 +28,7 @@ struct OverviewView: View {
                         Text("\(Strings.pocketMoney):")
                             .padding(.leading, 50)
                         
-                        Text(String(format: "%.2f €", financeViewModel.currentSum))
+                        Text(String(format: "%.2f \(Strings.currency)", financeViewModel.currentSum))
                             .foregroundStyle(Colors.primaryOrange)
                             .padding(.leading, 30)
                     }

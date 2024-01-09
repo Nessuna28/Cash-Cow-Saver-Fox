@@ -216,6 +216,32 @@ class FirebaseRepository {
     }
     
     
+    static func downloadChildProfilePhoto(profilePicture: String?, completion: @escaping (UIImage?) -> Void) {
+        
+        if let image = profilePicture {
+            let storageRef = Storage.storage().reference()
+            let fileRef = storageRef.child(image)
+            
+            fileRef.getData(maxSize: (5 * 1024 * 1024)) { data, error in
+                if let error = error {
+                    print("No image", error)
+                    completion(UIImage(named: Strings.defaultProfilePicture))
+                    return
+                }
+                
+                if let data = data, let image = UIImage(data: data) {
+                    completion(image)
+                } else {
+                    print("Failed to convert data to UIImage.")
+                    completion(UIImage(named: Strings.defaultProfilePicture))
+                }
+            }
+        } else {
+            completion(UIImage(named: Strings.defaultProfilePicture))
+        }
+    }
+    
+    
     
     // MARK: - Settings
     

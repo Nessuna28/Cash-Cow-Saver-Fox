@@ -120,6 +120,7 @@
 "howMuchMoneySpent" = "Wieviel Geld hast du ausgegeben?";
 "savingsGoals" = "Sparziele";
 "until" = "bis";
+"savingsGoalReachedToday" = "Heute hast du dein Sparziel erreicht";
 "into" = "in";
 "day" = "Tag";
 "days" = "Tage";
@@ -154,6 +155,8 @@
 "forFifteenPoints" = "für 15 Punkte";
 "forTenPoints" = "für 10 Punkte";
 "forFivePoints" = "für 5 Punkte";
+
+"currency" = "€";
 
 
 "tips" = "Tipps";

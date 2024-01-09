@@ -32,7 +32,7 @@ struct FinanceListView: View {
                         
                         Spacer()
                         
-                        Text(String(format: "%.2f €", finance.sumOfMoney))
+                        Text(String(format: "%.2f \(Strings.currency)", finance.sumOfMoney))
                     }
                     .padding()
                     .overlay(

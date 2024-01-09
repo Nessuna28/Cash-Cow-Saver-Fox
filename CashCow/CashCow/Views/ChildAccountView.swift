@@ -58,8 +58,10 @@ struct ChildAccountView: View {
                         Button(action: childProfileViewModel.toggleInquirySheet) {
                             if childProfileViewModel.fireChild?.familyMember == Strings.son {
                                 Text("\(Strings.yourS) \(Strings.son) \(Strings.requestMade)")
+                                    .foregroundStyle(Colors.primaryGreen)
                             } else if childProfileViewModel.fireChild?.familyMember == Strings.daughter {
                                 Text("\(Strings.yourD) \(Strings.daughter) \(Strings.requestMade)")
+                                    .foregroundStyle(Colors.primaryGreen)
                             }
                         }
                     }

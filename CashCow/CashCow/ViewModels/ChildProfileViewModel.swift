@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseStorage
 
 class ChildProfileViewModel: ObservableObject {
     
@@ -108,7 +109,9 @@ class ChildProfileViewModel: ObservableObject {
                 self.loginName = fireChild?.loginName ?? ""
                 self.loginImage = fireChild?.loginImage ?? ""
                 
-                self.downloadPhoto(id: self.currentChildId)
+                FirebaseRepository.downloadChildProfilePhoto(profilePicture: fireChild?.profilePicture) { image in
+                    self.profileImage = image
+                }
             }
         }
     }
@@ -133,12 +136,4 @@ class ChildProfileViewModel: ObservableObject {
         FirebaseRepository.uploadPhoto(with: id, collection: "children", image: selectedImage)
     }
     
-    
-    private func downloadPhoto(id: String) {
-        
-        FirebaseRepository.downloadPhoto(collection: "children", id: id) { image in
-            
-            self.profileImage = image
-        }
-    }
 }

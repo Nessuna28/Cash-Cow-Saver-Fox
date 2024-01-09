@@ -21,8 +21,6 @@ class ProfileViewModel: ObservableObject {
                 self.downloadPhoto(id: uid)
             }
         }
-        
-        self.profileImage = UIImage(named: Strings.defaultProfilePicture)
     }
     
     // MARK: - Variables

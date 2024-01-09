@@ -30,6 +30,19 @@ struct HomeView: View {
             }
             .environmentObject(childrenListViewModel)
             .padding(.horizontal)
+            .onAppear {
+                if let uid = AuthManager.shared.auth.currentUser?.uid {
+                    FirebaseRepository.fetchUser(with: uid) { fireUser in
+                        guard let fireUser else { return }
+                        
+                        profileViewModel.fireUser = fireUser
+                        
+                        profileViewModel.downloadPhoto(id: uid)
+                    }
+                }
+                
+                profileViewModel.profileImage = UIImage(named: Strings.defaultProfilePicture)
+            }
         }
     }
     

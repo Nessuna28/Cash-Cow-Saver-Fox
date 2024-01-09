@@ -54,6 +54,7 @@
 
 "guest" = "Guest";
 
+"profile" = "Profile";
 "profilePicture" = "Profile Picture";
 "personal" = "Personal";
 "dataCannotBeChanged" = "\nthis data cannot be changed";
@@ -144,14 +145,25 @@
 
 
 "games" = "Games";
+"collection" = "Collection";
 
 "noneSoFar" = "None so far";
 
+"forTwentyPoints" = "for 20 points";
+"forFifteenPoints" = "for 15 points";
+"forTenPoints" = "for 10 points";
+"forFivePoints" = "for 5 points";
+
 "tips" = "Tips";
 "tip1" = "Don't spend everything at once!";
-"tip2" = "Think beforehand whether you really need what you";
 "tip2" = "Think beforehand whether you really need what you want to buy.";
 "tip3" = "If you save a lot, you can buy something big later.";
 "tip4" = "Always calculate in your head when shopping, so you can be sure your money will be enough.";
 "tip5" = "Think of special occasions like birthdays and set aside money for them.";
 "noTip" = "no tip available";
+
+
+"rockPaperScissors" = "Rock - Paper - Scissors";
+"ticTacToe" = "Tic-Tac-Toe";
+"hangman" = "Hangman";
+"trickle" = "Trickle";

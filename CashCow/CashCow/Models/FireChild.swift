@@ -25,4 +25,5 @@ struct FireChild: Codable, Identifiable {
     var initialAmount: Double?
     var currentPoints: Int?
     var rewardClaimDate: Date?
+    var inquiry: Int?
 }

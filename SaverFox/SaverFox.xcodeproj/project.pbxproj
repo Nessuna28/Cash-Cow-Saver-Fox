@@ -18,6 +18,9 @@
 		91680D8B2B470E890075609F /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D8A2B470E890075609F /* TextButton.swift */; };
 		91680D8F2B4866180075609F /* TipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D8E2B4866180075609F /* TipViewModel.swift */; };
 		91680D912B486C4F0075609F /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D902B486C4F0075609F /* OverviewViewModel.swift */; };
+		91680D982B4D56160075609F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D972B4D56160075609F /* Game.swift */; };
+		91680D9A2B4D56F40075609F /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D992B4D56F40075609F /* GamesViewModel.swift */; };
+		91680D9C2B4D65480075609F /* GameImageAndTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91680D9B2B4D65480075609F /* GameImageAndTitle.swift */; };
 		91952B732B2078D6006CF2A2 /* SaverFoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */; };
 		91952B772B2078D8006CF2A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91952B762B2078D8006CF2A2 /* Assets.xcassets */; };
 		91952B7A2B2078D8006CF2A2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91952B792B2078D8006CF2A2 /* Preview Assets.xcassets */; };
@@ -92,6 +95,11 @@
 		91680D8A2B470E890075609F /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		91680D8E2B4866180075609F /* TipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewModel.swift; sourceTree = "<group>"; };
 		91680D902B486C4F0075609F /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
+		91680D952B4D3ADC0075609F /* Salsa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Salsa-Regular.ttf"; sourceTree = "<group>"; };
+		91680D962B4D3EB80075609F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		91680D972B4D56160075609F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		91680D992B4D56F40075609F /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
+		91680D9B2B4D65480075609F /* GameImageAndTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameImageAndTitle.swift; sourceTree = "<group>"; };
 		91952B6F2B2078D6006CF2A2 /* SaverFox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaverFox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaverFoxApp.swift; sourceTree = "<group>"; };
 		91952B762B2078D8006CF2A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -200,8 +208,18 @@
 			isa = PBXGroup;
 			children = (
 				91C2B1AF2B2CE5BC004C1B53 /* GamesView.swift */,
+				91680D9B2B4D65480075609F /* GameImageAndTitle.swift */,
 			);
 			path = GamesView;
+			sourceTree = "<group>";
+		};
+		91680D942B4D3ABC0075609F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				91680D952B4D3ADC0075609F /* Salsa-Regular.ttf */,
+				91C2B1632B2C3E6F004C1B53 /* Fonts.swift */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		91952B662B2078D5006CF2A2 = {
@@ -224,6 +242,7 @@
 		91952B712B2078D6006CF2A2 /* SaverFox */ = {
 			isa = PBXGroup;
 			children = (
+				91680D962B4D3EB80075609F /* Info.plist */,
 				91952B722B2078D6006CF2A2 /* SaverFoxApp.swift */,
 				91C2B1C22B304D16004C1B53 /* Manager */,
 				91952B862B207969006CF2A2 /* Resources */,
@@ -292,6 +311,7 @@
 				91680D832B46D1DD0075609F /* PointsViewModel.swift */,
 				91680D8E2B4866180075609F /* TipViewModel.swift */,
 				91680D902B486C4F0075609F /* OverviewViewModel.swift */,
+				91680D992B4D56F40075609F /* GamesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -324,6 +344,7 @@
 				91C2B1752B2C8317004C1B53 /* Settings.swift */,
 				91C2B19C2B2CAF31004C1B53 /* Finance.swift */,
 				91C2B1DC2B3445BB004C1B53 /* SavingsGoal.swift */,
+				91680D972B4D56160075609F /* Game.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -331,9 +352,9 @@
 		91952B862B207969006CF2A2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				91680D942B4D3ABC0075609F /* Fonts */,
 				91952B872B207973006CF2A2 /* Strings */,
 				91952B882B207995006CF2A2 /* Colors.swift */,
-				91C2B1632B2C3E6F004C1B53 /* Fonts.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -577,6 +598,7 @@
 				91952B8B2B2079A4006CF2A2 /* Strings.swift in Sources */,
 				91952B8E2B209D95006CF2A2 /* LoginView.swift in Sources */,
 				91C2B1AE2B2CE5A1004C1B53 /* RewardsView.swift in Sources */,
+				91680D9C2B4D65480075609F /* GameImageAndTitle.swift in Sources */,
 				91C2B1662B2C577B004C1B53 /* HomeView.swift in Sources */,
 				91680D752B35CDC20075609F /* ProfileImage.swift in Sources */,
 				91C2B1902B2C8F0D004C1B53 /* CurrencyConverterView.swift in Sources */,
@@ -600,8 +622,10 @@
 				91C2B1B02B2CE5BC004C1B53 /* GamesView.swift in Sources */,
 				91C2B1C82B31A1F8004C1B53 /* Currency.swift in Sources */,
 				91952B982B21CF25006CF2A2 /* LoginImage.swift in Sources */,
+				91680D982B4D56160075609F /* Game.swift in Sources */,
 				91680D912B486C4F0075609F /* OverviewViewModel.swift in Sources */,
 				91680D8B2B470E890075609F /* TextButton.swift in Sources */,
+				91680D9A2B4D56F40075609F /* GamesViewModel.swift in Sources */,
 				91C2B1CA2B31C47D004C1B53 /* CurrencyPicker.swift in Sources */,
 				91C2B1BA2B3041AC004C1B53 /* ApiResponse.swift in Sources */,
 				91C2B1B42B30388F004C1B53 /* CurrencyConverterRepository.swift in Sources */,
@@ -777,6 +801,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SaverFox/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -810,6 +835,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SaverFox/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

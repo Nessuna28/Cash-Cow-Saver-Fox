@@ -38,7 +38,8 @@ struct RewardsView: View {
                 GamesView()
                     .environmentObject(pointsViewModel)
             } label: {
-                TextButton(action: pointsViewModel.unlockGames, title: Strings.unlockGames)
+                Text(Strings.unlockGames)
+                    .padding(30)
             }
             
             Text(Strings.orSo)

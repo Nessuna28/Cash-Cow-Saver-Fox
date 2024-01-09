@@ -39,6 +39,10 @@
 "account" = "Account";
 "selectPhoto" = "Select photo";
 
+"yourD" = "Your";
+"yourS" = "Your";
+"requestMade" = "has sent you a request for the conversion of points";
+
 
 "makeTheBest" = "Make the Best of Your Money";
 "withUsBestOverview" = "With us, you have the best overview of your income and expenses to achieve your personal goals.";

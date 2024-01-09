@@ -96,6 +96,19 @@ class FirestoreRepository {
     }
     
     
+    static func updateInquiry(with id: String, inquiry: Int) {
+        
+        let data = ["inquiry": inquiry]
+        
+        DatabaseManager.shared.database.collection("children").document(id).setData(data, merge: true) { error in
+            if let error {
+                print("Update inquiry failed:", error)
+                return
+            }
+        }
+    }
+    
+    
     
     // MARK: - Finances
     

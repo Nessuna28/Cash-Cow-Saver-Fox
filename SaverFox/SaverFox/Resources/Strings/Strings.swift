@@ -64,6 +64,7 @@ struct Strings {
     
     static let guest = NSLocalizedString("guest", comment: "")
     
+    static let profile = NSLocalizedString("profile", comment: "")
     static let profilePicture = NSLocalizedString("profilePicture", comment: "")
     static let personal = NSLocalizedString("personal", comment: "")
     static let dataCannotBeChanged = NSLocalizedString("dataCannotBeChanged", comment: "")
@@ -153,8 +154,14 @@ struct Strings {
     static let notEnoughPoints = NSLocalizedString("notEnoughPoints", comment: "")
     
     static let games = NSLocalizedString("games", comment: "")
+    static let collection = NSLocalizedString("collection", comment: "")
     
     static let noneSoFar = NSLocalizedString("noneSoFar", comment: "")
+    
+    static let forTwentyPoints = NSLocalizedString("forTwentyPoints", comment: "")
+    static let forFifteenPoints = NSLocalizedString("forFifteenPoints", comment: "")
+    static let forTenPoints = NSLocalizedString("forTenPoints", comment: "")
+    static let forFivePoints = NSLocalizedString("forFivePoints", comment: "")
     
     
     // Tipps
@@ -184,4 +191,12 @@ struct Strings {
     // Buttons
     
     static let letsGo = NSLocalizedString("letsGo", comment: "")
+    
+    
+    // Games
+    
+    static let rockPaperScissors = NSLocalizedString("rockPaperScissors", comment: "")
+    static let ticTacToe = NSLocalizedString("ticTacToe", comment: "")
+    static let hangman = NSLocalizedString("hangman", comment: "")
+    static let trickle = NSLocalizedString("trickle", comment: "")
 }

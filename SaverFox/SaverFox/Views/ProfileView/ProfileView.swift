@@ -48,6 +48,7 @@ struct ProfileView: View {
                   dismissButton: .default(Text(Strings.okay))
             )
         }
+        .navigationTitle(Strings.profile)
     }
     
     

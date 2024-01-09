@@ -23,7 +23,7 @@ struct LoginView: View {
                     .font(.title)
                     .padding(.bottom, 50)
                 
-                AuthenticationView()
+                AuthenticationView(authenticationMode: authenticationMode)
                     .environmentObject(authViewModel)
             }
         }
@@ -34,9 +34,11 @@ struct LoginView: View {
     
     @EnvironmentObject private var authViewModel: AuthViewModel
     
+    let authenticationMode: AuthenticationMode
+    
 }
 
 #Preview {
-    LoginView()
+    LoginView(authenticationMode: .login)
         .environmentObject(AuthViewModel())
 }

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "tic_tac_toe.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -48,6 +48,10 @@ struct Strings {
     static let account = NSLocalizedString("account", comment: "")
     static let selectPhoto = NSLocalizedString("selectPhoto", comment: "")
     
+    static let yourD = NSLocalizedString("yourD", comment: "")
+    static let yourS = NSLocalizedString("yourS", comment: "")
+    static let requestMade = NSLocalizedString("requestMade", comment: "")
+    
     
     // MARK: - OnboardingTexts
     

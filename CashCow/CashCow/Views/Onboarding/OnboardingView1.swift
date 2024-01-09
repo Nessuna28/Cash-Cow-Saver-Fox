@@ -17,7 +17,6 @@ struct OnboardingView1: View {
                 
                 VStack {
                     LoginButton()
-                        .environmentObject(authViewModel)
                     
                     TitleWithAnimation()
                     

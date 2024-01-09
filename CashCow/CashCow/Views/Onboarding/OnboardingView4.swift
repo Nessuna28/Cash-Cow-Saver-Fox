@@ -12,7 +12,6 @@ struct OnboardingView4: View {
     var body: some View {
         NavigationStack {
             LoginButton()
-                .environmentObject(authViewModel)
             
             Text(Strings.whichTabs)
                 .font(.title2)
@@ -24,29 +23,13 @@ struct OnboardingView4: View {
             
             Spacer()
             
-            Button(action: setModeOnRegister) {
-                NavigationLink {
-                    LoginView()
-                } label: {
-                    PrimaryButtonView(title: Strings.goOn)
-                        .padding(.bottom, 40)
-                }
+            NavigationLink {
+                LoginView(authenticationMode: .register)
+            } label: {
+                PrimaryButtonView(title: Strings.goOn)
+                    .padding(.bottom, 40)
             }
         }
-    }
-    
-    
-    // MARK: - Variables
-    
-    @EnvironmentObject private var authViewModel: AuthViewModel
-    
-    
-    
-    // MARK: - Functions
-    
-    private func setModeOnRegister() {
-        
-        authViewModel.authenticationMode = .register
     }
     
 }

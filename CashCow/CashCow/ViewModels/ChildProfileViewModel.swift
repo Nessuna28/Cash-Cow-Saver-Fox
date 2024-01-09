@@ -30,6 +30,7 @@ class ChildProfileViewModel: ObservableObject {
     
     @Published var showSheetChildAccount = false
     @Published var showSheetNewChild = false
+    @Published var showSheetInquiry = false
     
     @Published var selectedImage: UIImage?
     @Published var profileImage: UIImage?
@@ -46,6 +47,12 @@ class ChildProfileViewModel: ObservableObject {
     func closeNewChildSheet() {
         
         showSheetNewChild = false
+    }
+    
+    
+    func toggleInquirySheet() {
+        
+        showSheetInquiry.toggle()
     }
     
     

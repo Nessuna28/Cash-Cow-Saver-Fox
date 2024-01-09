@@ -53,6 +53,18 @@ struct ChildAccountView: View {
                     }
                 }
                 
+                if childProfileViewModel.fireChild?.inquiry != nil {
+                    Section {
+                        Button(action: childProfileViewModel.toggleInquirySheet) {
+                            if childProfileViewModel.fireChild?.familyMember == Strings.son {
+                                Text("\(Strings.yourS) \(Strings.son) \(Strings.requestMade)")
+                            } else if childProfileViewModel.fireChild?.familyMember == Strings.daughter {
+                                Text("\(Strings.yourD) \(Strings.daughter) \(Strings.requestMade)")
+                            }
+                        }
+                    }
+                }
+                
                 Section {
                     Button(Strings.save) {
                         if childProfileViewModel.currentChildId.isEmpty {

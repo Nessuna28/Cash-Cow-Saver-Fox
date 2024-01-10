@@ -49,6 +49,7 @@ struct SettingsView: View {
                     Button(role: .destructive) {
                         authViewModel.logoutUser()
                         childrenListViewModel.removeListener()
+                        choiceOptionViewModel.removeListener()
                     } label: {
                         HStack {
                             Image(systemName: Strings.logoutIcon)
@@ -58,9 +59,10 @@ struct SettingsView: View {
                     }
                     
                     Button(role: .destructive) {
-                        authViewModel.logoutUser()
                         childrenListViewModel.removeListener()
+                        choiceOptionViewModel.removeListener()
                         AuthManager.shared.deleteUser()
+                        authViewModel.logoutUser()
                         
                     } label: {
                         HStack {
@@ -84,6 +86,7 @@ struct SettingsView: View {
     @EnvironmentObject private var settingsViewModel: SettingsViewModel
     @EnvironmentObject private var authViewModel: AuthViewModel
     @EnvironmentObject private var childrenListViewModel: ChildrenListViewModel
+    @EnvironmentObject private var choiceOptionViewModel: ChoiceOptionViewModel
     
 }
 
@@ -93,4 +96,5 @@ struct SettingsView: View {
         .environmentObject(SettingsViewModel())
         .environmentObject(AuthViewModel())
         .environmentObject(ChildrenListViewModel())
+        .environmentObject(ChoiceOptionViewModel())
 }

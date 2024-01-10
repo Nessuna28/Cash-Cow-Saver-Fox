@@ -65,7 +65,9 @@ struct AuthenticationView: View {
             
             Spacer()
             
-            Button(action: authenticate) {
+            Button {
+                authenticate()
+            } label: {
                 PrimaryButtonView(title: authenticationMode.title)
                     .padding(.bottom, 40)
             }
@@ -77,6 +79,7 @@ struct AuthenticationView: View {
     // MARK: - Variables
     
     @EnvironmentObject private var authViewModel: AuthViewModel
+    @EnvironmentObject private var choiceOptionViewModel: ChoiceOptionViewModel
     
     let authenticationMode: AuthenticationMode
     

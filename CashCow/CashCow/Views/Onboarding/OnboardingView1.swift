@@ -31,6 +31,7 @@ struct OnboardingView1: View {
                     
                     NavigationLink {
                         OnboardingView2()
+                            .environmentObject(choiceOptionViewModel)
                     } label: {
                         PrimaryButtonView(title: Strings.letsGo)
                             .padding(30)
@@ -58,10 +59,12 @@ struct OnboardingView1: View {
     // MARK: - Variables
     
     @EnvironmentObject private var authViewModel: AuthViewModel
+    @EnvironmentObject private var choiceOptionViewModel: ChoiceOptionViewModel
     
 }
 
 #Preview {
     OnboardingView1()
         .environmentObject(AuthViewModel())
+        .environmentObject(ChoiceOptionViewModel())
 }

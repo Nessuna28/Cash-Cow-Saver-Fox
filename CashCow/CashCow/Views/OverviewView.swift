@@ -17,7 +17,7 @@ struct OverviewView: View {
                 .padding(.top, 30)
             
             ScrollView {
-                ForEach(ChoiceOption.allCases) { choiceOption in
+                ForEach(choiceOptionViewModel.choiceOptions) { choiceOption in
                     ChoiceOptionListForOverview(choiceOption: choiceOption)
                 }
                 .padding(.top, 50)
@@ -25,8 +25,14 @@ struct OverviewView: View {
         }
     }
     
+    
+    // MARK: - Variables
+    
+    @EnvironmentObject private var choiceOptionViewModel: ChoiceOptionViewModel
+    
 }
 
 #Preview {
     OverviewView()
+        .environmentObject(ChoiceOptionViewModel())
 }

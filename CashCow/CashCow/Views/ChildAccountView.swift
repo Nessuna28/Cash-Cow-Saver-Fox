@@ -88,6 +88,10 @@ struct ChildAccountView: View {
             .alert(Strings.assignName, isPresented: $showAlert) {
                 Button(Strings.okay, role: .cancel) { }
             }
+            .sheet(isPresented: $childProfileViewModel.showSheetInquiry, content: {
+                InquiryView()
+                    .environmentObject(childProfileViewModel)
+            })
         }
         .onAppear {
             childProfileViewModel.fetchChild()

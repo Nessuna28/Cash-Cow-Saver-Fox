@@ -51,6 +51,13 @@ struct Strings {
     static let yourD = NSLocalizedString("yourD", comment: "")
     static let yourS = NSLocalizedString("yourS", comment: "")
     static let requestMade = NSLocalizedString("requestMade", comment: "")
+    static let inquiry = NSLocalizedString("inquiry", comment: "")
+    static let childWants = NSLocalizedString("childWants", comment: "")
+    static let redeemPoints = NSLocalizedString("redeemPoints", comment: "")
+    static let theyDecide = NSLocalizedString("theyDecide", comment: "")
+    static let pointsHaveBeenRedeemed = NSLocalizedString("pointsHaveBeenRedeemed", comment: "")
+    static let requestCompleted = NSLocalizedString("requestCompleted", comment: "")
+    static let requestCompletedAndDeleted = NSLocalizedString("requestCompletedAndDeleted", comment: "")
     
     
     // MARK: - OnboardingTexts

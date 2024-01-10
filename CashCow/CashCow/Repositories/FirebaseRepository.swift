@@ -77,6 +77,20 @@ class FirebaseRepository {
     }
     
     
+    // MARK: - ChoiceOption
+    
+    static func createChoiceOption(with id: String, title: String, icon: String, isEnabled: Bool) {
+        
+        let choiceOption = FireChoiceOption(title: title, icon: icon, isEnabled: isEnabled)
+        
+        do {
+            try AuthManager.shared.database.collection("users").document(id).collection("choiceOptions").document().setData(from: choiceOption)
+        } catch {
+            print("Saving choice options failed:", error)
+        }
+    }
+    
+    
     // MARK: - Photo
     
     static func uploadPhoto(with id: String, collection: String, image: UIImage?) {
@@ -199,6 +213,19 @@ class FirebaseRepository {
         AuthManager.shared.database.collection("children").document(id).setData(data, merge: true) { error in
             if let error {
                 print("Update child failed:", error)
+                return
+            }
+        }
+    }
+    
+    
+    static func deleteInquiry(with id: String) {
+        
+        let fieldToDelete = "inquiry"
+        
+        AuthManager.shared.database.collection("children").document(id).updateData([fieldToDelete: FieldValue.delete()]) { error in
+            if let error {
+                print("Delete inquiry failed:", error)
                 return
             }
         }

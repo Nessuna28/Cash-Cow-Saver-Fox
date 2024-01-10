@@ -38,6 +38,7 @@ struct OnboardingView2: View {
                     
                     NavigationLink {
                         OnboardingView3()
+                            .environmentObject(choiceOptionViewModel)
                     } label: {
                         SelectionAdultView()
                     }
@@ -54,10 +55,12 @@ struct OnboardingView2: View {
     // MARK: - Variables
     
     @EnvironmentObject private var authViewModel: AuthViewModel
+    @EnvironmentObject private var choiceOptionViewModel: ChoiceOptionViewModel
     
 }
 
 #Preview {
     OnboardingView2()
         .environmentObject(AuthViewModel())
+        .environmentObject(ChoiceOptionViewModel())
 }

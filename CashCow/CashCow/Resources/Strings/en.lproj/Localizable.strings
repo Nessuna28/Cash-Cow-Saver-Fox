@@ -42,6 +42,13 @@
 "yourD" = "Your";
 "yourS" = "Your";
 "requestMade" = "has sent you a request for the conversion of points";
+"inquiry" = "Inquiry";
+"childWants" = "Your child wants";
+"redeemPoints" = "Redeem Points";
+"theyDecide" = "Decide what your child gets for the points.";
+"pointsHaveBeenRedeemed" = "Points have been redeemed";
+"requestCompleted" = "Request completed";
+"requestCompletedAndDeleted" = "If you confirm with okay, the request is completed and will be deleted.";
 
 
 "makeTheBest" = "Make the Best of Your Money";

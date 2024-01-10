@@ -27,6 +27,7 @@ struct CashCowApp: App {
         }
         .environmentObject(authViewModel)
         .environmentObject(profileViewModel)
+        .environmentObject(choiceOptionViewModel)
     }
     
     
@@ -34,4 +35,5 @@ struct CashCowApp: App {
     
     @StateObject private var authViewModel = AuthViewModel()
     @StateObject private var profileViewModel = ProfileViewModel()
+    @StateObject private var choiceOptionViewModel = ChoiceOptionViewModel()
 }

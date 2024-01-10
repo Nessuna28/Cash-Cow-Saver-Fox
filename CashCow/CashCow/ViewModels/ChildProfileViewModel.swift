@@ -36,6 +36,9 @@ class ChildProfileViewModel: ObservableObject {
     @Published var selectedImage: UIImage?
     @Published var profileImage: UIImage?
     
+    @Published var showAlert = false
+    @Published var alertText = ""
+    
     
     // MARK: - Functions
     
@@ -134,6 +137,30 @@ class ChildProfileViewModel: ObservableObject {
     private func uploadPhoto(id: String) {
         
         FirebaseRepository.uploadPhoto(with: id, collection: "children", image: selectedImage)
+    }
+    
+    
+    func deleteInquiry() {
+        
+        guard let id = fireChild?.id else { return }
+                
+        FirebaseRepository.deleteInquiry(with: id)
+        
+        showAlert = false
+        showSheetInquiry = false
+    }
+    
+    
+    func openAlert() {
+        
+        alertText = Strings.requestCompletedAndDeleted
+        showAlert = true
+    }
+    
+    
+    func closeAlert() {
+        
+        showAlert = false
     }
     
 }

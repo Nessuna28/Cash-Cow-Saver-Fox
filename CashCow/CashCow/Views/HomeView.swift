@@ -27,6 +27,7 @@ struct HomeView: View {
                 NavigatorView()
                     .environmentObject(settingsViewModel)
                     .environmentObject(authViewModel)
+                    .environmentObject(choiceOptionViewModel)
             }
             .environmentObject(childrenListViewModel)
             .padding(.horizontal)
@@ -38,6 +39,8 @@ struct HomeView: View {
                         profileViewModel.fireUser = fireUser
                         
                         profileViewModel.downloadPhoto(id: uid)
+                        
+                        choiceOptionViewModel.fetchChoiceOptions(with: uid)
                     }
                 }
                 
@@ -51,6 +54,7 @@ struct HomeView: View {
     
     @EnvironmentObject private var profileViewModel: ProfileViewModel
     @EnvironmentObject private var authViewModel: AuthViewModel
+    @EnvironmentObject private var choiceOptionViewModel: ChoiceOptionViewModel
     
     @StateObject private var childProfileViewModel = ChildProfileViewModel()
     @StateObject private var childrenListViewModel = ChildrenListViewModel()
@@ -62,7 +66,5 @@ struct HomeView: View {
     HomeView()
         .environmentObject(ProfileViewModel())
         .environmentObject(AuthViewModel())
-        .environmentObject(ChildProfileViewModel())
-        .environmentObject(ChildrenListViewModel())
-        .environmentObject(SettingsViewModel())
+        .environmentObject(ChoiceOptionViewModel())
 }

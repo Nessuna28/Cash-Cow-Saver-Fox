@@ -42,6 +42,13 @@
 "yourD" = "Deine";
 "yourS" = "Dein";
 "requestMade" = "hat dir eine Anfrage für die Umwandlung von Punkten geschickt";
+"inquiry" = "Anfrage";
+"childWants" = "Dein Kind möchte";
+"redeemPoints" = "Punkte einlösen";
+"theyDecide" = "Entscheide was dein Kind für die Punkte bekommt.";
+"pointsHaveBeenRedeemed" = "Punkte wurden eingelöst";
+"requestCompleted" = "Aufgabe erledigt";
+"requestCompletedAndDeleted" = "Wenn du mit okay bestätigst ist die Anfrage erledigt und wird gelöscht.";
 
 
 "makeTheBest" = "Mach das Beste mit deinem Geld";

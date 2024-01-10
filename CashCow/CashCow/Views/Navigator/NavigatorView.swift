@@ -17,6 +17,7 @@ struct NavigatorView: View {
                         .environmentObject(settingsViewModel)
                         .environmentObject(authViewModel)
                         .environmentObject(childrenListViewModel)
+                        .environmentObject(choiceOptionViewModel)
                         .tabItem {
                             VStack {
                                 tab.icon
@@ -38,6 +39,7 @@ struct NavigatorView: View {
     @EnvironmentObject private var settingsViewModel: SettingsViewModel
     @EnvironmentObject private var authViewModel: AuthViewModel
     @EnvironmentObject private var childrenListViewModel: ChildrenListViewModel
+    @EnvironmentObject private var choiceOptionViewModel: ChoiceOptionViewModel
     
 }
 
@@ -46,4 +48,5 @@ struct NavigatorView: View {
         .environmentObject(SettingsViewModel())
         .environmentObject(AuthViewModel())
         .environmentObject(ChildrenListViewModel())
+        .environmentObject(ChoiceOptionViewModel())
 }

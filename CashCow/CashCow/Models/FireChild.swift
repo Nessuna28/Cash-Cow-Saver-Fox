@@ -16,6 +16,7 @@ struct FireChild: Codable, Identifiable {
     var lastName: String?
     var firstName: String
     var birthday: Date?
+    var profilePicture: String?
     
     var loginName: String
     var loginImage: String
@@ -25,4 +26,5 @@ struct FireChild: Codable, Identifiable {
     var initialAmount: Double?
     var currentPoints: Int?
     var rewardClaimDate: Date?
+    var inquiry: Int?
 }

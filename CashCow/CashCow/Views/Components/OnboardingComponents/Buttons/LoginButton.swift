@@ -14,32 +14,16 @@ struct LoginButton: View {
             Spacer()
             
             NavigationLink {
-                LoginView()
-                    .environmentObject(authViewModel)
+                LoginView(authenticationMode: .login)
             } label: {
-                Button(action: setModeOnLogin) {
-                    Text(Strings.login)
-                        .font(.headline)
-                        .bold()
-                        .padding(.bottom, 10)
-                        .padding(.trailing, 10)
-                        .foregroundColor(Colors.primaryGreen)
-                }
+                Text(Strings.login)
+                    .font(.headline)
+                    .bold()
+                    .padding(.bottom, 10)
+                    .padding(.trailing, 10)
+                    .foregroundColor(Colors.primaryGreen)
             }
         }
-    }
-    
-    
-    // MARK: - Variables
-    
-    @EnvironmentObject private var authViewModel: AuthViewModel
-    
-    
-    
-    // MARK: - Functions
-    
-    private func setModeOnLogin() {
-        authViewModel.authenticationMode = .login
     }
     
 }

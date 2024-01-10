@@ -11,7 +11,7 @@ struct ChoiceOptionListForOverview: View {
     
     var body: some View {
         HStack {
-            choiceOption.icon
+            Image(choiceOption.icon)
             
             Text(choiceOption.title)
             
@@ -25,10 +25,10 @@ struct ChoiceOptionListForOverview: View {
     
     // MARK: - Variables
     
-    let choiceOption: ChoiceOption
+    let choiceOption: FireChoiceOption
     
 }
 
 #Preview {
-    ChoiceOptionListForOverview(choiceOption: .bankAccounts)
+    ChoiceOptionListForOverview(choiceOption: FireChoiceOption(title: "", icon: "", isEnabled: true))
 }

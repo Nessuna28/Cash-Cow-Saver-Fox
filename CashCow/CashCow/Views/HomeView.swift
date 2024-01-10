@@ -27,9 +27,25 @@ struct HomeView: View {
                 NavigatorView()
                     .environmentObject(settingsViewModel)
                     .environmentObject(authViewModel)
+                    .environmentObject(choiceOptionViewModel)
             }
             .environmentObject(childrenListViewModel)
             .padding(.horizontal)
+            .onAppear {
+                if let uid = AuthManager.shared.auth.currentUser?.uid {
+                    FirebaseRepository.fetchUser(with: uid) { fireUser in
+                        guard let fireUser else { return }
+                        
+                        profileViewModel.fireUser = fireUser
+                        
+                        profileViewModel.downloadPhoto(id: uid)
+                        
+                        choiceOptionViewModel.fetchChoiceOptions(with: uid)
+                    }
+                }
+                
+                profileViewModel.profileImage = UIImage(named: Strings.defaultProfilePicture)
+            }
         }
     }
     
@@ -38,6 +54,7 @@ struct HomeView: View {
     
     @EnvironmentObject private var profileViewModel: ProfileViewModel
     @EnvironmentObject private var authViewModel: AuthViewModel
+    @EnvironmentObject private var choiceOptionViewModel: ChoiceOptionViewModel
     
     @StateObject private var childProfileViewModel = ChildProfileViewModel()
     @StateObject private var childrenListViewModel = ChildrenListViewModel()
@@ -49,7 +66,5 @@ struct HomeView: View {
     HomeView()
         .environmentObject(ProfileViewModel())
         .environmentObject(AuthViewModel())
-        .environmentObject(ChildProfileViewModel())
-        .environmentObject(ChildrenListViewModel())
-        .environmentObject(SettingsViewModel())
+        .environmentObject(ChoiceOptionViewModel())
 }

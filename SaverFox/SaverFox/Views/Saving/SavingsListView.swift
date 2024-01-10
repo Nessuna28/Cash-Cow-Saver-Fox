@@ -28,7 +28,7 @@ struct SavingsListView: View {
                         
                         Spacer()
                         
-                        Text(String(format: "%.2f €", savingsGoal.sumOfMoney))
+                        Text(String(format: "%.2f \(Strings.currency)", savingsGoal.sumOfMoney))
                     }
                     .padding()
                     .overlay(

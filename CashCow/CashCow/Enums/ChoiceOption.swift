@@ -35,5 +35,15 @@ enum ChoiceOption: String, Identifiable, CaseIterable {
         }
     }
     
-
+    var isEnabled: Bool {
+        switch self {
+        case .bankAccounts: return ChoiceOptionViewModel.shared.bankAccounts
+        case .creditCards: return ChoiceOptionViewModel.shared.creditCards
+        case .insurance: return ChoiceOptionViewModel.shared.insurance
+        case .savingAccounts: return ChoiceOptionViewModel.shared.savingAccounts
+        case .paidServices: return ChoiceOptionViewModel.shared.paidServices
+        case .orderAndDeliveryOverview: return ChoiceOptionViewModel.shared.orderAndDeliveryOverview
+        }
+    }
+    
 }

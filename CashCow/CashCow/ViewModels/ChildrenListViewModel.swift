@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import SwiftUI
 
 class ChildrenListViewModel: ObservableObject {
     
@@ -40,8 +41,6 @@ class ChildrenListViewModel: ObservableObject {
                 self.children = documents.compactMap { queryDocumentSnapshot -> FireChild? in
                     try? queryDocumentSnapshot.data(as: FireChild.self)
                 }
-                
-                self.downloadPictures()
             }
     }
     
@@ -49,10 +48,20 @@ class ChildrenListViewModel: ObservableObject {
     func downloadPictures() {
        
         for child in self.children {
-            FirebaseRepository.downloadPhoto(collection: "children", id: child.id ?? "") { image in
+            FirebaseRepository.downloadChildProfilePhoto(profilePicture: child.profilePicture) { image in
                 self.profileImages[child.id ?? ""] = image
             }
         }
+        
+        print(profileImages)
+    }
+    
+    
+    func getImage(forLoginImage title: String) -> Image {
+        
+        guard let image = LoginImages.allCases.first(where: { $0.title == title }) else { return Image("") }
+        
+        return image.image
     }
     
     

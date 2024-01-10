@@ -12,7 +12,6 @@ struct OnboardingView4: View {
     var body: some View {
         NavigationStack {
             LoginButton()
-                .environmentObject(authViewModel)
             
             Text(Strings.whichTabs)
                 .font(.title2)
@@ -20,17 +19,17 @@ struct OnboardingView4: View {
             
             ForEach(ChoiceOption.allCases) { tab in
                 SelectionChoiceOption(image: tab.icon, title: tab.title)
+                    .environmentObject(choiceOptionViewModel)
             }
             
             Spacer()
             
-            Button(action: setModeOnRegister) {
-                NavigationLink {
-                    LoginView()
-                } label: {
-                    PrimaryButtonView(title: Strings.goOn)
-                        .padding(.bottom, 40)
-                }
+            NavigationLink {
+                LoginView(authenticationMode: .register)
+                    .environmentObject(choiceOptionViewModel)
+            } label: {
+                PrimaryButtonView(title: Strings.goOn)
+                    .padding(.bottom, 40)
             }
         }
     }
@@ -38,20 +37,11 @@ struct OnboardingView4: View {
     
     // MARK: - Variables
     
-    @EnvironmentObject private var authViewModel: AuthViewModel
-    
-    
-    
-    // MARK: - Functions
-    
-    private func setModeOnRegister() {
-        
-        authViewModel.authenticationMode = .register
-    }
+    @EnvironmentObject private var choiceOptionViewModel: ChoiceOptionViewModel
     
 }
 
 #Preview {
     OnboardingView4()
-        .environmentObject(AuthViewModel())
+        .environmentObject(ChoiceOptionViewModel())
 }

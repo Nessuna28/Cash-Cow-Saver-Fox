@@ -56,6 +56,7 @@
 
 "guest" = "Gast";
 
+"profile" = "Profil";
 "profilePicture" = "Profilbild";
 "personal" = "Persönliches";
 "dataCannotBeChanged" = "\ndiese Daten können nicht geändert werden";
@@ -119,6 +120,7 @@
 "howMuchMoneySpent" = "Wieviel Geld hast du ausgegeben?";
 "savingsGoals" = "Sparziele";
 "until" = "bis";
+"savingsGoalReachedToday" = "Heute hast du dein Sparziel erreicht";
 "into" = "in";
 "day" = "Tag";
 "days" = "Tage";
@@ -145,14 +147,28 @@
 "notEnoughPoints" = "Du hast nicht genügend Punkte. \n Wähle bitte nur soviel Punkte wie du auch hast.";
 
 "games" = "Spiele";
+"collection" = "Sammlung";
 
 "noneSoFar" = "Bisher keine";
+
+"forTwentyPoints" = "für 20 Punkte";
+"forFifteenPoints" = "für 15 Punkte";
+"forTenPoints" = "für 10 Punkte";
+"forFivePoints" = "für 5 Punkte";
+
+"currency" = "€";
 
 
 "tips" = "Tipps";
 "tip1" = "Gib nicht alles auf einmal aus!";
 "tip2" = "Überlege vorher, ob du das was du kaufen möchtest wirklich brauchst.";
-"tip3" = "Wenn du viel spart kannst du dir später etwas Großes kaufen.";
+"tip3" = "Wenn du viel sparst kannst du dir später etwas Großes kaufen.";
 "tip4" = "Rechne beim Einkaufen im Kopf immer mit, so kannst du sicher sein, dass dein Geld auch reicht.";
 "tip5" = "Denk an besondere Anlässe wie Geburtstage und leg dir Geld dafür zur Seite.";
 "noTip" = "kein Tipp verfügbar";
+
+
+"rockPaperScissors" = "Stein-Papier-Schere";
+"ticTacToe" = "Tic-Tac-Toe";
+"hangman" = "Galgenmännchen";
+"trickle" = "Kniffel";

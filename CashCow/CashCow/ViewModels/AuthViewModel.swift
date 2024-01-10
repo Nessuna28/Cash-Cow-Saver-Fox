@@ -42,7 +42,7 @@ class AuthViewModel: ObservableObject {
     // MARK: - Functions
     
     private func checkAuth() {
-        print("check")
+        
         guard let currentUser = authManager.auth.currentUser else {
             print("Not logged in")
             return
@@ -53,7 +53,7 @@ class AuthViewModel: ObservableObject {
     
     
     func loginUser(email: String, password: String) {
-        print("login")
+        
         authManager.loginUser(email: email, password: password) { user in
             guard let user else { return }
             
@@ -63,7 +63,7 @@ class AuthViewModel: ObservableObject {
     
     
     func registerUser(email: String, password: String, repeatedPassword: String) {
-        print("register")
+        
         authManager.registerUser(email: email, password: password, repeatedPassword: repeatedPassword) { user in
             guard let user else { return }
             
@@ -71,15 +71,21 @@ class AuthViewModel: ObservableObject {
             FirebaseRepository.createSettings(with: user.uid, settings: FireSettings(userId: AuthManager.shared.auth.currentUser?.uid ?? "", backgroundColor: UIColor(.white).colorToString(), textColor: UIColor(.black).colorToString(), userFontSize: Strings.medium, isDarkModeEnabled: false))
             
             self.loginUser(email: email, password: password)
+            self.createChoiceOptions(id: user.uid)
         }
     }
     
     
     func logoutUser() {
         
-        print("logout")
         authManager.logoutUser()
         self.user = nil
+    }
+    
+    
+    private func createChoiceOptions(id: String) {
+        
+        ChoiceOptionViewModel.shared.createChoiceOption(id: id)
     }
     
 }

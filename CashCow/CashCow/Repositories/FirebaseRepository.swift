@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
 import UIKit
+import Combine
 
 class FirebaseRepository {
     
@@ -72,6 +73,20 @@ class FirebaseRepository {
                 print("Delete user failed:", error)
                 return
             }
+        }
+    }
+    
+    
+    // MARK: - ChoiceOption
+    
+    static func createChoiceOption(with id: String, title: String, icon: String, isEnabled: Bool) {
+        
+        let choiceOption = FireChoiceOption(title: title, icon: icon, isEnabled: isEnabled)
+        
+        do {
+            try AuthManager.shared.database.collection("users").document(id).collection("choiceOptions").document().setData(from: choiceOption)
+        } catch {
+            print("Saving choice options failed:", error)
         }
     }
     
@@ -204,6 +219,19 @@ class FirebaseRepository {
     }
     
     
+    static func deleteInquiry(with id: String) {
+        
+        let fieldToDelete = "inquiry"
+        
+        AuthManager.shared.database.collection("children").document(id).updateData([fieldToDelete: FieldValue.delete()]) { error in
+            if let error {
+                print("Delete inquiry failed:", error)
+                return
+            }
+        }
+    }
+    
+    
     static func deleteChild(with id: String) {
         
         AuthManager.shared.database.collection("children").document(id).delete { error in
@@ -211,6 +239,32 @@ class FirebaseRepository {
                 print("Delete child failed:", error)
                 return
             }
+        }
+    }
+    
+    
+    static func downloadChildProfilePhoto(profilePicture: String?, completion: @escaping (UIImage?) -> Void) {
+        
+        if let image = profilePicture {
+            let storageRef = Storage.storage().reference()
+            let fileRef = storageRef.child(image)
+            
+            fileRef.getData(maxSize: (5 * 1024 * 1024)) { data, error in
+                if let error = error {
+                    print("No image", error)
+                    completion(UIImage(named: Strings.defaultProfilePicture))
+                    return
+                }
+                
+                if let data = data, let image = UIImage(data: data) {
+                    completion(image)
+                } else {
+                    print("Failed to convert data to UIImage.")
+                    completion(UIImage(named: Strings.defaultProfilePicture))
+                }
+            }
+        } else {
+            completion(UIImage(named: Strings.defaultProfilePicture))
         }
     }
     

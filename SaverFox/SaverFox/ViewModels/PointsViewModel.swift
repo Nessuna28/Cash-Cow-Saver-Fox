@@ -100,6 +100,7 @@ class PointsViewModel: ObservableObject {
             points -= pointsToBeRedeemed
             
             updateCurrentPoints(with: id)
+            FirestoreRepository.updateInquiry(with: id, inquiry: pointsToBeRedeemed)
         } else {
             alertText = Strings.enterInt
             showAlert.toggle()

@@ -17,7 +17,7 @@ struct FinanceView: View {
             
             Spacer()
             
-            Text(String(format: "%.2f € \(Strings.beAvailable)", financeViewModel.currentSum))
+            Text(String(format: "%.2f \(Strings.currency) \(Strings.beAvailable)", financeViewModel.currentSum))
                 .foregroundStyle(Colors.primaryOrange)
         }
         .sheet(isPresented: $financeViewModel.showRevenueSheet, content: {

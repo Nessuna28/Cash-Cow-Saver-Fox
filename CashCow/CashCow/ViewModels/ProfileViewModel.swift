@@ -21,8 +21,6 @@ class ProfileViewModel: ObservableObject {
                 self.downloadPhoto(id: uid)
             }
         }
-        
-        self.profileImage = UIImage(named: Strings.defaultProfilePicture)
     }
     
     // MARK: - Variables
@@ -44,7 +42,7 @@ class ProfileViewModel: ObservableObject {
     }
     
     
-    private func downloadPhoto(id: String) {
+    func downloadPhoto(id: String) {
         
         FirebaseRepository.downloadPhoto(collection: "users", id: id) { image in
             

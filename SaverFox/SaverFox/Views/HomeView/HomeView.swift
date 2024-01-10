@@ -49,6 +49,7 @@ struct HomeView: View {
                         .environmentObject(financeViewModel)
                         .environmentObject(pointsViewModel)
                 }
+                //.font(Fonts.body)
                 .padding(.horizontal)
             }
             

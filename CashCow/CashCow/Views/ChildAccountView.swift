@@ -53,6 +53,20 @@ struct ChildAccountView: View {
                     }
                 }
                 
+                if childProfileViewModel.fireChild?.inquiry != nil {
+                    Section {
+                        Button(action: childProfileViewModel.toggleInquirySheet) {
+                            if childProfileViewModel.fireChild?.familyMember == Strings.son {
+                                Text("\(Strings.yourS) \(Strings.son) \(Strings.requestMade)")
+                                    .foregroundStyle(Colors.primaryGreen)
+                            } else if childProfileViewModel.fireChild?.familyMember == Strings.daughter {
+                                Text("\(Strings.yourD) \(Strings.daughter) \(Strings.requestMade)")
+                                    .foregroundStyle(Colors.primaryGreen)
+                            }
+                        }
+                    }
+                }
+                
                 Section {
                     Button(Strings.save) {
                         if childProfileViewModel.currentChildId.isEmpty {
@@ -74,6 +88,10 @@ struct ChildAccountView: View {
             .alert(Strings.assignName, isPresented: $showAlert) {
                 Button(Strings.okay, role: .cancel) { }
             }
+            .sheet(isPresented: $childProfileViewModel.showSheetInquiry, content: {
+                InquiryView()
+                    .environmentObject(childProfileViewModel)
+            })
         }
         .onAppear {
             childProfileViewModel.fetchChild()

@@ -23,8 +23,9 @@ struct LoginView: View {
                     .font(.title)
                     .padding(.bottom, 50)
                 
-                AuthenticationView()
+                AuthenticationView(authenticationMode: authenticationMode)
                     .environmentObject(authViewModel)
+                    .environmentObject(choiceOptionViewModel)
             }
         }
     }
@@ -33,10 +34,14 @@ struct LoginView: View {
     // MARK: - Variables
     
     @EnvironmentObject private var authViewModel: AuthViewModel
+    @EnvironmentObject private var choiceOptionViewModel: ChoiceOptionViewModel
+    
+    let authenticationMode: AuthenticationMode
     
 }
 
 #Preview {
-    LoginView()
+    LoginView(authenticationMode: .login)
         .environmentObject(AuthViewModel())
+        .environmentObject(ChoiceOptionViewModel())
 }

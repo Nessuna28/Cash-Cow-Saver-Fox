@@ -23,6 +23,7 @@ struct SelectionChoiceOption: View {
             
             Button {
                 isChecked.toggle()
+                toggleTheRespectiveOption()
             } label: {
                 Image(systemName: isChecked ? Strings.checkmarkFill : Strings.checkmarkEmpty)
                     .resizable()
@@ -47,8 +48,32 @@ struct SelectionChoiceOption: View {
     
     @State private var isChecked = false
     
+    @EnvironmentObject private var choiceOptionViewModel: ChoiceOptionViewModel
+    
+    
+    // MARK: - Functions
+    
+    private func toggleTheRespectiveOption() {
+        
+        if title == Strings.bankAccounts {
+            choiceOptionViewModel.toggleBankAccounts()
+            print("toggle: bank: \(choiceOptionViewModel.bankAccounts)")
+        } else if title == Strings.creditCards {
+            choiceOptionViewModel.toggleCreditCards()
+        } else if title == Strings.insurance {
+            choiceOptionViewModel.toggleInsurance()
+        } else if title == Strings.savingAccounts {
+            choiceOptionViewModel.toggleSavingAccounts()
+        } else if title == Strings.paidServices {
+            choiceOptionViewModel.togglePaidServices()
+        } else if title == Strings.orderAndDeliveryOverview {
+            choiceOptionViewModel.toggleOrderAndDeliveryOverview()
+        }
+    }
+    
 }
 
 #Preview {
     SelectionChoiceOption(image: Image(Strings.bankIcon), title: Strings.bankAccounts)
+        .environmentObject(ChoiceOptionViewModel())
 }

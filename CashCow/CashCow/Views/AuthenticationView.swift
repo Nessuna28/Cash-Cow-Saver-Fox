@@ -45,7 +45,7 @@ struct AuthenticationView: View {
             .cornerRadius(3)
             .padding(.horizontal, 30)
             
-            if authViewModel.authenticationMode == .register {
+            if authenticationMode == .register {
                 HStack {
                     SecureField(Strings.repeatedPassword, text: $repeatedPassword)
                         .textInputAutocapitalization(.never)
@@ -65,8 +65,10 @@ struct AuthenticationView: View {
             
             Spacer()
             
-            Button(action: authenticate) {
-                PrimaryButtonView(title: authViewModel.authenticationMode.title)
+            Button {
+                authenticate()
+            } label: {
+                PrimaryButtonView(title: authenticationMode.title)
                     .padding(.bottom, 40)
             }
             .disabled(disableAuthentication)
@@ -77,6 +79,9 @@ struct AuthenticationView: View {
     // MARK: - Variables
     
     @EnvironmentObject private var authViewModel: AuthViewModel
+    @EnvironmentObject private var choiceOptionViewModel: ChoiceOptionViewModel
+    
+    let authenticationMode: AuthenticationMode
     
     @State private var name = ""
     @State private var email = ""
@@ -100,7 +105,7 @@ struct AuthenticationView: View {
     
     private func authenticate() {
         
-        switch authViewModel.authenticationMode {
+        switch authenticationMode {
         case .login:
             authViewModel.loginUser(email: email, password: password)
         case .register:
@@ -111,6 +116,6 @@ struct AuthenticationView: View {
 }
 
 #Preview {
-    AuthenticationView()
+    AuthenticationView(authenticationMode: .login)
         .environmentObject(AuthViewModel())
 }

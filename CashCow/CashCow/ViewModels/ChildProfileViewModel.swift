@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseStorage
 
 class ChildProfileViewModel: ObservableObject {
     
@@ -30,9 +31,13 @@ class ChildProfileViewModel: ObservableObject {
     
     @Published var showSheetChildAccount = false
     @Published var showSheetNewChild = false
+    @Published var showSheetInquiry = false
     
     @Published var selectedImage: UIImage?
     @Published var profileImage: UIImage?
+    
+    @Published var showAlert = false
+    @Published var alertText = ""
     
     
     // MARK: - Functions
@@ -46,6 +51,12 @@ class ChildProfileViewModel: ObservableObject {
     func closeNewChildSheet() {
         
         showSheetNewChild = false
+    }
+    
+    
+    func toggleInquirySheet() {
+        
+        showSheetInquiry.toggle()
     }
     
     
@@ -101,7 +112,9 @@ class ChildProfileViewModel: ObservableObject {
                 self.loginName = fireChild?.loginName ?? ""
                 self.loginImage = fireChild?.loginImage ?? ""
                 
-                self.downloadPhoto(id: self.currentChildId)
+                FirebaseRepository.downloadChildProfilePhoto(profilePicture: fireChild?.profilePicture) { image in
+                    self.profileImage = image
+                }
             }
         }
     }
@@ -127,11 +140,27 @@ class ChildProfileViewModel: ObservableObject {
     }
     
     
-    private func downloadPhoto(id: String) {
+    func deleteInquiry() {
         
-        FirebaseRepository.downloadPhoto(collection: "children", id: id) { image in
-            
-            self.profileImage = image
-        }
+        guard let id = fireChild?.id else { return }
+                
+        FirebaseRepository.deleteInquiry(with: id)
+        
+        showAlert = false
+        showSheetInquiry = false
     }
+    
+    
+    func openAlert() {
+        
+        alertText = Strings.requestCompletedAndDeleted
+        showAlert = true
+    }
+    
+    
+    func closeAlert() {
+        
+        showAlert = false
+    }
+    
 }

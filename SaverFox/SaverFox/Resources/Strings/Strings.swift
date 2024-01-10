@@ -64,6 +64,7 @@ struct Strings {
     
     static let guest = NSLocalizedString("guest", comment: "")
     
+    static let profile = NSLocalizedString("profile", comment: "")
     static let profilePicture = NSLocalizedString("profilePicture", comment: "")
     static let personal = NSLocalizedString("personal", comment: "")
     static let dataCannotBeChanged = NSLocalizedString("dataCannotBeChanged", comment: "")
@@ -127,6 +128,7 @@ struct Strings {
     static let howMuchMoneySpent = NSLocalizedString("howMuchMoneySpent", comment: "")
     static let savingsGoals = NSLocalizedString("savingsGoals", comment: "")
     static let until = NSLocalizedString("until", comment: "")
+    static let savingsGoalReachedToday = NSLocalizedString("savingsGoalReachedToday", comment: "")
     static let into = NSLocalizedString("into", comment: "")
     static let day = NSLocalizedString("day", comment: "")
     static let days = NSLocalizedString("days", comment: "")
@@ -153,8 +155,17 @@ struct Strings {
     static let notEnoughPoints = NSLocalizedString("notEnoughPoints", comment: "")
     
     static let games = NSLocalizedString("games", comment: "")
+    static let collection = NSLocalizedString("collection", comment: "")
     
     static let noneSoFar = NSLocalizedString("noneSoFar", comment: "")
+    
+    static let forTwentyPoints = NSLocalizedString("forTwentyPoints", comment: "")
+    static let forFifteenPoints = NSLocalizedString("forFifteenPoints", comment: "")
+    static let forTenPoints = NSLocalizedString("forTenPoints", comment: "")
+    static let forFivePoints = NSLocalizedString("forFivePoints", comment: "")
+    
+    
+    static let currency = NSLocalizedString("currency", comment: "")
     
     
     // Tipps
@@ -184,4 +195,12 @@ struct Strings {
     // Buttons
     
     static let letsGo = NSLocalizedString("letsGo", comment: "")
+    
+    
+    // Games
+    
+    static let rockPaperScissors = NSLocalizedString("rockPaperScissors", comment: "")
+    static let ticTacToe = NSLocalizedString("ticTacToe", comment: "")
+    static let hangman = NSLocalizedString("hangman", comment: "")
+    static let trickle = NSLocalizedString("trickle", comment: "")
 }

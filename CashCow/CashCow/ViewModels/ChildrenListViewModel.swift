@@ -52,8 +52,6 @@ class ChildrenListViewModel: ObservableObject {
                 self.profileImages[child.id ?? ""] = image
             }
         }
-        
-        print(profileImages)
     }
     
     

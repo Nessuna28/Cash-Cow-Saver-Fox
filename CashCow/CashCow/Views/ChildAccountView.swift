@@ -88,7 +88,10 @@ struct ChildAccountView: View {
             .alert(Strings.assignName, isPresented: $showAlert) {
                 Button(Strings.okay, role: .cancel) { }
             }
-            .sheet(isPresented: $childProfileViewModel.showSheetInquiry, content: {
+            // onDissmiss sorgt dafür dass das Kind immer neu geladen wird wenn der Sheet geschlossen wird
+            .sheet(isPresented: $childProfileViewModel.showSheetInquiry, onDismiss: {
+                childProfileViewModel.fetchChild()
+            }, content: {
                 InquiryView()
                     .environmentObject(childProfileViewModel)
             })

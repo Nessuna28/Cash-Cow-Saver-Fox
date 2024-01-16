@@ -22,7 +22,6 @@ struct SaveAndCancelButton: View {
             
             Button {
                 action()
-                dismiss()
             } label: {
                 Text(Strings.save)
                     .foregroundStyle(Colors.primaryOrange)

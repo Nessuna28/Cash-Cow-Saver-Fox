@@ -89,8 +89,6 @@ class ChoiceOptionViewModel: ObservableObject {
         if orderAndDeliveryOverview {
             FirebaseRepository.createChoiceOption(with: id, title: Strings.orderAndDeliveryOverview, icon: Strings.deliveryIcon, isEnabled: orderAndDeliveryOverview)
         }
-        
-        print("Bools: bank: \(bankAccounts)")
     }
     
     

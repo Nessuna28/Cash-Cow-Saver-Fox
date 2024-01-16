@@ -51,6 +51,7 @@ struct OnboardingView1: View {
                             .bold()
                     }
                 }
+                .foregroundColor(Colors.textColorOnS)
             }
         }
     }

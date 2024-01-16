@@ -21,6 +21,8 @@ class ProfileViewModel: ObservableObject {
                 guard let child else { return }
                 
                 self.child = child
+                self.selectedLoginName = child.loginName
+                self.selectedLoginImageAsTitle = child.loginImage
                 self.loginImage = self.getImage(forLoginImage: child.loginImage)
                 self.downloadPhoto(child: child)
             }
@@ -94,6 +96,7 @@ class ProfileViewModel: ObservableObject {
         guard let id = child?.id else { return }
         
         currentLoginImageAsTitle = selectedLoginImageAsTitle
+        currentLoginName = selectedLoginName
         
         FirestoreRepository.updateLoginData(with: id, loginName: currentLoginName, loginImage: currentLoginImageAsTitle)
     }

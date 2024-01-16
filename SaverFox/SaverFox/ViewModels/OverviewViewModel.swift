@@ -30,9 +30,9 @@ class OverviewViewModel: ObservableObject {
     
     func setEmoji(points: Int) {
         
-        if points >= 80 {
+        if points >= 60 {
             emoji = "😃"
-        } else if points >= 50 {
+        } else if points >= 30 {
             emoji = "🙂"
         } else if points >= 10 {
             emoji = "😐"

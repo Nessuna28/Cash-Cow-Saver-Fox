@@ -17,6 +17,7 @@ struct TipsView: View {
             
             Text(tipViewModel.currentTip)
         }
+        .foregroundColor(Colors.textColor)
         .padding()
         .background(Colors.secondaryOrange)
         .cornerRadius(10)

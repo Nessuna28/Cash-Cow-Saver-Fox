@@ -10,28 +10,30 @@ import SwiftUI
 struct TabbarView: View {
     
     var body: some View {
-        HStack {
-            ForEach(tabbarViewModel.tabs) { item in
-                Button {
-                    tabbarViewModel.selectedTab = item
-                } label: {
-                    VStack {
-                        item.icon
-                            .font(.headline)
-                            .frame(width: 24, height: 24)
-                        
-                        Text(item.title)
-                            .font(.callout)
-                            .frame(maxWidth: .infinity)
+        VStack {
+            Divider()
+            
+            HStack {
+                ForEach(tabbarViewModel.tabs) { item in
+                    Button {
+                        tabbarViewModel.selectedTab = item
+                    } label: {
+                        VStack {
+                            item.icon
+                                .font(.headline)
+                                .frame(width: 24, height: 24)
+                            
+                            Text(item.title)
+                                .font(.callout)
+                                .frame(maxWidth: .infinity)
+                        }
+                        .foregroundStyle(tabbarViewModel.selectedTab == item ? Colors.primaryOrange : Colors.secondaryOrange)
                     }
-                    .foregroundStyle(tabbarViewModel.selectedTab == item ? Colors.textColor : .black.opacity(0.4))
                 }
             }
         }
         .frame(height: tabbarViewModel.tabbarSize)
         .padding(.horizontal)
-        .background(Colors.secondaryOrange)
-        .clipShape(Capsule())
     }
     
     

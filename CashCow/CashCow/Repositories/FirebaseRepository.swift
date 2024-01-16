@@ -206,9 +206,9 @@ class FirebaseRepository {
     }
     
     
-    static func updateChild(with id: String, familyMember: String, lastName: String, firstName: String, birthday: Date, loginName: String, loginImage: String) {
+    static func updateChild(with id: String, familyMember: String, lastName: String, firstName: String, birthday: Date) {
         
-        let data = ["familyMember": familyMember, "lastName": lastName, "firstName": firstName, "birthday": birthday, "loginName": loginName, "loginImage": loginImage] as [String: Any]
+        let data = ["familyMember": familyMember, "lastName": lastName, "firstName": firstName, "birthday": birthday] as [String: Any]
         
         AuthManager.shared.database.collection("children").document(id).setData(data, merge: true) { error in
             if let error {

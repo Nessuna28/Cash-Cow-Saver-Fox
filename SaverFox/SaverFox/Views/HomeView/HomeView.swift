@@ -13,31 +13,34 @@ struct HomeView: View {
         ZStack {
             NavigationStack {
                 VStack {
-                    HStack {
-                        Spacer()
-                        
-                        NavigationLink {
-                            ProfileView()
-                                .environmentObject(profileViewModel)
-                        } label: {
-                            ProfileNameAndImage()
-                                .environmentObject(profileViewModel)
+                    ZStack {
+                        HStack {
+                            NavigationLink {
+                                ProfileView()
+                                    .environmentObject(profileViewModel)
+                            } label: {
+                                ProfileNameAndImage()
+                                    .environmentObject(profileViewModel)
+                            }
                         }
                         
-                        AppIcon()
-                            .padding(.leading, 30)
-                            .padding(.trailing)
-                        
-                        NavigationLink {
-                            SettingsView()
-                                .environmentObject(authViewModel)
-                                .environmentObject(profileViewModel)
-                                .environmentObject(settingsViewModel)
-                                .environmentObject(financeViewModel)
-                                .environmentObject(savingViewModel)
-                        } label: {
-                            Image(systemName: Strings.settingsIcon)
-                                .font(.title2)
+                        HStack {
+                            Spacer()
+                            
+                            AppIcon()
+                                .padding(.trailing)
+                            
+                            NavigationLink {
+                                SettingsView()
+                                    .environmentObject(authViewModel)
+                                    .environmentObject(profileViewModel)
+                                    .environmentObject(settingsViewModel)
+                                    .environmentObject(financeViewModel)
+                                    .environmentObject(savingViewModel)
+                            } label: {
+                                Image(systemName: Strings.settingsIcon)
+                                    .font(.title2)
+                            }
                         }
                     }
                     

@@ -39,7 +39,7 @@ struct LoginDataView: View {
             }
         } else {
             Button(action: profileViewModel.toggleUpdateLoginName) {
-                InputField(title: Strings.loginName, input: profileViewModel.child?.loginName ?? Strings.guest)
+                InputField(title: Strings.loginName, input: profileViewModel.selectedLoginName)
             }
         }
         
@@ -59,7 +59,7 @@ struct LoginDataView: View {
                     
                     Spacer()
                     
-                    profileViewModel.loginImage?
+                    profileViewModel.getImage(forLoginImage: profileViewModel.selectedLoginImageAsTitle)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 40)

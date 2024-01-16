@@ -37,9 +37,7 @@ struct HomeView: View {
                         guard let fireUser else { return }
                         
                         profileViewModel.fireUser = fireUser
-                        
                         profileViewModel.downloadPhoto(id: uid)
-                        
                         choiceOptionViewModel.fetchChoiceOptions(with: uid)
                     }
                 }

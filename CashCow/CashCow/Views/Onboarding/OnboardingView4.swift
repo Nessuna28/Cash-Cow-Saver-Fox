@@ -11,25 +11,27 @@ struct OnboardingView4: View {
     
     var body: some View {
         NavigationStack {
-            LoginButton()
-            
-            Text(Strings.whichTabs)
-                .font(.title2)
-                .padding(30)
-            
-            ForEach(ChoiceOption.allCases) { tab in
-                SelectionChoiceOption(image: tab.icon, title: tab.title)
-                    .environmentObject(choiceOptionViewModel)
-            }
-            
-            Spacer()
-            
-            NavigationLink {
-                LoginView(authenticationMode: .register)
-                    .environmentObject(choiceOptionViewModel)
-            } label: {
-                PrimaryButtonView(title: Strings.goOn)
-                    .padding(.bottom, 40)
+            VStack {
+                LoginButton()
+                
+                Text(Strings.whichTabs)
+                    .font(.title2)
+                    .padding(30)
+                
+                ForEach(ChoiceOption.allCases) { tab in
+                    SelectionChoiceOption(image: tab.icon, title: tab.title)
+                        .environmentObject(choiceOptionViewModel)
+                }
+                
+                Spacer()
+                
+                NavigationLink {
+                    LoginView(authenticationMode: .register)
+                        .environmentObject(choiceOptionViewModel)
+                } label: {
+                    PrimaryButtonView(title: Strings.goOn)
+                        .padding(.bottom, 40)
+                }
             }
         }
     }

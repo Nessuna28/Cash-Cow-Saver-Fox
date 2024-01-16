@@ -51,10 +51,6 @@ struct ProfileView: View {
                                 Image(systemName: Strings.plusIcon)
                                     .foregroundColor(.blue)
                             }
-                            .sheet(isPresented: $childProfileViewModel.showSheetNewChild) {
-                                ChildAccountView()
-                                    .environmentObject(childProfileViewModel)
-                            }
                         } else {
                             Button {
                                 showChildrenList.toggle()
@@ -85,8 +81,22 @@ struct ProfileView: View {
                         dismiss()
                     }
                 }
-                .onAppear {
+                .sheet(isPresented: $childProfileViewModel.showSheetNewChild, onDismiss: {
+                    guard let id = profileViewModel.fireUser?.id else { return }
+                    
+                    profileViewModel.downloadPhoto(id: id)
                     childrenListViewModel.fetchChildren()
+                    childrenListViewModel.downloadPictures()
+                }, content: {
+                    ChildAccountView()
+                        .environmentObject(childProfileViewModel)
+                })
+                .onAppear {
+                    guard let id = profileViewModel.fireUser?.id else { return }
+                    
+                    profileViewModel.downloadPhoto(id: id)
+                    childrenListViewModel.fetchChildren()
+                    childrenListViewModel.downloadPictures()
                 }
             }
         }

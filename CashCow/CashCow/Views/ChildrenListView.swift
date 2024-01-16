@@ -41,10 +41,6 @@ struct ChildrenListView: View {
                         .frame(width: 30, height: 30)
                 }
             }
-            .sheet(isPresented: $childProfileViewModel.showSheetChildAccount) {
-                ChildAccountView()
-                    .environmentObject(childProfileViewModel)
-            }
             .swipeActions(allowsFullSwipe: false) {
                 Button(role: .destructive) {
                     childProfileViewModel.deleteChild(id: child.id ?? "")
@@ -52,10 +48,6 @@ struct ChildrenListView: View {
                     Image(systemName: Strings.trashIcon)
                 }
             }
-        }
-        .onAppear {
-            childrenListViewModel.fetchChildren()
-            childrenListViewModel.downloadPictures()
         }
         
         Button {
@@ -65,9 +57,23 @@ struct ChildrenListView: View {
             Text(Strings.addChild)
                 .padding(.top, 20)
         }
-        .sheet(isPresented: $childProfileViewModel.showSheetNewChild) {
+        .sheet(isPresented: $childProfileViewModel.showSheetChildAccount, onDismiss: {
+            childrenListViewModel.fetchChildren()
+            childrenListViewModel.downloadPictures()
+        }, content: {
             ChildAccountView()
                 .environmentObject(childProfileViewModel)
+        })
+        .sheet(isPresented: $childProfileViewModel.showSheetNewChild, onDismiss: {
+            childrenListViewModel.fetchChildren()
+            childrenListViewModel.downloadPictures()
+        }, content: {
+            ChildAccountView()
+                .environmentObject(childProfileViewModel)
+        })
+        .onAppear {
+            childrenListViewModel.fetchChildren()
+            childrenListViewModel.downloadPictures()
         }
         .navigationTitle(Strings.childrenAccounts)
     }

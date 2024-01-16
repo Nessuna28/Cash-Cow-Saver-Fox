@@ -13,11 +13,13 @@ struct SelectionChoiceOption: View {
         HStack {
             image
                 .font(.title2)
+                .foregroundColor(Colors.textColorOnS)
                 .padding(8)
                 .background(Colors.primaryGreen)
                 .clipShape(Circle())
             
             Text(title)
+                .foregroundColor(Colors.textColorOnS)
             
             Spacer()
             
@@ -57,7 +59,6 @@ struct SelectionChoiceOption: View {
         
         if title == Strings.bankAccounts {
             choiceOptionViewModel.toggleBankAccounts()
-            print("toggle: bank: \(choiceOptionViewModel.bankAccounts)")
         } else if title == Strings.creditCards {
             choiceOptionViewModel.toggleCreditCards()
         } else if title == Strings.insurance {

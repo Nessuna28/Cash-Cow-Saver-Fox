@@ -67,11 +67,11 @@ class FinanceViewModel: ObservableObject {
                 }
             } else {
                 errorDescription = Strings.enterANumber
-                showAlert.toggle()
+                showAlert = true
             }
         } else {
             errorDescription = Strings.enterAPoint
-            showAlert.toggle()
+            showAlert = true
         }
     }
     
@@ -107,7 +107,7 @@ class FinanceViewModel: ObservableObject {
     }
     
     
-    func closeRevenueSheet() {
+    private func closeRevenueSheet() {
         
         showRevenueSheet = false
     }
@@ -119,7 +119,7 @@ class FinanceViewModel: ObservableObject {
     }
     
     
-    func closeExpenditureSheet() {
+    private func closeExpenditureSheet() {
         
         showExpenditureSheet = false
     }
@@ -127,8 +127,11 @@ class FinanceViewModel: ObservableObject {
     
     func createFinance(with id: String) {
         
-        if sumOfMoney > 0 {
+        if sumOfMoney > 0.0 {
             FirestoreRepository.createFinance(with: id, date: date, category: category, icon: icon, fromOrFor: fromOrFor, title: title, sumOfMoney: sumOfMoney)
+            
+            closeRevenueSheet()
+            closeExpenditureSheet()
         }
     }
     

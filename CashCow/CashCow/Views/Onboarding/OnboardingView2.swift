@@ -47,6 +47,7 @@ struct OnboardingView2: View {
                     
                     Spacer()
                 }
+                .foregroundColor(Colors.textColorOnS)
             }
         }
     }

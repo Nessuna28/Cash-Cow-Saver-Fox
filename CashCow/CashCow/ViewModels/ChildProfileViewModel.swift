@@ -124,7 +124,7 @@ class ChildProfileViewModel: ObservableObject {
         
         uploadPhoto(id: id)
         
-        FirebaseRepository.updateChild(with: id, familyMember: self.familyMember, lastName: self.lastName, firstName: self.firstName, birthday: self.birthday, loginName: self.loginName, loginImage: self.loginImage)
+        FirebaseRepository.updateChild(with: id, familyMember: self.familyMember, lastName: self.lastName, firstName: self.firstName, birthday: self.birthday)
     }
     
     
@@ -141,13 +141,15 @@ class ChildProfileViewModel: ObservableObject {
     
     
     func deleteInquiry() {
-        
-        guard let id = fireChild?.id else { return }
-                
-        FirebaseRepository.deleteInquiry(with: id)
-        
-        showAlert = false
-        showSheetInquiry = false
+        Task {
+            guard let id = fireChild?.id else { return }
+            
+            FirebaseRepository.deleteInquiry(with: id)
+            DispatchQueue.main.async {
+                self.showAlert = false
+                self.showSheetInquiry = false
+            }
+        }
     }
     
     

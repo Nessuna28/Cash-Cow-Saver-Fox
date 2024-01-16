@@ -63,6 +63,7 @@ struct LoginView: View {
                 PrimaryButton(action: logInChild, text: Strings.letsGo)
                 .disabled(disableAuthentication)
             }
+            .foregroundColor(Colors.textColor)
             .padding(.horizontal)
         }
     }

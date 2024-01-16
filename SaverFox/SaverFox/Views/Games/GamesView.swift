@@ -21,6 +21,7 @@ struct GamesView: View {
             VStack(alignment: .leading) {
                 Text(Strings.forFivePoints)
                     .font(.footnote)
+                    .foregroundStyle(Colors.textColor)
                     .bold()
                 
                 LazyVGrid(columns: gridItems) {
@@ -29,17 +30,14 @@ struct GamesView: View {
                     }
                 }
             }
-            .padding(10)
-            .background(Colors.secondaryOrange)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            
             
             Divider()
-                .padding(.bottom, 30)
+                .padding(.top, 50)
             
             VStack(alignment: .leading) {
                 Text(Strings.forTenPoints)
                     .font(.footnote)
+                    .foregroundStyle(Colors.textColor)
                     .bold()
                 
                 LazyVGrid(columns: gridItems) {
@@ -48,17 +46,14 @@ struct GamesView: View {
                     }
                 }
             }
-            .padding(10)
-            .background(Colors.secondaryOrange)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            
             
             Divider()
-                .padding(.bottom, 30)
+                .padding(.top, 50)
             
             VStack(alignment: .leading) {
                 Text(Strings.forFifteenPoints)
                     .font(.footnote)
+                    .foregroundStyle(Colors.textColor)
                     .bold()
                 
                 LazyVGrid(columns: gridItems) {
@@ -67,17 +62,14 @@ struct GamesView: View {
                     }
                 }
             }
-            .padding(10)
-            .background(Colors.secondaryOrange)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            
             
             Divider()
-                .padding(.bottom, 30)
+                .padding(.top, 50)
             
             VStack(alignment: .leading) {
                 Text(Strings.forTwentyPoints)
                     .font(.footnote)
+                    .foregroundStyle(Colors.textColor)
                     .bold()
                 
                 LazyVGrid(columns: gridItems) {
@@ -86,13 +78,9 @@ struct GamesView: View {
                     }
                 }
             }
-            .padding(10)
-            .background(Colors.secondaryOrange)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            
             
             Divider()
-                .padding(.bottom, 30)
+                .padding(.top, 50)
         }
         .navigationTitle(Strings.games)
     }

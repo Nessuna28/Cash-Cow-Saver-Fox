@@ -20,6 +20,8 @@ struct GameImageAndTitle: View {
                     .frame(maxWidth: 40)
                 
                 Text(gameName)
+                    .foregroundStyle(Colors.primaryOrange)
+                    .font(.footnote)
             }
         }
     }
@@ -33,5 +35,5 @@ struct GameImageAndTitle: View {
 }
 
 #Preview {
-    GameImageAndTitle(gameCover: "", gameName: "")
+    GameImageAndTitle(gameCover: "", gameName: "schnick")
 }
